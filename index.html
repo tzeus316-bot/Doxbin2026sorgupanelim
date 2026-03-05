@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOXBİN | HIZLI SORGU</title>
+    <title>DOXBİN | ULTRA GİRİŞ</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Cloudflare Turnstile -->
@@ -33,18 +33,206 @@
             --border: #1f2937;
             --border-light: #2d3748;
             --success: #10b981;
+            --verified: #1d9bf0;
+            --neon-blue: #3b82f6;
+            --neon-purple: #8b5cf6;
         }
 
         body {
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            opacity: 0;
-            animation: bodyFade 0.5s ease forwards;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        @keyframes bodyFade {
-            to { opacity: 1; }
+        /* ==================== NEON ARKA PLAN DAİRELERİ ==================== */
+        .neon-circle {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: neonPulse 4s infinite alternate;
+        }
+
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            top: -100px;
+            left: -100px;
+            opacity: 0.15;
+        }
+
+        .circle-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--neon-blue);
+            bottom: -200px;
+            right: -200px;
+            opacity: 0.1;
+            animation-delay: 1s;
+        }
+
+        .circle-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--neon-purple);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            animation-delay: 2s;
+        }
+
+        @keyframes neonPulse {
+            0% { opacity: 0.1; transform: scale(1); }
+            100% { opacity: 0.2; transform: scale(1.2); }
+        }
+
+        /* ==================== KULLANICI VERİLERİ (LOCALSTORAGE) ==================== */
+        .user-data {
+            display: none;
+        }
+
+        /* ==================== GİRİŞ/KAYIT EKRANI ==================== */
+        .auth-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, var(--bg) 0%, #000 100%);
+            backdrop-filter: blur(30px);
+            z-index: 999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.8s cubic-bezier(0.87, 0, 0.13, 1);
+        }
+
+        .auth-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 450px;
+            perspective: 1000px;
+        }
+
+        .auth-card {
+            background: rgba(15,18,25,0.8);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--accent);
+            border-radius: 60px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 0 100px var(--accent-glow);
+            animation: cardFloat 3s infinite ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-15px) rotateX(2deg); }
+        }
+
+        .auth-logo {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 20px;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 20px var(--accent-glow); }
+            to { text-shadow: 0 0 40px var(--accent-glow); }
+        }
+
+        .auth-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: var(--bg);
+            border-radius: 40px;
+            padding: 5px;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 12px;
+            border-radius: 35px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            color: var(--text-secondary);
+        }
+
+        .auth-tab.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+            animation: formSlide 0.5s ease;
+        }
+
+        @keyframes formSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            color: var(--text);
+            font-size: 15px;
+            margin-bottom: 15px;
+            transition: 0.2s;
+        }
+
+        .auth-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent);
+            border: none;
+            border-radius: 40px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 10px;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .auth-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        .auth-message {
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--text-secondary);
         }
 
         /* ==================== CLOUDFREE ==================== */
@@ -56,7 +244,7 @@
             height: 100%;
             background: radial-gradient(circle at center, var(--bg) 0%, #000 100%);
             backdrop-filter: blur(30px);
-            z-index: 999999;
+            z-index: 999998;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,29 +267,6 @@
             box-shadow: 0 0 80px var(--accent-glow);
         }
 
-        .cloudfree-logo {
-            font-size: 40px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .cloudfree-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(239,68,68,0.1);
-            border: 1px solid var(--accent);
-            border-radius: 30px;
-            font-size: 12px;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .cf-turnstile {
-            margin: 15px auto;
-            display: inline-block;
-        }
-
         /* ==================== NAVBAR ==================== */
         .navbar {
             position: fixed;
@@ -119,6 +284,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            opacity: 0;
+            animation: navbarAppear 1s 0.5s forwards;
+        }
+
+        @keyframes navbarAppear {
+            to { opacity: 1; }
         }
 
         .logo {
@@ -128,6 +299,32 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card);
+            padding: 5px 15px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+        }
+
+        .user-avatar {
+            width: 30px;
+            height: 30px;
+            background: var(--verified);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .user-name {
+            font-size: 13px;
+            font-weight: 500;
         }
 
         .nav-actions {
@@ -238,6 +435,9 @@
             color: var(--accent);
             font-size: 14px;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .menu-search {
@@ -295,6 +495,25 @@
             font-size: 11px;
         }
 
+        /* MAVİ TİK */
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            background: var(--verified);
+            border-radius: 50%;
+            font-size: 10px;
+            color: white;
+            margin-left: 5px;
+        }
+
+        .verified-badge i {
+            font-size: 8px;
+            color: white;
+        }
+
         /* ==================== MAIN ==================== */
         .main-content {
             margin-top: 90px;
@@ -315,6 +534,10 @@
             font-weight: 700;
             color: var(--accent);
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .hero p {
@@ -383,6 +606,9 @@
             font-size: 15px;
             font-weight: 600;
             margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .query-category {
@@ -411,6 +637,9 @@
         .form-header h3 {
             font-size: 18px;
             color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .back-btn {
@@ -424,10 +653,12 @@
             justify-content: center;
             cursor: pointer;
             color: var(--text);
+            transition: 0.2s;
         }
 
         .back-btn:hover {
             border-color: var(--accent);
+            transform: scale(1.1);
         }
 
         .form-group {
@@ -449,11 +680,13 @@
             border-radius: 25px;
             color: var(--text);
             font-size: 13px;
+            transition: 0.2s;
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
         }
 
         .btn {
@@ -504,10 +737,12 @@
             color: var(--text);
             font-size: 10px;
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .result-actions button:hover {
             border-color: var(--accent);
+            background: var(--bg-hover);
         }
 
         .result-item {
@@ -517,6 +752,12 @@
             margin-bottom: 5px;
             border: 1px solid var(--border);
             font-size: 12px;
+            transition: 0.2s;
+        }
+
+        .result-item:hover {
+            border-color: var(--accent);
+            transform: translateX(3px);
         }
 
         .result-item strong {
@@ -599,6 +840,12 @@
             gap: 8px;
             z-index: 99;
             box-shadow: 0 5px 15px var(--accent-glow);
+            transition: 0.2s;
+        }
+
+        .telegram-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 25px var(--accent-glow);
         }
 
         @media (max-width: 768px) {
@@ -609,6 +856,42 @@
     </style>
 </head>
 <body>
+    <!-- NEON ARKA PLAN DAİRELERİ -->
+    <div class="neon-circle circle-1"></div>
+    <div class="neon-circle circle-2"></div>
+    <div class="neon-circle circle-3"></div>
+
+    <!-- KAYIT/GİRİŞ EKRANI -->
+    <div class="auth-overlay" id="authOverlay">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-logo">DOXBİN</div>
+                
+                <div class="auth-tabs">
+                    <div class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">GİRİŞ</div>
+                    <div class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">KAYIT</div>
+                </div>
+
+                <!-- GİRİŞ FORMU -->
+                <div class="auth-form active" id="loginForm">
+                    <input type="text" class="auth-input" id="loginUsername" placeholder="Kullanıcı Adı">
+                    <input type="password" class="auth-input" id="loginPassword" placeholder="Şifre">
+                    <button class="auth-btn" onclick="handleLogin()">GİRİŞ YAP</button>
+                    <div class="auth-message" id="loginMessage"></div>
+                </div>
+
+                <!-- KAYIT FORMU -->
+                <div class="auth-form" id="registerForm">
+                    <input type="text" class="auth-input" id="regUsername" placeholder="Kullanıcı Adı">
+                    <input type="password" class="auth-input" id="regPassword" placeholder="Şifre">
+                    <input type="password" class="auth-input" id="regConfirm" placeholder="Şifre Tekrar">
+                    <button class="auth-btn" onclick="handleRegister()">KAYIT OL</button>
+                    <div class="auth-message" id="registerMessage"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- CloudFree -->
     <div class="cloudfree-overlay" id="cloudfreeOverlay">
         <div class="cloudfree-box">
@@ -624,13 +907,24 @@
         <div class="logo">
             <i class="fas fa-shield-halos"></i>
             DOXBİN
+            <span class="verified-badge"><i class="fas fa-check"></i></span>
         </div>
+        
+        <div id="userInfo" style="display: none;" class="user-info">
+            <div class="user-avatar"><i class="fas fa-user"></i></div>
+            <span class="user-name" id="displayUsername">Misafir</span>
+            <span class="verified-badge"><i class="fas fa-check"></i></span>
+        </div>
+
         <div class="nav-actions">
             <div class="nav-btn" id="musicBtn">
                 <i class="fas fa-music"></i>
             </div>
             <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')">
                 <i class="fab fa-telegram"></i>
+            </div>
+            <div class="nav-btn" id="logoutBtn" onclick="handleLogout()" style="display: none;">
+                <i class="fas fa-sign-out-alt"></i>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -644,7 +938,7 @@
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
-            <h3><i class="fas fa-bolt"></i> SORGULAR</h3>
+            <h3><i class="fas fa-bolt"></i> SORGULAR <span class="verified-badge"><i class="fas fa-check"></i></span></h3>
             <div class="menu-search">
                 <input type="text" id="menuSearch" placeholder="Ara...">
             </div>
@@ -664,6 +958,7 @@
     <!-- Telegram -->
     <a href="https://t.me/doxbinhack" target="_blank" class="telegram-link">
         <i class="fab fa-telegram"></i> @doxbinhack
+        <span class="verified-badge"><i class="fas fa-check"></i></span>
     </a>
 
     <!-- Müzik -->
@@ -672,16 +967,133 @@
     </audio>
 
     <script>
+        // ==================== KULLANICI VERİLERİ (LOCALSTORAGE) ====================
+        let currentUser = null;
+
+        // Sayfa yüklendiğinde kullanıcı kontrolü
+        function checkUser() {
+            const savedUser = localStorage.getItem('doxbin_user');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                document.getElementById('authOverlay').classList.add('hidden');
+                document.getElementById('userInfo').style.display = 'flex';
+                document.getElementById('displayUsername').textContent = currentUser.username;
+                document.getElementById('logoutBtn').style.display = 'flex';
+                showToast(`✅ Hoş geldin, ${currentUser.username}!`);
+                startMusic();
+            }
+        }
+
+        // ==================== GİRİŞ/KAYIT TAB ====================
+        function switchAuthTab(tab) {
+            if (tab === 'login') {
+                document.getElementById('loginTab').classList.add('active');
+                document.getElementById('registerTab').classList.remove('active');
+                document.getElementById('loginForm').classList.add('active');
+                document.getElementById('registerForm').classList.remove('active');
+            } else {
+                document.getElementById('registerTab').classList.add('active');
+                document.getElementById('loginTab').classList.remove('active');
+                document.getElementById('registerForm').classList.add('active');
+                document.getElementById('loginForm').classList.remove('active');
+            }
+        }
+
+        // ==================== KAYIT OL ====================
+        function handleRegister() {
+            const username = document.getElementById('regUsername').value.trim();
+            const password = document.getElementById('regPassword').value;
+            const confirm = document.getElementById('regConfirm').value;
+
+            if (!username || !password || !confirm) {
+                document.getElementById('registerMessage').textContent = '❌ Tüm alanları doldurun';
+                return;
+            }
+
+            if (password !== confirm) {
+                document.getElementById('registerMessage').textContent = '❌ Şifreler eşleşmiyor';
+                return;
+            }
+
+            // Kullanıcıları kontrol et
+            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+            
+            if (users.find(u => u.username === username)) {
+                document.getElementById('registerMessage').textContent = '❌ Bu kullanıcı adı zaten var';
+                return;
+            }
+
+            // Yeni kullanıcı ekle
+            users.push({ username, password });
+            localStorage.setItem('doxbin_users', JSON.stringify(users));
+            
+            document.getElementById('registerMessage').textContent = '✅ Kayıt başarılı! Giriş yapabilirsiniz.';
+            setTimeout(() => switchAuthTab('login'), 1500);
+        }
+
+        // ==================== GİRİŞ YAP ====================
+        function handleLogin() {
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+
+            if (!username || !password) {
+                document.getElementById('loginMessage').textContent = '❌ Kullanıcı adı ve şifre girin';
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                currentUser = { username };
+                localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
+                
+                document.getElementById('authOverlay').classList.add('hidden');
+                document.getElementById('userInfo').style.display = 'flex';
+                document.getElementById('displayUsername').textContent = username;
+                document.getElementById('logoutBtn').style.display = 'flex';
+                
+                showToast(`✅ Hoş geldin, ${username}!`);
+                startMusic();
+            } else {
+                document.getElementById('loginMessage').textContent = '❌ Hatalı kullanıcı adı veya şifre';
+            }
+        }
+
+        // ==================== ÇIKIŞ YAP ====================
+        function handleLogout() {
+            currentUser = null;
+            localStorage.removeItem('doxbin_user');
+            
+            document.getElementById('authOverlay').classList.remove('hidden');
+            document.getElementById('userInfo').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'none';
+            
+            document.getElementById('loginUsername').value = '';
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginMessage').textContent = '';
+            
+            showToast('👋 Çıkış yapıldı');
+        }
+
         // ==================== CloudFree ====================
         window.onCloudfreeSuccess = function() {
             document.getElementById('cloudfreeOverlay').classList.add('hidden');
-            showToast('✅ DOXBİN\'e hoş geldin');
-            document.getElementById('bgMusic').play().catch(() => {});
+            checkUser();
         };
 
         setTimeout(() => {
             document.getElementById('cloudfreeOverlay').classList.add('hidden');
+            checkUser();
         }, 5000);
+
+        // ==================== MÜZİK ====================
+        function startMusic() {
+            const music = document.getElementById('bgMusic');
+            music.play().catch(() => {});
+            document.getElementById('musicBtn').classList.add('active');
+            musicPlaying = true;
+        }
 
         // ==================== PROXY (HIZLI) ====================
         const PROXY_LIST = [
@@ -785,6 +1197,7 @@
                 SORGULAR.filter(s => s.kategori === kat).forEach(s => {
                     html += `<div class="menu-item" onclick="formGoster('${s.id}')">`;
                     html += `<i class="fas fa-search"></i> ${s.ad}`;
+                    html += `<span class="verified-badge"><i class="fas fa-check"></i></span>`;
                     html += `</div>`;
                 });
                 html += `</div>`;
@@ -797,7 +1210,7 @@
         function anaSayfa() {
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
-                    <h1>DOXBİN</h1>
+                    <h1>DOXBİN <span class="verified-badge"><i class="fas fa-check"></i></span></h1>
                     <p>9 sorgu • hızlı proxy • anlık sonuç</p>
                     <div class="hero-stats">
                         <div><span class="stat-number">9</span><br><span class="stat-label">SORGU</span></div>
@@ -809,7 +1222,7 @@
                     ${SORGULAR.map(s => `
                         <div class="query-card" onclick="formGoster('${s.id}')">
                             <div class="query-icon"><i class="fas fa-search"></i></div>
-                            <div class="query-title">${s.ad}</div>
+                            <div class="query-title">${s.ad} <span class="verified-badge"><i class="fas fa-check"></i></span></div>
                             <div class="query-category">${s.kategori}</div>
                         </div>
                     `).join('')}
@@ -848,7 +1261,7 @@
             document.getElementById('mainContent').innerHTML = `
                 <div class="query-form">
                     <div class="form-header">
-                        <h3>${sorgu.ad}</h3>
+                        <h3>${sorgu.ad} <span class="verified-badge"><i class="fas fa-check"></i></span></h3>
                         <div class="back-btn" onclick="anaSayfa()">
                             <i class="fas fa-home"></i>
                         </div>
@@ -886,7 +1299,7 @@
                 const sonuc = await hizliIstek(sorgu.api, params);
                 
                 let sonucText = '';
-                let html = '<div class="result-box"><div class="result-header"><span>📊 SONUÇ</span>';
+                let html = '<div class="result-box"><div class="result-header"><span>📊 SONUÇ <span class="verified-badge"><i class="fas fa-check"></i></span></span>';
                 html += '<div class="result-actions">';
                 html += '<button onclick="copyResult()"><i class="fas fa-copy"></i></button>';
                 html += '<button onclick="downloadTxt()"><i class="fas fa-download"></i></button>';
@@ -995,6 +1408,7 @@
         window.addEventListener('load', () => {
             menuOlustur();
             anaSayfa();
+            checkUser();
         });
     </script>
 </body>
