@@ -2,8 +2,8 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>DOXBİN | ULTRA PANEL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>DOXBİN | MOBİL PANEL</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,11 +55,12 @@
             min-height: 100vh;
             opacity: 0;
             animation: bodyFade 0.5s ease forwards;
+            -webkit-tap-highlight-color: transparent;
         }
 
         @keyframes bodyFade {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* NEON DAİRELER */
@@ -71,28 +72,28 @@
         }
 
         .circle-1 {
-            width: 350px;
-            height: 350px;
+            width: 300px;
+            height: 300px;
             background: var(--accent);
-            top: -80px;
-            left: -80px;
+            top: -50px;
+            left: -50px;
             opacity: 0.12;
             animation: float1 8s infinite;
         }
 
         .circle-2 {
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 350px;
             background: #3b82f6;
-            bottom: -150px;
-            right: -150px;
+            bottom: -100px;
+            right: -100px;
             opacity: 0.08;
             animation: float2 10s infinite;
         }
 
         .circle-3 {
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             background: #8b5cf6;
             top: 50%;
             left: 50%;
@@ -103,12 +104,12 @@
 
         @keyframes float1 {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, 20px); }
+            50% { transform: translate(20px, 15px); }
         }
 
         @keyframes float2 {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-40px, -30px); }
+            50% { transform: translate(-30px, -20px); }
         }
 
         @keyframes float3 {
@@ -139,51 +140,45 @@
 
         .auth-container {
             width: 100%;
-            max-width: 420px;
-            padding: 20px;
+            max-width: 400px;
+            padding: 15px;
         }
 
         .auth-card {
-            background: rgba(15,18,25,0.9);
+            background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
             border: 2px solid var(--accent);
-            border-radius: 50px;
-            padding: 35px;
+            border-radius: 40px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 0 70px var(--accent-glow);
-            animation: cardFloat 3s infinite;
-        }
-
-        @keyframes cardFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            box-shadow: 0 0 50px var(--accent-glow);
         }
 
         .auth-logo {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 800;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .auth-tabs {
             display: flex;
-            gap: 8px;
-            margin-bottom: 25px;
+            gap: 5px;
+            margin-bottom: 20px;
             background: var(--bg);
-            border-radius: 40px;
-            padding: 4px;
+            border-radius: 30px;
+            padding: 3px;
         }
 
         .auth-tab {
             flex: 1;
-            padding: 10px;
+            padding: 8px;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
             transition: 0.2s;
             color: var(--text-secondary);
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .auth-tab.active {
@@ -197,24 +192,22 @@
 
         .auth-form.active {
             display: block;
-            animation: slideIn 0.3s;
         }
 
         .auth-input {
             width: 100%;
-            padding: 12px 18px;
+            padding: 12px 15px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 40px;
+            border-radius: 30px;
             color: var(--text);
             font-size: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .auth-input:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-glow);
         }
 
         .auth-btn {
@@ -222,17 +215,16 @@
             padding: 12px;
             background: var(--accent);
             border: none;
-            border-radius: 40px;
+            border-radius: 30px;
             color: white;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.2s;
         }
 
-        .auth-btn:hover {
-            transform: scale(1.02) translateY(-2px);
-            box-shadow: 0 5px 20px var(--accent-glow);
+        .auth-btn:active {
+            transform: scale(0.98);
         }
 
         /* HOŞGELDİN MESAJI */
@@ -243,46 +235,55 @@
             transform: translate(-50%, -50%);
             background: var(--bg-card);
             border: 2px solid var(--accent);
-            border-radius: 40px;
-            padding: 30px;
+            border-radius: 30px;
+            padding: 25px;
             z-index: 100000;
             text-align: center;
-            max-width: 350px;
+            max-width: 320px;
             width: 90%;
-            box-shadow: 0 0 100px var(--accent-glow);
-            animation: welcomePop 0.5s;
-        }
-
-        @keyframes welcomePop {
-            from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            box-shadow: 0 0 50px var(--accent-glow);
         }
 
         .welcome-message h2 {
             color: var(--accent);
-            margin-bottom: 15px;
-            font-size: 24px;
+            margin-bottom: 10px;
+            font-size: 22px;
         }
 
         .welcome-message p {
             color: var(--text-secondary);
-            margin-bottom: 20px;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* ANA MENÜ BÜYÜK TÜRK BAYRAĞI */
+        .turkey-flag {
+            font-size: 100px;
+            text-align: center;
+            margin: 20px 0;
+            animation: flagWave 3s infinite;
+        }
+
+        @keyframes flagWave {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(5deg) scale(1.05); }
+            75% { transform: rotate(-5deg) scale(1.05); }
         }
 
         /* NAVBAR */
         .navbar {
             position: fixed;
-            top: 15px;
+            top: 10px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 30px);
-            max-width: 1100px;
-            padding: 8px 18px;
-            background: rgba(15,18,25,0.85);
+            width: calc(100% - 20px);
+            max-width: 500px;
+            padding: 8px 15px;
+            background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
-            border-radius: 50px;
+            border-radius: 40px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
@@ -297,40 +298,34 @@
         }
 
         .logo {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--accent);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .user-info {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             background: var(--bg-card);
-            padding: 3px 10px;
+            padding: 3px 8px;
             border-radius: 30px;
             border: 1px solid var(--border);
             cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .user-info:hover {
-            border-color: var(--accent);
-            transform: scale(1.02);
         }
 
         .user-avatar {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 9px;
             overflow: hidden;
         }
 
@@ -341,7 +336,7 @@
         }
 
         .user-name {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
         }
 
@@ -349,31 +344,30 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            font-size: 7px;
+            font-size: 6px;
             color: white;
             margin-left: 2px;
         }
 
         .user-badge {
-            font-size: 8px;
-            padding: 2px 6px;
+            font-size: 7px;
+            padding: 2px 5px;
             background: var(--accent);
             border-radius: 20px;
-            margin-left: 4px;
+            margin-left: 3px;
         }
 
         .nav-actions {
             display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
+            gap: 3px;
         }
 
         .nav-btn {
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -383,12 +377,12 @@
             cursor: pointer;
             transition: 0.2s;
             color: var(--text);
-            font-size: 12px;
+            font-size: 11px;
         }
 
-        .nav-btn:hover {
+        .nav-btn:active {
+            transform: scale(0.95);
             border-color: var(--accent);
-            transform: scale(1.05) rotate(5deg);
         }
 
         .nav-btn.active {
@@ -397,8 +391,8 @@
         }
 
         .hamburger {
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -443,11 +437,11 @@
 
         .menu-panel {
             position: fixed;
-            top: 70px;
-            right: 15px;
+            top: 60px;
+            right: 10px;
             width: 280px;
-            max-height: calc(100vh - 100px);
-            background: rgba(15,18,25,0.95);
+            max-height: calc(100vh - 80px);
+            background: rgba(15,18,25,0.98);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
             border-radius: 25px;
@@ -468,11 +462,15 @@
         .menu-header {
             padding: 15px;
             border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--bg-card);
+            z-index: 10;
         }
 
         .menu-header h3 {
             color: var(--accent);
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -485,16 +483,16 @@
 
         .menu-search input {
             width: 100%;
-            padding: 5px 8px;
+            padding: 8px 10px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            font-size: 10px;
+            font-size: 12px;
         }
 
         .menu-content {
-            padding: 10px;
+            padding: 12px;
         }
 
         .menu-category {
@@ -502,15 +500,15 @@
         }
 
         .menu-category-title {
-            font-size: 10px;
-            color: var(--text-secondary);
-            padding-left: 6px;
+            font-size: 12px;
+            color: var(--accent);
+            padding-left: 8px;
             margin-bottom: 5px;
             font-weight: 600;
         }
 
         .menu-item {
-            padding: 8px 12px;
+            padding: 10px 12px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
@@ -520,10 +518,10 @@
             align-items: center;
             gap: 8px;
             margin-bottom: 5px;
-            font-size: 11px;
+            font-size: 12px;
         }
 
-        .menu-item:hover {
+        .menu-item:active {
             background: var(--bg-hover);
             border-color: var(--accent);
             transform: translateX(-2px);
@@ -531,12 +529,12 @@
 
         .menu-item i {
             color: var(--accent);
-            width: 14px;
-            font-size: 11px;
+            width: 16px;
+            font-size: 12px;
         }
 
-        /* PROFİL DÜZENLEME MODAL */
-        .profile-modal {
+        /* MODALLAR */
+        .modal {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -544,68 +542,125 @@
             background: var(--bg-card);
             border: 2px solid var(--accent);
             border-radius: 25px;
-            padding: 25px;
-            z-index: 10000;
+            padding: 20px;
+            z-index: 10001;
             width: 90%;
-            max-width: 320px;
+            max-width: 350px;
             display: none;
         }
 
-        .profile-modal.active {
+        .modal.active {
             display: block;
-            animation: modalPop 0.3s;
         }
 
-        @keyframes modalPop {
-            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-        }
-
-        .profile-modal h3 {
+        .modal h3 {
             color: var(--accent);
             margin-bottom: 15px;
-            text-align: center;
             font-size: 16px;
         }
 
-        .profile-avatar-upload {
-            width: 70px;
-            height: 70px;
-            background: var(--bg);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 25px;
-            cursor: pointer;
-            transition: 0.2s;
-            border: 2px dashed var(--accent);
-            overflow: hidden;
-        }
-
-        .profile-avatar-upload:hover {
-            transform: scale(1.05);
-        }
-
-        .profile-avatar-upload img {
+        .modal-input {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile-input {
-            width: 100%;
-            padding: 8px;
+            padding: 10px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .modal-select {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text);
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 10px;
+            background: var(--accent);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        /* FİLM MODAL */
+        .movie-player {
+            width: 100%;
+            height: 200px;
+            margin: 10px 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .movie-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .movie-chat {
+            height: 150px;
+            overflow-y: auto;
+            background: var(--bg);
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 11px;
+        }
+
+        .movie-chat div {
+            padding: 5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* DAVET MODAL */
+        .invite-users {
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 10px 0;
+        }
+
+        .invite-user-item {
+            padding: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 12px;
         }
 
-        .tik-selector-modal {
+        .invite-user-item input {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* PUAN MODAL */
+        .points-display {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .points-number {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        /* TİK SEÇİCİ */
+        .tik-selector {
             display: flex;
             gap: 8px;
             justify-content: center;
@@ -614,16 +669,16 @@
         }
 
         .tik-option {
-            width: 24px;
-            height: 24px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             cursor: pointer;
             transition: 0.2s;
             border: 2px solid transparent;
         }
 
-        .tik-option:hover {
-            transform: scale(1.2);
+        .tik-option:active {
+            transform: scale(1.1);
         }
 
         .tik-option.selected {
@@ -643,174 +698,99 @@
         .tik-black { background: var(--tik-black); }
         .tik-white { background: var(--tik-white); }
 
-        .modal-btn {
-            width: 100%;
-            padding: 8px;
-            background: var(--accent);
-            border: none;
+        /* SOYBET MODAL */
+        .chat-modal {
+            position: fixed;
+            bottom: 70px;
+            right: 10px;
+            width: 280px;
+            height: 350px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
             border-radius: 20px;
-            color: white;
-            cursor: pointer;
-            margin-top: 8px;
-            font-size: 12px;
-        }
-
-        /* FİLM İZLEME MODAL */
-        .movie-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-card);
-            border: 2px solid var(--accent);
-            border-radius: 25px;
-            padding: 25px;
-            z-index: 10001;
-            width: 90%;
-            max-width: 500px;
+            z-index: 1000;
             display: none;
+            flex-direction: column;
         }
 
-        .movie-modal.active {
-            display: block;
-            animation: modalPop 0.3s;
+        .chat-modal.active {
+            display: flex;
         }
 
-        .movie-player {
-            width: 100%;
-            height: 280px;
-            margin: 15px 0;
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .movie-player iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .movie-chat {
-            height: 200px;
-            overflow-y: auto;
-            background: var(--bg);
-            border-radius: 15px;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        .movie-message {
-            padding: 5px;
-            margin-bottom: 5px;
+        .chat-header {
+            padding: 12px;
             border-bottom: 1px solid var(--border);
-            font-size: 11px;
-        }
-
-        /* DAVET MODAL */
-        .invite-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-card);
-            border: 2px solid var(--accent);
-            border-radius: 25px;
-            padding: 25px;
-            z-index: 10001;
-            width: 90%;
-            max-width: 350px;
-            display: none;
-        }
-
-        .invite-modal.active {
-            display: block;
-            animation: modalPop 0.3s;
-        }
-
-        .invite-users {
-            max-height: 200px;
-            overflow-y: auto;
-            margin: 15px 0;
-        }
-
-        .invite-user-item {
-            padding: 8px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* PUAN MODAL */
-        .points-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-card);
-            border: 2px solid var(--accent);
-            border-radius: 25px;
-            padding: 25px;
-            z-index: 10001;
-            width: 90%;
-            max-width: 300px;
-            display: none;
-        }
-
-        .points-modal.active {
-            display: block;
-            animation: modalPop 0.3s;
-        }
-
-        .points-display {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .points-number {
-            font-size: 48px;
-            font-weight: 800;
+        .chat-header h4 {
             color: var(--accent);
+            font-size: 13px;
         }
 
-        /* ÖZEL MESAJ MODAL */
-        .pm-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-card);
-            border: 2px solid var(--accent);
-            border-radius: 25px;
-            padding: 25px;
-            z-index: 10001;
-            width: 90%;
-            max-width: 350px;
-            display: none;
+        .chat-close {
+            cursor: pointer;
+            font-size: 16px;
         }
 
-        .pm-modal.active {
-            display: block;
-            animation: modalPop 0.3s;
+        .chat-messages {
+            flex: 1;
+            padding: 12px;
+            overflow-y: auto;
+            font-size: 11px;
         }
 
-        .pm-select {
-            width: 100%;
+        .chat-message {
+            margin-bottom: 8px;
+            padding: 6px;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+
+        .chat-message .username {
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .chat-message .time {
+            font-size: 7px;
+            color: var(--text-secondary);
+        }
+
+        .chat-input-area {
             padding: 10px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 5px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            margin-bottom: 10px;
+            font-size: 11px;
+        }
+
+        .chat-send {
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
         }
 
         /* Duyuru Barı */
         .announcement-bar {
             position: fixed;
-            top: 80px;
+            top: 70px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--accent);
@@ -821,16 +801,31 @@
             z-index: 999;
             display: none;
             box-shadow: 0 5px 20px var(--accent-glow);
-            animation: announceSlide 0.3s;
+            width: 90%;
+            max-width: 350px;
+            text-align: center;
         }
 
         .announcement-bar.active {
             display: block;
         }
 
-        @keyframes announceSlide {
-            from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
-            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        /* GECİKME MESAJI */
+        .delay-message {
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f59e0b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 11px;
+            z-index: 999;
+            display: none;
+            width: 90%;
+            max-width: 350px;
+            text-align: center;
         }
 
         /* Admin Paneli */
@@ -840,11 +835,11 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 90%;
-            max-width: 450px;
+            max-width: 380px;
             background: var(--bg-card);
             border: 2px solid var(--accent);
             border-radius: 25px;
-            padding: 25px;
+            padding: 20px;
             z-index: 10001;
             display: none;
             max-height: 80vh;
@@ -853,7 +848,6 @@
 
         .admin-panel.active {
             display: block;
-            animation: modalPop 0.3s;
         }
 
         .admin-tabs {
@@ -871,7 +865,7 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 11px;
             text-align: center;
         }
 
@@ -881,16 +875,16 @@
         }
 
         .admin-content {
-            max-height: 400px;
+            max-height: 350px;
             overflow-y: auto;
         }
 
         .user-list-item {
-            padding: 10px;
+            padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 15px;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -900,7 +894,7 @@
         }
 
         .user-list-item button {
-            padding: 3px 8px;
+            padding: 3px 6px;
             background: var(--accent);
             border: none;
             border-radius: 15px;
@@ -909,22 +903,11 @@
             cursor: pointer;
         }
 
-        .admin-input {
-            width: 100%;
-            padding: 8px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            color: var(--text);
-            margin-bottom: 8px;
-            font-size: 11px;
-        }
-
         /* MAIN CONTENT */
         .main-content {
             margin-top: 70px;
-            padding: 12px;
-            max-width: 1100px;
+            padding: 15px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -932,14 +915,14 @@
         /* HERO */
         .hero {
             text-align: center;
-            padding: 20px 8px;
+            padding: 15px 5px;
         }
 
         .hero h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
             color: var(--accent);
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         .hero p {
@@ -956,7 +939,7 @@
         }
 
         .stat-number {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--accent);
         }
@@ -973,7 +956,7 @@
 
         /* SORGU FORMU */
         .query-form {
-            background: rgba(15,18,25,0.85);
+            background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
             border-radius: 20px;
@@ -995,8 +978,8 @@
         }
 
         .back-btn {
-            width: 25px;
-            height: 25px;
+            width: 28px;
+            height: 28px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -1005,13 +988,7 @@
             justify-content: center;
             cursor: pointer;
             color: var(--text);
-            transition: 0.15s;
             font-size: 10px;
-        }
-
-        .back-btn:hover {
-            border-color: var(--accent);
-            transform: rotate(360deg);
         }
 
         .form-group {
@@ -1020,42 +997,40 @@
 
         .form-group label {
             display: block;
-            font-size: 9px;
+            font-size: 10px;
             color: var(--text-secondary);
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
 
         .form-control {
             width: 100%;
-            padding: 8px 12px;
+            padding: 10px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .btn {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             background: var(--accent);
             border: none;
             border-radius: 20px;
             color: white;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.15s;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--accent-glow);
+        .btn:active {
+            transform: scale(0.98);
         }
 
         /* SONUÇ */
         .result-box {
-            background: rgba(15,18,25,0.85);
+            background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
             border-radius: 15px;
@@ -1067,28 +1042,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
-            flex-wrap: wrap;
-            gap: 5px;
+            margin-bottom: 8px;
+            font-size: 12px;
         }
 
         .result-actions {
             display: flex;
-            gap: 3px;
+            gap: 5px;
         }
 
         .result-actions button {
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 3px 6px;
+            padding: 4px 8px;
             color: var(--text);
-            font-size: 8px;
+            font-size: 9px;
             cursor: pointer;
-        }
-
-        .result-actions button:hover {
-            border-color: var(--accent);
         }
 
         .result-item {
@@ -1097,28 +1067,28 @@
             border-radius: 10px;
             margin-bottom: 3px;
             border: 1px solid var(--border);
-            font-size: 10px;
+            font-size: 11px;
         }
 
         .result-item strong {
             color: var(--accent);
-            min-width: 80px;
+            min-width: 70px;
             display: inline-block;
         }
 
         .loading {
             text-align: center;
-            padding: 12px;
+            padding: 15px;
         }
 
         .loading-circle {
-            width: 22px;
-            height: 22px;
+            width: 25px;
+            height: 25px;
             border: 2px solid var(--border);
             border-top-color: var(--accent);
             border-radius: 50%;
             animation: spin 0.6s linear infinite;
-            margin: 0 auto 6px;
+            margin: 0 auto 8px;
         }
 
         @keyframes spin {
@@ -1132,7 +1102,7 @@
             padding: 8px;
             margin-top: 6px;
             color: var(--accent);
-            font-size: 10px;
+            font-size: 11px;
             text-align: center;
         }
 
@@ -1142,12 +1112,12 @@
             bottom: 15px;
             left: 50%;
             transform: translateX(-50%) translateY(80px);
-            background: rgba(15,18,25,0.95);
+            background: rgba(15,18,25,0.98);
             backdrop-filter: blur(15px);
             border: 1px solid var(--accent);
             border-radius: 30px;
-            padding: 6px 15px;
-            font-size: 10px;
+            padding: 8px 20px;
+            font-size: 11px;
             z-index: 99999;
             transition: 0.3s;
             display: flex;
@@ -1182,15 +1152,6 @@
             box-shadow: 0 3px 8px var(--accent-glow);
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 28px; }
-            .menu-panel { width: 250px; }
-            .telegram-link { bottom: 8px; right: 8px; padding: 5px 10px; font-size: 9px; }
-            .chat-modal { width: 280px; right: 10px; }
-            .nav-actions { gap: 3px; }
-            .nav-btn { width: 28px; height: 28px; font-size: 11px; }
-        }
-
         /* GİZLİ YOUTUBE */
         .youtube-player {
             position: absolute;
@@ -1198,24 +1159,6 @@
             height: 0;
             opacity: 0;
             pointer-events: none;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .slide-in {
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
@@ -1230,6 +1173,9 @@
 
     <!-- Duyuru Barı -->
     <div class="announcement-bar" id="announcementBar"></div>
+
+    <!-- Gecikme Mesajı -->
+    <div class="delay-message" id="delayMessage">⚠️ Sorgu biraz yavaş, lütfen bekleyin...</div>
 
     <!-- KAYIT/GİRİŞ EKRANI -->
     <div class="auth-overlay" id="authOverlay">
@@ -1266,62 +1212,62 @@
     <div class="welcome-message" id="welcomeMessage" style="display: none;">
         <h2>🇹🇷 DOXBİN</h2>
         <p>TÜRKİYE'NİN EN GÜÇLÜ SORGU PANELİ</p>
-        <p style="font-size: 12px;">BİZİ YIKMAYA ÇALIŞIYORLAR AMA HALA AYAKTAYIZ! 💪</p>
+        <p>BİZİ YIKMAYA ÇALIŞIYORLAR AMA HALA AYAKTAYIZ! 💪</p>
         <button class="auth-btn" onclick="closeWelcomeMessage()">DEVAM ET</button>
     </div>
 
-    <!-- FİLM İZLEME MODAL -->
-    <div class="movie-modal" id="movieModal">
-        <h3 style="color: var(--accent); margin-bottom: 10px;">FİLM İZLE</h3>
-        <input type="text" class="profile-input" id="movieLink" placeholder="YouTube linki girin">
+    <!-- FİLM MODAL -->
+    <div class="modal" id="movieModal">
+        <h3>🎬 FİLM İZLE</h3>
+        <input type="text" class="modal-input" id="movieLink" placeholder="YouTube linki girin">
         <button class="modal-btn" onclick="loadMovie()">İZLE</button>
         <div class="movie-player" id="moviePlayer"></div>
         <div class="movie-chat" id="movieChat"></div>
         <div style="display: flex; gap: 5px;">
-            <input type="text" class="profile-input" id="movieMessage" placeholder="Mesajınız..." style="flex: 1;">
-            <button class="modal-btn" onclick="sendMovieMessage()" style="width: auto; padding: 8px 15px;">GÖNDER</button>
+            <input type="text" class="modal-input" id="movieMessage" placeholder="Film sohbeti..." style="flex: 1; margin-bottom: 0;">
+            <button class="modal-btn" onclick="sendMovieMessage()" style="width: auto; padding: 10px 15px;">GÖNDER</button>
         </div>
         <button class="modal-btn" style="background: var(--bg);" onclick="closeMovieModal()">KAPAT</button>
     </div>
 
     <!-- DAVET MODAL -->
-    <div class="invite-modal" id="inviteModal">
-        <h3 style="color: var(--accent); margin-bottom: 10px;">DAVET ET</h3>
-        <p style="font-size: 11px; margin-bottom: 10px;">Film izlemeye davet edilecek kullanıcılar:</p>
+    <div class="modal" id="inviteModal">
+        <h3>👥 DAVET ET</h3>
+        <p style="font-size: 12px; margin-bottom: 10px;">Film izlemeye davet edilecek kullanıcılar:</p>
         <div class="invite-users" id="inviteUsersList"></div>
         <button class="modal-btn" onclick="sendInvites()">DAVET GÖNDER</button>
         <button class="modal-btn" style="background: var(--bg);" onclick="closeInviteModal()">KAPAT</button>
     </div>
 
     <!-- PUAN MODAL -->
-    <div class="points-modal" id="pointsModal">
-        <h3 style="color: var(--accent); margin-bottom: 10px;">PUAN DURUMU</h3>
+    <div class="modal" id="pointsModal">
+        <h3>⭐ PUAN DURUMU</h3>
         <div class="points-display">
             <div class="points-number" id="userPoints">0</div>
-            <p style="font-size: 11px;">PUANINIZ</p>
+            <p style="font-size: 12px;">PUANINIZ</p>
         </div>
         <button class="modal-btn" onclick="closePointsModal()">KAPAT</button>
     </div>
 
     <!-- ÖZEL MESAJ MODAL -->
-    <div class="pm-modal" id="pmModal">
-        <h3 style="color: var(--accent); margin-bottom: 15px;">ÖZEL MESAJ</h3>
-        <select class="pm-select" id="pmUserSelect"></select>
-        <input type="text" class="profile-input" id="pmMessage" placeholder="Mesajınız...">
+    <div class="modal" id="pmModal">
+        <h3>📨 ÖZEL MESAJ</h3>
+        <select class="modal-select" id="pmUserSelect"></select>
+        <input type="text" class="modal-input" id="pmMessage" placeholder="Mesajınız...">
         <button class="modal-btn" onclick="sendPM()">GÖNDER</button>
         <button class="modal-btn" style="background: var(--bg);" onclick="closePMModal()">KAPAT</button>
     </div>
 
     <!-- PROFİL DÜZENLEME MODAL -->
-    <div class="profile-modal" id="profileModal">
-        <h3>PROFİL DÜZENLE</h3>
-        <div class="profile-avatar-upload" id="avatarUpload" onclick="triggerFileUpload()">
-            <img id="avatarPreviewImg" src="" style="display: none;">
+    <div class="modal" id="profileModal">
+        <h3>👤 PROFİL DÜZENLE</h3>
+        <div class="profile-avatar-upload" style="width: 60px; height: 60px; margin: 0 auto 15px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="triggerFileUpload()">
+            <img id="avatarPreviewImg" src="" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
             <i class="fas fa-user" id="avatarIcon"></i>
         </div>
         <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
-        <input type="text" class="profile-input" id="editUsername" placeholder="Yeni kullanıcı adı">
-        <div class="tik-selector-modal">
+        <input type="text" class="modal-input" id="editUsername" placeholder="Yeni kullanıcı adı">
+        <div class="tik-selector">
             <div class="tik-option tik-red" onclick="selectTik('red')"></div>
             <div class="tik-option tik-blue" onclick="selectTik('blue')"></div>
             <div class="tik-option tik-green" onclick="selectTik('green')"></div>
@@ -1335,25 +1281,23 @@
             <div class="tik-option tik-black" onclick="selectTik('black')"></div>
             <div class="tik-option tik-white" onclick="selectTik('white')"></div>
         </div>
-        <div style="margin: 10px 0;">
-            <input type="text" class="profile-input" id="musicLink" placeholder="YouTube video linki (müzik değiştir)">
-            <button class="modal-btn" onclick="changeMusic()">MÜZİK DEĞİŞTİR</button>
-        </div>
+        <input type="text" class="modal-input" id="musicLink" placeholder="YouTube müzik linki">
+        <button class="modal-btn" onclick="changeMusic()">MÜZİK DEĞİŞTİR</button>
         <button class="modal-btn" onclick="saveProfile()">KAYDET</button>
         <button class="modal-btn" style="background: var(--bg);" onclick="closeProfileModal()">KAPAT</button>
     </div>
 
     <!-- GEÇMİŞ MODAL -->
-    <div class="history-modal" id="historyModal">
-        <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 16px;">İŞLEM GEÇMİŞİ</h3>
-        <div id="historyList"></div>
-        <button class="modal-btn" onclick="closeHistoryModal()">KAPAT</button>
+    <div class="modal" id="historyModal">
+        <h3>📋 İŞLEM GEÇMİŞİ</h3>
+        <div id="historyList" style="max-height: 300px; overflow-y: auto;"></div>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closeHistoryModal()">KAPAT</button>
     </div>
 
     <!-- SOY BET MODAL -->
     <div class="chat-modal" id="chatModal">
         <div class="chat-header">
-            <h4><i class="fas fa-comments"></i> SOY BET</h4>
+            <h4>💬 SOY BET</h4>
             <span class="chat-close" onclick="toggleChat()">×</span>
         </div>
         <div class="chat-messages" id="chatMessages"></div>
@@ -1365,7 +1309,7 @@
 
     <!-- Admin Paneli -->
     <div class="admin-panel" id="adminPanel">
-        <h3 style="color: var(--accent); margin-bottom: 15px;">ADMIN PANELİ</h3>
+        <h3 style="color: var(--accent); margin-bottom: 15px;">👑 ADMIN PANELİ</h3>
         <div class="admin-tabs">
             <div class="admin-tab active" onclick="switchAdminTab('users')">Kullanıcılar</div>
             <div class="admin-tab" onclick="switchAdminTab('announce')">Duyuru</div>
@@ -1373,7 +1317,7 @@
             <div class="admin-tab" onclick="switchAdminTab('stats')">İstatistik</div>
         </div>
         <div class="admin-content" id="adminContent"></div>
-        <button class="modal-btn" onclick="closeAdminPanel()">KAPAT</button>
+        <button class="modal-btn" style="background: var(--bg); margin-top: 10px;" onclick="closeAdminPanel()">KAPAT</button>
     </div>
 
     <!-- Navbar -->
@@ -1433,7 +1377,7 @@
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
-            <h3><i class="fas fa-bolt"></i> TÜM SORGULAR</h3>
+            <h3><i class="fas fa-bolt"></i> KATEGORİLER</h3>
             <div class="menu-search">
                 <input type="text" id="menuSearch" placeholder="Ara...">
             </div>
@@ -1542,59 +1486,55 @@
             'https://cors-proxy.fringe.zone/',
             'https://cors.bridged.cc/',
             'https://cors.apiplatform.net/',
-            'https://cors-proxy.fringe.zone/',
             'https://cors-anywhere.azm.workers.dev/',
-            'https://cors.bridged.cc/',
-            'https://cors-proxy.herokuapp.com/',
-            'https://cors-anywhere.herokuapp.com/',
             'https://cors-anywhere.cyclic.app/',
             'https://cors-anywhere.render.com/',
             'https://cors-anywhere.fly.dev/',
             'https://cors-anywhere.glitch.me/',
             'https://cors-anywhere.replit.app/',
             'https://corsproxy.org/',
-            'https://corsproxy.github.io/',
+            'https://cors-proxy.herokuapp.com/',
+            'https://cors.bridged.cc/',
+            'https://cors-proxy.fringe.zone/',
+            'https://api.codetabs.com/v1/proxy?quest=',
             'https://cors-anywhere.herokuapp.com/',
             'https://cors-anywhere.cyclic.app/',
             'https://cors-anywhere.render.com/',
             'https://cors-anywhere.fly.dev/',
             'https://cors-anywhere.glitch.me/',
             'https://cors-anywhere.replit.app/',
-            'https://corsproxy.io/',
-            'https://api.codetabs.com/v1/proxy?quest=',
             ''
         ];
 
         // ==================== GÜÇLÜ USER-AGENT LİSTESİ (30+ UA) ====================
         const USER_AGENTS = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15',
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 Chrome/120.0.6099.210 Mobile Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:120.0) Gecko/20100101 Firefox/120.0',
-            'Mozilla/5.0 (iPad; CPU OS 17_2 like Mac OS X) AppleWebKit/605.1.15 Version/17.2 Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Edge/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/120.0.6099.210 Mobile Safari/537.36',
-            'Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Safari/537.36 OPR/106.0.0.0',
-            'Mozilla/5.0 (Linux; Android 13; SM-T970) AppleWebKit/537.36 Chrome/120.0.6099.210 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 12; SM-G998B) AppleWebKit/537.36 Chrome/119.0.6045.163 Mobile Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/118.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/118.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/118.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:119.0) Gecko/20100101 Firefox/119.0',
-            'Mozilla/5.0 (iPad; CPU OS 16_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 Chrome/118.0.5993.80 Mobile Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/117.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/117.0.0.0 Safari/537.36'
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0) Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 13) Chrome/120.0.6099.210 Mobile Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Firefox/121.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:120.0) Firefox/120.0',
+            'Mozilla/5.0 (iPad; CPU OS 17_2) Version/17.2 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0.0.0',
+            'Mozilla/5.0 (Linux; Android 14) Chrome/120.0.6099.210 Mobile Safari/537.36',
+            'Mozilla/5.0 (Windows NT 11.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Firefox/121.0',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) OPR/106.0.0.0',
+            'Mozilla/5.0 (Linux; Android 13) Chrome/120.0.6099.210 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6) Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 12) Chrome/119.0.6045.163 Mobile Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Firefox/120.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:119.0) Firefox/119.0',
+            'Mozilla/5.0 (iPad; CPU OS 16_6) Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 13) Chrome/118.0.5993.80 Mobile Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/117.0.0.0 Safari/537.36'
         ];
 
         // ==================== TİK RENKLERİ ====================
@@ -1621,8 +1561,8 @@
         let chatMessages = JSON.parse(localStorage.getItem('chat_messages') || '[]');
         let pmMessages = JSON.parse(localStorage.getItem('pm_messages') || '[]');
         let movieMessages = JSON.parse(localStorage.getItem('movie_messages') || '[]');
-        let announcement = localStorage.getItem('announcement') || '';
         let movieInvites = JSON.parse(localStorage.getItem('movie_invites') || '[]');
+        let announcement = localStorage.getItem('announcement') || '';
 
         // Admin bilgileri
         const ADMIN_USERNAME = '@doxbinhack';
@@ -1635,7 +1575,6 @@
             checkUser();
             loadChat();
             checkPMs();
-            checkInvites();
             if (announcement) {
                 document.getElementById('announcementBar').textContent = announcement;
                 document.getElementById('announcementBar').classList.add('active');
@@ -1937,7 +1876,7 @@
             const historyList = document.getElementById('historyList');
             let html = '';
             userHistory.slice().reverse().forEach(item => {
-                html += `<div class="history-item slide-in"><strong>${item.type}</strong> - ${item.time}<br><small>${item.detail}</small></div>`;
+                html += `<div class="history-item"><strong>${item.type}</strong> - ${item.time}<br><small>${item.detail}</small></div>`;
             });
             if (html === '') html = '<p style="text-align: center; color: var(--text-secondary);">Henüz işlem yok</p>';
             historyList.innerHTML = html;
@@ -2002,7 +1941,7 @@
             chatMessages.forEach(msg => {
                 html += `<div class="chat-message">
                     <span class="username" style="color: ${tikColors[msg.tikColor]}">${msg.username}</span>
-                    ${msg.isAdmin ? '<span class="user-badge" style="font-size: 8px;">ADMIN</span>' : ''}
+                    ${msg.isAdmin ? '<span class="user-badge" style="font-size: 7px;">ADMIN</span>' : ''}
                     <span class="time">${msg.time}</span><br>
                     ${msg.message}
                 </div>`;
@@ -2078,6 +2017,9 @@
             const videoId = extractVideoId(link);
             if (videoId) {
                 document.getElementById('moviePlayer').innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+                showToast('✅ Film yükleniyor...');
+            } else {
+                showToast('❌ Geçersiz link');
             }
         };
 
@@ -2102,7 +2044,7 @@
             const chatDiv = document.getElementById('movieChat');
             let html = '';
             movieMessages.slice(-20).forEach(msg => {
-                html += `<div class="movie-message"><span style="color: ${tikColors[msg.tikColor]}">${msg.username}:</span> ${msg.message} <span style="float: right; font-size: 8px;">${msg.time}</span></div>`;
+                html += `<div><span style="color: ${tikColors[msg.tikColor]}">${msg.username}:</span> ${msg.message} <span style="float: right; font-size: 8px;">${msg.time}</span></div>`;
             });
             chatDiv.innerHTML = html;
         }
@@ -2195,10 +2137,10 @@
                     <div>
                         <span style="color: ${user.isAdmin ? 'var(--accent)' : 'white'}">${user.username}</span>
                         <small> (${user.title || 'Üye'})</small><br>
-                        <small>Puan: ${user.points || 0} | Son: ${user.lastSeen || 'Bilinmiyor'}</small>
+                        <small>Puan: ${user.points || 0}</small>
                     </div>
                     <div>
-                        <button onclick="makeAdmin('${user.username}')">Yönetici Yap</button>
+                        <button onclick="makeAdmin('${user.username}')">Yönetici</button>
                         <button onclick="viewUserHistory('${user.username}')">Geçmiş</button>
                     </div>
                 </div>`;
@@ -2215,7 +2157,6 @@
         }
 
         function loadAdminPermissions() {
-            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
             let html = '';
             users.forEach(user => {
                 html += `<div class="user-list-item">
@@ -2239,15 +2180,10 @@
             const totalQueries = Object.keys(localStorage).filter(k => k.startsWith('history_')).reduce((acc, key) => {
                 return acc + JSON.parse(localStorage.getItem(key)).length;
             }, 0);
-            const onlineUsers = users.filter(u => {
-                const last = u.lastSeen ? new Date(u.lastSeen) : new Date(0);
-                return (new Date() - last) < 3600000; // 1 saat
-            }).length;
             
             let html = `
                 <div style="padding: 10px;">
                     <p><strong>Toplam Kullanıcı:</strong> ${totalUsers}</p>
-                    <p><strong>Aktif Kullanıcı (1 saat):</strong> ${onlineUsers}</p>
                     <p><strong>Toplam Sorgu:</strong> ${totalQueries}</p>
                     <p><strong>Toplam Mesaj:</strong> ${chatMessages.length}</p>
                     <p><strong>En Çok Puan:</strong> ${Math.max(...users.map(u => u.points || 0))}</p>
@@ -2330,8 +2266,22 @@
             }
         }, 100);
 
+        // Gecikme mesajı
+        let timeoutTimer;
+        function showDelayMessage() {
+            timeoutTimer = setTimeout(() => {
+                document.getElementById('delayMessage').style.display = 'block';
+            }, 5000);
+        }
+
+        function hideDelayMessage() {
+            clearTimeout(timeoutTimer);
+            document.getElementById('delayMessage').style.display = 'none';
+        }
+
         // ==================== GÜÇLÜ API İSTEK FONKSİYONU ====================
         async function hizliIstek(url, params, deneme = 0) {
+            showDelayMessage();
             const query = new URLSearchParams(params).toString();
             const fullUrl = `${url}?${query}`;
             
@@ -2352,6 +2302,7 @@
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 
                 const data = await response.json();
+                hideDelayMessage();
                 return data;
                 
             } catch (error) {
@@ -2359,6 +2310,7 @@
                     await new Promise(r => setTimeout(r, 300));
                     return hizliIstek(url, params, deneme + 1);
                 }
+                hideDelayMessage();
                 throw error;
             }
         }
@@ -2402,12 +2354,29 @@
         // Menü oluştur
         function menuOlustur() {
             const menu = document.getElementById('menuContent');
-            const kategoriler = [...new Set(SORGULAR.map(s => s.kategori))];
+            
+            // Kategoriler
+            const kategoriler = [
+                { 
+                    title: '🔍 SORGULAR',
+                    items: [
+                        { id: 'tc', ad: 'TC Basic', kategori: 'TC' },
+                        { id: 'adsoyad', ad: 'Ad Soyad', kategori: 'Ad Soyad' },
+                        { id: 'tcgsm', ad: 'TC/GSM', kategori: 'GSM' },
+                        { id: 'gsmtc', ad: 'GSM/TC', kategori: 'GSM' },
+                        { id: 'adres', ad: 'TC Adres', kategori: 'Adres' },
+                        { id: 'aile', ad: 'TC Aile', kategori: 'Aile' },
+                        { id: 'sulale', ad: 'TC Sülale', kategori: 'Aile' },
+                        { id: 'sgk', ad: 'SGK Sorgu', kategori: 'SGK' },
+                        { id: 'operator', ad: 'Operatör', kategori: 'GSM' }
+                    ]
+                }
+            ];
             
             let html = '';
             kategoriler.forEach(kat => {
-                html += `<div class="menu-category"><div class="menu-category-title">${kat}</div>`;
-                SORGULAR.filter(s => s.kategori === kat).forEach(s => {
+                html += `<div class="menu-category"><div class="menu-category-title">${kat.title}</div>`;
+                kat.items.forEach(s => {
                     html += `<div class="menu-item" onclick="formGoster('${s.id}')">`;
                     html += `<i class="fas fa-search"></i> ${s.ad}`;
                     html += `</div>`;
@@ -2435,8 +2404,9 @@
         window.anaSayfa = function() {
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
+                    <div class="turkey-flag">🇹🇷</div>
                     <h1>DOXBİN</h1>
-                    <p>9 sorgu • 30+ proxy • anlık sonuç</p>
+                    <p>30+ proxy • anlık sonuç</p>
                     <div class="hero-stats">
                         <div><span class="stat-number">${users.length}</span><br><span class="stat-label">KULLANICI</span></div>
                         <div><span class="stat-number">30+</span><br><span class="stat-label">PROXY</span></div>
