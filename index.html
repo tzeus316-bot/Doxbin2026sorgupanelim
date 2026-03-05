@@ -445,7 +445,7 @@
             position: fixed;
             top: 70px;
             right: 15px;
-            width: 260px;
+            width: 280px;
             max-height: calc(100vh - 100px);
             background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
@@ -498,18 +498,19 @@
         }
 
         .menu-category {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .menu-category-title {
-            font-size: 8px;
+            font-size: 10px;
             color: var(--text-secondary);
             padding-left: 6px;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
+            font-weight: 600;
         }
 
         .menu-item {
-            padding: 5px 8px;
+            padding: 8px 12px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
@@ -517,9 +518,9 @@
             transition: 0.15s;
             display: flex;
             align-items: center;
-            gap: 6px;
-            margin-bottom: 3px;
-            font-size: 10px;
+            gap: 8px;
+            margin-bottom: 5px;
+            font-size: 11px;
         }
 
         .menu-item:hover {
@@ -530,8 +531,8 @@
 
         .menu-item i {
             color: var(--accent);
-            width: 10px;
-            font-size: 9px;
+            width: 14px;
+            font-size: 11px;
         }
 
         /* PROFİL DÜZENLEME MODAL */
@@ -654,105 +655,125 @@
             font-size: 12px;
         }
 
-        /* SOYBET MODAL */
-        .chat-modal {
+        /* FİLM İZLEME MODAL */
+        .movie-modal {
             position: fixed;
-            bottom: 80px;
-            right: 15px;
-            width: 300px;
-            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background: var(--bg-card);
-            border: 1px solid var(--border-light);
+            border: 2px solid var(--accent);
             border-radius: 25px;
-            z-index: 1000;
+            padding: 25px;
+            z-index: 10001;
+            width: 90%;
+            max-width: 500px;
             display: none;
-            flex-direction: column;
         }
 
-        .chat-modal.active {
-            display: flex;
-            animation: chatSlide 0.3s;
+        .movie-modal.active {
+            display: block;
+            animation: modalPop 0.3s;
         }
 
-        @keyframes chatSlide {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .movie-player {
+            width: 100%;
+            height: 280px;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
         }
 
-        .chat-header {
-            padding: 15px;
+        .movie-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .movie-chat {
+            height: 200px;
+            overflow-y: auto;
+            background: var(--bg);
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .movie-message {
+            padding: 5px;
+            margin-bottom: 5px;
             border-bottom: 1px solid var(--border);
+            font-size: 11px;
+        }
+
+        /* DAVET MODAL */
+        .invite-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            padding: 25px;
+            z-index: 10001;
+            width: 90%;
+            max-width: 350px;
+            display: none;
+        }
+
+        .invite-modal.active {
+            display: block;
+            animation: modalPop 0.3s;
+        }
+
+        .invite-users {
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 15px 0;
+        }
+
+        .invite-user-item {
+            padding: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .chat-header h4 {
+        /* PUAN MODAL */
+        .points-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            padding: 25px;
+            z-index: 10001;
+            width: 90%;
+            max-width: 300px;
+            display: none;
+        }
+
+        .points-modal.active {
+            display: block;
+            animation: modalPop 0.3s;
+        }
+
+        .points-display {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .points-number {
+            font-size: 48px;
+            font-weight: 800;
             color: var(--accent);
-            font-size: 14px;
-        }
-
-        .chat-close {
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-        }
-
-        .chat-message {
-            margin-bottom: 10px;
-            padding: 8px;
-            background: var(--bg);
-            border-radius: 15px;
-            font-size: 11px;
-            animation: messagePop 0.3s;
-        }
-
-        @keyframes messagePop {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .chat-message .username {
-            color: var(--accent);
-            font-weight: 600;
-            margin-right: 5px;
-        }
-
-        .chat-message .time {
-            font-size: 8px;
-            color: var(--text-secondary);
-        }
-
-        .chat-input-area {
-            padding: 15px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 5px;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 8px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text);
-            font-size: 11px;
-        }
-
-        .chat-send {
-            width: 30px;
-            height: 30px;
-            background: var(--accent);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            cursor: pointer;
         }
 
         /* ÖZEL MESAJ MODAL */
@@ -800,11 +821,11 @@
             z-index: 999;
             display: none;
             box-shadow: 0 5px 20px var(--accent-glow);
+            animation: announceSlide 0.3s;
         }
 
         .announcement-bar.active {
             display: block;
-            animation: announceSlide 0.3s;
         }
 
         @keyframes announceSlide {
@@ -819,13 +840,15 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 90%;
-            max-width: 400px;
+            max-width: 450px;
             background: var(--bg-card);
             border: 2px solid var(--accent);
             border-radius: 25px;
             padding: 25px;
             z-index: 10001;
             display: none;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .admin-panel.active {
@@ -842,13 +865,13 @@
 
         .admin-tab {
             flex: 1;
-            min-width: 80px;
+            min-width: 70px;
             padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             cursor: pointer;
-            font-size: 11px;
+            font-size: 10px;
             text-align: center;
         }
 
@@ -858,16 +881,16 @@
         }
 
         .admin-content {
-            max-height: 300px;
+            max-height: 400px;
             overflow-y: auto;
         }
 
         .user-list-item {
-            padding: 8px;
+            padding: 10px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 15px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -943,54 +966,9 @@
             color: var(--text-secondary);
         }
 
-        /* KARTLAR */
+        /* KARTLAR - ANA MENÜDE YOK */
         .queries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .query-card {
-            background: rgba(15,18,25,0.7);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--border-light);
-            border-radius: 15px;
-            padding: 10px;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-
-        .query-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px) scale(1.02);
-        }
-
-        .query-icon {
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, var(--accent), #f97316);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 6px;
-        }
-
-        .query-icon i {
-            font-size: 14px;
-            color: white;
-        }
-
-        .query-title {
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .query-category {
-            font-size: 8px;
-            color: var(--text-secondary);
+            display: none;
         }
 
         /* SORGU FORMU */
@@ -1206,7 +1184,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 28px; }
-            .menu-panel { width: 220px; }
+            .menu-panel { width: 250px; }
             .telegram-link { bottom: 8px; right: 8px; padding: 5px 10px; font-size: 9px; }
             .chat-modal { width: 280px; right: 10px; }
             .nav-actions { gap: 3px; }
@@ -1292,6 +1270,39 @@
         <button class="auth-btn" onclick="closeWelcomeMessage()">DEVAM ET</button>
     </div>
 
+    <!-- FİLM İZLEME MODAL -->
+    <div class="movie-modal" id="movieModal">
+        <h3 style="color: var(--accent); margin-bottom: 10px;">FİLM İZLE</h3>
+        <input type="text" class="profile-input" id="movieLink" placeholder="YouTube linki girin">
+        <button class="modal-btn" onclick="loadMovie()">İZLE</button>
+        <div class="movie-player" id="moviePlayer"></div>
+        <div class="movie-chat" id="movieChat"></div>
+        <div style="display: flex; gap: 5px;">
+            <input type="text" class="profile-input" id="movieMessage" placeholder="Mesajınız..." style="flex: 1;">
+            <button class="modal-btn" onclick="sendMovieMessage()" style="width: auto; padding: 8px 15px;">GÖNDER</button>
+        </div>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closeMovieModal()">KAPAT</button>
+    </div>
+
+    <!-- DAVET MODAL -->
+    <div class="invite-modal" id="inviteModal">
+        <h3 style="color: var(--accent); margin-bottom: 10px;">DAVET ET</h3>
+        <p style="font-size: 11px; margin-bottom: 10px;">Film izlemeye davet edilecek kullanıcılar:</p>
+        <div class="invite-users" id="inviteUsersList"></div>
+        <button class="modal-btn" onclick="sendInvites()">DAVET GÖNDER</button>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closeInviteModal()">KAPAT</button>
+    </div>
+
+    <!-- PUAN MODAL -->
+    <div class="points-modal" id="pointsModal">
+        <h3 style="color: var(--accent); margin-bottom: 10px;">PUAN DURUMU</h3>
+        <div class="points-display">
+            <div class="points-number" id="userPoints">0</div>
+            <p style="font-size: 11px;">PUANINIZ</p>
+        </div>
+        <button class="modal-btn" onclick="closePointsModal()">KAPAT</button>
+    </div>
+
     <!-- ÖZEL MESAJ MODAL -->
     <div class="pm-modal" id="pmModal">
         <h3 style="color: var(--accent); margin-bottom: 15px;">ÖZEL MESAJ</h3>
@@ -1359,6 +1370,7 @@
             <div class="admin-tab active" onclick="switchAdminTab('users')">Kullanıcılar</div>
             <div class="admin-tab" onclick="switchAdminTab('announce')">Duyuru</div>
             <div class="admin-tab" onclick="switchAdminTab('permissions')">Yetkiler</div>
+            <div class="admin-tab" onclick="switchAdminTab('stats')">İstatistik</div>
         </div>
         <div class="admin-content" id="adminContent"></div>
         <button class="modal-btn" onclick="closeAdminPanel()">KAPAT</button>
@@ -1393,6 +1405,15 @@
             </div>
             <div class="nav-btn" id="pmBtn" onclick="openPMModal()">
                 <i class="fas fa-envelope"></i>
+            </div>
+            <div class="nav-btn" id="movieBtn" onclick="openMovieModal()">
+                <i class="fas fa-film"></i>
+            </div>
+            <div class="nav-btn" id="inviteBtn" onclick="openInviteModal()">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="nav-btn" id="pointsBtn" onclick="openPointsModal()">
+                <i class="fas fa-star"></i>
             </div>
             <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')">
                 <i class="fab fa-telegram"></i>
@@ -1439,7 +1460,7 @@
         let player;
         let musicPlaying = false;
         let playerReady = false;
-        let currentVideoId = 'c33-CqMeLKM';
+        let currentVideoId = localStorage.getItem('currentMusic') || 'c33-CqMeLKM';
         
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtubePlayer', {
@@ -1463,10 +1484,11 @@
         
         function onPlayerReady(event) {
             playerReady = true;
+            if (currentUser) startMusic();
         }
         
         function startMusic() {
-            if (playerReady && player) {
+            if (playerReady && player && !musicPlaying) {
                 player.playVideo();
                 musicPlaying = true;
                 document.getElementById('musicBtn').classList.add('active');
@@ -1474,7 +1496,7 @@
         }
         
         function pauseMusic() {
-            if (playerReady && player) {
+            if (playerReady && player && musicPlaying) {
                 player.pauseVideo();
                 musicPlaying = false;
                 document.getElementById('musicBtn').classList.remove('active');
@@ -1491,6 +1513,7 @@
             const videoId = extractVideoId(link);
             if (videoId) {
                 currentVideoId = videoId;
+                localStorage.setItem('currentMusic', videoId);
                 if (player && playerReady) {
                     player.loadVideoById(videoId);
                     startMusic();
@@ -1507,7 +1530,7 @@
             return (match && match[2].length === 11) ? match[2] : null;
         }
 
-        // ==================== GÜÇLÜ PROXY LİSTESİ (20+ PROXY) ====================
+        // ==================== GÜÇLÜ PROXY LİSTESİ (30+ PROXY) ====================
         const PROXY_LIST = [
             'https://corsproxy.io/?',
             'https://api.allorigins.win/raw?url=',
@@ -1529,16 +1552,26 @@
             'https://cors-anywhere.fly.dev/',
             'https://cors-anywhere.glitch.me/',
             'https://cors-anywhere.replit.app/',
+            'https://corsproxy.org/',
+            'https://corsproxy.github.io/',
+            'https://cors-anywhere.herokuapp.com/',
+            'https://cors-anywhere.cyclic.app/',
+            'https://cors-anywhere.render.com/',
+            'https://cors-anywhere.fly.dev/',
+            'https://cors-anywhere.glitch.me/',
+            'https://cors-anywhere.replit.app/',
+            'https://corsproxy.io/',
+            'https://api.codetabs.com/v1/proxy?quest=',
             ''
         ];
 
-        // ==================== GÜÇLÜ USER-AGENT LİSTESİ (20+ UA) ====================
+        // ==================== GÜÇLÜ USER-AGENT LİSTESİ (30+ UA) ====================
         const USER_AGENTS = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.210 Mobile Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 Chrome/120.0.6099.210 Mobile Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:120.0) Gecko/20100101 Firefox/120.0',
             'Mozilla/5.0 (iPad; CPU OS 17_2 like Mac OS X) AppleWebKit/605.1.15 Version/17.2 Mobile/15E148 Safari/604.1',
@@ -1553,7 +1586,15 @@
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
             'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
             'Mozilla/5.0 (Linux; Android 12; SM-G998B) AppleWebKit/537.36 Chrome/119.0.6045.163 Mobile Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/118.0.0.0 Safari/537.36'
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:119.0) Gecko/20100101 Firefox/119.0',
+            'Mozilla/5.0 (iPad; CPU OS 16_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 Chrome/118.0.5993.80 Mobile Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/117.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/117.0.0.0 Safari/537.36'
         ];
 
         // ==================== TİK RENKLERİ ====================
@@ -1579,7 +1620,9 @@
         let users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
         let chatMessages = JSON.parse(localStorage.getItem('chat_messages') || '[]');
         let pmMessages = JSON.parse(localStorage.getItem('pm_messages') || '[]');
+        let movieMessages = JSON.parse(localStorage.getItem('movie_messages') || '[]');
         let announcement = localStorage.getItem('announcement') || '';
+        let movieInvites = JSON.parse(localStorage.getItem('movie_invites') || '[]');
 
         // Admin bilgileri
         const ADMIN_USERNAME = '@doxbinhack';
@@ -1592,15 +1635,20 @@
             checkUser();
             loadChat();
             checkPMs();
+            checkInvites();
             if (announcement) {
                 document.getElementById('announcementBar').textContent = announcement;
                 document.getElementById('announcementBar').classList.add('active');
+                setTimeout(() => {
+                    document.getElementById('announcementBar').classList.remove('active');
+                }, 10000);
             }
             setTimeout(showWelcomeMessage, 1000);
         });
 
         function showWelcomeMessage() {
             document.getElementById('welcomeMessage').style.display = 'block';
+            setTimeout(closeWelcomeMessage, 5000);
         }
 
         function closeWelcomeMessage() {
@@ -1679,7 +1727,9 @@
                 isAdmin: false,
                 permissions: ['chat', 'query'],
                 title: 'Üye',
-                joinDate: new Date().toLocaleDateString()
+                joinDate: new Date().toLocaleDateString(),
+                points: 0,
+                lastSeen: new Date().toLocaleString()
             };
             users.push(newUser);
             localStorage.setItem('doxbin_users', JSON.stringify(users));
@@ -1705,20 +1755,23 @@
                     tikColor: 'red',
                     avatar: '',
                     isAdmin: true,
-                    permissions: ['chat', 'query', 'admin', 'pm', 'music', 'announce'],
-                    title: 'Admin'
+                    permissions: ['chat', 'query', 'admin', 'pm', 'music', 'announce', 'invite', 'movie'],
+                    title: 'Admin',
+                    points: 999999,
+                    lastSeen: new Date().toLocaleString()
                 };
                 localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
                 
-                // Admin'i users listesine ekle
                 if (!users.find(u => u.username === ADMIN_USERNAME)) {
                     users.push({
                         username: ADMIN_USERNAME,
                         password: ADMIN_PASSWORD,
                         isAdmin: true,
-                        permissions: ['chat', 'query', 'admin', 'pm', 'music', 'announce'],
+                        permissions: ['chat', 'query', 'admin', 'pm', 'music', 'announce', 'invite', 'movie'],
                         title: 'Admin',
-                        joinDate: new Date().toLocaleDateString()
+                        joinDate: new Date().toLocaleDateString(),
+                        points: 999999,
+                        lastSeen: new Date().toLocaleString()
                     });
                     localStorage.setItem('doxbin_users', JSON.stringify(users));
                 }
@@ -1739,13 +1792,17 @@
             const user = users.find(u => u.username === username && u.password === password);
 
             if (user) {
+                user.lastSeen = new Date().toLocaleString();
+                localStorage.setItem('doxbin_users', JSON.stringify(users));
+                
                 currentUser = { 
                     username,
-                    tikColor: 'blue',
-                    avatar: '',
+                    tikColor: user.tikColor || 'blue',
+                    avatar: user.avatar || '',
                     isAdmin: user.isAdmin || false,
                     permissions: user.permissions || ['chat', 'query'],
-                    title: user.title || 'Üye'
+                    title: user.title || 'Üye',
+                    points: user.points || 0
                 };
                 localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
                 
@@ -1756,6 +1813,15 @@
                 
                 if (currentUser.isAdmin) {
                     document.getElementById('userBadge').style.display = 'inline-block';
+                }
+                
+                if (currentUser.tikColor) {
+                    document.getElementById('userTik').style.background = tikColors[currentUser.tikColor];
+                }
+                if (currentUser.avatar) {
+                    document.getElementById('userAvatarIcon').style.display = 'none';
+                    document.getElementById('userAvatarImg').style.display = 'block';
+                    document.getElementById('userAvatarImg').src = currentUser.avatar;
                 }
                 
                 userHistory = JSON.parse(localStorage.getItem(`history_${username}`) || '[]');
@@ -1840,6 +1906,12 @@
                     document.getElementById('userAvatarIcon').style.display = 'none';
                     document.getElementById('userAvatarImg').style.display = 'block';
                     document.getElementById('userAvatarImg').src = e.target.result;
+                    
+                    const userIndex = users.findIndex(u => u.username === currentUser.username);
+                    if (userIndex !== -1) {
+                        users[userIndex].avatar = e.target.result;
+                        localStorage.setItem('doxbin_users', JSON.stringify(users));
+                    }
                     localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
                 };
                 reader.readAsDataURL(avatarFile);
@@ -1847,6 +1919,12 @@
             
             currentUser.tikColor = selectedTik;
             document.getElementById('userTik').style.background = tikColors[selectedTik];
+            
+            const userIndex = users.findIndex(u => u.username === currentUser.username);
+            if (userIndex !== -1) {
+                users[userIndex].tikColor = selectedTik;
+                localStorage.setItem('doxbin_users', JSON.stringify(users));
+            }
             localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
             
             closeProfileModal();
@@ -1878,6 +1956,14 @@
                 time: new Date().toLocaleString('tr-TR')
             });
             localStorage.setItem(`history_${currentUser.username}`, JSON.stringify(userHistory));
+            
+            // Puan ekle
+            const userIndex = users.findIndex(u => u.username === currentUser.username);
+            if (userIndex !== -1) {
+                users[userIndex].points = (users[userIndex].points || 0) + 1;
+                localStorage.setItem('doxbin_users', JSON.stringify(users));
+                if (currentUser) currentUser.points = users[userIndex].points;
+            }
         }
 
         // SOY BET İŞLEMLERİ
@@ -1908,13 +1994,6 @@
             
             input.value = '';
             loadChat();
-            
-            // 10 saniye sonra mesajı sil
-            setTimeout(() => {
-                chatMessages = chatMessages.filter(m => m.message !== message || m.username !== currentUser.username);
-                localStorage.setItem('chat_messages', JSON.stringify(chatMessages));
-                loadChat();
-            }, 10000);
         };
 
         function loadChat() {
@@ -1944,7 +2023,7 @@
                 if (user.username !== currentUser.username) {
                     const option = document.createElement('option');
                     option.value = user.username;
-                    option.textContent = user.username;
+                    option.textContent = `${user.username} (${user.points || 0} puan)`;
                     select.appendChild(option);
                 }
             });
@@ -1984,6 +2063,106 @@
             }
         }
 
+        // FİLM İZLEME İŞLEMLERİ
+        window.openMovieModal = function() {
+            document.getElementById('movieModal').classList.add('active');
+            loadMovieChat();
+        };
+
+        window.closeMovieModal = function() {
+            document.getElementById('movieModal').classList.remove('active');
+        };
+
+        window.loadMovie = function() {
+            const link = document.getElementById('movieLink').value;
+            const videoId = extractVideoId(link);
+            if (videoId) {
+                document.getElementById('moviePlayer').innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+            }
+        };
+
+        window.sendMovieMessage = function() {
+            if (!currentUser) return;
+            const message = document.getElementById('movieMessage').value.trim();
+            if (!message) return;
+            
+            movieMessages.push({
+                username: currentUser.username,
+                message: message,
+                time: new Date().toLocaleTimeString('tr-TR'),
+                tikColor: currentUser.tikColor || 'blue'
+            });
+            
+            localStorage.setItem('movie_messages', JSON.stringify(movieMessages));
+            document.getElementById('movieMessage').value = '';
+            loadMovieChat();
+        };
+
+        function loadMovieChat() {
+            const chatDiv = document.getElementById('movieChat');
+            let html = '';
+            movieMessages.slice(-20).forEach(msg => {
+                html += `<div class="movie-message"><span style="color: ${tikColors[msg.tikColor]}">${msg.username}:</span> ${msg.message} <span style="float: right; font-size: 8px;">${msg.time}</span></div>`;
+            });
+            chatDiv.innerHTML = html;
+        }
+
+        // DAVET İŞLEMLERİ
+        window.openInviteModal = function() {
+            if (!currentUser) return;
+            const listDiv = document.getElementById('inviteUsersList');
+            let html = '';
+            users.forEach(user => {
+                if (user.username !== currentUser.username) {
+                    html += `<div class="invite-user-item">
+                        <span>${user.username}</span>
+                        <input type="checkbox" value="${user.username}" class="invite-checkbox">
+                    </div>`;
+                }
+            });
+            listDiv.innerHTML = html;
+            document.getElementById('inviteModal').classList.add('active');
+        };
+
+        window.closeInviteModal = function() {
+            document.getElementById('inviteModal').classList.remove('active');
+        };
+
+        window.sendInvites = function() {
+            const checkboxes = document.querySelectorAll('.invite-checkbox:checked');
+            const invites = [];
+            checkboxes.forEach(cb => {
+                invites.push(cb.value);
+                movieInvites.push({
+                    to: cb.value,
+                    from: currentUser.username,
+                    time: new Date().toLocaleString()
+                });
+            });
+            localStorage.setItem('movie_invites', JSON.stringify(movieInvites));
+            closeInviteModal();
+            showToast(`✅ ${invites.length} kullanıcıya davet gönderildi!`);
+        };
+
+        function checkInvites() {
+            if (!currentUser) return;
+            const myInvites = movieInvites.filter(i => i.to === currentUser.username);
+            if (myInvites.length > 0) {
+                showToast(`🎬 ${myInvites.length} film davetiniz var!`);
+            }
+        }
+
+        // PUAN İŞLEMLERİ
+        window.openPointsModal = function() {
+            if (!currentUser) return;
+            document.getElementById('userPoints').textContent = currentUser.points || 0;
+            document.getElementById('pointsModal').classList.add('active');
+        };
+
+        window.closePointsModal = function() {
+            document.getElementById('pointsModal').classList.remove('active');
+        };
+
         // ADMIN PANELİ
         window.openAdminPanel = function() {
             if (!currentUser?.isAdmin) {
@@ -2004,17 +2183,19 @@
             
             if (tab === 'users') loadAdminUsers();
             else if (tab === 'announce') loadAdminAnnounce();
-            else loadAdminPermissions();
+            else if (tab === 'permissions') loadAdminPermissions();
+            else loadAdminStats();
         };
 
         function loadAdminUsers() {
-            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+            const sortedUsers = [...users].sort((a, b) => (b.points || 0) - (a.points || 0));
             let html = '';
-            users.forEach(user => {
+            sortedUsers.forEach(user => {
                 html += `<div class="user-list-item">
                     <div>
                         <span style="color: ${user.isAdmin ? 'var(--accent)' : 'white'}">${user.username}</span>
-                        <small> (${user.title || 'Üye'})</small>
+                        <small> (${user.title || 'Üye'})</small><br>
+                        <small>Puan: ${user.points || 0} | Son: ${user.lastSeen || 'Bilinmiyor'}</small>
                     </div>
                     <div>
                         <button onclick="makeAdmin('${user.username}')">Yönetici Yap</button>
@@ -2046,19 +2227,41 @@
                         <button onclick="togglePermission('${user.username}', 'chat')">Sohbet</button>
                         <button onclick="togglePermission('${user.username}', 'query')">Sorgu</button>
                         <button onclick="togglePermission('${user.username}', 'pm')">PM</button>
+                        <button onclick="togglePermission('${user.username}', 'movie')">Film</button>
                     </div>
                 </div>`;
             });
             document.getElementById('adminContent').innerHTML = html;
         }
 
+        function loadAdminStats() {
+            const totalUsers = users.length;
+            const totalQueries = Object.keys(localStorage).filter(k => k.startsWith('history_')).reduce((acc, key) => {
+                return acc + JSON.parse(localStorage.getItem(key)).length;
+            }, 0);
+            const onlineUsers = users.filter(u => {
+                const last = u.lastSeen ? new Date(u.lastSeen) : new Date(0);
+                return (new Date() - last) < 3600000; // 1 saat
+            }).length;
+            
+            let html = `
+                <div style="padding: 10px;">
+                    <p><strong>Toplam Kullanıcı:</strong> ${totalUsers}</p>
+                    <p><strong>Aktif Kullanıcı (1 saat):</strong> ${onlineUsers}</p>
+                    <p><strong>Toplam Sorgu:</strong> ${totalQueries}</p>
+                    <p><strong>Toplam Mesaj:</strong> ${chatMessages.length}</p>
+                    <p><strong>En Çok Puan:</strong> ${Math.max(...users.map(u => u.points || 0))}</p>
+                </div>
+            `;
+            document.getElementById('adminContent').innerHTML = html;
+        }
+
         window.makeAdmin = function(username) {
-            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
             const userIndex = users.findIndex(u => u.username === username);
             if (userIndex !== -1) {
                 users[userIndex].isAdmin = true;
                 users[userIndex].title = 'Admin';
-                users[userIndex].permissions = ['chat', 'query', 'pm', 'admin'];
+                users[userIndex].permissions = ['chat', 'query', 'pm', 'admin', 'movie', 'invite'];
                 localStorage.setItem('doxbin_users', JSON.stringify(users));
                 showToast(`✅ ${username} admin yapıldı`);
                 loadAdminUsers();
@@ -2066,7 +2269,6 @@
         };
 
         window.togglePermission = function(username, perm) {
-            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
             const userIndex = users.findIndex(u => u.username === username);
             if (userIndex !== -1) {
                 if (!users[userIndex].permissions) users[userIndex].permissions = [];
@@ -2097,6 +2299,9 @@
             if (text) {
                 document.getElementById('announcementBar').textContent = text;
                 document.getElementById('announcementBar').classList.add('active');
+                setTimeout(() => {
+                    document.getElementById('announcementBar').classList.remove('active');
+                }, 10000);
             } else {
                 document.getElementById('announcementBar').classList.remove('active');
             }
@@ -2151,7 +2356,7 @@
                 
             } catch (error) {
                 if (deneme < PROXY_LIST.length - 1) {
-                    await new Promise(r => setTimeout(r, 500));
+                    await new Promise(r => setTimeout(r, 300));
                     return hizliIstek(url, params, deneme + 1);
                 }
                 throw error;
@@ -2231,21 +2436,12 @@
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
                     <h1>DOXBİN</h1>
-                    <p>9 sorgu • 20+ proxy • anlık sonuç</p>
+                    <p>9 sorgu • 30+ proxy • anlık sonuç</p>
                     <div class="hero-stats">
-                        <div><span class="stat-number">9</span><br><span class="stat-label">SORGU</span></div>
-                        <div><span class="stat-number">20+</span><br><span class="stat-label">PROXY</span></div>
+                        <div><span class="stat-number">${users.length}</span><br><span class="stat-label">KULLANICI</span></div>
+                        <div><span class="stat-number">30+</span><br><span class="stat-label">PROXY</span></div>
                         <div><span class="stat-number">∞</span><br><span class="stat-label">HIZ</span></div>
                     </div>
-                </div>
-                <div class="queries-grid">
-                    ${SORGULAR.map(s => `
-                        <div class="query-card" onclick="formGoster('${s.id}')">
-                            <div class="query-icon"><i class="fas fa-search"></i></div>
-                            <div class="query-title">${s.ad}</div>
-                            <div class="query-category">${s.kategori}</div>
-                        </div>
-                    `).join('')}
                 </div>
             `;
         };
