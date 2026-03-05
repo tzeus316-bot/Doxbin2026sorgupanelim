@@ -1598,28 +1598,13 @@
             ''
         ];
 
-        // ==================== GÜÇLÜ USER-AGENT LİSTESİ (30+ UA) ====================
+        // ==================== 5 AMERİKAN USER-AGENT ====================
         const USER_AGENTS = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15',
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0) Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 13) Chrome/120.0.6099.210 Mobile Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Firefox/121.0',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:120.0) Firefox/120.0',
-            'Mozilla/5.0 (iPad; CPU OS 17_2) Version/17.2 Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/120.0.0.0',
-            'Mozilla/5.0 (Linux; Android 14) Chrome/120.0.6099.210 Mobile Safari/537.36',
-            'Mozilla/5.0 (Windows NT 11.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Firefox/121.0',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) OPR/106.0.0.0',
-            'Mozilla/5.0 (Linux; Android 13) Chrome/120.0.6099.210 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6) Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 12) Chrome/119.0.6045.163 Mobile Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/118.0.0.0 Safari/537.36'
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (United States)',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15 (United States)',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1 (United States)',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0 (United States)',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (United States)'
         ];
 
         // ==================== TİK RENKLERİ ====================
@@ -2403,7 +2388,7 @@
             document.getElementById('delayMessage').style.display = 'none';
         }
 
-        // ==================== GÜÇLÜ API İSTEK FONKSİYONU ====================
+        // ==================== HIZLI API İSTEK FONKSİYONU ====================
         async function hizliIstek(url, params, deneme = 0) {
             showDelayMessage();
             const query = new URLSearchParams(params).toString();
@@ -2420,7 +2405,8 @@
                         'User-Agent': userAgent,
                         'Accept': 'application/json',
                         'Origin': window.location.origin
-                    }
+                    },
+                    cache: 'no-cache' // Daha hızlı yanıt için
                 });
                 
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -2431,7 +2417,7 @@
                 
             } catch (error) {
                 if (deneme < PROXY_LIST.length - 1) {
-                    await new Promise(r => setTimeout(r, 300));
+                    await new Promise(r => setTimeout(r, 200)); // Daha hızlı tekrar deneme
                     return hizliIstek(url, params, deneme + 1);
                 }
                 hideDelayMessage();
