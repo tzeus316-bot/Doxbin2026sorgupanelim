@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOXBİN | ULTRA GİRİŞ</title>
     
-    <!-- Fonts - Optimize edildi -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +15,6 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
     <style>
-        /* OPTİMİZE EDİLDİ - DAHA HIZLI */
         * {
             margin: 0;
             padding: 0;
@@ -34,7 +33,10 @@
             --border: #1f2937;
             --border-light: #2d3748;
             --success: #10b981;
-            --verified: #1d9bf0;
+            --verified-blue: #1d9bf0;
+            --verified-green: #10b981;
+            --verified-yellow: #f59e0b;
+            --verified-black: #1f2937;
         }
 
         body {
@@ -43,20 +45,18 @@
             min-height: 100vh;
             opacity: 0;
             animation: bodyFade 0.3s ease forwards;
-            will-change: opacity;
         }
 
         @keyframes bodyFade {
             to { opacity: 1; }
         }
 
-        /* OPTİMİZE NEON DAİRELER - Daha hafif */
+        /* NEON DAİRELER */
         .neon-circle {
             position: fixed;
             border-radius: 50%;
             filter: blur(60px);
             z-index: -1;
-            will-change: transform, opacity;
         }
 
         .circle-1 {
@@ -87,7 +87,7 @@
             opacity: 0.08;
         }
 
-        /* GİRİŞ EKRANI - Optimize */
+        /* GİRİŞ EKRANI */
         .auth-overlay {
             position: fixed;
             top: 0;
@@ -101,7 +101,6 @@
             justify-content: center;
             align-items: center;
             transition: 0.5s ease;
-            will-change: opacity, visibility;
         }
 
         .auth-overlay.hidden {
@@ -197,39 +196,38 @@
             transform: scale(1.02);
         }
 
-        /* CLOUDFREE - Optimize */
-        .cloudfree-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, var(--bg) 0%, #000 100%);
-            backdrop-filter: blur(20px);
-            z-index: 999998;
+        /* TİK SEÇİCİ */
+        .tik-selector {
             display: flex;
+            gap: 10px;
+            margin: 15px 0;
             justify-content: center;
-            align-items: center;
-            transition: 0.5s;
-            will-change: opacity, visibility;
         }
 
-        .cloudfree-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
+        .tik-option {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid transparent;
         }
 
-        .cloudfree-box {
-            background: rgba(15,18,25,0.95);
-            border: 2px solid var(--accent);
-            border-radius: 40px;
-            padding: 35px;
-            text-align: center;
-            max-width: 380px;
-            width: 90%;
+        .tik-option:hover {
+            transform: scale(1.2);
         }
 
-        /* NAVBAR - Optimize */
+        .tik-option.selected {
+            border: 2px solid white;
+            transform: scale(1.1);
+        }
+
+        .tik-blue { background: var(--verified-blue); }
+        .tik-green { background: var(--verified-green); }
+        .tik-yellow { background: var(--verified-yellow); }
+        .tik-black { background: var(--verified-black); }
+
+        /* NAVBAR */
         .navbar {
             position: fixed;
             top: 15px;
@@ -248,7 +246,6 @@
             align-items: center;
             opacity: 0;
             animation: navbarAppear 0.5s 0.3s forwards;
-            will-change: opacity;
         }
 
         @keyframes navbarAppear {
@@ -272,12 +269,18 @@
             padding: 4px 12px;
             border-radius: 30px;
             border: 1px solid var(--border);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .user-info:hover {
+            border-color: var(--accent);
         }
 
         .user-avatar {
             width: 26px;
             height: 26px;
-            background: var(--verified);
+            background: var(--verified-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -288,6 +291,18 @@
         .user-name {
             font-size: 12px;
             font-weight: 500;
+        }
+
+        .user-tik {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            font-size: 8px;
+            color: white;
+            margin-left: 4px;
         }
 
         .nav-actions {
@@ -345,7 +360,7 @@
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px); }
 
-        /* MENÜ - Optimize */
+        /* MENÜ */
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -381,7 +396,6 @@
             opacity: 0;
             transform: scale(0.95) translateX(30px);
             pointer-events: none;
-            will-change: transform, opacity;
         }
 
         .menu-panel.active {
@@ -459,23 +473,80 @@
             font-size: 10px;
         }
 
-        /* MAVİ TİK */
-        .verified-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            background: var(--verified);
-            border-radius: 50%;
-            font-size: 8px;
-            color: white;
-            margin-left: 4px;
+        /* PROFİL DÜZENLEME MODAL */
+        .profile-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            padding: 30px;
+            z-index: 10000;
+            width: 90%;
+            max-width: 350px;
+            display: none;
         }
 
-        .verified-badge i {
-            font-size: 7px;
+        .profile-modal.active {
+            display: block;
+        }
+
+        .profile-modal h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--verified-blue);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-avatar i {
             color: white;
+        }
+
+        .profile-input {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .tik-selector-modal {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .modal-btn {
+            width: 100%;
+            padding: 10px;
+            background: var(--accent);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
         /* MAIN CONTENT */
@@ -848,18 +919,34 @@
         </div>
     </div>
 
+    <!-- PROFİL DÜZENLEME MODAL -->
+    <div class="profile-modal" id="profileModal">
+        <h3>PROFİL DÜZENLE</h3>
+        <div class="profile-avatar" id="avatarPreview" onclick="changeAvatar()">
+            <i class="fas fa-user"></i>
+        </div>
+        <input type="text" class="profile-input" id="editUsername" placeholder="Yeni kullanıcı adı">
+        <div class="tik-selector-modal">
+            <div class="tik-option tik-blue" onclick="selectTik('blue')"></div>
+            <div class="tik-option tik-green" onclick="selectTik('green')"></div>
+            <div class="tik-option tik-yellow" onclick="selectTik('yellow')"></div>
+            <div class="tik-option tik-black" onclick="selectTik('black')"></div>
+        </div>
+        <button class="modal-btn" onclick="saveProfile()">KAYDET</button>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closeProfileModal()">KAPAT</button>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
             <i class="fas fa-shield-halos"></i>
             DOXBİN
-            <span class="verified-badge"><i class="fas fa-check"></i></span>
         </div>
         
-        <div id="userInfo" style="display: none;" class="user-info">
-            <div class="user-avatar"><i class="fas fa-user"></i></div>
+        <div id="userInfo" style="display: none;" class="user-info" onclick="openProfileModal()">
+            <div class="user-avatar" id="userAvatar"><i class="fas fa-user"></i></div>
             <span class="user-name" id="displayUsername">Misafir</span>
-            <span class="verified-badge"><i class="fas fa-check"></i></span>
+            <span class="user-tik" id="userTik" style="background: var(--verified-blue);"><i class="fas fa-check"></i></span>
         </div>
 
         <div class="nav-actions">
@@ -884,7 +971,7 @@
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
-            <h3><i class="fas fa-bolt"></i> SORGULAR <span class="verified-badge"><i class="fas fa-check"></i></span></h3>
+            <h3><i class="fas fa-bolt"></i> SORGULAR</h3>
             <div class="menu-search">
                 <input type="text" id="menuSearch" placeholder="Ara...">
             </div>
@@ -904,20 +991,20 @@
     <!-- Telegram -->
     <a href="https://t.me/doxbinhack" target="_blank" class="telegram-link">
         <i class="fab fa-telegram"></i> @doxbinhack
-        <span class="verified-badge"><i class="fas fa-check"></i></span>
     </a>
 
-    <!-- Müzik -->
-    <audio id="bgMusic" loop preload="none">
-        <source src="https://www.youtube.com/watch?v=vgg6cjlJNyU" type="audio/mp3">
+    <!-- Müzik (YENİ ŞARKI) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://www.youtube.com/watch?v=c33-CqMeLKM" type="audio/mp3">
     </audio>
 
     <script>
-        // ==================== OPTİMİZE EDİLMİŞ JAVASCRIPT ====================
-        
-        // KULLANICI VERİLERİ
+        // ==================== KULLANICI VERİLERİ ====================
         let currentUser = null;
         let musicPlaying = false;
+        let selectedTik = 'blue';
+        let avatarType = 'default';
+        
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
 
@@ -926,12 +1013,21 @@
             menuOlustur();
             anaSayfa();
             checkUser();
+            
+            // Müziği otomatik başlatmayı dene
+            music.play().catch(() => {
+                console.log('Müzik otomatik başlatılamadı, kullanıcı etkileşimi bekleniyor...');
+            });
         });
 
         // CloudFree
         window.onCloudfreeSuccess = function() {
             document.getElementById('cloudfreeOverlay').classList.add('hidden');
             checkUser();
+            // CloudFree'den sonra müziği başlat
+            music.play().catch(() => {});
+            musicBtn.classList.add('active');
+            musicPlaying = true;
         };
 
         setTimeout(() => {
@@ -948,16 +1044,33 @@
                 document.getElementById('userInfo').style.display = 'flex';
                 document.getElementById('displayUsername').textContent = currentUser.username;
                 document.getElementById('logoutBtn').style.display = 'flex';
+                
+                // Kullanıcı tercihlerini yükle
+                if (currentUser.tikColor) {
+                    selectedTik = currentUser.tikColor;
+                    document.getElementById('userTik').style.background = getTikColor(currentUser.tikColor);
+                }
+                if (currentUser.avatar) {
+                    document.getElementById('userAvatar').innerHTML = `<i class="fas ${currentUser.avatar}"></i>`;
+                }
+                
                 showToast(`✅ Hoş geldin, ${currentUser.username}!`);
-                startMusic();
+                // Giriş yapınca müziği başlat
+                music.play().catch(() => {});
+                musicBtn.classList.add('active');
+                musicPlaying = true;
             }
         }
 
-        // Müzik başlat
-        function startMusic() {
-            music.play().catch(() => {});
-            musicBtn.classList.add('active');
-            musicPlaying = true;
+        // Tik rengi getir
+        function getTikColor(color) {
+            const colors = {
+                'blue': '#1d9bf0',
+                'green': '#10b981',
+                'yellow': '#f59e0b',
+                'black': '#1f2937'
+            };
+            return colors[color] || '#1d9bf0';
         }
 
         // Tab değiştirme
@@ -1019,7 +1132,11 @@
             const user = users.find(u => u.username === username && u.password === password);
 
             if (user) {
-                currentUser = { username };
+                currentUser = { 
+                    username,
+                    tikColor: 'blue',
+                    avatar: 'fa-user'
+                };
                 localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
                 
                 document.getElementById('authOverlay').classList.add('hidden');
@@ -1028,7 +1145,9 @@
                 document.getElementById('logoutBtn').style.display = 'flex';
                 
                 showToast(`✅ Hoş geldin, ${username}!`);
-                startMusic();
+                music.play().catch(() => {});
+                musicBtn.classList.add('active');
+                musicPlaying = true;
             } else {
                 document.getElementById('loginMessage').textContent = '❌ Hatalı kullanıcı adı veya şifre';
             }
@@ -1047,7 +1166,61 @@
             document.getElementById('loginPassword').value = '';
             document.getElementById('loginMessage').textContent = '';
             
+            music.pause();
+            musicBtn.classList.remove('active');
+            musicPlaying = false;
+            
             showToast('👋 Çıkış yapıldı');
+        };
+
+        // Profil düzenleme modalı
+        window.openProfileModal = function() {
+            if (!currentUser) return;
+            document.getElementById('editUsername').value = currentUser.username;
+            document.getElementById('profileModal').classList.add('active');
+        };
+
+        window.closeProfileModal = function() {
+            document.getElementById('profileModal').classList.remove('active');
+        };
+
+        window.selectTik = function(color) {
+            selectedTik = color;
+            document.querySelectorAll('.tik-option').forEach(opt => opt.classList.remove('selected'));
+            event.target.classList.add('selected');
+        };
+
+        window.changeAvatar = function() {
+            const avatars = ['fa-user', 'fa-user-tie', 'fa-user-astronaut', 'fa-user-ninja', 'fa-user-secret'];
+            const current = avatars.indexOf(avatarType);
+            const next = (current + 1) % avatars.length;
+            avatarType = avatars[next];
+            document.getElementById('avatarPreview').innerHTML = `<i class="fas ${avatarType}"></i>`;
+        };
+
+        window.saveProfile = function() {
+            const newUsername = document.getElementById('editUsername').value.trim();
+            if (newUsername && newUsername !== currentUser.username) {
+                // Kullanıcı adını değiştir
+                const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+                const userIndex = users.findIndex(u => u.username === currentUser.username);
+                if (userIndex !== -1) {
+                    users[userIndex].username = newUsername;
+                    localStorage.setItem('doxbin_users', JSON.stringify(users));
+                }
+                currentUser.username = newUsername;
+                document.getElementById('displayUsername').textContent = newUsername;
+            }
+            
+            currentUser.tikColor = selectedTik;
+            currentUser.avatar = avatarType;
+            localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
+            
+            document.getElementById('userTik').style.background = getTikColor(selectedTik);
+            document.getElementById('userAvatar').innerHTML = `<i class="fas ${avatarType}"></i>`;
+            
+            closeProfileModal();
+            showToast('✅ Profil güncellendi!');
         };
 
         // Müzik butonu
@@ -1163,7 +1336,6 @@
                 SORGULAR.filter(s => s.kategori === kat).forEach(s => {
                     html += `<div class="menu-item" onclick="formGoster('${s.id}')">`;
                     html += `<i class="fas fa-search"></i> ${s.ad}`;
-                    html += `<span class="verified-badge"><i class="fas fa-check"></i></span>`;
                     html += `</div>`;
                 });
                 html += `</div>`;
@@ -1176,7 +1348,7 @@
         window.anaSayfa = function() {
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
-                    <h1>DOXBİN <span class="verified-badge"><i class="fas fa-check"></i></span></h1>
+                    <h1>DOXBİN</h1>
                     <p>9 sorgu • hızlı proxy • anlık sonuç</p>
                     <div class="hero-stats">
                         <div><span class="stat-number">9</span><br><span class="stat-label">SORGU</span></div>
@@ -1188,7 +1360,7 @@
                     ${SORGULAR.map(s => `
                         <div class="query-card" onclick="formGoster('${s.id}')">
                             <div class="query-icon"><i class="fas fa-search"></i></div>
-                            <div class="query-title">${s.ad} <span class="verified-badge"><i class="fas fa-check"></i></span></div>
+                            <div class="query-title">${s.ad}</div>
                             <div class="query-category">${s.kategori}</div>
                         </div>
                     `).join('')}
@@ -1227,7 +1399,7 @@
             document.getElementById('mainContent').innerHTML = `
                 <div class="query-form">
                     <div class="form-header">
-                        <h3>${sorgu.ad} <span class="verified-badge"><i class="fas fa-check"></i></span></h3>
+                        <h3>${sorgu.ad}</h3>
                         <div class="back-btn" onclick="anaSayfa()">
                             <i class="fas fa-home"></i>
                         </div>
@@ -1265,7 +1437,7 @@
                 const sonuc = await hizliIstek(sorgu.api, params);
                 
                 let sonucText = '';
-                let html = '<div class="result-box"><div class="result-header"><span>📊 SONUÇ <span class="verified-badge"><i class="fas fa-check"></i></span></span>';
+                let html = '<div class="result-box"><div class="result-header"><span>📊 SONUÇ</span>';
                 html += '<div class="result-actions">';
                 html += '<button onclick="copyResult()"><i class="fas fa-copy"></i></button>';
                 html += '<button onclick="downloadTxt()"><i class="fas fa-download"></i></button>';
