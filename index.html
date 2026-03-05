@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOXBİN | ULTRA PREMIUM</title>
+    <title>DOXBİN | HIZLI SORGU</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Cloudflare Turnstile -->
@@ -23,202 +23,83 @@
         }
 
         :root {
-            --bg-primary: #03050a;
-            --bg-secondary: #0b0e16;
-            --bg-card: #11141f;
-            --bg-hover: #1a1f2e;
+            --bg: #03050a;
+            --bg-card: #0f1219;
+            --bg-hover: #1a1f2c;
             --accent: #ef4444;
-            --accent-secondary: #f97316;
-            --accent-glow: rgba(239, 68, 68, 0.25);
+            --accent-glow: rgba(239, 68, 68, 0.2);
             --text: #ffffff;
             --text-secondary: #9ca3af;
-            --text-muted: #6b7280;
             --border: #1f2937;
             --border-light: #2d3748;
             --success: #10b981;
-            --error: #ef4444;
-            --warning: #f59e0b;
         }
 
         body {
-            background: var(--bg-primary);
+            background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
+            opacity: 0;
+            animation: bodyFade 0.5s ease forwards;
         }
 
-        /* ==================== ARKA PLAN EFECTLERİ ==================== */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(239,68,68,0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(249,115,22,0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(16,185,129,0.05) 0%, transparent 50%);
-            z-index: -2;
-            pointer-events: none;
+        @keyframes bodyFade {
+            to { opacity: 1; }
         }
 
-        .bg-noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wMjUiIC8+PC9zdmc+');
-            opacity: 0.4;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* ==================== YUVARLAK DİKEY ÇİZGİLER ==================== */
-        .circle-line {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            border: 1px solid rgba(239,68,68,0.1);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .circle-line-1 {
-            top: -200px;
-            left: -200px;
-            width: 800px;
-            height: 800px;
-            border-color: rgba(239,68,68,0.15);
-            animation: rotateSlow 60s linear infinite;
-        }
-
-        .circle-line-2 {
-            bottom: -300px;
-            right: -300px;
-            width: 1000px;
-            height: 1000px;
-            border-color: rgba(249,115,22,0.1);
-            animation: rotateSlow 80s linear infinite reverse;
-        }
-
-        .circle-line-3 {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 1200px;
-            height: 1200px;
-            border-color: rgba(16,185,129,0.05);
-            animation: rotateSlow 100s linear infinite;
-        }
-
-        @keyframes rotateSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* ==================== CLOUDFREE OVERLAY ==================== */
+        /* ==================== CLOUDFREE ==================== */
         .cloudfree-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, var(--bg-primary) 0%, #000 100%);
+            background: radial-gradient(circle at center, var(--bg) 0%, #000 100%);
             backdrop-filter: blur(30px);
             z-index: 999999;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: 1.2s cubic-bezier(0.87, 0, 0.13, 1);
+            transition: 0.6s;
         }
 
         .cloudfree-overlay.hidden {
             opacity: 0;
             visibility: hidden;
-            backdrop-filter: blur(0px);
         }
 
         .cloudfree-box {
-            background: rgba(17,20,31,0.8);
-            backdrop-filter: blur(20px);
+            background: rgba(15,18,25,0.95);
             border: 2px solid var(--accent);
-            border-radius: 80px;
-            padding: 80px 60px;
+            border-radius: 40px;
+            padding: 40px;
             text-align: center;
-            max-width: 580px;
+            max-width: 400px;
             width: 90%;
-            box-shadow: 0 0 150px var(--accent-glow), inset 0 0 50px rgba(239,68,68,0.2);
-            animation: boxFloat 5s infinite ease-in-out;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cloudfree-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, var(--accent), transparent, var(--accent-secondary), transparent);
-            animation: rotate 10s linear infinite;
-            opacity: 0.15;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes boxFloat {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.02); }
+            box-shadow: 0 0 80px var(--accent-glow);
         }
 
         .cloudfree-logo {
-            font-size: 90px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), #fbbf24, var(--accent-secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 30px;
-            letter-spacing: 8px;
-            animation: textShine 4s infinite linear;
-            background-size: 300% auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes textShine {
-            to { background-position: 300% center; }
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
         }
 
         .cloudfree-badge {
             display: inline-block;
-            padding: 10px 25px;
+            padding: 6px 16px;
             background: rgba(239,68,68,0.1);
             border: 1px solid var(--accent);
-            border-radius: 50px;
-            font-size: 14px;
+            border-radius: 30px;
+            font-size: 12px;
             color: var(--accent);
-            margin-bottom: 30px;
-            backdrop-filter: blur(5px);
-            animation: pulseGlow 2s infinite;
+            margin-bottom: 20px;
         }
 
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 10px var(--accent-glow); }
-            50% { box-shadow: 0 0 30px var(--accent-glow); }
-        }
-
-        .cloudfree-text {
-            color: var(--text-secondary);
-            margin: 30px 0;
-            font-size: 15px;
-            line-height: 1.8;
-            max-width: 400px;
+        .cf-turnstile {
+            margin: 15px auto;
+            display: inline-block;
         }
 
         /* ==================== NAVBAR ==================== */
@@ -227,96 +108,82 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 60px);
-            max-width: 1400px;
-            padding: 18px 35px;
-            background: rgba(11,14,22,0.8);
+            width: calc(100% - 40px);
+            max-width: 1200px;
+            padding: 10px 20px;
+            background: rgba(15,18,25,0.8);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 100px;
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            animation: navbarSlide 1s 0.3s forwards;
-            opacity: 0;
-            transform: translateX(-50%) translateY(-100px);
-        }
-
-        @keyframes navbarSlide {
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
 
         .logo {
-            font-size: 32px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 4px;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--accent);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .logo i {
-            font-size: 28px;
-            background: linear-gradient(135deg, var(--accent), #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            width: 38px;
+            height: 38px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .nav-btn.active {
+            background: var(--accent);
+            color: white;
         }
 
         .hamburger {
-            width: 52px;
-            height: 52px;
+            width: 38px;
+            height: 38px;
             background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             cursor: pointer;
-            border: 1px solid var(--border-light);
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hamburger::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, var(--accent-glow), transparent 70%);
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .hamburger:hover::before {
-            opacity: 1;
-        }
-
-        .hamburger:hover {
-            border-color: var(--accent);
-            transform: scale(1.05);
         }
 
         .hamburger span {
-            width: 24px;
+            width: 16px;
             height: 2px;
             background: var(--text);
             transition: 0.3s;
-            position: relative;
-            z-index: 2;
         }
 
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); background: var(--accent); }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); background: var(--accent); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
 
         /* ==================== MENÜ ==================== */
         .menu-overlay {
@@ -325,12 +192,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
             z-index: 998;
             opacity: 0;
             visibility: hidden;
-            transition: 0.4s;
+            transition: 0.3s;
         }
 
         .menu-overlay.active {
@@ -341,117 +208,98 @@
         .menu-panel {
             position: fixed;
             top: 80px;
-            right: 30px;
-            width: 360px;
-            max-height: calc(100vh - 160px);
-            background: rgba(17,20,31,0.95);
+            right: 20px;
+            width: 280px;
+            max-height: calc(100vh - 120px);
+            background: rgba(15,18,25,0.95);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-light);
-            border-radius: 40px;
+            border-radius: 25px;
             z-index: 999;
-            transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: 0.4s;
             overflow-y: auto;
             opacity: 0;
-            transform: scale(0.8) translateX(100px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: scale(0.9) translateX(50px);
+            pointer-events: none;
         }
 
         .menu-panel.active {
             opacity: 1;
             transform: scale(1) translateX(0);
+            pointer-events: all;
         }
 
         .menu-header {
-            padding: 30px 25px;
+            padding: 20px;
             border-bottom: 1px solid var(--border);
         }
 
         .menu-header h3 {
             color: var(--accent);
-            font-size: 16px;
-            letter-spacing: 2px;
+            font-size: 14px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .menu-search {
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .menu-search input {
             width: 100%;
-            padding: 12px 15px;
-            background: var(--bg-primary);
+            padding: 8px 12px;
+            background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 30px;
+            border-radius: 20px;
             color: var(--text);
-            font-size: 13px;
-        }
-
-        .menu-search input:focus {
-            outline: none;
-            border-color: var(--accent);
+            font-size: 12px;
         }
 
         .menu-content {
-            padding: 20px;
+            padding: 15px;
         }
 
         .menu-category {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .menu-category-title {
-            font-size: 11px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            padding-left: 10px;
-            letter-spacing: 1px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            padding-left: 8px;
+            margin-bottom: 5px;
         }
 
         .menu-item {
-            padding: 14px 18px;
-            background: var(--bg-primary);
-            border-radius: 30px;
+            padding: 8px 12px;
+            background: var(--bg);
             border: 1px solid var(--border);
+            border-radius: 20px;
             cursor: pointer;
             transition: 0.2s;
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 6px;
-            font-weight: 500;
+            gap: 8px;
+            margin-bottom: 4px;
+            font-size: 12px;
         }
 
         .menu-item:hover {
             background: var(--bg-hover);
             border-color: var(--accent);
-            transform: translateX(-5px);
+            transform: translateX(-3px);
         }
 
         .menu-item i {
-            width: 22px;
             color: var(--accent);
-            font-size: 14px;
+            width: 14px;
+            font-size: 11px;
         }
 
-        .menu-item .badge {
-            padding: 3px 8px;
-            background: var(--accent);
-            border-radius: 20px;
-            font-size: 9px;
-            font-weight: 600;
-            margin-left: auto;
-        }
-
-        /* ==================== MAIN CONTENT ==================== */
+        /* ==================== MAIN ==================== */
         .main-content {
-            margin-top: 140px;
-            padding: 30px 40px;
-            max-width: 1400px;
+            margin-top: 90px;
+            padding: 20px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -459,389 +307,237 @@
         /* ==================== HERO ==================== */
         .hero {
             text-align: center;
-            padding: 60px 20px 80px;
-            position: relative;
+            padding: 30px 15px;
         }
 
         .hero h1 {
-            font-size: 80px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff, #9ca3af, #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 50px rgba(255,255,255,0.2);
-            letter-spacing: -2px;
-            animation: titleFloat 3s infinite;
-        }
-
-        @keyframes titleFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
         }
 
         .hero p {
             color: var(--text-secondary);
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
+            font-size: 14px;
+            margin-bottom: 20px;
         }
 
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 80px;
-            margin-top: 60px;
-        }
-
-        .stat-item {
-            text-align: center;
-            position: relative;
-        }
-
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle at center, var(--accent-glow), transparent 70%);
-            border-radius: 50%;
-            animation: pulseGlow 2s infinite;
+            gap: 30px;
         }
 
         .stat-number {
-            font-size: 56px;
-            font-weight: 800;
+            font-size: 28px;
+            font-weight: 700;
             color: var(--accent);
-            display: block;
-            line-height: 1;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 11px;
             color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        /* ==================== SORGU KARTLARI ==================== */
-        .section-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin: 60px 0 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title i {
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: white;
-            box-shadow: 0 0 30px var(--accent-glow);
-        }
-
+        /* ==================== KARTLAR ==================== */
         .queries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .query-card {
-            background: rgba(17,20,31,0.6);
+            background: rgba(15,18,25,0.6);
             backdrop-filter: blur(10px);
             border: 1px solid var(--border-light);
-            border-radius: 40px;
-            padding: 30px;
+            border-radius: 20px;
+            padding: 15px;
             cursor: pointer;
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .query-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, var(--accent-glow), transparent 70%);
-            opacity: 0;
-            transition: 0.6s;
-            pointer-events: none;
-        }
-
-        .query-card:hover::before {
-            opacity: 0.4;
+            transition: 0.2s;
         }
 
         .query-card:hover {
             border-color: var(--accent);
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 30px 50px rgba(239,68,68,0.2);
+            transform: translateY(-2px);
         }
 
         .query-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-            border-radius: 30px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), #f97316);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .query-icon::after {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent 70%);
-            animation: iconGlow 3s infinite;
-        }
-
-        @keyframes iconGlow {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.2); }
+            margin-bottom: 10px;
         }
 
         .query-icon i {
-            font-size: 26px;
+            font-size: 18px;
             color: white;
-            position: relative;
-            z-index: 2;
         }
 
         .query-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 3px;
         }
 
         .query-category {
-            font-size: 12px;
+            font-size: 10px;
             color: var(--text-secondary);
-            display: inline-block;
-            padding: 4px 12px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 30px;
         }
 
-        /* ==================== FORM ==================== */
+        /* ==================== SORGU FORMU ==================== */
         .query-form {
-            background: rgba(17,20,31,0.7);
+            background: rgba(15,18,25,0.8);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-light);
-            border-radius: 60px;
-            padding: 50px;
-            max-width: 550px;
+            border-radius: 30px;
+            padding: 30px;
+            max-width: 450px;
             margin: 0 auto;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .form-header h3 {
+            font-size: 18px;
+            color: var(--accent);
+        }
+
+        .back-btn {
+            width: 35px;
+            height: 35px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .back-btn:hover {
+            border-color: var(--accent);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
             display: block;
-            font-size: 13px;
-            margin-bottom: 10px;
+            font-size: 11px;
             color: var(--text-secondary);
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            margin-bottom: 4px;
         }
 
         .form-control {
             width: 100%;
-            padding: 16px 20px;
-            background: var(--bg-primary);
+            padding: 12px 15px;
+            background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 40px;
+            border-radius: 25px;
             color: var(--text);
-            font-size: 15px;
-            transition: 0.2s;
+            font-size: 13px;
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 5px var(--accent-glow);
         }
 
         .btn {
             width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            padding: 12px;
+            background: var(--accent);
             border: none;
-            border-radius: 40px;
+            border-radius: 25px;
             color: white;
-            font-size: 17px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 400px;
-            height: 400px;
+            transition: 0.2s;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px var(--accent-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--accent-glow);
         }
 
         /* ==================== SONUÇ ==================== */
         .result-box {
-            background: rgba(17,20,31,0.7);
+            background: rgba(15,18,25,0.8);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-light);
-            border-radius: 50px;
-            padding: 30px;
-            margin-top: 30px;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 15px;
         }
 
         .result-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .result-header h4 {
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 10px;
         }
 
         .result-actions {
             display: flex;
-            gap: 12px;
+            gap: 5px;
         }
 
         .result-actions button {
-            background: var(--bg-primary);
+            background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 30px;
-            padding: 10px 18px;
+            border-radius: 20px;
+            padding: 5px 10px;
             color: var(--text);
-            font-size: 13px;
+            font-size: 10px;
             cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .result-actions button:hover {
             border-color: var(--accent);
-            background: var(--bg-hover);
-            transform: scale(1.05);
         }
 
         .result-item {
-            padding: 15px;
-            background: var(--bg-primary);
-            border-radius: 30px;
-            margin-bottom: 10px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 15px;
+            margin-bottom: 5px;
             border: 1px solid var(--border);
-            font-size: 14px;
-            transition: 0.2s;
-        }
-
-        .result-item:hover {
-            border-color: var(--accent);
-            transform: translateX(8px);
+            font-size: 12px;
         }
 
         .result-item strong {
             color: var(--accent);
-            min-width: 140px;
+            min-width: 100px;
             display: inline-block;
         }
 
-        /* ==================== TOAST ==================== */
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(150px);
-            background: rgba(17,20,31,0.95);
-            backdrop-filter: blur(20px);
-            border: 2px solid var(--accent);
-            border-radius: 60px;
-            padding: 16px 32px;
-            font-size: 15px;
-            font-weight: 600;
-            z-index: 99999;
-            transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 15px 40px var(--accent-glow);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .toast i {
-            color: var(--success);
-            font-size: 20px;
-        }
-
-        /* Loading */
         .loading {
             text-align: center;
-            padding: 50px;
+            padding: 20px;
         }
 
         .loading-circle {
-            width: 60px;
-            height: 60px;
-            border: 3px solid var(--border);
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--border);
             border-top-color: var(--accent);
             border-radius: 50%;
-            animation: spin 1s infinite linear;
-            margin: 0 auto 20px;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 10px;
         }
 
         @keyframes spin {
@@ -850,59 +546,75 @@
 
         .error-box {
             background: rgba(239,68,68,0.1);
-            border: 1px solid var(--error);
-            border-radius: 40px;
-            padding: 25px;
-            margin-top: 20px;
-            color: var(--error);
+            border: 1px solid var(--accent);
+            border-radius: 15px;
+            padding: 12px;
+            margin-top: 10px;
+            color: var(--accent);
+            font-size: 12px;
             text-align: center;
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* ==================== TOAST ==================== */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(15,18,25,0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--accent);
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 12px;
+            z-index: 99999;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 4px;
+        .toast i {
+            color: var(--success);
         }
 
-        ::-webkit-scrollbar-thumb:hover {
+        /* ==================== TELEGRAM ==================== */
+        .telegram-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 99;
+            box-shadow: 0 5px 15px var(--accent-glow);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .navbar { width: calc(100% - 30px); padding: 15px 25px; }
-            .logo { font-size: 24px; }
-            .hero h1 { font-size: 48px; }
-            .hero-stats { flex-direction: column; gap: 30px; }
-            .menu-panel { width: 300px; right: 15px; top: 70px; }
-            .main-content { padding: 20px; }
+            .hero h1 { font-size: 36px; }
+            .menu-panel { width: 260px; right: 10px; }
+            .telegram-link { bottom: 15px; right: 15px; padding: 8px 16px; font-size: 12px; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-gradient"></div>
-    <div class="bg-noise"></div>
-    <div class="circle-line circle-line-1"></div>
-    <div class="circle-line circle-line-2"></div>
-    <div class="circle-line circle-line-3"></div>
-
     <!-- CloudFree -->
     <div class="cloudfree-overlay" id="cloudfreeOverlay">
         <div class="cloudfree-box">
             <div class="cloudfree-logo">DOXBİN</div>
-            <div class="cloudfree-badge">🔒 CLOUDFREE ULTRA</div>
-            <div class="cloudfree-text">
-                Güvenlik doğrulaması için lütfen aşağıdaki kutucuğu işaretleyin.<br>
-                Bu işlem botlara karşı koruma sağlar.
-            </div>
+            <div class="cloudfree-badge">🔒 CLOUDFREE</div>
+            <p style="color: var(--text-secondary); margin-bottom: 15px; font-size: 13px;">Doğrulama için tıklayın</p>
             <div class="cf-turnstile" data-sitekey="0x4AAAAAAA5X5X5X5X5X5X5X" data-callback="onCloudfreeSuccess" data-theme="dark"></div>
         </div>
     </div>
@@ -913,10 +625,18 @@
             <i class="fas fa-shield-halos"></i>
             DOXBİN
         </div>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="nav-actions">
+            <div class="nav-btn" id="musicBtn">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')">
+                <i class="fab fa-telegram"></i>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -924,9 +644,9 @@
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
-            <h3><i class="fas fa-bolt"></i> SORGU LİSTESİ</h3>
+            <h3><i class="fas fa-bolt"></i> SORGULAR</h3>
             <div class="menu-search">
-                <input type="text" id="menuSearch" placeholder="Sorgu ara...">
+                <input type="text" id="menuSearch" placeholder="Ara...">
             </div>
         </div>
         <div class="menu-content" id="menuContent"></div>
@@ -938,11 +658,16 @@
     <!-- Toast -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
-        <span id="toastMessage">İşlem başarılı!</span>
+        <span id="toastMessage"></span>
     </div>
 
-    <!-- Müzik (gizli) -->
-    <audio id="bgMusic" loop preload="auto">
+    <!-- Telegram -->
+    <a href="https://t.me/doxbinhack" target="_blank" class="telegram-link">
+        <i class="fab fa-telegram"></i> @doxbinhack
+    </a>
+
+    <!-- Müzik -->
+    <audio id="bgMusic" loop>
         <source src="https://www.youtube.com/watch?v=vgg6cjlJNyU" type="audio/mp3">
     </audio>
 
@@ -950,78 +675,52 @@
         // ==================== CloudFree ====================
         window.onCloudfreeSuccess = function() {
             document.getElementById('cloudfreeOverlay').classList.add('hidden');
-            // Müzik başlat
-            document.getElementById('bgMusic').play().catch(() => {
-                document.addEventListener('click', function playOnClick() {
-                    document.getElementById('bgMusic').play();
-                    document.removeEventListener('click', playOnClick);
-                }, { once: true });
-            });
-            showToast('✅ DOXBİN\'e hoş geldiniz');
+            showToast('✅ DOXBİN\'e hoş geldin');
+            document.getElementById('bgMusic').play().catch(() => {});
         };
 
         setTimeout(() => {
             document.getElementById('cloudfreeOverlay').classList.add('hidden');
-        }, 8000);
+        }, 5000);
 
-        // ==================== DEV PROXY HAVUZU ====================
+        // ==================== PROXY (HIZLI) ====================
         const PROXY_LIST = [
             'https://corsproxy.io/?',
             'https://api.allorigins.win/raw?url=',
             'https://cors-anywhere.herokuapp.com/',
-            'https://proxy.cors.sh/',
-            'https://thingproxy.freeboard.io/fetch/',
-            'https://cors.eu.org/',
-            'https://crossorigin.me/',
-            'https://cors-proxy.fringe.zone/',
-            'https://cors.bridged.cc/',
-            'http://45.87.213.207:8080',
-            'http://185.217.131.117:8080',
-            'http://185.208.156.155:8080',
-            'http://45.129.14.82:8080',
-            'http://103.149.162.195:80',
-            'http://103.149.162.196:80',
-            'https://45.87.213.207:8080',
-            'https://185.217.131.117:8080',
             ''
         ];
 
         const USER_AGENTS = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15',
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 Chrome/120.0.6099.210 Mobile Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
-            'Mozilla/5.0 (iPad; CPU OS 17_2 like Mac OS X) AppleWebKit/605.1.15 Version/17.2 Mobile/15E148 Safari/604.1'
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1'
         ];
 
-        // ==================== PUNISHER API ====================
+        // ==================== SADECE SCKIZM.SHOP (PUNISHER YOK) ====================
         const SORGULAR = [
-            { id: 'tc', ad: 'TC Basic', api: 'https://punisherapi.alwaysdata.net/apiservices/tc.php', param: 'tc', kategori: 'TC' },
-            { id: 'tcpro', ad: 'TC PRO', api: 'https://punisherapi.alwaysdata.net/apiservices/tcpro.php', param: 'tc', kategori: 'TC', populer: true },
-            { id: 'adsoyad', ad: 'Ad Soyad', api: 'https://punisherapi.alwaysdata.net/apiservices/adsoyad.php', params: ['ad','soyad'], kategori: 'Ad Soyad' },
-            { id: 'adsoyadpro', ad: 'Ad Soyad PRO', api: 'https://punisherapi.alwaysdata.net/apiservices/adsoyadpro.php', params: ['ad','soyad','il'], kategori: 'Ad Soyad', populer: true },
-            { id: 'aile', ad: 'TC Aile', api: 'https://punisherapi.alwaysdata.net/apiservices/aile.php', param: 'tc', kategori: 'Aile' },
-            { id: 'ailepro', ad: 'Aile PRO', api: 'https://punisherapi.alwaysdata.net/apiservices/ailepro.php', param: 'tc', kategori: 'Aile', populer: true },
-            { id: 'adres', ad: 'TC Adres', api: 'https://punisherapi.alwaysdata.net/apiservices/adres.php', param: 'tc', kategori: 'Adres' },
-            { id: 'iban', ad: 'IBAN Sorgu', api: 'https://punisherapi.alwaysdata.net/apiservices/iban.php', param: 'iban', kategori: 'Diğer', populer: true },
-            { id: 'gncloperator', ad: 'Güncel Op', api: 'https://punisherapi.alwaysdata.net/apiservices/gncloperator.php', param: 'numara', kategori: 'GSM' },
-            { id: 'tcgsm', ad: 'TC/GSM', api: 'https://punisherapi.alwaysdata.net/apiservices/tcgsm.php', param: 'tc', kategori: 'GSM' },
-            { id: 'gsmtc', ad: 'GSM/TC', api: 'https://punisherapi.alwaysdata.net/apiservices/gsmtc.php', param: 'gsm', kategori: 'GSM' }
+            { id: 'tc', ad: 'TC Basic', api: 'https://api.sckizm.shop/api/tc', param: 'tc', kategori: 'TC' },
+            { id: 'adsoyad', ad: 'Ad Soyad', api: 'https://api.sckizm.shop/api/adsoyad', params: ['ad','soyad'], kategori: 'Ad Soyad' },
+            { id: 'tcgsm', ad: 'TC/GSM', api: 'https://api.sckizm.shop/api/tcgsm', param: 'tc', kategori: 'GSM' },
+            { id: 'gsmtc', ad: 'GSM/TC', api: 'https://api.sckizm.shop/api/gsmtc', param: 'gsm', kategori: 'GSM' },
+            { id: 'adres', ad: 'TC Adres', api: 'https://api.sckizm.shop/api/adres', param: 'tc', kategori: 'Adres' },
+            { id: 'aile', ad: 'TC Aile', api: 'https://api.sckizm.shop/api/aile', param: 'tc', kategori: 'Aile' },
+            { id: 'sulale', ad: 'TC Sülale', api: 'https://api.sckizm.shop/api/sulale', param: 'tc', kategori: 'Aile' },
+            { id: 'sgk', ad: 'SGK Sorgu', api: 'https://api.sckizm.shop/api/sgk', param: 'tc', kategori: 'SGK' },
+            { id: 'operator', ad: 'Operatör', api: 'https://api.sckizm.shop/api/operator', param: 'gsm', kategori: 'GSM' }
         ];
 
-        // ==================== REKLAM TEMİZLEME ====================
+        // ==================== REKLAM TEMİZLE ====================
         function temizle(data) {
             if (!data) return null;
-            const reklam = ['success','message','developer','version','timestamp','type','time','elapsed'];
+            const reklam = ['success','message','developer','version','timestamp'];
             
             if (Array.isArray(data)) {
                 return data.map(item => temizle(item)).filter(i => i !== null);
             }
             
             if (typeof data === 'object') {
-                if (data.results) return temizle(data.results);
+                if (data.data) return temizle(data.data);
                 
                 const yeni = {};
                 for (const [k, v] of Object.entries(data)) {
@@ -1039,44 +738,30 @@
             return data;
         }
 
-        // ==================== SÜPER API (SINIRSIZ) ====================
-        async function superIstek(url, params, deneme = 0) {
+        // ==================== HIZLI API ====================
+        async function hizliIstek(url, params, deneme = 0) {
             const query = new URLSearchParams(params).toString();
             const fullUrl = `${url}?${query}`;
             
-            const proxyIndex = Math.min(deneme, PROXY_LIST.length - 1);
-            const proxy = PROXY_LIST[proxyIndex];
+            const proxy = PROXY_LIST[Math.min(deneme, PROXY_LIST.length - 1)];
             const requestUrl = proxy ? proxy + encodeURIComponent(fullUrl) : fullUrl;
-            const userAgent = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
 
             try {
                 const response = await fetch(requestUrl, {
-                    headers: {
-                        'User-Agent': userAgent,
-                        'Accept': 'application/json',
-                        'Origin': window.location.origin
-                    }
+                    headers: { 'User-Agent': USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)] }
                 });
                 
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 
-                const text = await response.text();
-                let data;
-                try {
-                    data = JSON.parse(text);
-                } catch {
-                    data = { sonuc: text };
-                }
-                
+                const data = await response.json();
                 const temiz = temizle(data);
-                if (!temiz) throw new Error('Veri bulunamadı');
+                if (!temiz) throw new Error('Veri yok');
                 
                 return temiz;
                 
             } catch (error) {
                 if (deneme < PROXY_LIST.length - 1) {
-                    await new Promise(r => setTimeout(r, 200));
-                    return superIstek(url, params, deneme + 1);
+                    return hizliIstek(url, params, deneme + 1);
                 }
                 throw error;
             }
@@ -1086,7 +771,7 @@
         function showToast(msg) {
             document.getElementById('toastMessage').textContent = msg;
             document.getElementById('toast').classList.add('show');
-            setTimeout(() => document.getElementById('toast').classList.remove('show'), 2000);
+            setTimeout(() => document.getElementById('toast').classList.remove('show'), 1500);
         }
 
         // ==================== MENÜ ====================
@@ -1100,7 +785,6 @@
                 SORGULAR.filter(s => s.kategori === kat).forEach(s => {
                     html += `<div class="menu-item" onclick="formGoster('${s.id}')">`;
                     html += `<i class="fas fa-search"></i> ${s.ad}`;
-                    if (s.populer) html += `<span class="badge">🔥</span>`;
                     html += `</div>`;
                 });
                 html += `</div>`;
@@ -1109,38 +793,24 @@
             menu.innerHTML = html;
         }
 
-        // ==================== MENÜ ARAMA ====================
-        document.getElementById('menuSearch').addEventListener('keyup', function(e) {
-            const search = e.target.value.toLowerCase();
-            document.querySelectorAll('.menu-item').forEach(item => {
-                const text = item.innerText.toLowerCase();
-                item.style.display = text.includes(search) ? 'flex' : 'none';
-            });
-        });
-
         // ==================== ANA SAYFA ====================
         function anaSayfa() {
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
-                    <h1>DOXBİN ULTRA</h1>
-                    <p>11 sorgu • 50+ proxy • sınırsız hız • cloudfree koruma</p>
+                    <h1>DOXBİN</h1>
+                    <p>9 sorgu • hızlı proxy • anlık sonuç</p>
                     <div class="hero-stats">
-                        <div class="stat-item"><span class="stat-number">11</span><span class="stat-label">SORGU</span></div>
-                        <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">PROXY</span></div>
-                        <div class="stat-item"><span class="stat-number">∞</span><span class="stat-label">HIZ</span></div>
+                        <div><span class="stat-number">9</span><br><span class="stat-label">SORGU</span></div>
+                        <div><span class="stat-number">4+</span><br><span class="stat-label">PROXY</span></div>
+                        <div><span class="stat-number">∞</span><br><span class="stat-label">HIZ</span></div>
                     </div>
                 </div>
-                
-                <div class="section-title">
-                    <i class="fas fa-bolt"></i>
-                    <span>POPÜLER SORGULAR</span>
-                </div>
                 <div class="queries-grid">
-                    ${SORGULAR.filter(s => s.populer).map(s => `
+                    ${SORGULAR.map(s => `
                         <div class="query-card" onclick="formGoster('${s.id}')">
                             <div class="query-icon"><i class="fas fa-search"></i></div>
                             <div class="query-title">${s.ad}</div>
-                            <span class="query-category">${s.kategori}</span>
+                            <div class="query-category">${s.kategori}</div>
                         </div>
                     `).join('')}
                 </div>
@@ -1177,7 +847,12 @@
 
             document.getElementById('mainContent').innerHTML = `
                 <div class="query-form">
-                    <h3 style="margin-bottom: 25px; font-size: 24px;">🔍 ${sorgu.ad}</h3>
+                    <div class="form-header">
+                        <h3>${sorgu.ad}</h3>
+                        <div class="back-btn" onclick="anaSayfa()">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
                     <form id="sorguForm" onsubmit="event.preventDefault(); sorgula('${sorgu.id}')">
                         ${inputs}
                         <button type="submit" class="btn">SORGULA</button>
@@ -1205,22 +880,21 @@
                 }
             }
 
-            document.getElementById('sonuc').innerHTML = '<div class="loading"><div class="loading-circle"></div><p style="margin-top: 15px;">Sorgulanıyor...</p></div>';
+            document.getElementById('sonuc').innerHTML = '<div class="loading"><div class="loading-circle"></div><p>Sorgulanıyor...</p></div>';
 
             try {
-                const sonuc = await superIstek(sorgu.api, params);
+                const sonuc = await hizliIstek(sorgu.api, params);
                 
                 let sonucText = '';
-                let html = '<div class="result-box">';
-                html += '<div class="result-header"><h4><i class="fas fa-check-circle" style="color: var(--success);"></i> SONUÇ</h4>';
+                let html = '<div class="result-box"><div class="result-header"><span>📊 SONUÇ</span>';
                 html += '<div class="result-actions">';
-                html += '<button onclick="copyResult()"><i class="fas fa-copy"></i> KOPYALA</button>';
-                html += '<button onclick="downloadTxt()"><i class="fas fa-download"></i> TXT</button>';
+                html += '<button onclick="copyResult()"><i class="fas fa-copy"></i></button>';
+                html += '<button onclick="downloadTxt()"><i class="fas fa-download"></i></button>';
                 html += '</div></div>';
                 
                 if (Array.isArray(sonuc)) {
                     sonuc.forEach((item, idx) => {
-                        html += `<h5 style="margin: 15px 0 10px; color: var(--accent);">#${idx+1}</h5>`;
+                        html += `<div style="margin:8px 0 3px; color:var(--accent);">#${idx+1}</div>`;
                         sonucText += `#${idx+1}\n`;
                         for (const [k, v] of Object.entries(item)) {
                             if (v && v !== 'null') {
@@ -1244,21 +918,19 @@
                 
                 html += '</div>';
                 document.getElementById('sonuc').innerHTML = html;
-                
                 window.sonucText = sonucText;
-                showToast('✅ Sorgu tamamlandı!');
+                showToast('✅ Tamamlandı!');
                 
             } catch (error) {
                 document.getElementById('sonuc').innerHTML = `
                     <div class="error-box">
-                        ❌ HATA: ${error.message}<br>
-                        <small>50+ proxy denendi, sonuç alınamadı.</small>
+                        ❌ Hata: ${error.message}
                     </div>
                 `;
             }
         }
 
-        // ==================== KOPYALA ====================
+        // ==================== KOPYALA / TXT ====================
         window.copyResult = function() {
             if (window.sonucText) {
                 navigator.clipboard.writeText(window.sonucText);
@@ -1266,7 +938,6 @@
             }
         };
 
-        // ==================== TXT İNDİR ====================
         window.downloadTxt = function() {
             if (window.sonucText) {
                 const blob = new Blob([window.sonucText], { type: 'text/plain' });
@@ -1277,6 +948,31 @@
                 showToast('✅ TXT indiriliyor...');
             }
         };
+
+        // ==================== MÜZİK ====================
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let musicPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (musicPlaying) {
+                music.pause();
+                musicBtn.classList.remove('active');
+            } else {
+                music.play();
+                musicBtn.classList.add('active');
+            }
+            musicPlaying = !musicPlaying;
+        });
+
+        // ==================== MENÜ ARAMA ====================
+        document.getElementById('menuSearch').addEventListener('keyup', function(e) {
+            const search = e.target.value.toLowerCase();
+            document.querySelectorAll('.menu-item').forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(search) ? 'flex' : 'none';
+            });
+        });
 
         // ==================== HAMBURGER ====================
         const hamburger = document.getElementById('hamburger');
