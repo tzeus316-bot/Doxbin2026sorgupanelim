@@ -384,28 +384,29 @@
             white-space: nowrap;
         }
 
+        /* PROFİL BÜYÜTÜLDÜ */
         .user-info {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             background: var(--bg-card);
-            padding: 4px 8px;
+            padding: 6px 12px;
             border-radius: 30px;
             border: 1px solid var(--border);
             cursor: pointer;
-            max-width: 110px;
+            max-width: 150px;
             overflow: hidden;
         }
 
         .user-avatar {
-            width: 20px;
-            height: 20px;
+            width: 28px;
+            height: 28px;
             background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 9px;
+            font-size: 12px;
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -417,7 +418,7 @@
         }
 
         .user-name {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -428,17 +429,17 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            font-size: 7px;
+            font-size: 8px;
             color: white;
             flex-shrink: 0;
         }
 
         .user-badge {
-            font-size: 8px;
-            padding: 2px 4px;
+            font-size: 9px;
+            padding: 3px 6px;
             background: var(--accent);
             border-radius: 20px;
             white-space: nowrap;
@@ -941,7 +942,7 @@
             text-align: center;
         }
 
-        /* Admin Paneli */
+        /* Admin Paneli - SADECE ADMIN GÖREBİLİR */
         .admin-panel {
             position: fixed;
             top: 50%;
@@ -1343,7 +1344,7 @@
     <!-- PROFİL DÜZENLEME MODAL -->
     <div class="modal" id="profileModal">
         <h3>👤 PROFİL DÜZENLE</h3>
-        <div style="width: 55px; height: 55px; margin: 0 auto 12px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="triggerFileUpload()">
+        <div style="width: 60px; height: 60px; margin: 0 auto 12px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="triggerFileUpload()">
             <img id="avatarPreviewImg" src="" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
             <i class="fas fa-user" id="avatarIcon"></i>
         </div>
@@ -1402,7 +1403,7 @@
         </div>
     </div>
 
-    <!-- Admin Paneli -->
+    <!-- Admin Paneli - SADECE ADMIN GÖREBİLİR -->
     <div class="admin-panel" id="adminPanel">
         <h3 style="color: var(--accent); margin-bottom: 12px;">👑 ADMIN PANELİ</h3>
         <div class="admin-tabs">
@@ -1573,32 +1574,17 @@
             return (match && match[2].length === 11) ? match[2] : null;
         }
 
-        // ==================== GÜÇLÜ PROXY LİSTESİ (30+ PROXY) ====================
+        // ==================== 5 GÜÇLÜ PROXY ====================
         const PROXY_LIST = [
             'https://corsproxy.io/?',
             'https://api.allorigins.win/raw?url=',
             'https://cors-anywhere.herokuapp.com/',
             'https://thingproxy.freeboard.io/fetch/',
             'https://proxy.cors.sh/',
-            'https://cors.eu.org/',
-            'https://crossorigin.me/',
-            'https://cors-proxy.fringe.zone/',
-            'https://cors.bridged.cc/',
-            'https://cors.apiplatform.net/',
-            'https://cors-anywhere.azm.workers.dev/',
-            'https://cors-anywhere.cyclic.app/',
-            'https://cors-anywhere.render.com/',
-            'https://cors-anywhere.fly.dev/',
-            'https://cors-anywhere.glitch.me/',
-            'https://cors-anywhere.replit.app/',
-            'https://corsproxy.org/',
-            'https://cors-proxy.herokuapp.com/',
-            'https://cors.bridged.cc/',
-            'https://api.codetabs.com/v1/proxy?quest=',
-            ''
+            '' // direkt bağlantı (yedek)
         ];
 
-        // ==================== 5 AMERİKAN USER-AGENT ====================
+        // ==================== 5 GÜÇLÜ AMERİKAN USER-AGENT ====================
         const USER_AGENTS = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 (United States)',
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15 (United States)',
@@ -2200,7 +2186,7 @@
             document.getElementById('pointsModal').classList.remove('active');
         };
 
-        // ADMIN PANELİ
+        // ADMIN PANELİ - SADECE ADMIN
         window.openAdminPanel = function() {
             if (!currentUser?.isAdmin) {
                 showToast('❌ Yetkiniz yok');
@@ -2356,7 +2342,7 @@
         // Müzik butonu
         document.getElementById('musicBtn').addEventListener('click', toggleMusic);
 
-        // Admin panel butonu
+        // Admin panel butonu - SADECE ADMIN GÖRÜR
         const adminBtn = document.createElement('div');
         adminBtn.className = 'nav-btn';
         adminBtn.innerHTML = '<i class="fas fa-crown"></i>';
@@ -2406,7 +2392,7 @@
                         'Accept': 'application/json',
                         'Origin': window.location.origin
                     },
-                    cache: 'no-cache' // Daha hızlı yanıt için
+                    cache: 'no-cache'
                 });
                 
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -2417,7 +2403,7 @@
                 
             } catch (error) {
                 if (deneme < PROXY_LIST.length - 1) {
-                    await new Promise(r => setTimeout(r, 200)); // Daha hızlı tekrar deneme
+                    await new Promise(r => setTimeout(r, 200));
                     return hizliIstek(url, params, deneme + 1);
                 }
                 hideDelayMessage();
