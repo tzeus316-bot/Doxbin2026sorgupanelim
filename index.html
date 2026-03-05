@@ -415,7 +415,7 @@
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px); }
 
-        /* MENÜ */
+        /* MENÜ - TÜM ÖZELLİKLER ALT ALTA KATEGORİLİ */
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -492,19 +492,20 @@
         }
 
         .menu-content {
-            padding: 12px;
+            padding: 15px;
         }
 
         .menu-category {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .menu-category-title {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--accent);
-            padding-left: 8px;
-            margin-bottom: 5px;
+            padding-left: 5px;
+            margin-bottom: 8px;
             font-weight: 600;
+            border-left: 3px solid var(--accent);
         }
 
         .menu-item {
@@ -529,8 +530,8 @@
 
         .menu-item i {
             color: var(--accent);
-            width: 16px;
-            font-size: 12px;
+            width: 18px;
+            font-size: 13px;
         }
 
         /* MODALLAR */
@@ -808,6 +809,12 @@
 
         .announcement-bar.active {
             display: block;
+            animation: announceSlide 0.3s;
+        }
+
+        @keyframes announceSlide {
+            from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
 
         /* GECİKME MESAJI */
@@ -1261,7 +1268,7 @@
     <!-- PROFİL DÜZENLEME MODAL -->
     <div class="modal" id="profileModal">
         <h3>👤 PROFİL DÜZENLE</h3>
-        <div class="profile-avatar-upload" style="width: 60px; height: 60px; margin: 0 auto 15px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="triggerFileUpload()">
+        <div style="width: 60px; height: 60px; margin: 0 auto 15px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="triggerFileUpload()">
             <img id="avatarPreviewImg" src="" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
             <i class="fas fa-user" id="avatarIcon"></i>
         </div>
@@ -1373,13 +1380,13 @@
         </div>
     </nav>
 
-    <!-- Menü -->
+    <!-- Menü - TÜM ÖZELLİKLER KATEGORİLİ ALT ALTA -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
-            <h3><i class="fas fa-bolt"></i> KATEGORİLER</h3>
+            <h3><i class="fas fa-bolt"></i> ANA MENÜ</h3>
             <div class="menu-search">
-                <input type="text" id="menuSearch" placeholder="Ara...">
+                <input type="text" id="menuSearch" placeholder="Menüde ara...">
             </div>
         </div>
         <div class="menu-content" id="menuContent"></div>
@@ -1495,14 +1502,7 @@
             'https://corsproxy.org/',
             'https://cors-proxy.herokuapp.com/',
             'https://cors.bridged.cc/',
-            'https://cors-proxy.fringe.zone/',
             'https://api.codetabs.com/v1/proxy?quest=',
-            'https://cors-anywhere.herokuapp.com/',
-            'https://cors-anywhere.cyclic.app/',
-            'https://cors-anywhere.render.com/',
-            'https://cors-anywhere.fly.dev/',
-            'https://cors-anywhere.glitch.me/',
-            'https://cors-anywhere.replit.app/',
             ''
         ];
 
@@ -1527,14 +1527,7 @@
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/119.0.0.0 Safari/537.36',
             'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6) Mobile/15E148 Safari/604.1',
             'Mozilla/5.0 (Linux; Android 12) Chrome/119.0.6045.163 Mobile Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/118.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/118.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) Chrome/118.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Firefox/120.0',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:119.0) Firefox/119.0',
-            'Mozilla/5.0 (iPad; CPU OS 16_6) Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 13) Chrome/118.0.5993.80 Mobile Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/117.0.0.0 Safari/537.36'
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/118.0.0.0 Safari/537.36'
         ];
 
         // ==================== TİK RENKLERİ ====================
@@ -1876,7 +1869,7 @@
             const historyList = document.getElementById('historyList');
             let html = '';
             userHistory.slice().reverse().forEach(item => {
-                html += `<div class="history-item"><strong>${item.type}</strong> - ${item.time}<br><small>${item.detail}</small></div>`;
+                html += `<div style="padding: 8px; background: var(--bg); border-radius: 10px; margin-bottom: 5px;"><strong>${item.type}</strong> - ${item.time}<br><small>${item.detail}</small></div>`;
             });
             if (html === '') html = '<p style="text-align: center; color: var(--text-secondary);">Henüz işlem yok</p>';
             historyList.innerHTML = html;
@@ -2150,7 +2143,7 @@
 
         function loadAdminAnnounce() {
             let html = `
-                <textarea class="admin-input" id="announceText" rows="3" placeholder="Duyuru yazın...">${announcement}</textarea>
+                <textarea class="modal-input" id="announceText" rows="3" placeholder="Duyuru yazın...">${announcement}</textarea>
                 <button class="modal-btn" onclick="postAnnouncement()">DUYURU YAYINLA</button>
             `;
             document.getElementById('adminContent').innerHTML = html;
@@ -2223,7 +2216,7 @@
             const history = JSON.parse(localStorage.getItem(`history_${username}`) || '[]');
             let html = '<h4 style="margin-bottom: 10px;">' + username + ' Geçmişi</h4>';
             history.slice().reverse().forEach(item => {
-                html += `<div class="history-item">${item.type} - ${item.time}<br><small>${item.detail}</small></div>`;
+                html += `<div style="padding: 5px; background: var(--bg); border-radius: 10px; margin-bottom: 5px;">${item.type} - ${item.time}<br><small>${item.detail}</small></div>`;
             });
             document.getElementById('adminContent').innerHTML = html;
         };
@@ -2351,34 +2344,57 @@
             setTimeout(() => document.getElementById('toast').classList.remove('show'), 1500);
         }
 
-        // Menü oluştur
+        // Menü oluştur - TÜM ÖZELLİKLER KATEGORİLİ
         function menuOlustur() {
             const menu = document.getElementById('menuContent');
             
             // Kategoriler
-            const kategoriler = [
-                { 
+            const menuKategoriler = [
+                {
                     title: '🔍 SORGULAR',
                     items: [
-                        { id: 'tc', ad: 'TC Basic', kategori: 'TC' },
-                        { id: 'adsoyad', ad: 'Ad Soyad', kategori: 'Ad Soyad' },
-                        { id: 'tcgsm', ad: 'TC/GSM', kategori: 'GSM' },
-                        { id: 'gsmtc', ad: 'GSM/TC', kategori: 'GSM' },
-                        { id: 'adres', ad: 'TC Adres', kategori: 'Adres' },
-                        { id: 'aile', ad: 'TC Aile', kategori: 'Aile' },
-                        { id: 'sulale', ad: 'TC Sülale', kategori: 'Aile' },
-                        { id: 'sgk', ad: 'SGK Sorgu', kategori: 'SGK' },
-                        { id: 'operator', ad: 'Operatör', kategori: 'GSM' }
+                        { icon: 'fa-id-card', text: 'TC Basic', action: 'tc' },
+                        { icon: 'fa-user', text: 'Ad Soyad', action: 'adsoyad' },
+                        { icon: 'fa-phone', text: 'TC/GSM', action: 'tcgsm' },
+                        { icon: 'fa-phone', text: 'GSM/TC', action: 'gsmtc' },
+                        { icon: 'fa-map-marker', text: 'TC Adres', action: 'adres' },
+                        { icon: 'fa-users', text: 'TC Aile', action: 'aile' },
+                        { icon: 'fa-tree', text: 'TC Sülale', action: 'sulale' },
+                        { icon: 'fa-briefcase', text: 'SGK Sorgu', action: 'sgk' },
+                        { icon: 'fa-signal', text: 'Operatör', action: 'operator' }
+                    ]
+                },
+                {
+                    title: '🎵 MÜZİK & EĞLENCE',
+                    items: [
+                        { icon: 'fa-film', text: 'Film İzle', action: 'movie' },
+                        { icon: 'fa-music', text: 'Müzik Değiştir', action: 'music' }
+                    ]
+                },
+                {
+                    title: '💬 SOY BET & MESAJ',
+                    items: [
+                        { icon: 'fa-comments', text: 'Soy Bet', action: 'chat' },
+                        { icon: 'fa-envelope', text: 'Özel Mesaj', action: 'pm' }
+                    ]
+                },
+                {
+                    title: '👥 KULLANICI İŞLEMLERİ',
+                    items: [
+                        { icon: 'fa-user', text: 'Profil Düzenle', action: 'profile' },
+                        { icon: 'fa-star', text: 'Puanlarım', action: 'points' },
+                        { icon: 'fa-history', text: 'İşlem Geçmişi', action: 'history' },
+                        { icon: 'fa-user-plus', text: 'Davet Gönder', action: 'invite' }
                     ]
                 }
             ];
             
             let html = '';
-            kategoriler.forEach(kat => {
+            menuKategoriler.forEach(kat => {
                 html += `<div class="menu-category"><div class="menu-category-title">${kat.title}</div>`;
-                kat.items.forEach(s => {
-                    html += `<div class="menu-item" onclick="formGoster('${s.id}')">`;
-                    html += `<i class="fas fa-search"></i> ${s.ad}`;
+                kat.items.forEach(item => {
+                    html += `<div class="menu-item" onclick="menuAction('${item.action}')">`;
+                    html += `<i class="fas ${item.icon}"></i> ${item.text}`;
                     html += `</div>`;
                 });
                 html += `</div>`;
@@ -2386,6 +2402,35 @@
             
             menu.innerHTML = html;
         }
+
+        // Menü aksiyonları
+        window.menuAction = function(action) {
+            document.getElementById('hamburger').classList.remove('active');
+            document.getElementById('menuPanel').classList.remove('active');
+            document.getElementById('menuOverlay').classList.remove('active');
+            
+            if (action.startsWith('tc') || action === 'adsoyad' || action === 'tcgsm' || action === 'gsmtc' || 
+                action === 'adres' || action === 'aile' || action === 'sulale' || action === 'sgk' || action === 'operator') {
+                formGoster(action);
+            } else if (action === 'movie') {
+                openMovieModal();
+            } else if (action === 'music') {
+                openProfileModal();
+                document.getElementById('musicLink').focus();
+            } else if (action === 'chat') {
+                toggleChat();
+            } else if (action === 'pm') {
+                openPMModal();
+            } else if (action === 'profile') {
+                openProfileModal();
+            } else if (action === 'points') {
+                openPointsModal();
+            } else if (action === 'history') {
+                openHistoryModal();
+            } else if (action === 'invite') {
+                openInviteModal();
+            }
+        };
 
         // Sorgular
         const SORGULAR = [
@@ -2421,10 +2466,6 @@
             const sorgu = SORGULAR.find(s => s.id === id);
             if (!sorgu) return;
             
-            document.getElementById('hamburger').classList.remove('active');
-            document.getElementById('menuPanel').classList.remove('active');
-            document.getElementById('menuOverlay').classList.remove('active');
-
             let inputs = '';
             if (sorgu.param) {
                 inputs = `
