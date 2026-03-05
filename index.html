@@ -21,10 +21,12 @@
             --bg-card: #141824;
             --bg-hover: #1e2230;
             --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.3);
             --text: #ffffff;
             --text-secondary: #a0a8c0;
             --border: #262b3d;
             --success: #10b981;
+            --error: #ef4444;
         }
 
         body {
@@ -33,47 +35,12 @@
             min-height: 100vh;
         }
 
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: 0.5s;
-        }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loading-logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--accent), #8b5cf6);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 12px 20px;
+            padding: 15px 25px;
             background: rgba(10, 12, 20, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
@@ -84,7 +51,7 @@
         }
 
         .logo {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             background: linear-gradient(135deg, var(--accent), #8b5cf6);
             -webkit-background-clip: text;
@@ -92,31 +59,67 @@
         }
 
         .hamburger {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             background: var(--bg-card);
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             cursor: pointer;
             border: 1px solid var(--border);
+            transition: 0.2s;
+        }
+
+        .hamburger:hover {
+            border-color: var(--accent);
         }
 
         .hamburger span {
-            width: 18px;
+            width: 20px;
             height: 2px;
             background: var(--text);
             transition: 0.3s;
         }
 
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .menu-panel {
             position: fixed;
             top: 0;
-            right: -280px;
-            width: 260px;
+            right: -300px;
+            width: 280px;
             height: 100%;
             background: var(--bg-card);
             border-left: 1px solid var(--border);
@@ -130,26 +133,38 @@
         }
 
         .menu-header {
-            padding: 60px 15px 15px;
+            padding: 70px 20px 20px;
             border-bottom: 1px solid var(--border);
         }
 
         .menu-content {
-            padding: 15px;
+            padding: 20px;
+        }
+
+        .menu-category {
+            margin-bottom: 20px;
+        }
+
+        .menu-category-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            padding-left: 8px;
         }
 
         .menu-item {
-            padding: 8px 12px;
+            padding: 10px 12px;
             background: var(--bg);
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid var(--border);
             cursor: pointer;
             transition: 0.2s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 4px;
-            font-size: 12px;
+            font-size: 13px;
         }
 
         .menu-item:hover {
@@ -157,32 +172,64 @@
             border-color: var(--accent);
         }
 
+        .menu-item i {
+            width: 18px;
+            color: var(--accent);
+        }
+
         .main-content {
-            margin-top: 70px;
-            padding: 20px;
+            margin-top: 80px;
+            padding: 20px 25px;
         }
 
         .hero {
             text-align: center;
-            padding: 30px 15px;
+            padding: 40px 20px;
         }
 
         .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff, #a0a8c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .stat-number {
             font-size: 28px;
-            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
         }
 
         .queries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
 
         .query-card {
             background: var(--bg-card);
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 12px;
+            padding: 18px;
             border: 1px solid var(--border);
             cursor: pointer;
             transition: 0.2s;
@@ -190,107 +237,163 @@
 
         .query-card:hover {
             border-color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
         .query-icon {
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, var(--accent), #8b5cf6);
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .query-title {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
+        }
+
+        .query-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            font-size: 10px;
+            color: var(--accent);
         }
 
         .query-form {
             background: var(--bg-card);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 16px;
+            padding: 25px;
             border: 1px solid var(--border);
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
         }
 
         .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
             display: block;
-            font-size: 11px;
-            margin-bottom: 4px;
+            font-size: 12px;
+            margin-bottom: 5px;
             color: var(--text-secondary);
         }
 
         .form-control {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text);
-            font-size: 13px;
+            font-size: 14px;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
         .btn {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background: linear-gradient(135deg, var(--accent), #8b5cf6);
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             color: white;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--accent-glow);
         }
 
         .result-box {
             background: var(--bg-card);
             border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
+            padding: 20px;
+            margin-top: 20px;
             border: 1px solid var(--border);
         }
 
         .result-item {
-            padding: 8px;
+            padding: 10px;
             background: var(--bg);
             border-radius: 6px;
-            margin-bottom: 4px;
-            font-size: 12px;
+            margin-bottom: 6px;
+            font-size: 13px;
         }
 
         .result-item strong {
             color: var(--accent);
-            min-width: 100px;
+            min-width: 120px;
             display: inline-block;
         }
 
         .error-box {
             background: rgba(239, 68, 68, 0.1);
-            border: 1px solid #ef4444;
-            border-radius: 6px;
-            padding: 12px;
-            color: #ef4444;
-            font-size: 12px;
-            margin-top: 10px;
+            border: 1px solid var(--error);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            color: var(--error);
+            font-size: 13px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .loading i {
+            font-size: 35px;
+            color: var(--accent);
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 13px;
+            z-index: 9999;
+            transition: 0.3s;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
         }
     </style>
 </head>
 <body>
-    <div class="loading-overlay" id="loading">
-        <div class="loading-logo">
-            <i class="fas fa-bolt"></i>
-        </div>
-    </div>
+    <div class="toast" id="toast">Kopyalandı!</div>
 
     <nav class="navbar">
         <div class="logo">ULTRA PANEL</div>
@@ -301,9 +404,10 @@
         </div>
     </nav>
 
+    <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
-            <h4 style="font-size: 13px;">🔍 SORGULAR</h4>
+            <h4 style="color: var(--accent);">🔍 TÜM SORGULAR</h4>
         </div>
         <div class="menu-content" id="menuContent"></div>
     </div>
@@ -312,46 +416,119 @@
 
     <script>
         // ==================== KONFİGÜRASYON ====================
-        const PROXY_URL = window.location.hostname === 'localhost' 
-            ? 'http://localhost:3000/proxy?url=' 
-            : 'https://sizin-proxy-adiniz.onrender.com/proxy?url='; // RENDER'DAKİ PROXY URL'İNİZİ YAZIN
-
-        const API = {
-            sckizm: { base: 'https://api.sckizm.shop/api' },
-            punisher: { base: 'https://punisherapi.alwaysdata.net' }
-        };
-
-        const SORGULAR = [
-            { id: 'tc_eski', ad: 'TC Basic', api: 'sckizm', path: '/tc', param: 'tc', kategori: 'TC' },
-            { id: 'tcpro', ad: 'TC PRO', api: 'punisher', path: '/api/subnetdevil/tcpro.php', param: 'tc', kategori: 'TC' },
-            { id: 'tcgsm_eski', ad: 'TC/GSM', api: 'sckizm', path: '/tcgsm', param: 'tc', kategori: 'TC' },
-            { id: 'adsoyad_eski', ad: 'Ad Soyad', api: 'sckizm', path: '/adsoyad', params: ['ad', 'soyad'], kategori: 'Ad Soyad' },
-            { id: 'adsoyadpro', ad: 'Ad Soyad PRO', api: 'punisher', path: '/apiservices/adsoyadpro.php', params: ['ad', 'soyad', 'il'], kategori: 'Ad Soyad' },
-            { id: 'aile_eski', ad: 'TC Aile', api: 'sckizm', path: '/aile', param: 'tc', kategori: 'Aile' },
-            { id: 'ailepro', ad: 'Aile PRO', api: 'punisher', path: '/api/subnetdevil/ailepro.php', param: 'tc', kategori: 'Aile' },
-            { id: 'sulale_eski', ad: 'TC Sülale', api: 'sckizm', path: '/sulale', param: 'tc', kategori: 'Aile' },
-            { id: 'adres_eski', ad: 'TC Adres', api: 'sckizm', path: '/adres', param: 'tc', kategori: 'Adres' },
-            { id: 'adres', ad: 'Adres Yeni', api: 'punisher', path: '/api/subnetdevil/adres.php', param: 'tc', kategori: 'Adres' },
-            { id: 'gsmtc_eski', ad: 'GSM/TC', api: 'sckizm', path: '/gsmtc', param: 'gsm', kategori: 'GSM' },
-            { id: 'operator_eski', ad: 'Operatör', api: 'sckizm', path: '/operator', param: 'gsm', kategori: 'GSM' },
-            { id: 'gncloperator', ad: 'Güncel Op', api: 'punisher', path: '/api/subnetdevil/gncloperator.php', param: 'gsm', kategori: 'GSM' },
-            { id: 'iban', ad: 'IBAN', api: 'punisher', path: '/apiservices/iban.php', param: 'iban', kategori: 'Diğer' }
+        const CORS_PROXIES = [
+            'https://corsproxy.io/?',
+            'https://api.allorigins.win/raw?url=',
+            'https://cors-anywhere.herokuapp.com/',
+            '' // direkt bağlantı
         ];
 
-        // ==================== MENÜ ====================
+        const USER_AGENTS = [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1'
+        ];
+
+        // ==================== API LİSTESİ ====================
+        const SORGULAR = [
+            // SCKIZM API (eski)
+            { id: 'tc_eski', ad: 'TC Basic', api: 'https://api.sckizm.shop/api/tc', param: 'tc', kategori: 'TC' },
+            { id: 'adsoyad_eski', ad: 'Ad Soyad', api: 'https://api.sckizm.shop/api/adsoyad', params: ['ad','soyad'], kategori: 'Ad Soyad' },
+            { id: 'tcgsm_eski', ad: 'TC/GSM', api: 'https://api.sckizm.shop/api/tcgsm', param: 'tc', kategori: 'TC' },
+            { id: 'gsmtc_eski', ad: 'GSM/TC', api: 'https://api.sckizm.shop/api/gsmtc', param: 'gsm', kategori: 'GSM' },
+            { id: 'adres_eski', ad: 'TC Adres', api: 'https://api.sckizm.shop/api/adres', param: 'tc', kategori: 'Adres' },
+            { id: 'aile_eski', ad: 'TC Aile', api: 'https://api.sckizm.shop/api/aile', param: 'tc', kategori: 'Aile' },
+            { id: 'sulale_eski', ad: 'TC Sülale', api: 'https://api.sckizm.shop/api/sulale', param: 'tc', kategori: 'Aile' },
+            { id: 'operator_eski', ad: 'Operatör', api: 'https://api.sckizm.shop/api/operator', param: 'gsm', kategori: 'GSM' },
+            
+            // PUNISHER API (yeni)
+            { id: 'tcpro', ad: 'TC PRO', api: 'https://punisherapi.alwaysdata.net/api/subnetdevil/tcpro.php', param: 'tc', kategori: 'TC', populer: true },
+            { id: 'adsoyadpro', ad: 'Ad Soyad PRO', api: 'https://punisherapi.alwaysdata.net/apiservices/adsoyadpro.php', params: ['ad','soyad','il'], kategori: 'Ad Soyad', populer: true },
+            { id: 'ailepro', ad: 'Aile PRO', api: 'https://punisherapi.alwaysdata.net/api/subnetdevil/ailepro.php', param: 'tc', kategori: 'Aile' },
+            { id: 'adres', ad: 'Adres Yeni', api: 'https://punisherapi.alwaysdata.net/api/subnetdevil/adres.php', param: 'tc', kategori: 'Adres' },
+            { id: 'gncloperator', ad: 'Güncel Op', api: 'https://punisherapi.alwaysdata.net/api/subnetdevil/gncloperator.php', param: 'gsm', kategori: 'GSM' },
+            { id: 'iban', ad: 'IBAN Sorgu', api: 'https://punisherapi.alwaysdata.net/apiservices/iban.php', param: 'iban', kategori: 'Diğer', populer: true }
+        ];
+
+        // ==================== REKLAM TEMİZLEME ====================
+        function temizle(data) {
+            if (!data) return null;
+            const reklam = ['status','message','developer','version','timestamp','endpoints','type','success','time'];
+            
+            if (Array.isArray(data)) {
+                return data.map(item => temizle(item)).filter(i => i !== null);
+            }
+            
+            if (typeof data === 'object') {
+                if (data.results) return temizle(data.results);
+                if (data.data) return temizle(data.data);
+                
+                const yeni = {};
+                for (const [k, v] of Object.entries(data)) {
+                    if (!reklam.includes(k.toLowerCase()) && v && v !== 'null') {
+                        if (typeof v === 'object') {
+                            const t = temizle(v);
+                            if (t && Object.keys(t).length > 0) yeni[k] = t;
+                        } else {
+                            yeni[k] = v;
+                        }
+                    }
+                }
+                return Object.keys(yeni).length > 0 ? yeni : null;
+            }
+            return data;
+        }
+
+        // ==================== GÜÇLÜ API İSTEK ====================
+        async function apiIstek(url, params, deneme = 0) {
+            const query = new URLSearchParams(params).toString();
+            const fullUrl = `${url}?${query}`;
+            const proxy = CORS_PROXIES[Math.min(deneme, CORS_PROXIES.length-1)];
+            const requestUrl = proxy ? proxy + encodeURIComponent(fullUrl) : fullUrl;
+            const userAgent = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+
+            try {
+                const response = await fetch(requestUrl, {
+                    headers: { 
+                        'User-Agent': userAgent,
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
+                const data = await response.json();
+                const temiz = temizle(data);
+                
+                if (!temiz || (Array.isArray(temiz) && temiz.length === 0)) {
+                    throw new Error('Veri bulunamadı');
+                }
+                
+                return temiz;
+                
+            } catch (error) {
+                if (deneme < CORS_PROXIES.length - 1) {
+                    await new Promise(r => setTimeout(r, 1000));
+                    return apiIstek(url, params, deneme + 1);
+                }
+                throw error;
+            }
+        }
+
+        // ==================== MENÜ OLUŞTUR ====================
         function menuOlustur() {
             const menu = document.getElementById('menuContent');
             const kategoriler = [...new Set(SORGULAR.map(s => s.kategori))];
             
             let html = '';
             kategoriler.forEach(kat => {
-                html += `<div style="margin-bottom: 15px;">`;
-                html += `<div style="font-size: 10px; color: var(--text-secondary); margin-bottom: 5px;">${kat}</div>`;
+                html += `<div class="menu-category">`;
+                html += `<div class="menu-category-title">${kat}</div>`;
                 
                 SORGULAR.filter(s => s.kategori === kat).forEach(s => {
-                    html += `<div class="menu-item" onclick="formGoster('${s.id}')">
-                        <i class="fas fa-search"></i> ${s.ad}
-                    </div>`;
+                    html += `<div class="menu-item" onclick="formGoster('${s.id}')">`;
+                    html += `<i class="fas fa-search"></i> ${s.ad}`;
+                    html += `</div>`;
                 });
                 
                 html += `</div>`;
@@ -365,15 +542,22 @@
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
                     <h1>ULTRA SORGU PANELİ</h1>
-                    <p style="color: var(--text-secondary); font-size: 13px;">${SORGULAR.length} sorgu • Kendi proxy sunucusu • %100 çalışıyor</p>
+                    <p>${SORGULAR.length} farklı sorgu • CORS proxy • Anında sonuç</p>
+                    <div class="hero-stats">
+                        <div><span class="stat-number">${SORGULAR.length}</span><br><span class="stat-label">Sorgu</span></div>
+                        <div><span class="stat-number">7/24</span><br><span class="stat-label">Aktif</span></div>
+                        <div><span class="stat-number">0.5s</span><br><span class="stat-label">Süre</span></div>
+                    </div>
                 </div>
-                <h2 style="font-size: 14px; margin: 15px 0;">📌 Popüler Sorgular</h2>
+                
+                <h2 style="margin: 30px 0 15px; font-size: 18px;">🔥 Popüler Sorgular</h2>
                 <div class="queries-grid">
-                    ${SORGULAR.filter(s => s.id.includes('pro')).map(s => `
+                    ${SORGULAR.filter(s => s.populer).map(s => `
                         <div class="query-card" onclick="formGoster('${s.id}')">
                             <div class="query-icon"><i class="fas fa-bolt"></i></div>
                             <div class="query-title">${s.ad}</div>
-                            <div style="font-size: 10px; color: var(--text-secondary);">${s.kategori}</div>
+                            <div class="query-desc">${s.kategori} sorgusu</div>
+                            <span class="tag">${s.kategori}</span>
                         </div>
                     `).join('')}
                 </div>
@@ -384,29 +568,34 @@
         function formGoster(id) {
             const sorgu = SORGULAR.find(s => s.id === id);
             if (!sorgu) return;
-
+            
             document.getElementById('hamburger').classList.remove('active');
             document.getElementById('menuPanel').classList.remove('active');
+            document.getElementById('menuOverlay').classList.remove('active');
 
             let inputs = '';
             if (sorgu.param) {
-                inputs = `<div class="form-group">
-                    <label>${sorgu.param.toUpperCase()}</label>
-                    <input type="text" class="form-control" id="param1" placeholder="${sorgu.param} girin" required>
-                </div>`;
+                inputs = `
+                    <div class="form-group">
+                        <label>${sorgu.param.toUpperCase()}</label>
+                        <input type="text" class="form-control" id="param1" placeholder="${sorgu.param} girin" required>
+                    </div>
+                `;
             } else if (sorgu.params) {
                 sorgu.params.forEach((p, i) => {
-                    inputs += `<div class="form-group">
-                        <label>${p.toUpperCase()}</label>
-                        <input type="text" class="form-control" id="param${i+1}" placeholder="${p} girin" required>
-                    </div>`;
+                    inputs += `
+                        <div class="form-group">
+                            <label>${p.toUpperCase()}</label>
+                            <input type="text" class="form-control" id="param${i+1}" placeholder="${p} girin" required>
+                        </div>
+                    `;
                 });
             }
 
             document.getElementById('mainContent').innerHTML = `
                 <div class="query-form">
-                    <h3 style="margin-bottom: 15px; font-size: 16px;">🔍 ${sorgu.ad}</h3>
-                    <form id="sorguForm" onsubmit="event.preventDefault(); sorgula('${id}')">
+                    <h3 style="margin-bottom: 20px; font-size: 18px;">🔍 ${sorgu.ad}</h3>
+                    <form id="sorguForm" onsubmit="event.preventDefault(); sorgula('${sorgu.id}')">
                         ${inputs}
                         <button type="submit" class="btn">SORGULA</button>
                     </form>
@@ -415,13 +604,12 @@
             `;
         }
 
-        // ==================== SORGU ÇALIŞTIR (PROXY ÜZERİNDEN) ====================
+        // ==================== SORGULA ====================
         async function sorgula(id) {
             const sorgu = SORGULAR.find(s => s.id === id);
             if (!sorgu) return;
 
-            // Parametreleri hazırla
-            let params = {};
+            const params = {};
             if (sorgu.param) {
                 const deger = document.getElementById('param1').value.trim();
                 if (!deger) return alert('Değer girin');
@@ -434,70 +622,64 @@
                 }
             }
 
-            // URL oluştur
-            const apiUrl = API[sorgu.api].base + sorgu.path;
-            const queryString = new URLSearchParams(params).toString();
-            const fullUrl = `${apiUrl}?${queryString}`;
-            
-            // Proxy'den istek yap
-            const proxyUrl = PROXY_URL + encodeURIComponent(fullUrl);
-
-            document.getElementById('sonuc').innerHTML = '<div class="loading">Sorgulanıyor...</div>';
+            document.getElementById('sonuc').innerHTML = '<div class="loading"><i class="fas fa-circle-notch"></i><p>Sorgulanıyor...</p></div>';
 
             try {
-                const response = await fetch(proxyUrl);
-                const data = await response.json();
-
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-
-                // Sonucu göster
+                const sonuc = await apiIstek(sorgu.api, params);
+                
                 let html = '<div class="result-box">';
                 
-                if (Array.isArray(data)) {
-                    data.forEach((item, idx) => {
-                        html += `<div style="margin: 5px 0; color: var(--accent);">#${idx+1}</div>`;
+                if (Array.isArray(sonuc)) {
+                    sonuc.forEach((item, idx) => {
+                        html += `<h4 style="margin: 10px 0 5px; color: var(--accent);">#${idx+1}</h4>`;
                         for (const [k, v] of Object.entries(item)) {
                             if (v && v !== 'null') {
                                 html += `<div class="result-item"><strong>${k}:</strong> ${v}</div>`;
                             }
                         }
                     });
-                } else if (typeof data === 'object') {
-                    for (const [k, v] of Object.entries(data)) {
+                } else if (typeof sonuc === 'object') {
+                    for (const [k, v] of Object.entries(sonuc)) {
                         if (v && v !== 'null' && typeof v !== 'object') {
                             html += `<div class="result-item"><strong>${k}:</strong> ${v}</div>`;
                         }
                     }
                 } else {
-                    html += `<div class="result-item">${data}</div>`;
+                    html += `<div class="result-item">${sonuc}</div>`;
                 }
                 
                 html += '</div>';
                 document.getElementById('sonuc').innerHTML = html;
-
+                
             } catch (error) {
                 document.getElementById('sonuc').innerHTML = `
                     <div class="error-box">
                         ❌ Hata: ${error.message}<br>
-                        <small>Proxy: ${PROXY_URL}</small>
+                        <small>Farklı proxy deneniyor, tekrar dene.</small>
                     </div>
                 `;
             }
         }
 
-        // ==================== HAMBURGER ====================
-        document.getElementById('hamburger').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.getElementById('menuPanel').classList.toggle('active');
+        // ==================== HAMBURGER MENÜ ====================
+        const hamburger = document.getElementById('hamburger');
+        const menuPanel = document.getElementById('menuPanel');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            menuPanel.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+
+        menuOverlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            menuPanel.classList.remove('active');
+            menuOverlay.classList.remove('active');
         });
 
         // ==================== BAŞLANGIÇ ====================
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-            }, 1000);
             menuOlustur();
             anaSayfa();
         });
