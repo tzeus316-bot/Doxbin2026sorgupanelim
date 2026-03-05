@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>DOXBİN | MOBİL PANEL</title>
+    <title>DOXBİN | KATEGORİ PANEL</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +61,21 @@
         @keyframes bodyFade {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+        /* ATATÜRK ARKA PLAN GIF */
+        .atatürk-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyM2lvZm90ZzBkOTFyNTBjYnJmb3RuY3Buczhudmo0YWRscW9qZmx2byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTQDhakMrMaoT9mbwm/giphy.gif');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -2;
+            pointer-events: none;
         }
 
         /* NEON DAİRELER */
@@ -242,6 +257,12 @@
             max-width: 320px;
             width: 90%;
             box-shadow: 0 0 50px var(--accent-glow);
+            animation: welcomePop 0.5s;
+        }
+
+        @keyframes welcomePop {
+            from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
         }
 
         .welcome-message h2 {
@@ -255,20 +276,6 @@
             margin-bottom: 15px;
             font-size: 12px;
             line-height: 1.5;
-        }
-
-        /* ANA MENÜ BÜYÜK TÜRK BAYRAĞI */
-        .turkey-flag {
-            font-size: 100px;
-            text-align: center;
-            margin: 20px 0;
-            animation: flagWave 3s infinite;
-        }
-
-        @keyframes flagWave {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(5deg) scale(1.05); }
-            75% { transform: rotate(-5deg) scale(1.05); }
         }
 
         /* NAVBAR */
@@ -415,7 +422,7 @@
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px); }
 
-        /* MENÜ - TÜM ÖZELLİKLER ALT ALTA KATEGORİLİ */
+        /* MENÜ - TÜM ÖZELLİKLER KATEGORİLİ */
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -552,6 +559,12 @@
 
         .modal.active {
             display: block;
+            animation: modalPop 0.3s;
+        }
+
+        @keyframes modalPop {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
         }
 
         .modal h3 {
@@ -716,6 +729,12 @@
 
         .chat-modal.active {
             display: flex;
+            animation: chatSlide 0.3s;
+        }
+
+        @keyframes chatSlide {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .chat-header {
@@ -748,6 +767,12 @@
             padding: 6px;
             background: var(--bg);
             border-radius: 12px;
+            animation: messagePop 0.3s;
+        }
+
+        @keyframes messagePop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .chat-message .username {
@@ -805,11 +830,11 @@
             width: 90%;
             max-width: 350px;
             text-align: center;
+            animation: announceSlide 0.3s;
         }
 
         .announcement-bar.active {
             display: block;
-            animation: announceSlide 0.3s;
         }
 
         @keyframes announceSlide {
@@ -855,6 +880,7 @@
 
         .admin-panel.active {
             display: block;
+            animation: modalPop 0.3s;
         }
 
         .admin-tabs {
@@ -910,55 +936,15 @@
             cursor: pointer;
         }
 
-        /* MAIN CONTENT */
+        /* MAIN CONTENT - SADECE ARKA PLAN */
         .main-content {
             margin-top: 70px;
-            padding: 15px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 15px 5px;
-        }
-
-        .hero h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 5px;
-        }
-
-        .hero p {
-            color: var(--text-secondary);
-            font-size: 11px;
-            margin-bottom: 15px;
-        }
-
-        .hero-stats {
+            min-height: calc(100vh - 70px);
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .stat-number {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: 9px;
-            color: var(--text-secondary);
-        }
-
-        /* KARTLAR - ANA MENÜDE YOK */
-        .queries-grid {
-            display: none;
+            align-items: center;
+            position: relative;
         }
 
         /* SORGU FORMU */
@@ -970,6 +956,7 @@
             padding: 20px;
             max-width: 350px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .form-header {
@@ -996,6 +983,10 @@
             cursor: pointer;
             color: var(--text);
             font-size: 10px;
+        }
+
+        .back-btn:hover {
+            border-color: var(--accent);
         }
 
         .form-group {
@@ -1170,6 +1161,9 @@
     </style>
 </head>
 <body>
+    <!-- ATATÜRK ARKA PLAN GIF -->
+    <div class="atatürk-background"></div>
+
     <!-- NEON ARKA PLAN DAİRELERİ -->
     <div class="neon-circle circle-1"></div>
     <div class="neon-circle circle-2"></div>
@@ -1215,12 +1209,12 @@
         </div>
     </div>
 
-    <!-- HOŞGELDİN MESAJI -->
+    <!-- HOŞGELDİN MESAJI (5 SANİYELİK) -->
     <div class="welcome-message" id="welcomeMessage" style="display: none;">
         <h2>🇹🇷 DOXBİN</h2>
         <p>TÜRKİYE'NİN EN GÜÇLÜ SORGU PANELİ</p>
-        <p>BİZİ YIKMAYA ÇALIŞIYORLAR AMA HALA AYAKTAYIZ! 💪</p>
-        <button class="auth-btn" onclick="closeWelcomeMessage()">DEVAM ET</button>
+        <p>Küfür eden Türkiye'den değildir, haksız bir insana olmuş bir insanla dalga geçmek olmaz.</p>
+        <p style="color: var(--accent); font-weight: 600;">İYİ SORGULAR DOXBİN</p>
     </div>
 
     <!-- FİLM MODAL -->
@@ -1380,11 +1374,11 @@
         </div>
     </nav>
 
-    <!-- Menü - TÜM ÖZELLİKLER KATEGORİLİ ALT ALTA -->
+    <!-- Menü - TÜM ÖZELLİKLER KATEGORİLİ -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
-            <h3><i class="fas fa-bolt"></i> ANA MENÜ</h3>
+            <h3><i class="fas fa-bolt"></i> KATEGORİLER</h3>
             <div class="menu-search">
                 <input type="text" id="menuSearch" placeholder="Menüde ara...">
             </div>
@@ -1392,8 +1386,10 @@
         <div class="menu-content" id="menuContent"></div>
     </div>
 
-    <!-- Ana İçerik -->
-    <div class="main-content" id="mainContent"></div>
+    <!-- Ana İçerik (SADECE ARKA PLAN) -->
+    <div class="main-content" id="mainContent">
+        <!-- İçerik JavaScript ile doldurulacak -->
+    </div>
 
     <!-- Toast -->
     <div class="toast" id="toast">
@@ -2448,15 +2444,11 @@
         // Ana sayfa
         window.anaSayfa = function() {
             document.getElementById('mainContent').innerHTML = `
-                <div class="hero">
+                <div style="text-align: center; padding: 20px;">
                     <div class="turkey-flag">🇹🇷</div>
-                    <h1>DOXBİN</h1>
-                    <p>30+ proxy • anlık sonuç</p>
-                    <div class="hero-stats">
-                        <div><span class="stat-number">${users.length}</span><br><span class="stat-label">KULLANICI</span></div>
-                        <div><span class="stat-number">30+</span><br><span class="stat-label">PROXY</span></div>
-                        <div><span class="stat-number">∞</span><br><span class="stat-label">HIZ</span></div>
-                    </div>
+                    <h1 style="color: var(--accent); font-size: 32px; margin-bottom: 10px;">DOXBİN</h1>
+                    <p style="color: var(--text-secondary); font-size: 12px;">Küfür eden Türkiye'den değildir, haksız bir insana olmuş bir insanla dalga geçmek olmaz.</p>
+                    <p style="color: var(--accent); font-size: 14px; margin-top: 10px;">İYİ SORGULAR DOXBİN</p>
                 </div>
             `;
         };
