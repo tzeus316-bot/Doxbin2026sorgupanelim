@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOXBİN | ULTRA GİRİŞ</title>
+    <title>DOXBİN | ULTRA PANEL</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,10 +33,20 @@
             --border: #1f2937;
             --border-light: #2d3748;
             --success: #10b981;
-            --verified-blue: #1d9bf0;
-            --verified-green: #10b981;
-            --verified-yellow: #f59e0b;
-            --verified-black: #1f2937;
+            
+            /* RENKLİ TİKLER - 10 RENK */
+            --tik-red: #ef4444;
+            --tik-blue: #1d9bf0;
+            --tik-green: #10b981;
+            --tik-yellow: #f59e0b;
+            --tik-purple: #8b5cf6;
+            --tik-pink: #ec4899;
+            --tik-orange: #f97316;
+            --tik-teal: #14b8a6;
+            --tik-cyan: #06b6d4;
+            --tik-gray: #6b7280;
+            --tik-black: #1f2937;
+            --tik-white: #ffffff;
         }
 
         body {
@@ -44,11 +54,12 @@
             color: var(--text);
             min-height: 100vh;
             opacity: 0;
-            animation: bodyFade 0.3s ease forwards;
+            animation: bodyFade 0.5s ease forwards;
         }
 
         @keyframes bodyFade {
-            to { opacity: 1; }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* NEON DAİRELER */
@@ -66,6 +77,7 @@
             top: -80px;
             left: -80px;
             opacity: 0.12;
+            animation: float1 8s infinite;
         }
 
         .circle-2 {
@@ -75,6 +87,7 @@
             bottom: -150px;
             right: -150px;
             opacity: 0.08;
+            animation: float2 10s infinite;
         }
 
         .circle-3 {
@@ -85,6 +98,22 @@
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0.08;
+            animation: float3 12s infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 20px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-40px, -30px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-45%, -45%) scale(1.1); }
         }
 
         /* GİRİŞ EKRANI */
@@ -121,6 +150,12 @@
             padding: 35px;
             text-align: center;
             box-shadow: 0 0 70px var(--accent-glow);
+            animation: cardFloat 3s infinite;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .auth-logo {
@@ -161,6 +196,7 @@
 
         .auth-form.active {
             display: block;
+            animation: slideIn 0.3s;
         }
 
         .auth-input {
@@ -177,6 +213,7 @@
         .auth-input:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
         }
 
         .auth-btn {
@@ -193,7 +230,8 @@
         }
 
         .auth-btn:hover {
-            transform: scale(1.02);
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 5px 20px var(--accent-glow);
         }
 
         /* NAVBAR */
@@ -218,7 +256,8 @@
         }
 
         @keyframes navbarAppear {
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
 
         .logo {
@@ -244,12 +283,13 @@
 
         .user-info:hover {
             border-color: var(--accent);
+            transform: scale(1.02);
         }
 
         .user-avatar {
             width: 22px;
             height: 22px;
-            background: var(--verified-blue);
+            background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -281,6 +321,14 @@
             margin-left: 2px;
         }
 
+        .user-badge {
+            font-size: 8px;
+            padding: 2px 6px;
+            background: var(--accent);
+            border-radius: 20px;
+            margin-left: 4px;
+        }
+
         .nav-actions {
             display: flex;
             gap: 5px;
@@ -303,7 +351,7 @@
 
         .nav-btn:hover {
             border-color: var(--accent);
-            transform: scale(1.05);
+            transform: scale(1.05) rotate(5deg);
         }
 
         .nav-btn.active {
@@ -467,6 +515,12 @@
 
         .profile-modal.active {
             display: block;
+            animation: modalPop 0.3s;
+        }
+
+        @keyframes modalPop {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
         }
 
         .profile-modal h3 {
@@ -515,9 +569,10 @@
 
         .tik-selector-modal {
             display: flex;
-            gap: 12px;
+            gap: 8px;
             justify-content: center;
             margin: 15px 0;
+            flex-wrap: wrap;
         }
 
         .tik-option {
@@ -537,10 +592,18 @@
             border: 2px solid white;
         }
 
-        .tik-blue { background: var(--verified-blue); }
-        .tik-green { background: var(--verified-green); }
-        .tik-yellow { background: var(--verified-yellow); }
-        .tik-black { background: var(--verified-black); }
+        .tik-red { background: var(--tik-red); }
+        .tik-blue { background: var(--tik-blue); }
+        .tik-green { background: var(--tik-green); }
+        .tik-yellow { background: var(--tik-yellow); }
+        .tik-purple { background: var(--tik-purple); }
+        .tik-pink { background: var(--tik-pink); }
+        .tik-orange { background: var(--tik-orange); }
+        .tik-teal { background: var(--tik-teal); }
+        .tik-cyan { background: var(--tik-cyan); }
+        .tik-gray { background: var(--tik-gray); }
+        .tik-black { background: var(--tik-black); }
+        .tik-white { background: var(--tik-white); }
 
         .modal-btn {
             width: 100%;
@@ -554,40 +617,206 @@
             font-size: 12px;
         }
 
-        /* GEÇMİŞ MODAL */
-        .history-modal {
+        /* SOYBET MODAL */
+        .chat-modal {
+            position: fixed;
+            bottom: 80px;
+            right: 15px;
+            width: 300px;
+            height: 400px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 25px;
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+        }
+
+        .chat-modal.active {
+            display: flex;
+            animation: chatSlide 0.3s;
+        }
+
+        @keyframes chatSlide {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .chat-header {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h4 {
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .chat-close {
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+            padding: 8px;
+            background: var(--bg);
+            border-radius: 15px;
+            font-size: 11px;
+        }
+
+        .chat-message .username {
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .chat-message .time {
+            font-size: 8px;
+            color: var(--text-secondary);
+        }
+
+        .chat-input-area {
+            padding: 15px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 5px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text);
+            font-size: 11px;
+        }
+
+        .chat-send {
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Duyuru Modal */
+        .announcement-bar {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            z-index: 999;
+            display: none;
+            box-shadow: 0 5px 20px var(--accent-glow);
+        }
+
+        .announcement-bar.active {
+            display: block;
+            animation: announceSlide 0.3s;
+        }
+
+        @keyframes announceSlide {
+            from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+
+        /* Admin Paneli */
+        .admin-panel {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
             background: var(--bg-card);
             border: 2px solid var(--accent);
             border-radius: 25px;
             padding: 25px;
-            z-index: 10000;
-            width: 90%;
-            max-width: 350px;
+            z-index: 10001;
             display: none;
-            max-height: 70vh;
+        }
+
+        .admin-panel.active {
+            display: block;
+            animation: modalPop 0.3s;
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .admin-tab {
+            flex: 1;
+            padding: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .admin-tab.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .admin-content {
+            max-height: 300px;
             overflow-y: auto;
         }
 
-        .history-modal.active {
-            display: block;
-        }
-
-        .history-item {
+        .user-list-item {
             padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 15px;
             margin-bottom: 5px;
-            font-size: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
         }
 
-        .history-item small {
-            color: var(--text-secondary);
-            font-size: 8px;
+        .user-list-item button {
+            padding: 3px 8px;
+            background: var(--accent);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 9px;
+            cursor: pointer;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            color: var(--text);
+            margin-bottom: 8px;
+            font-size: 11px;
         }
 
         /* MAIN CONTENT */
@@ -655,7 +884,7 @@
 
         .query-card:hover {
             border-color: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.02);
         }
 
         .query-icon {
@@ -725,6 +954,7 @@
 
         .back-btn:hover {
             border-color: var(--accent);
+            transform: rotate(360deg);
         }
 
         .form-group {
@@ -763,6 +993,7 @@
 
         .btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--accent-glow);
         }
 
         /* SONUÇ */
@@ -907,7 +1138,6 @@
             pointer-events: none;
         }
 
-        /* ANİMASYONLAR */
         .pulse {
             animation: pulse 2s infinite;
         }
@@ -935,6 +1165,9 @@
 
     <!-- GİZLİ YOUTUBE PLAYER -->
     <div id="youtubePlayer" class="youtube-player"></div>
+
+    <!-- Duyuru Barı -->
+    <div class="announcement-bar" id="announcementBar"></div>
 
     <!-- KAYIT/GİRİŞ EKRANI -->
     <div class="auth-overlay" id="authOverlay">
@@ -977,10 +1210,18 @@
         <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
         <input type="text" class="profile-input" id="editUsername" placeholder="Yeni kullanıcı adı">
         <div class="tik-selector-modal">
+            <div class="tik-option tik-red" onclick="selectTik('red')"></div>
             <div class="tik-option tik-blue" onclick="selectTik('blue')"></div>
             <div class="tik-option tik-green" onclick="selectTik('green')"></div>
             <div class="tik-option tik-yellow" onclick="selectTik('yellow')"></div>
+            <div class="tik-option tik-purple" onclick="selectTik('purple')"></div>
+            <div class="tik-option tik-pink" onclick="selectTik('pink')"></div>
+            <div class="tik-option tik-orange" onclick="selectTik('orange')"></div>
+            <div class="tik-option tik-teal" onclick="selectTik('teal')"></div>
+            <div class="tik-option tik-cyan" onclick="selectTik('cyan')"></div>
+            <div class="tik-option tik-gray" onclick="selectTik('gray')"></div>
             <div class="tik-option tik-black" onclick="selectTik('black')"></div>
+            <div class="tik-option tik-white" onclick="selectTik('white')"></div>
         </div>
         <button class="modal-btn" onclick="saveProfile()">KAYDET</button>
         <button class="modal-btn" style="background: var(--bg);" onclick="closeProfileModal()">KAPAT</button>
@@ -991,6 +1232,30 @@
         <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 16px;">İŞLEM GEÇMİŞİ</h3>
         <div id="historyList"></div>
         <button class="modal-btn" onclick="closeHistoryModal()">KAPAT</button>
+    </div>
+
+    <!-- SOY BET MODAL -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <h4><i class="fas fa-comments"></i> SOY BET</h4>
+            <span class="chat-close" onclick="toggleChat()">×</span>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Mesajınız...">
+            <button class="chat-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Admin Paneli -->
+    <div class="admin-panel" id="adminPanel">
+        <h3 style="color: var(--accent); margin-bottom: 15px;">ADMIN PANELİ</h3>
+        <div class="admin-tabs">
+            <div class="admin-tab active" onclick="switchAdminTab('users')">Kullanıcılar</div>
+            <div class="admin-tab" onclick="switchAdminTab('announce')">Duyuru</div>
+        </div>
+        <div class="admin-content" id="adminContent"></div>
+        <button class="modal-btn" onclick="closeAdminPanel()">KAPAT</button>
     </div>
 
     <!-- Navbar -->
@@ -1006,7 +1271,8 @@
                 <i class="fas fa-user" id="userAvatarIcon"></i>
             </div>
             <span class="user-name" id="displayUsername">Misafir</span>
-            <span class="user-tik" id="userTik" style="background: var(--verified-blue);"><i class="fas fa-check"></i></span>
+            <span class="user-tik" id="userTik" style="background: var(--tik-blue);"><i class="fas fa-check"></i></span>
+            <span class="user-badge" id="userBadge" style="display: none;">ADMIN</span>
         </div>
 
         <div class="nav-actions">
@@ -1015,6 +1281,9 @@
             </div>
             <div class="nav-btn" id="historyBtn" onclick="openHistoryModal()">
                 <i class="fas fa-history"></i>
+            </div>
+            <div class="nav-btn" id="chatBtn" onclick="toggleChat()">
+                <i class="fas fa-comments"></i>
             </div>
             <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')">
                 <i class="fab fa-telegram"></i>
@@ -1107,7 +1376,7 @@
             else startMusic();
         }
 
-        // ==================== GÜÇLÜ PROXY LİSTESİ (5 ADET) ====================
+        // ==================== GÜÇLÜ PROXY LİSTESİ (10+ PROXY) ====================
         const PROXY_LIST = [
             'https://corsproxy.io/?',
             'https://api.allorigins.win/raw?url=',
@@ -1115,36 +1384,66 @@
             'https://thingproxy.freeboard.io/fetch/',
             'https://proxy.cors.sh/',
             'https://cors.eu.org/',
+            'https://crossorigin.me/',
+            'https://cors-proxy.fringe.zone/',
+            'https://cors.bridged.cc/',
+            'https://cors.apiplatform.net/',
+            'https://cors-proxy.fringe.zone/',
             ''
         ];
 
-        // ==================== GÜÇLÜ USER-AGENT LİSTESİ ====================
+        // ==================== GÜÇLÜ USER-AGENT LİSTESİ (10+ UA) ====================
         const USER_AGENTS = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
             'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
             'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.210 Mobile Safari/537.36',
             'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0'
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:120.0) Gecko/20100101 Firefox/120.0',
+            'Mozilla/5.0 (iPad; CPU OS 17_2 like Mac OS X) AppleWebKit/605.1.15 Version/17.2 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Edge/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/120.0.6099.210 Mobile Safari/537.36'
         ];
+
+        // ==================== TİK RENKLERİ ====================
+        const tikColors = {
+            'red': '#ef4444',
+            'blue': '#1d9bf0',
+            'green': '#10b981',
+            'yellow': '#f59e0b',
+            'purple': '#8b5cf6',
+            'pink': '#ec4899',
+            'orange': '#f97316',
+            'teal': '#14b8a6',
+            'cyan': '#06b6d4',
+            'gray': '#6b7280',
+            'black': '#1f2937',
+            'white': '#ffffff'
+        };
 
         // ==================== KULLANICI VERİLERİ ====================
         let currentUser = null;
         let selectedTik = 'blue';
         let userHistory = [];
-        
-        const tikColors = {
-            'blue': '#1d9bf0',
-            'green': '#10b981',
-            'yellow': '#f59e0b',
-            'black': '#1f2937'
-        };
+        let users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+        let chatMessages = JSON.parse(localStorage.getItem('chat_messages') || '[]');
+        let announcement = localStorage.getItem('announcement') || '';
+
+        // Admin bilgileri
+        const ADMIN_USERNAME = '@doxbinhack';
+        const ADMIN_PASSWORD = '@admin';
 
         // Sayfa yüklendiğinde
         window.addEventListener('load', () => {
             menuOlustur();
             anaSayfa();
             checkUser();
+            loadChat();
+            if (announcement) {
+                document.getElementById('announcementBar').textContent = announcement;
+                document.getElementById('announcementBar').classList.add('active');
+            }
         });
 
         // Kullanıcı kontrolü
@@ -1165,6 +1464,9 @@
                     document.getElementById('userAvatarIcon').style.display = 'none';
                     document.getElementById('userAvatarImg').style.display = 'block';
                     document.getElementById('userAvatarImg').src = currentUser.avatar;
+                }
+                if (currentUser.isAdmin) {
+                    document.getElementById('userBadge').style.display = 'inline-block';
                 }
                 
                 userHistory = JSON.parse(localStorage.getItem(`history_${currentUser.username}`) || '[]');
@@ -1205,14 +1507,19 @@
                 return;
             }
 
-            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
-            
             if (users.find(u => u.username === username)) {
                 document.getElementById('registerMessage').textContent = '❌ Bu kullanıcı adı zaten var';
                 return;
             }
 
-            users.push({ username, password });
+            const newUser = { 
+                username, 
+                password,
+                isAdmin: false,
+                title: 'Üye',
+                joinDate: new Date().toLocaleDateString()
+            };
+            users.push(newUser);
             localStorage.setItem('doxbin_users', JSON.stringify(users));
             
             document.getElementById('registerMessage').textContent = '✅ Kayıt başarılı! Giriş yapabilirsiniz.';
@@ -1229,14 +1536,51 @@
                 return;
             }
 
-            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+            // Admin kontrolü
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                currentUser = { 
+                    username: ADMIN_USERNAME,
+                    tikColor: 'red',
+                    avatar: '',
+                    isAdmin: true,
+                    title: 'Admin'
+                };
+                localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
+                
+                // Admin'i users listesine ekle
+                if (!users.find(u => u.username === ADMIN_USERNAME)) {
+                    users.push({
+                        username: ADMIN_USERNAME,
+                        password: ADMIN_PASSWORD,
+                        isAdmin: true,
+                        title: 'Admin',
+                        joinDate: new Date().toLocaleDateString()
+                    });
+                    localStorage.setItem('doxbin_users', JSON.stringify(users));
+                }
+                
+                document.getElementById('authOverlay').classList.add('hidden');
+                document.getElementById('userInfo').style.display = 'flex';
+                document.getElementById('displayUsername').textContent = username;
+                document.getElementById('logoutBtn').style.display = 'flex';
+                document.getElementById('userBadge').style.display = 'inline-block';
+                
+                userHistory = JSON.parse(localStorage.getItem(`history_${username}`) || '[]');
+                
+                showToast(`✅ Hoş geldin Admin!`);
+                startMusic();
+                return;
+            }
+
             const user = users.find(u => u.username === username && u.password === password);
 
             if (user) {
                 currentUser = { 
                     username,
                     tikColor: 'blue',
-                    avatar: ''
+                    avatar: '',
+                    isAdmin: user.isAdmin || false,
+                    title: user.title || 'Üye'
                 };
                 localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
                 
@@ -1244,6 +1588,10 @@
                 document.getElementById('userInfo').style.display = 'flex';
                 document.getElementById('displayUsername').textContent = username;
                 document.getElementById('logoutBtn').style.display = 'flex';
+                
+                if (currentUser.isAdmin) {
+                    document.getElementById('userBadge').style.display = 'inline-block';
+                }
                 
                 userHistory = JSON.parse(localStorage.getItem(`history_${username}`) || '[]');
                 
@@ -1262,6 +1610,7 @@
             document.getElementById('authOverlay').classList.remove('hidden');
             document.getElementById('userInfo').style.display = 'none';
             document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('userBadge').style.display = 'none';
             
             document.getElementById('loginUsername').value = '';
             document.getElementById('loginPassword').value = '';
@@ -1310,7 +1659,6 @@
             const avatarFile = document.getElementById('fileInput').files[0];
             
             if (newUsername && newUsername !== currentUser.username) {
-                const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
                 const userIndex = users.findIndex(u => u.username === currentUser.username);
                 if (userIndex !== -1) {
                     users[userIndex].username = newUsername;
@@ -1367,8 +1715,154 @@
             localStorage.setItem(`history_${currentUser.username}`, JSON.stringify(userHistory));
         }
 
+        // SOY BET İŞLEMLERİ
+        window.toggleChat = function() {
+            const chat = document.getElementById('chatModal');
+            chat.classList.toggle('active');
+        };
+
+        window.sendMessage = function() {
+            if (!currentUser) {
+                showToast('❌ Önce giriş yapın');
+                return;
+            }
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            chatMessages.push({
+                username: currentUser.username,
+                message: message,
+                time: new Date().toLocaleTimeString('tr-TR'),
+                tikColor: currentUser.tikColor || 'blue',
+                isAdmin: currentUser.isAdmin || false
+            });
+            
+            if (chatMessages.length > 50) chatMessages.shift();
+            localStorage.setItem('chat_messages', JSON.stringify(chatMessages));
+            
+            input.value = '';
+            loadChat();
+        };
+
+        function loadChat() {
+            const chatDiv = document.getElementById('chatMessages');
+            let html = '';
+            chatMessages.forEach(msg => {
+                html += `<div class="chat-message">
+                    <span class="username" style="color: ${tikColors[msg.tikColor]}">${msg.username}</span>
+                    ${msg.isAdmin ? '<span class="user-badge" style="font-size: 8px;">ADMIN</span>' : ''}
+                    <span class="time">${msg.time}</span><br>
+                    ${msg.message}
+                </div>`;
+            });
+            chatDiv.innerHTML = html;
+            chatDiv.scrollTop = chatDiv.scrollHeight;
+        }
+
+        // ADMIN PANELİ
+        window.openAdminPanel = function() {
+            if (!currentUser?.isAdmin) {
+                showToast('❌ Yetkiniz yok');
+                return;
+            }
+            loadAdminUsers();
+            document.getElementById('adminPanel').classList.add('active');
+        };
+
+        window.closeAdminPanel = function() {
+            document.getElementById('adminPanel').classList.remove('active');
+        };
+
+        window.switchAdminTab = function(tab) {
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (tab === 'users') loadAdminUsers();
+            else loadAdminAnnounce();
+        };
+
+        function loadAdminUsers() {
+            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+            let html = '';
+            users.forEach(user => {
+                html += `<div class="user-list-item">
+                    <div>
+                        <span style="color: ${user.isAdmin ? 'var(--accent)' : 'white'}">${user.username}</span>
+                        <small> (${user.title || 'Üye'})</small>
+                    </div>
+                    <div>
+                        <button onclick="makeAdmin('${user.username}')">Yönetici Yap</button>
+                        <button onclick="viewUserHistory('${user.username}')">Geçmiş</button>
+                    </div>
+                </div>`;
+            });
+            document.getElementById('adminContent').innerHTML = html;
+        }
+
+        function loadAdminAnnounce() {
+            let html = `
+                <textarea class="admin-input" id="announceText" rows="3" placeholder="Duyuru yazın...">${announcement}</textarea>
+                <button class="modal-btn" onclick="postAnnouncement()">DUYURU YAYINLA</button>
+            `;
+            document.getElementById('adminContent').innerHTML = html;
+        }
+
+        window.makeAdmin = function(username) {
+            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+            const userIndex = users.findIndex(u => u.username === username);
+            if (userIndex !== -1) {
+                users[userIndex].isAdmin = true;
+                users[userIndex].title = 'Admin';
+                localStorage.setItem('doxbin_users', JSON.stringify(users));
+                showToast(`✅ ${username} admin yapıldı`);
+                loadAdminUsers();
+            }
+        };
+
+        window.viewUserHistory = function(username) {
+            const history = JSON.parse(localStorage.getItem(`history_${username}`) || '[]');
+            let html = '<h4 style="margin-bottom: 10px;">' + username + ' Geçmişi</h4>';
+            history.slice().reverse().forEach(item => {
+                html += `<div class="history-item">${item.type} - ${item.time}<br><small>${item.detail}</small></div>`;
+            });
+            document.getElementById('adminContent').innerHTML = html;
+        };
+
+        window.postAnnouncement = function() {
+            const text = document.getElementById('announceText').value;
+            announcement = text;
+            localStorage.setItem('announcement', text);
+            if (text) {
+                document.getElementById('announcementBar').textContent = text;
+                document.getElementById('announcementBar').classList.add('active');
+            } else {
+                document.getElementById('announcementBar').classList.remove('active');
+            }
+            showToast('✅ Duyuru yayınlandı');
+        };
+
         // Müzik butonu
         document.getElementById('musicBtn').addEventListener('click', toggleMusic);
+
+        // Admin panel butonu (navbar'a ekle)
+        const adminBtn = document.createElement('div');
+        adminBtn.className = 'nav-btn';
+        adminBtn.innerHTML = '<i class="fas fa-crown"></i>';
+        adminBtn.onclick = openAdminPanel;
+        adminBtn.id = 'adminBtn';
+        adminBtn.style.display = 'none';
+        document.querySelector('.nav-actions').insertBefore(adminBtn, document.getElementById('logoutBtn'));
+
+        // Admin butonunu göster/gizle
+        setInterval(() => {
+            const adminBtn = document.getElementById('adminBtn');
+            if (currentUser?.isAdmin) {
+                adminBtn.style.display = 'flex';
+            } else {
+                adminBtn.style.display = 'none';
+            }
+        }, 100);
 
         // ==================== GÜÇLÜ API İSTEK FONKSİYONU ====================
         async function hizliIstek(url, params, deneme = 0) {
@@ -1476,10 +1970,10 @@
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
                     <h1>DOXBİN</h1>
-                    <p>9 sorgu • 6+ proxy • anlık sonuç</p>
+                    <p>9 sorgu • 10+ proxy • anlık sonuç</p>
                     <div class="hero-stats">
                         <div><span class="stat-number">9</span><br><span class="stat-label">SORGU</span></div>
-                        <div><span class="stat-number">6+</span><br><span class="stat-label">PROXY</span></div>
+                        <div><span class="stat-number">10+</span><br><span class="stat-label">PROXY</span></div>
                         <div><span class="stat-number">∞</span><br><span class="stat-label">HIZ</span></div>
                     </div>
                 </div>
