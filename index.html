@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>DOXBİN | ULTRA PANEL</title>
     
     <!-- Fonts -->
@@ -34,7 +34,7 @@
             --border-light: #2d3748;
             --success: #10b981;
             
-            /* RENKLİ TİKLER - 10 RENK */
+            /* RENKLİ TİKLER */
             --tik-red: #ef4444;
             --tik-blue: #1d9bf0;
             --tik-green: #10b981;
@@ -140,6 +140,7 @@
         .auth-container {
             width: 100%;
             max-width: 420px;
+            padding: 20px;
         }
 
         .auth-card {
@@ -232,6 +233,41 @@
         .auth-btn:hover {
             transform: scale(1.02) translateY(-2px);
             box-shadow: 0 5px 20px var(--accent-glow);
+        }
+
+        /* HOŞGELDİN MESAJI */
+        .welcome-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 40px;
+            padding: 30px;
+            z-index: 100000;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+            box-shadow: 0 0 100px var(--accent-glow);
+            animation: welcomePop 0.5s;
+        }
+
+        @keyframes welcomePop {
+            from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .welcome-message h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .welcome-message p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         /* NAVBAR */
@@ -332,6 +368,7 @@
         .nav-actions {
             display: flex;
             gap: 5px;
+            flex-wrap: wrap;
         }
 
         .nav-btn {
@@ -408,7 +445,7 @@
             position: fixed;
             top: 70px;
             right: 15px;
-            width: 240px;
+            width: 260px;
             max-height: calc(100vh - 100px);
             background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
@@ -672,6 +709,12 @@
             background: var(--bg);
             border-radius: 15px;
             font-size: 11px;
+            animation: messagePop 0.3s;
+        }
+
+        @keyframes messagePop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .chat-message .username {
@@ -712,7 +755,38 @@
             cursor: pointer;
         }
 
-        /* Duyuru Modal */
+        /* ÖZEL MESAJ MODAL */
+        .pm-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            padding: 25px;
+            z-index: 10001;
+            width: 90%;
+            max-width: 350px;
+            display: none;
+        }
+
+        .pm-modal.active {
+            display: block;
+            animation: modalPop 0.3s;
+        }
+
+        .pm-select {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        /* Duyuru Barı */
         .announcement-bar {
             position: fixed;
             top: 80px;
@@ -763,10 +837,12 @@
             display: flex;
             gap: 5px;
             margin-bottom: 15px;
+            flex-wrap: wrap;
         }
 
         .admin-tab {
             flex: 1;
+            min-width: 80px;
             padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
@@ -796,6 +872,8 @@
             justify-content: space-between;
             align-items: center;
             font-size: 11px;
+            flex-wrap: wrap;
+            gap: 5px;
         }
 
         .user-list-item button {
@@ -851,6 +929,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .stat-number {
@@ -1011,6 +1090,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 5px;
         }
 
         .result-actions {
@@ -1127,6 +1208,9 @@
             .hero h1 { font-size: 28px; }
             .menu-panel { width: 220px; }
             .telegram-link { bottom: 8px; right: 8px; padding: 5px 10px; font-size: 9px; }
+            .chat-modal { width: 280px; right: 10px; }
+            .nav-actions { gap: 3px; }
+            .nav-btn { width: 28px; height: 28px; font-size: 11px; }
         }
 
         /* GİZLİ YOUTUBE */
@@ -1200,6 +1284,23 @@
         </div>
     </div>
 
+    <!-- HOŞGELDİN MESAJI -->
+    <div class="welcome-message" id="welcomeMessage" style="display: none;">
+        <h2>🇹🇷 DOXBİN</h2>
+        <p>TÜRKİYE'NİN EN GÜÇLÜ SORGU PANELİ</p>
+        <p style="font-size: 12px;">BİZİ YIKMAYA ÇALIŞIYORLAR AMA HALA AYAKTAYIZ! 💪</p>
+        <button class="auth-btn" onclick="closeWelcomeMessage()">DEVAM ET</button>
+    </div>
+
+    <!-- ÖZEL MESAJ MODAL -->
+    <div class="pm-modal" id="pmModal">
+        <h3 style="color: var(--accent); margin-bottom: 15px;">ÖZEL MESAJ</h3>
+        <select class="pm-select" id="pmUserSelect"></select>
+        <input type="text" class="profile-input" id="pmMessage" placeholder="Mesajınız...">
+        <button class="modal-btn" onclick="sendPM()">GÖNDER</button>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closePMModal()">KAPAT</button>
+    </div>
+
     <!-- PROFİL DÜZENLEME MODAL -->
     <div class="profile-modal" id="profileModal">
         <h3>PROFİL DÜZENLE</h3>
@@ -1222,6 +1323,10 @@
             <div class="tik-option tik-gray" onclick="selectTik('gray')"></div>
             <div class="tik-option tik-black" onclick="selectTik('black')"></div>
             <div class="tik-option tik-white" onclick="selectTik('white')"></div>
+        </div>
+        <div style="margin: 10px 0;">
+            <input type="text" class="profile-input" id="musicLink" placeholder="YouTube video linki (müzik değiştir)">
+            <button class="modal-btn" onclick="changeMusic()">MÜZİK DEĞİŞTİR</button>
         </div>
         <button class="modal-btn" onclick="saveProfile()">KAYDET</button>
         <button class="modal-btn" style="background: var(--bg);" onclick="closeProfileModal()">KAPAT</button>
@@ -1253,6 +1358,7 @@
         <div class="admin-tabs">
             <div class="admin-tab active" onclick="switchAdminTab('users')">Kullanıcılar</div>
             <div class="admin-tab" onclick="switchAdminTab('announce')">Duyuru</div>
+            <div class="admin-tab" onclick="switchAdminTab('permissions')">Yetkiler</div>
         </div>
         <div class="admin-content" id="adminContent"></div>
         <button class="modal-btn" onclick="closeAdminPanel()">KAPAT</button>
@@ -1285,6 +1391,9 @@
             <div class="nav-btn" id="chatBtn" onclick="toggleChat()">
                 <i class="fas fa-comments"></i>
             </div>
+            <div class="nav-btn" id="pmBtn" onclick="openPMModal()">
+                <i class="fas fa-envelope"></i>
+            </div>
             <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')">
                 <i class="fab fa-telegram"></i>
             </div>
@@ -1303,7 +1412,7 @@
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
-            <h3><i class="fas fa-bolt"></i> SORGULAR</h3>
+            <h3><i class="fas fa-bolt"></i> TÜM SORGULAR</h3>
             <div class="menu-search">
                 <input type="text" id="menuSearch" placeholder="Ara...">
             </div>
@@ -1330,12 +1439,13 @@
         let player;
         let musicPlaying = false;
         let playerReady = false;
+        let currentVideoId = 'c33-CqMeLKM';
         
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtubePlayer', {
                 height: '0',
                 width: '0',
-                videoId: 'c33-CqMeLKM',
+                videoId: currentVideoId,
                 playerVars: {
                     'playsinline': 1,
                     'controls': 0,
@@ -1343,7 +1453,7 @@
                     'enablejsapi': 1,
                     'fs': 0,
                     'loop': 1,
-                    'playlist': 'c33-CqMeLKM'
+                    'playlist': currentVideoId
                 },
                 events: {
                     'onReady': onPlayerReady
@@ -1376,7 +1486,28 @@
             else startMusic();
         }
 
-        // ==================== GÜÇLÜ PROXY LİSTESİ (10+ PROXY) ====================
+        function changeMusic() {
+            const link = document.getElementById('musicLink').value;
+            const videoId = extractVideoId(link);
+            if (videoId) {
+                currentVideoId = videoId;
+                if (player && playerReady) {
+                    player.loadVideoById(videoId);
+                    startMusic();
+                }
+                showToast('✅ Müzik değiştirildi!');
+            } else {
+                showToast('❌ Geçersiz YouTube linki');
+            }
+        }
+
+        function extractVideoId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        // ==================== GÜÇLÜ PROXY LİSTESİ (20+ PROXY) ====================
         const PROXY_LIST = [
             'https://corsproxy.io/?',
             'https://api.allorigins.win/raw?url=',
@@ -1389,10 +1520,19 @@
             'https://cors.bridged.cc/',
             'https://cors.apiplatform.net/',
             'https://cors-proxy.fringe.zone/',
+            'https://cors-anywhere.azm.workers.dev/',
+            'https://cors.bridged.cc/',
+            'https://cors-proxy.herokuapp.com/',
+            'https://cors-anywhere.herokuapp.com/',
+            'https://cors-anywhere.cyclic.app/',
+            'https://cors-anywhere.render.com/',
+            'https://cors-anywhere.fly.dev/',
+            'https://cors-anywhere.glitch.me/',
+            'https://cors-anywhere.replit.app/',
             ''
         ];
 
-        // ==================== GÜÇLÜ USER-AGENT LİSTESİ (10+ UA) ====================
+        // ==================== GÜÇLÜ USER-AGENT LİSTESİ (20+ UA) ====================
         const USER_AGENTS = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
@@ -1403,7 +1543,17 @@
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:120.0) Gecko/20100101 Firefox/120.0',
             'Mozilla/5.0 (iPad; CPU OS 17_2 like Mac OS X) AppleWebKit/605.1.15 Version/17.2 Mobile/15E148 Safari/604.1',
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Edge/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/120.0.6099.210 Mobile Safari/537.36'
+            'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/120.0.6099.210 Mobile Safari/537.36',
+            'Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Safari/537.36 OPR/106.0.0.0',
+            'Mozilla/5.0 (Linux; Android 13; SM-T970) AppleWebKit/537.36 Chrome/120.0.6099.210 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 12; SM-G998B) AppleWebKit/537.36 Chrome/119.0.6045.163 Mobile Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/118.0.0.0 Safari/537.36'
         ];
 
         // ==================== TİK RENKLERİ ====================
@@ -1428,6 +1578,7 @@
         let userHistory = [];
         let users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
         let chatMessages = JSON.parse(localStorage.getItem('chat_messages') || '[]');
+        let pmMessages = JSON.parse(localStorage.getItem('pm_messages') || '[]');
         let announcement = localStorage.getItem('announcement') || '';
 
         // Admin bilgileri
@@ -1440,11 +1591,21 @@
             anaSayfa();
             checkUser();
             loadChat();
+            checkPMs();
             if (announcement) {
                 document.getElementById('announcementBar').textContent = announcement;
                 document.getElementById('announcementBar').classList.add('active');
             }
+            setTimeout(showWelcomeMessage, 1000);
         });
+
+        function showWelcomeMessage() {
+            document.getElementById('welcomeMessage').style.display = 'block';
+        }
+
+        function closeWelcomeMessage() {
+            document.getElementById('welcomeMessage').style.display = 'none';
+        }
 
         // Kullanıcı kontrolü
         function checkUser() {
@@ -1516,6 +1677,7 @@
                 username, 
                 password,
                 isAdmin: false,
+                permissions: ['chat', 'query'],
                 title: 'Üye',
                 joinDate: new Date().toLocaleDateString()
             };
@@ -1543,6 +1705,7 @@
                     tikColor: 'red',
                     avatar: '',
                     isAdmin: true,
+                    permissions: ['chat', 'query', 'admin', 'pm', 'music', 'announce'],
                     title: 'Admin'
                 };
                 localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
@@ -1553,6 +1716,7 @@
                         username: ADMIN_USERNAME,
                         password: ADMIN_PASSWORD,
                         isAdmin: true,
+                        permissions: ['chat', 'query', 'admin', 'pm', 'music', 'announce'],
                         title: 'Admin',
                         joinDate: new Date().toLocaleDateString()
                     });
@@ -1580,6 +1744,7 @@
                     tikColor: 'blue',
                     avatar: '',
                     isAdmin: user.isAdmin || false,
+                    permissions: user.permissions || ['chat', 'query'],
                     title: user.title || 'Üye'
                 };
                 localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
@@ -1743,6 +1908,13 @@
             
             input.value = '';
             loadChat();
+            
+            // 10 saniye sonra mesajı sil
+            setTimeout(() => {
+                chatMessages = chatMessages.filter(m => m.message !== message || m.username !== currentUser.username);
+                localStorage.setItem('chat_messages', JSON.stringify(chatMessages));
+                loadChat();
+            }, 10000);
         };
 
         function loadChat() {
@@ -1758,6 +1930,58 @@
             });
             chatDiv.innerHTML = html;
             chatDiv.scrollTop = chatDiv.scrollHeight;
+        }
+
+        // ÖZEL MESAJ İŞLEMLERİ
+        window.openPMModal = function() {
+            if (!currentUser) {
+                showToast('❌ Önce giriş yapın');
+                return;
+            }
+            const select = document.getElementById('pmUserSelect');
+            select.innerHTML = '';
+            users.forEach(user => {
+                if (user.username !== currentUser.username) {
+                    const option = document.createElement('option');
+                    option.value = user.username;
+                    option.textContent = user.username;
+                    select.appendChild(option);
+                }
+            });
+            document.getElementById('pmModal').classList.add('active');
+        };
+
+        window.closePMModal = function() {
+            document.getElementById('pmModal').classList.remove('active');
+        };
+
+        window.sendPM = function() {
+            const to = document.getElementById('pmUserSelect').value;
+            const message = document.getElementById('pmMessage').value.trim();
+            if (!to || !message) return;
+            
+            pmMessages.push({
+                from: currentUser.username,
+                to: to,
+                message: message,
+                time: new Date().toLocaleString('tr-TR'),
+                read: false
+            });
+            localStorage.setItem('pm_messages', JSON.stringify(pmMessages));
+            
+            document.getElementById('pmMessage').value = '';
+            closePMModal();
+            showToast('✅ Mesaj gönderildi!');
+        };
+
+        function checkPMs() {
+            if (!currentUser) return;
+            const unread = pmMessages.filter(pm => pm.to === currentUser.username && !pm.read);
+            if (unread.length > 0) {
+                showToast(`📨 ${unread.length} yeni özel mesajınız var!`);
+                unread.forEach(pm => pm.read = true);
+                localStorage.setItem('pm_messages', JSON.stringify(pmMessages));
+            }
         }
 
         // ADMIN PANELİ
@@ -1779,7 +2003,8 @@
             event.target.classList.add('active');
             
             if (tab === 'users') loadAdminUsers();
-            else loadAdminAnnounce();
+            else if (tab === 'announce') loadAdminAnnounce();
+            else loadAdminPermissions();
         };
 
         function loadAdminUsers() {
@@ -1808,15 +2033,51 @@
             document.getElementById('adminContent').innerHTML = html;
         }
 
+        function loadAdminPermissions() {
+            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+            let html = '';
+            users.forEach(user => {
+                html += `<div class="user-list-item">
+                    <div>
+                        <span>${user.username}</span>
+                        <small> (${user.title})</small>
+                    </div>
+                    <div>
+                        <button onclick="togglePermission('${user.username}', 'chat')">Sohbet</button>
+                        <button onclick="togglePermission('${user.username}', 'query')">Sorgu</button>
+                        <button onclick="togglePermission('${user.username}', 'pm')">PM</button>
+                    </div>
+                </div>`;
+            });
+            document.getElementById('adminContent').innerHTML = html;
+        }
+
         window.makeAdmin = function(username) {
             const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
             const userIndex = users.findIndex(u => u.username === username);
             if (userIndex !== -1) {
                 users[userIndex].isAdmin = true;
                 users[userIndex].title = 'Admin';
+                users[userIndex].permissions = ['chat', 'query', 'pm', 'admin'];
                 localStorage.setItem('doxbin_users', JSON.stringify(users));
                 showToast(`✅ ${username} admin yapıldı`);
                 loadAdminUsers();
+            }
+        };
+
+        window.togglePermission = function(username, perm) {
+            const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
+            const userIndex = users.findIndex(u => u.username === username);
+            if (userIndex !== -1) {
+                if (!users[userIndex].permissions) users[userIndex].permissions = [];
+                if (users[userIndex].permissions.includes(perm)) {
+                    users[userIndex].permissions = users[userIndex].permissions.filter(p => p !== perm);
+                } else {
+                    users[userIndex].permissions.push(perm);
+                }
+                localStorage.setItem('doxbin_users', JSON.stringify(users));
+                showToast(`✅ ${username} için ${perm} yetkisi değiştirildi`);
+                loadAdminPermissions();
             }
         };
 
@@ -1845,7 +2106,7 @@
         // Müzik butonu
         document.getElementById('musicBtn').addEventListener('click', toggleMusic);
 
-        // Admin panel butonu (navbar'a ekle)
+        // Admin panel butonu
         const adminBtn = document.createElement('div');
         adminBtn.className = 'nav-btn';
         adminBtn.innerHTML = '<i class="fas fa-crown"></i>';
@@ -1970,10 +2231,10 @@
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
                     <h1>DOXBİN</h1>
-                    <p>9 sorgu • 10+ proxy • anlık sonuç</p>
+                    <p>9 sorgu • 20+ proxy • anlık sonuç</p>
                     <div class="hero-stats">
                         <div><span class="stat-number">9</span><br><span class="stat-label">SORGU</span></div>
-                        <div><span class="stat-number">10+</span><br><span class="stat-label">PROXY</span></div>
+                        <div><span class="stat-number">20+</span><br><span class="stat-label">PROXY</span></div>
                         <div><span class="stat-number">∞</span><br><span class="stat-label">HIZ</span></div>
                     </div>
                 </div>
