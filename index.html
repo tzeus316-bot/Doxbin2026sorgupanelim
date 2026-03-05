@@ -11,10 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     
     <style>
+        /* OPTİMİZE EDİLDİ - DAHA HIZLI */
         * {
             margin: 0;
             padding: 0;
@@ -870,6 +871,15 @@
             .menu-panel { width: 240px; }
             .telegram-link { bottom: 10px; right: 10px; padding: 6px 12px; font-size: 11px; }
         }
+
+        /* GİZLİ YOUTUBE */
+        .youtube-player {
+            position: absolute;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -877,6 +887,9 @@
     <div class="neon-circle circle-1"></div>
     <div class="neon-circle circle-2"></div>
     <div class="neon-circle circle-3"></div>
+
+    <!-- GİZLİ YOUTUBE PLAYER -->
+    <div id="youtubePlayer" class="youtube-player"></div>
 
     <!-- KAYIT/GİRİŞ EKRANI -->
     <div class="auth-overlay" id="authOverlay">
@@ -906,16 +919,6 @@
                     <div class="auth-message" id="registerMessage"></div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- CloudFree -->
-    <div class="cloudfree-overlay" id="cloudfreeOverlay">
-        <div class="cloudfree-box">
-            <div class="cloudfree-logo">DOXBİN</div>
-            <div class="cloudfree-badge">🔒 CLOUDFREE</div>
-            <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 12px;">Doğrulama için tıklayın</p>
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAA5X5X5X5X5X5X5X" data-callback="onCloudfreeSuccess" data-theme="dark"></div>
         </div>
     </div>
 
@@ -993,47 +996,86 @@
         <i class="fab fa-telegram"></i> @doxbinhack
     </a>
 
-    <!-- Müzik (YENİ ŞARKI) -->
-    <audio id="bgMusic" loop preload="auto">
-        <source src="https://www.youtube.com/watch?v=c33-CqMeLKM" type="audio/mp3">
-    </audio>
-
     <script>
+        // ==================== YOUTUBE MÜZİK SİSTEMİ ====================
+        let player;
+        let musicPlaying = false;
+        let playerReady = false;
+        
+        // YouTube API hazır olduğunda çalışır
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtubePlayer', {
+                height: '0',
+                width: '0',
+                videoId: 'c33-CqMeLKM', // SADECE video ID'si
+                playerVars: {
+                    'playsinline': 1,
+                    'controls': 0,
+                    'disablekb': 1,
+                    'enablejsapi': 1,
+                    'fs': 0,
+                    'loop': 1,
+                    'playlist': 'c33-CqMeLKM' // loop için
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+        
+        function onPlayerReady(event) {
+            playerReady = true;
+            console.log('YouTube player hazır');
+        }
+        
+        function onPlayerStateChange(event) {
+            // Müzik biterse tekrar başlat (loop zaten var)
+        }
+        
+        function startMusic() {
+            if (playerReady && player) {
+                player.playVideo();
+                musicPlaying = true;
+                document.getElementById('musicBtn').classList.add('active');
+            }
+        }
+        
+        function pauseMusic() {
+            if (playerReady && player) {
+                player.pauseVideo();
+                musicPlaying = false;
+                document.getElementById('musicBtn').classList.remove('active');
+            }
+        }
+        
+        function toggleMusic() {
+            if (musicPlaying) {
+                pauseMusic();
+            } else {
+                startMusic();
+            }
+        }
+
         // ==================== KULLANICI VERİLERİ ====================
         let currentUser = null;
-        let musicPlaying = false;
         let selectedTik = 'blue';
-        let avatarType = 'default';
+        let avatarType = 'fa-user';
         
-        const music = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
+        // Tik renkleri
+        const tikColors = {
+            'blue': '#1d9bf0',
+            'green': '#10b981',
+            'yellow': '#f59e0b',
+            'black': '#1f2937'
+        };
 
         // Sayfa yüklendiğinde
         window.addEventListener('load', () => {
             menuOlustur();
             anaSayfa();
             checkUser();
-            
-            // Müziği otomatik başlatmayı dene
-            music.play().catch(() => {
-                console.log('Müzik otomatik başlatılamadı, kullanıcı etkileşimi bekleniyor...');
-            });
         });
-
-        // CloudFree
-        window.onCloudfreeSuccess = function() {
-            document.getElementById('cloudfreeOverlay').classList.add('hidden');
-            checkUser();
-            // CloudFree'den sonra müziği başlat
-            music.play().catch(() => {});
-            musicBtn.classList.add('active');
-            musicPlaying = true;
-        };
-
-        setTimeout(() => {
-            document.getElementById('cloudfreeOverlay').classList.add('hidden');
-            checkUser();
-        }, 5000);
 
         // Kullanıcı kontrolü
         function checkUser() {
@@ -1048,29 +1090,17 @@
                 // Kullanıcı tercihlerini yükle
                 if (currentUser.tikColor) {
                     selectedTik = currentUser.tikColor;
-                    document.getElementById('userTik').style.background = getTikColor(currentUser.tikColor);
+                    document.getElementById('userTik').style.background = tikColors[currentUser.tikColor];
                 }
                 if (currentUser.avatar) {
+                    avatarType = currentUser.avatar;
                     document.getElementById('userAvatar').innerHTML = `<i class="fas ${currentUser.avatar}"></i>`;
                 }
                 
                 showToast(`✅ Hoş geldin, ${currentUser.username}!`);
                 // Giriş yapınca müziği başlat
-                music.play().catch(() => {});
-                musicBtn.classList.add('active');
-                musicPlaying = true;
+                startMusic();
             }
-        }
-
-        // Tik rengi getir
-        function getTikColor(color) {
-            const colors = {
-                'blue': '#1d9bf0',
-                'green': '#10b981',
-                'yellow': '#f59e0b',
-                'black': '#1f2937'
-            };
-            return colors[color] || '#1d9bf0';
         }
 
         // Tab değiştirme
@@ -1145,9 +1175,7 @@
                 document.getElementById('logoutBtn').style.display = 'flex';
                 
                 showToast(`✅ Hoş geldin, ${username}!`);
-                music.play().catch(() => {});
-                musicBtn.classList.add('active');
-                musicPlaying = true;
+                startMusic();
             } else {
                 document.getElementById('loginMessage').textContent = '❌ Hatalı kullanıcı adı veya şifre';
             }
@@ -1166,9 +1194,7 @@
             document.getElementById('loginPassword').value = '';
             document.getElementById('loginMessage').textContent = '';
             
-            music.pause();
-            musicBtn.classList.remove('active');
-            musicPlaying = false;
+            pauseMusic();
             
             showToast('👋 Çıkış yapıldı');
         };
@@ -1216,7 +1242,7 @@
             currentUser.avatar = avatarType;
             localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
             
-            document.getElementById('userTik').style.background = getTikColor(selectedTik);
+            document.getElementById('userTik').style.background = tikColors[selectedTik];
             document.getElementById('userAvatar').innerHTML = `<i class="fas ${avatarType}"></i>`;
             
             closeProfileModal();
@@ -1224,16 +1250,7 @@
         };
 
         // Müzik butonu
-        musicBtn.addEventListener('click', () => {
-            if (musicPlaying) {
-                music.pause();
-                musicBtn.classList.remove('active');
-            } else {
-                music.play();
-                musicBtn.classList.add('active');
-            }
-            musicPlaying = !musicPlaying;
-        });
+        document.getElementById('musicBtn').addEventListener('click', toggleMusic);
 
         // ==================== PROXY VE API ====================
         const PROXY_LIST = [
