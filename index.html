@@ -15,7 +15,6 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     
     <style>
-        /* OPTİMİZE EDİLDİ - DAHA HIZLI */
         * {
             margin: 0;
             padding: 0;
@@ -197,37 +196,6 @@
             transform: scale(1.02);
         }
 
-        /* TİK SEÇİCİ */
-        .tik-selector {
-            display: flex;
-            gap: 10px;
-            margin: 15px 0;
-            justify-content: center;
-        }
-
-        .tik-option {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.2s;
-            border: 2px solid transparent;
-        }
-
-        .tik-option:hover {
-            transform: scale(1.2);
-        }
-
-        .tik-option.selected {
-            border: 2px solid white;
-            transform: scale(1.1);
-        }
-
-        .tik-blue { background: var(--verified-blue); }
-        .tik-green { background: var(--verified-green); }
-        .tik-yellow { background: var(--verified-yellow); }
-        .tik-black { background: var(--verified-black); }
-
         /* NAVBAR */
         .navbar {
             position: fixed;
@@ -254,7 +222,7 @@
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--accent);
             display: flex;
@@ -265,9 +233,9 @@
         .user-info {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: var(--bg-card);
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 30px;
             border: 1px solid var(--border);
             cursor: pointer;
@@ -279,18 +247,25 @@
         }
 
         .user-avatar {
-            width: 26px;
-            height: 26px;
+            width: 22px;
+            height: 22px;
             background: var(--verified-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 10px;
+            overflow: hidden;
+        }
+
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .user-name {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
         }
 
@@ -298,22 +273,22 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            font-size: 8px;
+            font-size: 7px;
             color: white;
-            margin-left: 4px;
+            margin-left: 2px;
         }
 
         .nav-actions {
             display: flex;
-            gap: 6px;
+            gap: 5px;
         }
 
         .nav-btn {
-            width: 34px;
-            height: 34px;
+            width: 30px;
+            height: 30px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -323,7 +298,7 @@
             cursor: pointer;
             transition: 0.2s;
             color: var(--text);
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .nav-btn:hover {
@@ -337,8 +312,8 @@
         }
 
         .hamburger {
-            width: 34px;
-            height: 34px;
+            width: 30px;
+            height: 30px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -351,7 +326,7 @@
         }
 
         .hamburger span {
-            width: 14px;
+            width: 12px;
             height: 2px;
             background: var(--text);
             transition: 0.2s;
@@ -385,7 +360,7 @@
             position: fixed;
             top: 70px;
             right: 15px;
-            width: 260px;
+            width: 240px;
             max-height: calc(100vh - 100px);
             background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
@@ -406,13 +381,13 @@
         }
 
         .menu-header {
-            padding: 18px;
+            padding: 15px;
             border-bottom: 1px solid var(--border);
         }
 
         .menu-header h3 {
             color: var(--accent);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -425,31 +400,31 @@
 
         .menu-search input {
             width: 100%;
-            padding: 6px 10px;
+            padding: 5px 8px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            font-size: 11px;
+            font-size: 10px;
         }
 
         .menu-content {
-            padding: 12px;
+            padding: 10px;
         }
 
         .menu-category {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .menu-category-title {
-            font-size: 9px;
+            font-size: 8px;
             color: var(--text-secondary);
             padding-left: 6px;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .menu-item {
-            padding: 6px 10px;
+            padding: 5px 8px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
@@ -459,7 +434,7 @@
             align-items: center;
             gap: 6px;
             margin-bottom: 3px;
-            font-size: 11px;
+            font-size: 10px;
         }
 
         .menu-item:hover {
@@ -470,8 +445,8 @@
 
         .menu-item i {
             color: var(--accent);
-            width: 12px;
-            font-size: 10px;
+            width: 10px;
+            font-size: 9px;
         }
 
         /* PROFİL DÜZENLEME MODAL */
@@ -482,11 +457,11 @@
             transform: translate(-50%, -50%);
             background: var(--bg-card);
             border: 2px solid var(--accent);
-            border-radius: 30px;
-            padding: 30px;
+            border-radius: 25px;
+            padding: 25px;
             z-index: 10000;
             width: 90%;
-            max-width: 350px;
+            max-width: 320px;
             display: none;
         }
 
@@ -496,64 +471,129 @@
 
         .profile-modal h3 {
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
+            font-size: 16px;
         }
 
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--verified-blue);
+        .profile-avatar-upload {
+            width: 70px;
+            height: 70px;
+            background: var(--bg);
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 25px;
             cursor: pointer;
             transition: 0.2s;
+            border: 2px dashed var(--accent);
+            overflow: hidden;
         }
 
-        .profile-avatar:hover {
+        .profile-avatar-upload:hover {
             transform: scale(1.05);
         }
 
-        .profile-avatar i {
-            color: white;
+        .profile-avatar-upload img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .profile-input {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 12px;
         }
 
         .tik-selector-modal {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
-            margin: 20px 0;
+            margin: 15px 0;
         }
+
+        .tik-option {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .tik-option:hover {
+            transform: scale(1.2);
+        }
+
+        .tik-option.selected {
+            border: 2px solid white;
+        }
+
+        .tik-blue { background: var(--verified-blue); }
+        .tik-green { background: var(--verified-green); }
+        .tik-yellow { background: var(--verified-yellow); }
+        .tik-black { background: var(--verified-black); }
 
         .modal-btn {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             background: var(--accent);
             border: none;
             border-radius: 20px;
             color: white;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 12px;
+        }
+
+        /* GEÇMİŞ MODAL */
+        .history-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            padding: 25px;
+            z-index: 10000;
+            width: 90%;
+            max-width: 350px;
+            display: none;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .history-modal.active {
+            display: block;
+        }
+
+        .history-item {
+            padding: 8px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            margin-bottom: 5px;
+            font-size: 10px;
+        }
+
+        .history-item small {
+            color: var(--text-secondary);
+            font-size: 8px;
         }
 
         /* MAIN CONTENT */
         .main-content {
-            margin-top: 80px;
-            padding: 15px;
+            margin-top: 70px;
+            padding: 12px;
             max-width: 1100px;
             margin-left: auto;
             margin-right: auto;
@@ -562,57 +602,53 @@
         /* HERO */
         .hero {
             text-align: center;
-            padding: 25px 10px;
+            padding: 20px 8px;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 700;
             color: var(--accent);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            margin-bottom: 6px;
         }
 
         .hero p {
             color: var(--text-secondary);
-            font-size: 13px;
-            margin-bottom: 18px;
+            font-size: 11px;
+            margin-bottom: 15px;
         }
 
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
         }
 
         .stat-number {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--accent);
         }
 
         .stat-label {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-secondary);
         }
 
         /* KARTLAR */
         .queries-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px;
-            margin-top: 18px;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 8px;
+            margin-top: 15px;
         }
 
         .query-card {
             background: rgba(15,18,25,0.7);
             backdrop-filter: blur(8px);
             border: 1px solid var(--border-light);
-            border-radius: 18px;
-            padding: 12px;
+            border-radius: 15px;
+            padding: 10px;
             cursor: pointer;
             transition: 0.15s;
         }
@@ -623,32 +659,29 @@
         }
 
         .query-icon {
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             background: linear-gradient(135deg, var(--accent), #f97316);
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .query-icon i {
-            font-size: 16px;
+            font-size: 14px;
             color: white;
         }
 
         .query-title {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             margin-bottom: 2px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
         }
 
         .query-category {
-            font-size: 9px;
+            font-size: 8px;
             color: var(--text-secondary);
         }
 
@@ -657,9 +690,9 @@
             background: rgba(15,18,25,0.85);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
-            border-radius: 25px;
-            padding: 25px;
-            max-width: 400px;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 350px;
             margin: 0 auto;
         }
 
@@ -667,20 +700,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
 
         .form-header h3 {
-            font-size: 16px;
+            font-size: 14px;
             color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .back-btn {
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -690,6 +720,7 @@
             cursor: pointer;
             color: var(--text);
             transition: 0.15s;
+            font-size: 10px;
         }
 
         .back-btn:hover {
@@ -697,39 +728,34 @@
         }
 
         .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .form-group label {
             display: block;
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-secondary);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
         .form-control {
             width: 100%;
-            padding: 10px 14px;
+            padding: 8px 12px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 25px;
+            border-radius: 20px;
             color: var(--text);
-            font-size: 12px;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
+            font-size: 11px;
         }
 
         .btn {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             background: var(--accent);
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             color: white;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.15s;
@@ -744,30 +770,30 @@
             background: rgba(15,18,25,0.85);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
-            border-radius: 18px;
-            padding: 18px;
-            margin-top: 12px;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 10px;
         }
 
         .result-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .result-actions {
             display: flex;
-            gap: 4px;
+            gap: 3px;
         }
 
         .result-actions button {
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 4px 8px;
+            padding: 3px 6px;
             color: var(--text);
-            font-size: 9px;
+            font-size: 8px;
             cursor: pointer;
         }
 
@@ -776,33 +802,33 @@
         }
 
         .result-item {
-            padding: 8px;
+            padding: 6px;
             background: var(--bg);
-            border-radius: 12px;
-            margin-bottom: 4px;
+            border-radius: 10px;
+            margin-bottom: 3px;
             border: 1px solid var(--border);
-            font-size: 11px;
+            font-size: 10px;
         }
 
         .result-item strong {
             color: var(--accent);
-            min-width: 90px;
+            min-width: 80px;
             display: inline-block;
         }
 
         .loading {
             text-align: center;
-            padding: 15px;
+            padding: 12px;
         }
 
         .loading-circle {
-            width: 25px;
-            height: 25px;
+            width: 22px;
+            height: 22px;
             border: 2px solid var(--border);
             border-top-color: var(--accent);
             border-radius: 50%;
             animation: spin 0.6s linear infinite;
-            margin: 0 auto 8px;
+            margin: 0 auto 6px;
         }
 
         @keyframes spin {
@@ -812,11 +838,11 @@
         .error-box {
             background: rgba(239,68,68,0.1);
             border: 1px solid var(--accent);
-            border-radius: 12px;
-            padding: 10px;
-            margin-top: 8px;
+            border-radius: 10px;
+            padding: 8px;
+            margin-top: 6px;
             color: var(--accent);
-            font-size: 11px;
+            font-size: 10px;
             text-align: center;
         }
 
@@ -830,13 +856,13 @@
             backdrop-filter: blur(15px);
             border: 1px solid var(--accent);
             border-radius: 30px;
-            padding: 8px 18px;
-            font-size: 11px;
+            padding: 6px 15px;
+            font-size: 10px;
             z-index: 99999;
             transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .toast.show {
@@ -850,26 +876,26 @@
         /* TELEGRAM */
         .telegram-link {
             position: fixed;
-            bottom: 15px;
-            right: 15px;
+            bottom: 10px;
+            right: 10px;
             background: var(--accent);
             color: white;
-            padding: 8px 16px;
+            padding: 6px 12px;
             border-radius: 30px;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             z-index: 99;
-            box-shadow: 0 3px 10px var(--accent-glow);
+            box-shadow: 0 3px 8px var(--accent-glow);
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .menu-panel { width: 240px; }
-            .telegram-link { bottom: 10px; right: 10px; padding: 6px 12px; font-size: 11px; }
+            .hero h1 { font-size: 28px; }
+            .menu-panel { width: 220px; }
+            .telegram-link { bottom: 8px; right: 8px; padding: 5px 10px; font-size: 9px; }
         }
 
         /* GİZLİ YOUTUBE */
@@ -879,6 +905,25 @@
             height: 0;
             opacity: 0;
             pointer-events: none;
+        }
+
+        /* ANİMASYONLAR */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .slide-in {
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
@@ -925,9 +970,11 @@
     <!-- PROFİL DÜZENLEME MODAL -->
     <div class="profile-modal" id="profileModal">
         <h3>PROFİL DÜZENLE</h3>
-        <div class="profile-avatar" id="avatarPreview" onclick="changeAvatar()">
-            <i class="fas fa-user"></i>
+        <div class="profile-avatar-upload" id="avatarUpload" onclick="triggerFileUpload()">
+            <img id="avatarPreviewImg" src="" style="display: none;">
+            <i class="fas fa-user" id="avatarIcon"></i>
         </div>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
         <input type="text" class="profile-input" id="editUsername" placeholder="Yeni kullanıcı adı">
         <div class="tik-selector-modal">
             <div class="tik-option tik-blue" onclick="selectTik('blue')"></div>
@@ -939,6 +986,13 @@
         <button class="modal-btn" style="background: var(--bg);" onclick="closeProfileModal()">KAPAT</button>
     </div>
 
+    <!-- GEÇMİŞ MODAL -->
+    <div class="history-modal" id="historyModal">
+        <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 16px;">İŞLEM GEÇMİŞİ</h3>
+        <div id="historyList"></div>
+        <button class="modal-btn" onclick="closeHistoryModal()">KAPAT</button>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">
@@ -947,7 +1001,10 @@
         </div>
         
         <div id="userInfo" style="display: none;" class="user-info" onclick="openProfileModal()">
-            <div class="user-avatar" id="userAvatar"><i class="fas fa-user"></i></div>
+            <div class="user-avatar" id="userAvatar">
+                <img id="userAvatarImg" src="" style="display: none;">
+                <i class="fas fa-user" id="userAvatarIcon"></i>
+            </div>
             <span class="user-name" id="displayUsername">Misafir</span>
             <span class="user-tik" id="userTik" style="background: var(--verified-blue);"><i class="fas fa-check"></i></span>
         </div>
@@ -955,6 +1012,9 @@
         <div class="nav-actions">
             <div class="nav-btn" id="musicBtn">
                 <i class="fas fa-music"></i>
+            </div>
+            <div class="nav-btn" id="historyBtn" onclick="openHistoryModal()">
+                <i class="fas fa-history"></i>
             </div>
             <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')">
                 <i class="fab fa-telegram"></i>
@@ -1002,12 +1062,11 @@
         let musicPlaying = false;
         let playerReady = false;
         
-        // YouTube API hazır olduğunda çalışır
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtubePlayer', {
                 height: '0',
                 width: '0',
-                videoId: 'c33-CqMeLKM', // SADECE video ID'si
+                videoId: 'c33-CqMeLKM',
                 playerVars: {
                     'playsinline': 1,
                     'controls': 0,
@@ -1015,22 +1074,16 @@
                     'enablejsapi': 1,
                     'fs': 0,
                     'loop': 1,
-                    'playlist': 'c33-CqMeLKM' // loop için
+                    'playlist': 'c33-CqMeLKM'
                 },
                 events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
+                    'onReady': onPlayerReady
                 }
             });
         }
         
         function onPlayerReady(event) {
             playerReady = true;
-            console.log('YouTube player hazır');
-        }
-        
-        function onPlayerStateChange(event) {
-            // Müzik biterse tekrar başlat (loop zaten var)
         }
         
         function startMusic() {
@@ -1050,19 +1103,36 @@
         }
         
         function toggleMusic() {
-            if (musicPlaying) {
-                pauseMusic();
-            } else {
-                startMusic();
-            }
+            if (musicPlaying) pauseMusic();
+            else startMusic();
         }
+
+        // ==================== GÜÇLÜ PROXY LİSTESİ (5 ADET) ====================
+        const PROXY_LIST = [
+            'https://corsproxy.io/?',
+            'https://api.allorigins.win/raw?url=',
+            'https://cors-anywhere.herokuapp.com/',
+            'https://thingproxy.freeboard.io/fetch/',
+            'https://proxy.cors.sh/',
+            'https://cors.eu.org/',
+            ''
+        ];
+
+        // ==================== GÜÇLÜ USER-AGENT LİSTESİ ====================
+        const USER_AGENTS = [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.210 Mobile Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0'
+        ];
 
         // ==================== KULLANICI VERİLERİ ====================
         let currentUser = null;
         let selectedTik = 'blue';
-        let avatarType = 'fa-user';
+        let userHistory = [];
         
-        // Tik renkleri
         const tikColors = {
             'blue': '#1d9bf0',
             'green': '#10b981',
@@ -1087,18 +1157,19 @@
                 document.getElementById('displayUsername').textContent = currentUser.username;
                 document.getElementById('logoutBtn').style.display = 'flex';
                 
-                // Kullanıcı tercihlerini yükle
                 if (currentUser.tikColor) {
                     selectedTik = currentUser.tikColor;
                     document.getElementById('userTik').style.background = tikColors[currentUser.tikColor];
                 }
                 if (currentUser.avatar) {
-                    avatarType = currentUser.avatar;
-                    document.getElementById('userAvatar').innerHTML = `<i class="fas ${currentUser.avatar}"></i>`;
+                    document.getElementById('userAvatarIcon').style.display = 'none';
+                    document.getElementById('userAvatarImg').style.display = 'block';
+                    document.getElementById('userAvatarImg').src = currentUser.avatar;
                 }
                 
+                userHistory = JSON.parse(localStorage.getItem(`history_${currentUser.username}`) || '[]');
+                
                 showToast(`✅ Hoş geldin, ${currentUser.username}!`);
-                // Giriş yapınca müziği başlat
                 startMusic();
             }
         }
@@ -1165,7 +1236,7 @@
                 currentUser = { 
                     username,
                     tikColor: 'blue',
-                    avatar: 'fa-user'
+                    avatar: ''
                 };
                 localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
                 
@@ -1173,6 +1244,8 @@
                 document.getElementById('userInfo').style.display = 'flex';
                 document.getElementById('displayUsername').textContent = username;
                 document.getElementById('logoutBtn').style.display = 'flex';
+                
+                userHistory = JSON.parse(localStorage.getItem(`history_${username}`) || '[]');
                 
                 showToast(`✅ Hoş geldin, ${username}!`);
                 startMusic();
@@ -1195,11 +1268,33 @@
             document.getElementById('loginMessage').textContent = '';
             
             pauseMusic();
-            
             showToast('👋 Çıkış yapıldı');
         };
 
-        // Profil düzenleme modalı
+        // Profil işlemleri
+        window.triggerFileUpload = function() {
+            document.getElementById('fileInput').click();
+        };
+
+        window.handleFileUpload = function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('avatarPreviewImg').src = e.target.result;
+                    document.getElementById('avatarPreviewImg').style.display = 'block';
+                    document.getElementById('avatarIcon').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+
+        window.selectTik = function(color) {
+            selectedTik = color;
+            document.querySelectorAll('.tik-option').forEach(opt => opt.classList.remove('selected'));
+            event.target.classList.add('selected');
+        };
+
         window.openProfileModal = function() {
             if (!currentUser) return;
             document.getElementById('editUsername').value = currentUser.username;
@@ -1210,24 +1305,11 @@
             document.getElementById('profileModal').classList.remove('active');
         };
 
-        window.selectTik = function(color) {
-            selectedTik = color;
-            document.querySelectorAll('.tik-option').forEach(opt => opt.classList.remove('selected'));
-            event.target.classList.add('selected');
-        };
-
-        window.changeAvatar = function() {
-            const avatars = ['fa-user', 'fa-user-tie', 'fa-user-astronaut', 'fa-user-ninja', 'fa-user-secret'];
-            const current = avatars.indexOf(avatarType);
-            const next = (current + 1) % avatars.length;
-            avatarType = avatars[next];
-            document.getElementById('avatarPreview').innerHTML = `<i class="fas ${avatarType}"></i>`;
-        };
-
         window.saveProfile = function() {
             const newUsername = document.getElementById('editUsername').value.trim();
+            const avatarFile = document.getElementById('fileInput').files[0];
+            
             if (newUsername && newUsername !== currentUser.username) {
-                // Kullanıcı adını değiştir
                 const users = JSON.parse(localStorage.getItem('doxbin_users') || '[]');
                 const userIndex = users.findIndex(u => u.username === currentUser.username);
                 if (userIndex !== -1) {
@@ -1238,45 +1320,88 @@
                 document.getElementById('displayUsername').textContent = newUsername;
             }
             
-            currentUser.tikColor = selectedTik;
-            currentUser.avatar = avatarType;
-            localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
+            if (avatarFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentUser.avatar = e.target.result;
+                    document.getElementById('userAvatarIcon').style.display = 'none';
+                    document.getElementById('userAvatarImg').style.display = 'block';
+                    document.getElementById('userAvatarImg').src = e.target.result;
+                    localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
+                };
+                reader.readAsDataURL(avatarFile);
+            }
             
+            currentUser.tikColor = selectedTik;
             document.getElementById('userTik').style.background = tikColors[selectedTik];
-            document.getElementById('userAvatar').innerHTML = `<i class="fas ${avatarType}"></i>`;
+            localStorage.setItem('doxbin_user', JSON.stringify(currentUser));
             
             closeProfileModal();
             showToast('✅ Profil güncellendi!');
         };
 
+        // Geçmiş işlemleri
+        window.openHistoryModal = function() {
+            if (!currentUser) return;
+            const historyList = document.getElementById('historyList');
+            let html = '';
+            userHistory.slice().reverse().forEach(item => {
+                html += `<div class="history-item slide-in"><strong>${item.type}</strong> - ${item.time}<br><small>${item.detail}</small></div>`;
+            });
+            if (html === '') html = '<p style="text-align: center; color: var(--text-secondary);">Henüz işlem yok</p>';
+            historyList.innerHTML = html;
+            document.getElementById('historyModal').classList.add('active');
+        };
+
+        window.closeHistoryModal = function() {
+            document.getElementById('historyModal').classList.remove('active');
+        };
+
+        function addToHistory(type, detail) {
+            if (!currentUser) return;
+            userHistory.push({
+                type,
+                detail,
+                time: new Date().toLocaleString('tr-TR')
+            });
+            localStorage.setItem(`history_${currentUser.username}`, JSON.stringify(userHistory));
+        }
+
         // Müzik butonu
         document.getElementById('musicBtn').addEventListener('click', toggleMusic);
 
-        // ==================== PROXY VE API ====================
-        const PROXY_LIST = [
-            'https://corsproxy.io/?',
-            'https://api.allorigins.win/raw?url=',
-            'https://cors-anywhere.herokuapp.com/',
-            ''
-        ];
+        // ==================== GÜÇLÜ API İSTEK FONKSİYONU ====================
+        async function hizliIstek(url, params, deneme = 0) {
+            const query = new URLSearchParams(params).toString();
+            const fullUrl = `${url}?${query}`;
+            
+            const proxyIndex = Math.min(deneme, PROXY_LIST.length - 1);
+            const proxy = PROXY_LIST[proxyIndex];
+            const requestUrl = proxy ? proxy + encodeURIComponent(fullUrl) : fullUrl;
+            const userAgent = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
 
-        const USER_AGENTS = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15',
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) Mobile/15E148 Safari/604.1'
-        ];
-
-        const SORGULAR = [
-            { id: 'tc', ad: 'TC Basic', api: 'https://api.sckizm.shop/api/tc', param: 'tc', kategori: 'TC' },
-            { id: 'adsoyad', ad: 'Ad Soyad', api: 'https://api.sckizm.shop/api/adsoyad', params: ['ad','soyad'], kategori: 'Ad Soyad' },
-            { id: 'tcgsm', ad: 'TC/GSM', api: 'https://api.sckizm.shop/api/tcgsm', param: 'tc', kategori: 'GSM' },
-            { id: 'gsmtc', ad: 'GSM/TC', api: 'https://api.sckizm.shop/api/gsmtc', param: 'gsm', kategori: 'GSM' },
-            { id: 'adres', ad: 'TC Adres', api: 'https://api.sckizm.shop/api/adres', param: 'tc', kategori: 'Adres' },
-            { id: 'aile', ad: 'TC Aile', api: 'https://api.sckizm.shop/api/aile', param: 'tc', kategori: 'Aile' },
-            { id: 'sulale', ad: 'TC Sülale', api: 'https://api.sckizm.shop/api/sulale', param: 'tc', kategori: 'Aile' },
-            { id: 'sgk', ad: 'SGK Sorgu', api: 'https://api.sckizm.shop/api/sgk', param: 'tc', kategori: 'SGK' },
-            { id: 'operator', ad: 'Operatör', api: 'https://api.sckizm.shop/api/operator', param: 'gsm', kategori: 'GSM' }
-        ];
+            try {
+                const response = await fetch(requestUrl, {
+                    headers: { 
+                        'User-Agent': userAgent,
+                        'Accept': 'application/json',
+                        'Origin': window.location.origin
+                    }
+                });
+                
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
+                const data = await response.json();
+                return data;
+                
+            } catch (error) {
+                if (deneme < PROXY_LIST.length - 1) {
+                    await new Promise(r => setTimeout(r, 500));
+                    return hizliIstek(url, params, deneme + 1);
+                }
+                throw error;
+            }
+        }
 
         // Reklam temizle
         function temizle(data) {
@@ -1289,6 +1414,7 @@
             
             if (typeof data === 'object') {
                 if (data.data) return temizle(data.data);
+                if (data.results) return temizle(data.results);
                 
                 const yeni = {};
                 for (const [k, v] of Object.entries(data)) {
@@ -1304,35 +1430,6 @@
                 return Object.keys(yeni).length > 0 ? yeni : null;
             }
             return data;
-        }
-
-        // Hızlı API
-        async function hizliIstek(url, params, deneme = 0) {
-            const query = new URLSearchParams(params).toString();
-            const fullUrl = `${url}?${query}`;
-            
-            const proxy = PROXY_LIST[Math.min(deneme, PROXY_LIST.length - 1)];
-            const requestUrl = proxy ? proxy + encodeURIComponent(fullUrl) : fullUrl;
-
-            try {
-                const response = await fetch(requestUrl, {
-                    headers: { 'User-Agent': USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)] }
-                });
-                
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                
-                const data = await response.json();
-                const temiz = temizle(data);
-                if (!temiz) throw new Error('Veri yok');
-                
-                return temiz;
-                
-            } catch (error) {
-                if (deneme < PROXY_LIST.length - 1) {
-                    return hizliIstek(url, params, deneme + 1);
-                }
-                throw error;
-            }
         }
 
         // Toast
@@ -1361,15 +1458,28 @@
             menu.innerHTML = html;
         }
 
+        // Sorgular
+        const SORGULAR = [
+            { id: 'tc', ad: 'TC Basic', api: 'https://api.sckizm.shop/api/tc', param: 'tc', kategori: 'TC' },
+            { id: 'adsoyad', ad: 'Ad Soyad', api: 'https://api.sckizm.shop/api/adsoyad', params: ['ad','soyad'], kategori: 'Ad Soyad' },
+            { id: 'tcgsm', ad: 'TC/GSM', api: 'https://api.sckizm.shop/api/tcgsm', param: 'tc', kategori: 'GSM' },
+            { id: 'gsmtc', ad: 'GSM/TC', api: 'https://api.sckizm.shop/api/gsmtc', param: 'gsm', kategori: 'GSM' },
+            { id: 'adres', ad: 'TC Adres', api: 'https://api.sckizm.shop/api/adres', param: 'tc', kategori: 'Adres' },
+            { id: 'aile', ad: 'TC Aile', api: 'https://api.sckizm.shop/api/aile', param: 'tc', kategori: 'Aile' },
+            { id: 'sulale', ad: 'TC Sülale', api: 'https://api.sckizm.shop/api/sulale', param: 'tc', kategori: 'Aile' },
+            { id: 'sgk', ad: 'SGK Sorgu', api: 'https://api.sckizm.shop/api/sgk', param: 'tc', kategori: 'SGK' },
+            { id: 'operator', ad: 'Operatör', api: 'https://api.sckizm.shop/api/operator', param: 'gsm', kategori: 'GSM' }
+        ];
+
         // Ana sayfa
         window.anaSayfa = function() {
             document.getElementById('mainContent').innerHTML = `
                 <div class="hero">
                     <h1>DOXBİN</h1>
-                    <p>9 sorgu • hızlı proxy • anlık sonuç</p>
+                    <p>9 sorgu • 6+ proxy • anlık sonuç</p>
                     <div class="hero-stats">
                         <div><span class="stat-number">9</span><br><span class="stat-label">SORGU</span></div>
-                        <div><span class="stat-number">4+</span><br><span class="stat-label">PROXY</span></div>
+                        <div><span class="stat-number">6+</span><br><span class="stat-label">PROXY</span></div>
                         <div><span class="stat-number">∞</span><br><span class="stat-label">HIZ</span></div>
                     </div>
                 </div>
@@ -1452,6 +1562,7 @@
 
             try {
                 const sonuc = await hizliIstek(sorgu.api, params);
+                const temizSonuc = temizle(sonuc);
                 
                 let sonucText = '';
                 let html = '<div class="result-box"><div class="result-header"><span>📊 SONUÇ</span>';
@@ -1460,8 +1571,8 @@
                 html += '<button onclick="downloadTxt()"><i class="fas fa-download"></i></button>';
                 html += '</div></div>';
                 
-                if (Array.isArray(sonuc)) {
-                    sonuc.forEach((item, idx) => {
+                if (Array.isArray(temizSonuc)) {
+                    temizSonuc.forEach((item, idx) => {
                         html += `<div style="margin:6px 0 2px; color:var(--accent);">#${idx+1}</div>`;
                         sonucText += `#${idx+1}\n`;
                         for (const [k, v] of Object.entries(item)) {
@@ -1472,21 +1583,23 @@
                         }
                         sonucText += '\n';
                     });
-                } else if (typeof sonuc === 'object') {
-                    for (const [k, v] of Object.entries(sonuc)) {
+                } else if (typeof temizSonuc === 'object') {
+                    for (const [k, v] of Object.entries(temizSonuc)) {
                         if (v && v !== 'null' && typeof v !== 'object') {
                             html += `<div class="result-item"><strong>${k}:</strong> ${v}</div>`;
                             sonucText += `${k}: ${v}\n`;
                         }
                     }
                 } else {
-                    html += `<div class="result-item">${sonuc}</div>`;
-                    sonucText += sonuc;
+                    html += `<div class="result-item">${temizSonuc}</div>`;
+                    sonucText += temizSonuc;
                 }
                 
                 html += '</div>';
                 document.getElementById('sonuc').innerHTML = html;
                 window.sonucText = sonucText;
+                
+                addToHistory(sorgu.ad, Object.entries(params).map(([k,v]) => `${k}:${v}`).join(', '));
                 showToast('✅ Tamamlandı!');
                 
             } catch (error) {
