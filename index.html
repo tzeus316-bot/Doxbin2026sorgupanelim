@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>DOXBİN | MOBİL PANEL</title>
+    <title>DOXBİN | ULTRA PANEL</title>
     
-    <!-- Mobil için optimize fontlar -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,7 +16,6 @@
     
     <!-- Ekran görüntüsü engelleme -->
     <style>
-        /* Ekran görüntüsü engelleme */
         body {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -25,8 +24,6 @@
             -ms-user-select: none;
             user-select: none;
         }
-        
-        /* Print engelleme */
         @media print {
             body { display: none; }
         }
@@ -73,14 +70,11 @@
             min-height: 100vh;
             opacity: 0;
             animation: bodyFade 0.5s ease forwards;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         @keyframes bodyFade {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* ATATÜRK ARKA PLAN GIF */
@@ -107,8 +101,8 @@
         }
 
         .circle-1 {
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             background: var(--accent);
             top: -50px;
             left: -50px;
@@ -117,8 +111,8 @@
         }
 
         .circle-2 {
-            width: 300px;
-            height: 300px;
+            width: 350px;
+            height: 350px;
             background: #3b82f6;
             bottom: -80px;
             right: -80px;
@@ -139,12 +133,12 @@
 
         @keyframes float1 {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(15px, 10px); }
+            50% { transform: translate(20px, 15px); }
         }
 
         @keyframes float2 {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-20px, -15px); }
+            50% { transform: translate(-30px, -20px); }
         }
 
         @keyframes float3 {
@@ -175,7 +169,7 @@
 
         .auth-container {
             width: 100%;
-            max-width: 360px;
+            max-width: 380px;
             padding: 15px;
         }
 
@@ -183,23 +177,23 @@
             background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
             border: 2px solid var(--accent);
-            border-radius: 32px;
+            border-radius: 40px;
             padding: 25px 18px;
             text-align: center;
-            box-shadow: 0 0 40px var(--accent-glow);
+            box-shadow: 0 0 50px var(--accent-glow);
         }
 
         .auth-logo {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 800;
             color: var(--accent);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .auth-tabs {
             display: flex;
-            gap: 4px;
-            margin-bottom: 18px;
+            gap: 5px;
+            margin-bottom: 20px;
             background: var(--bg);
             border-radius: 30px;
             padding: 3px;
@@ -207,7 +201,7 @@
 
         .auth-tab {
             flex: 1;
-            padding: 8px 5px;
+            padding: 8px;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
@@ -238,7 +232,6 @@
             color: var(--text);
             font-size: 14px;
             margin-bottom: 10px;
-            -webkit-appearance: none;
         }
 
         .auth-input:focus {
@@ -256,14 +249,13 @@
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
         }
 
         .auth-btn:active {
             transform: scale(0.97);
         }
 
-        /* HOŞGELDİN MESAJI */
+        /* HOŞGELDİN MESAJI (5 SANİYE) */
         .welcome-message {
             position: fixed;
             top: 50%;
@@ -271,14 +263,14 @@
             transform: translate(-50%, -50%);
             background: var(--bg-card);
             border: 2px solid var(--accent);
-            border-radius: 28px;
-            padding: 22px;
+            border-radius: 30px;
+            padding: 25px;
             z-index: 100000;
             text-align: center;
-            max-width: 300px;
+            max-width: 320px;
             width: 90%;
-            box-shadow: 0 0 40px var(--accent-glow);
-            animation: welcomePop 0.4s ease;
+            box-shadow: 0 0 50px var(--accent-glow);
+            animation: welcomePop 0.5s;
         }
 
         @keyframes welcomePop {
@@ -288,122 +280,132 @@
 
         .welcome-message h2 {
             color: var(--accent);
-            margin-bottom: 8px;
-            font-size: 20px;
+            margin-bottom: 10px;
+            font-size: 24px;
         }
 
         .welcome-message p {
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 12px;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        /* ANA MENÜ - TÜRK BAYRAĞI VE MESAJ */
+        /* ANA MENÜ */
         .main-content {
-            margin-top: 60px;
-            padding: 10px;
-            max-width: 450px;
+            margin-top: 70px;
+            padding: 15px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            min-height: calc(100vh - 70px);
+            min-height: calc(100vh - 80px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        .turkey-flag {
+        .ana-logo {
             font-size: 70px;
-            text-align: center;
-            margin: 0 0 10px 0;
-            animation: flagWave 3s infinite;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
         }
 
-        @keyframes flagWave {
-            0%, 100% { transform: rotate(0deg) scale(1); }
-            25% { transform: rotate(2deg) scale(1.02); }
-            75% { transform: rotate(-2deg) scale(1.02); }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .ana-baslik {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .ana-alt-baslik {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 300px;
+            margin-bottom: 10px;
         }
 
         .ana-mesaj {
-            color: var(--accent);
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .ana-alt-mesaj {
-            color: var(--text-secondary);
             font-size: 12px;
+            color: var(--text-secondary);
             text-align: center;
             max-width: 280px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            font-style: italic;
         }
 
         .ana-vurgu {
+            font-size: 16px;
+            font-weight: 700;
             color: var(--accent);
-            font-size: 14px;
-            font-weight: 600;
-            margin-top: 5px;
+            margin-top: 15px;
         }
 
-        /* NAVBAR - Mobil optimize - KÜÇÜLTÜLDÜ */
+        /* NAVBAR - KAYDIRILABİLİR BUTONLAR */
         .navbar {
             position: fixed;
-            top: 8px;
+            top: 10px;
             left: 50%;
             transform: translateX(-50%);
             width: calc(100% - 16px);
-            max-width: 450px;
-            padding: 5px 10px;
+            max-width: 500px;
+            padding: 8px 12px;
             background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
-            border-radius: 40px;
+            border-radius: 50px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
             opacity: 0;
             animation: navbarAppear 0.5s 0.3s forwards;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         @keyframes navbarAppear {
-            from { opacity: 0; transform: translateX(-50%) translateY(-15px); }
+            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
             to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
 
         .logo {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             color: var(--accent);
             display: flex;
             align-items: center;
             gap: 4px;
+            white-space: nowrap;
         }
 
         .user-info {
             display: flex;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
             background: var(--bg-card);
-            padding: 2px 6px;
+            padding: 4px 8px;
             border-radius: 30px;
             border: 1px solid var(--border);
             cursor: pointer;
-            max-width: 100px;
+            max-width: 110px;
+            overflow: hidden;
         }
 
         .user-avatar {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 7px;
+            font-size: 9px;
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -415,46 +417,51 @@
         }
 
         .user-name {
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 500;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            max-width: 40px;
         }
 
         .user-tik {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 9px;
-            height: 9px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            font-size: 5px;
+            font-size: 7px;
             color: white;
-            margin-left: 1px;
             flex-shrink: 0;
         }
 
         .user-badge {
-            font-size: 6px;
-            padding: 1px 3px;
+            font-size: 8px;
+            padding: 2px 4px;
             background: var(--accent);
             border-radius: 20px;
-            margin-left: 2px;
             white-space: nowrap;
             flex-shrink: 0;
         }
 
+        .nav-actions-wrapper {
+            flex: 1;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 5px;
+            padding: 2px 0;
+        }
+
         .nav-actions {
             display: flex;
-            gap: 3px;
-            flex-wrap: nowrap;
+            gap: 5px;
+            min-width: min-content;
         }
 
         .nav-btn {
-            width: 26px;
-            height: 26px;
+            width: 32px;
+            height: 32px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -462,15 +469,19 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: 0.15s;
+            transition: 0.2s;
             color: var(--text);
-            font-size: 10px;
+            font-size: 13px;
             flex-shrink: 0;
         }
 
-        .nav-btn:active {
-            transform: scale(0.92);
+        .nav-btn:hover {
             border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .nav-btn:active {
+            transform: scale(0.95);
         }
 
         .nav-btn.active {
@@ -479,8 +490,8 @@
         }
 
         .hamburger {
-            width: 26px;
-            height: 26px;
+            width: 32px;
+            height: 32px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -488,23 +499,23 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
             cursor: pointer;
             flex-shrink: 0;
         }
 
         .hamburger span {
-            width: 12px;
+            width: 14px;
             height: 2px;
             background: var(--text);
             transition: 0.2s;
         }
 
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(3px, 3px); }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px); }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
 
-        /* MENÜ - Mobil optimize */
+        /* MENÜ - KATEGORİLİ */
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -516,7 +527,7 @@
             z-index: 998;
             opacity: 0;
             visibility: hidden;
-            transition: 0.25s;
+            transition: 0.3s;
         }
 
         .menu-overlay.active {
@@ -526,19 +537,19 @@
 
         .menu-panel {
             position: fixed;
-            top: 50px;
-            right: 8px;
-            width: 240px;
-            max-height: calc(100vh - 60px);
+            top: 65px;
+            right: 10px;
+            width: 280px;
+            max-height: calc(100vh - 85px);
             background: rgba(15,18,25,0.98);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
-            border-radius: 22px;
+            border-radius: 25px;
             z-index: 999;
-            transition: 0.25s;
+            transition: 0.3s;
             overflow-y: auto;
             opacity: 0;
-            transform: scale(0.95) translateX(25px);
+            transform: scale(0.95) translateX(30px);
             pointer-events: none;
         }
 
@@ -549,7 +560,7 @@
         }
 
         .menu-header {
-            padding: 12px;
+            padding: 15px;
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
@@ -559,77 +570,68 @@
 
         .menu-header h3 {
             color: var(--accent);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         .menu-search {
-            margin-top: 6px;
+            margin-top: 8px;
         }
 
         .menu-search input {
             width: 100%;
-            padding: 6px 8px;
+            padding: 8px 10px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .menu-content {
-            padding: 12px;
+            padding: 15px;
         }
 
         .menu-category {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .menu-category-title {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--accent);
-            padding-left: 4px;
-            margin-bottom: 6px;
+            padding-left: 8px;
+            margin-bottom: 8px;
             font-weight: 600;
             border-left: 3px solid var(--accent);
         }
 
         .menu-item {
-            padding: 8px 10px;
+            padding: 10px 12px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 18px;
+            border-radius: 20px;
             cursor: pointer;
             transition: 0.15s;
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 4px;
-            font-size: 11px;
-            width: 100%;
+            gap: 10px;
+            margin-bottom: 5px;
+            font-size: 12px;
         }
 
         .menu-item:active {
             background: var(--bg-hover);
             border-color: var(--accent);
-            transform: translateX(-2px);
+            transform: translateX(-3px);
         }
 
         .menu-item i {
             color: var(--accent);
-            width: 16px;
-            font-size: 12px;
-            flex-shrink: 0;
-        }
-
-        .menu-item span {
-            flex: 1;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            width: 18px;
+            font-size: 13px;
         }
 
         /* MODALLAR */
@@ -640,11 +642,11 @@
             transform: translate(-50%, -50%);
             background: var(--bg-card);
             border: 2px solid var(--accent);
-            border-radius: 22px;
-            padding: 18px;
+            border-radius: 25px;
+            padding: 20px;
             z-index: 10001;
             width: 90%;
-            max-width: 320px;
+            max-width: 340px;
             display: none;
             max-height: 80vh;
             overflow-y: auto;
@@ -652,7 +654,7 @@
 
         .modal.active {
             display: block;
-            animation: modalPop 0.3s ease;
+            animation: modalPop 0.3s;
         }
 
         @keyframes modalPop {
@@ -663,7 +665,7 @@
         .modal h3 {
             color: var(--accent);
             margin-bottom: 12px;
-            font-size: 15px;
+            font-size: 16px;
         }
 
         .modal-input {
@@ -673,9 +675,8 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            margin-bottom: 8px;
-            font-size: 12px;
-            -webkit-appearance: none;
+            margin-bottom: 10px;
+            font-size: 13px;
         }
 
         .modal-select {
@@ -685,8 +686,8 @@
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            margin-bottom: 8px;
-            font-size: 12px;
+            margin-bottom: 10px;
+            font-size: 13px;
         }
 
         .modal-btn {
@@ -698,7 +699,7 @@
             color: white;
             cursor: pointer;
             margin-top: 5px;
-            font-size: 12px;
+            font-size: 13px;
         }
 
         .modal-btn:active {
@@ -709,8 +710,8 @@
         .movie-player {
             width: 100%;
             height: 180px;
-            margin: 8px 0;
-            border-radius: 14px;
+            margin: 10px 0;
+            border-radius: 15px;
             overflow: hidden;
         }
 
@@ -724,14 +725,14 @@
             height: 130px;
             overflow-y: auto;
             background: var(--bg);
-            border-radius: 14px;
-            padding: 8px;
-            margin: 8px 0;
-            font-size: 10px;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 11px;
         }
 
         .movie-chat div {
-            padding: 4px;
+            padding: 5px;
             border-bottom: 1px solid var(--border);
         }
 
@@ -739,34 +740,34 @@
         .invite-users {
             max-height: 160px;
             overflow-y: auto;
-            margin: 8px 0;
+            margin: 10px 0;
         }
 
         .invite-user-item {
-            padding: 6px;
+            padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 14px;
-            margin-bottom: 4px;
+            border-radius: 15px;
+            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .invite-user-item input {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
         }
 
         /* PUAN MODAL */
         .points-display {
             text-align: center;
-            margin: 15px 0;
+            margin: 20px 0;
         }
 
         .points-number {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 800;
             color: var(--accent);
         }
@@ -774,20 +775,19 @@
         /* TİK SEÇİCİ */
         .tik-selector {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             justify-content: center;
-            margin: 12px 0;
+            margin: 15px 0;
             flex-wrap: wrap;
         }
 
         .tik-option {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             cursor: pointer;
-            transition: 0.15s;
+            transition: 0.2s;
             border: 2px solid transparent;
-            flex-shrink: 0;
         }
 
         .tik-option:active {
@@ -814,8 +814,8 @@
         /* SOYBET MODAL */
         .chat-modal {
             position: fixed;
-            bottom: 60px;
-            right: 8px;
+            bottom: 65px;
+            right: 10px;
             width: 260px;
             height: 320px;
             background: var(--bg-card);
@@ -828,16 +828,10 @@
 
         .chat-modal.active {
             display: flex;
-            animation: chatSlide 0.25s ease;
-        }
-
-        @keyframes chatSlide {
-            from { transform: translateY(15px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
 
         .chat-header {
-            padding: 10px;
+            padding: 12px;
             border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
@@ -846,38 +840,32 @@
 
         .chat-header h4 {
             color: var(--accent);
-            font-size: 12px;
+            font-size: 13px;
         }
 
         .chat-close {
             cursor: pointer;
-            font-size: 15px;
+            font-size: 16px;
         }
 
         .chat-messages {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             overflow-y: auto;
-            font-size: 10px;
+            font-size: 11px;
         }
 
         .chat-message {
-            margin-bottom: 6px;
-            padding: 5px;
+            margin-bottom: 8px;
+            padding: 6px;
             background: var(--bg);
             border-radius: 12px;
-            animation: messagePop 0.2s ease;
-        }
-
-        @keyframes messagePop {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
         }
 
         .chat-message .username {
             color: var(--accent);
             font-weight: 600;
-            margin-right: 4px;
+            margin-right: 5px;
         }
 
         .chat-message .time {
@@ -886,78 +874,70 @@
         }
 
         .chat-input-area {
-            padding: 8px;
+            padding: 10px;
             border-top: 1px solid var(--border);
             display: flex;
-            gap: 4px;
+            gap: 5px;
         }
 
         .chat-input {
             flex: 1;
-            padding: 6px;
+            padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
-            font-size: 10px;
+            font-size: 11px;
         }
 
         .chat-send {
-            width: 26px;
-            height: 26px;
+            width: 28px;
+            height: 28px;
             background: var(--accent);
             border: none;
             border-radius: 50%;
             color: white;
             cursor: pointer;
-            font-size: 10px;
-            flex-shrink: 0;
         }
 
         /* Duyuru Barı */
         .announcement-bar {
             position: fixed;
-            top: 60px;
+            top: 65px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--accent);
             color: white;
-            padding: 5px 12px;
+            padding: 6px 16px;
             border-radius: 30px;
-            font-size: 10px;
+            font-size: 11px;
             z-index: 999;
             display: none;
             box-shadow: 0 4px 15px var(--accent-glow);
             width: 90%;
-            max-width: 300px;
+            max-width: 320px;
             text-align: center;
-            animation: announceSlide 0.3s ease;
         }
 
         .announcement-bar.active {
             display: block;
         }
 
-        @keyframes announceSlide {
-            from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-
         /* GECİKME MESAJI */
         .delay-message {
             position: fixed;
-            top: 60px;
+            top: 65px;
             left: 50%;
             transform: translateX(-50%);
             background: #f59e0b;
             color: white;
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 30px;
-            font-size: 9px;
+            font-size: 10px;
             z-index: 999;
             display: none;
             width: 90%;
-            max-width: 300px;
+            max-width: 320px;
             text-align: center;
         }
 
@@ -968,11 +948,11 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 90%;
-            max-width: 340px;
+            max-width: 360px;
             background: var(--bg-card);
             border: 2px solid var(--accent);
-            border-radius: 22px;
-            padding: 18px;
+            border-radius: 25px;
+            padding: 20px;
             z-index: 10001;
             display: none;
             max-height: 70vh;
@@ -981,25 +961,24 @@
 
         .admin-panel.active {
             display: block;
-            animation: modalPop 0.3s ease;
         }
 
         .admin-tabs {
             display: flex;
-            gap: 4px;
-            margin-bottom: 12px;
+            gap: 5px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
         }
 
         .admin-tab {
             flex: 1;
-            min-width: 60px;
-            padding: 5px;
+            min-width: 70px;
+            padding: 6px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 18px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 9px;
+            font-size: 10px;
             text-align: center;
         }
 
@@ -1014,24 +993,24 @@
         }
 
         .user-list-item {
-            padding: 6px;
+            padding: 8px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 14px;
-            margin-bottom: 4px;
+            border-radius: 15px;
+            margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 9px;
+            font-size: 10px;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 5px;
         }
 
         .user-list-item button {
-            padding: 2px 4px;
+            padding: 3px 6px;
             background: var(--accent);
             border: none;
-            border-radius: 14px;
+            border-radius: 15px;
             color: white;
             font-size: 8px;
             cursor: pointer;
@@ -1043,7 +1022,7 @@
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
             border-radius: 20px;
-            padding: 16px;
+            padding: 18px;
             max-width: 340px;
             margin: 0 auto;
             width: 100%;
@@ -1062,8 +1041,8 @@
         }
 
         .back-btn {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 50%;
@@ -1072,30 +1051,29 @@
             justify-content: center;
             cursor: pointer;
             color: var(--text);
-            font-size: 9px;
+            font-size: 10px;
             flex-shrink: 0;
         }
 
         .form-group {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .form-group label {
             display: block;
             font-size: 10px;
             color: var(--text-secondary);
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
 
         .form-control {
             width: 100%;
-            padding: 9px;
+            padding: 10px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             color: var(--text);
             font-size: 12px;
-            -webkit-appearance: none;
         }
 
         .btn {
@@ -1119,22 +1097,22 @@
             background: rgba(15,18,25,0.95);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
-            border-radius: 16px;
+            border-radius: 15px;
             padding: 12px;
-            margin-top: 8px;
+            margin-top: 10px;
         }
 
         .result-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
-            font-size: 11px;
+            margin-bottom: 8px;
+            font-size: 12px;
         }
 
         .result-actions {
             display: flex;
-            gap: 4px;
+            gap: 5px;
         }
 
         .result-actions button {
@@ -1153,12 +1131,12 @@
             border-radius: 10px;
             margin-bottom: 3px;
             border: 1px solid var(--border);
-            font-size: 10px;
+            font-size: 11px;
         }
 
         .result-item strong {
             color: var(--accent);
-            min-width: 60px;
+            min-width: 70px;
             display: inline-block;
         }
 
@@ -1173,7 +1151,7 @@
             border: 2px solid var(--border);
             border-top-color: var(--accent);
             border-radius: 50%;
-            animation: spin 0.5s linear infinite;
+            animation: spin 0.6s linear infinite;
             margin: 0 auto 5px;
         }
 
@@ -1184,11 +1162,11 @@
         .error-box {
             background: rgba(239,68,68,0.1);
             border: 1px solid var(--accent);
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 8px;
-            margin-top: 5px;
+            margin-top: 6px;
             color: var(--accent);
-            font-size: 10px;
+            font-size: 11px;
             text-align: center;
         }
 
@@ -1203,9 +1181,9 @@
             border: 1px solid var(--accent);
             border-radius: 30px;
             padding: 6px 16px;
-            font-size: 10px;
+            font-size: 11px;
             z-index: 99999;
-            transition: 0.25s;
+            transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -1226,14 +1204,14 @@
             right: 8px;
             background: var(--accent);
             color: white;
-            padding: 4px 8px;
+            padding: 5px 10px;
             border-radius: 30px;
             text-decoration: none;
-            font-size: 8px;
+            font-size: 9px;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
             z-index: 99;
             box-shadow: 0 3px 8px var(--accent-glow);
         }
@@ -1250,6 +1228,7 @@
         /* Scrollbar gizleme */
         ::-webkit-scrollbar {
             width: 3px;
+            height: 3px;
         }
 
         ::-webkit-scrollbar-track {
@@ -1314,7 +1293,7 @@
     <!-- HOŞGELDİN MESAJI (5 SANİYELİK) -->
     <div class="welcome-message" id="welcomeMessage" style="display: none;">
         <h2>🇹🇷 DOXBİN</h2>
-        <p>TÜRKİYE'NİN EN GÜÇLÜ SORGU PANELİ</p>
+        <p>Türkiye'nin en güçlü sorgu paneli</p>
         <p>Küfür eden Türkiye'den değildir, haksız bir insana olmuş bir insanla dalga geçmek olmaz.</p>
         <p style="color: var(--accent); font-weight: 600;">İYİ SORGULAR DOXBİN</p>
     </div>
@@ -1364,7 +1343,7 @@
     <!-- PROFİL DÜZENLEME MODAL -->
     <div class="modal" id="profileModal">
         <h3>👤 PROFİL DÜZENLE</h3>
-        <div style="width: 50px; height: 50px; margin: 0 auto 12px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="triggerFileUpload()">
+        <div style="width: 55px; height: 55px; margin: 0 auto 12px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="triggerFileUpload()">
             <img id="avatarPreviewImg" src="" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
             <i class="fas fa-user" id="avatarIcon"></i>
         </div>
@@ -1436,7 +1415,7 @@
         <button class="modal-btn" style="background: var(--bg); margin-top: 8px;" onclick="closeAdminPanel()">KAPAT</button>
     </div>
 
-    <!-- Navbar -->
+    <!-- Navbar - KAYDIRILABİLİR BUTONLAR -->
     <nav class="navbar">
         <div class="logo">
             <i class="fas fa-shield-halos"></i>
@@ -1454,43 +1433,46 @@
             <span class="user-badge" id="userTitleBadge" style="display: none;">Üye</span>
         </div>
 
-        <div class="nav-actions">
-            <div class="nav-btn" id="musicBtn">
-                <i class="fas fa-music"></i>
+        <div class="nav-actions-wrapper">
+            <div class="nav-actions">
+                <div class="nav-btn" id="musicBtn">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="nav-btn" id="historyBtn" onclick="openHistoryModal()">
+                    <i class="fas fa-history"></i>
+                </div>
+                <div class="nav-btn" id="chatBtn" onclick="toggleChat()">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="nav-btn" id="pmBtn" onclick="openPMModal()">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="nav-btn" id="movieBtn" onclick="openMovieModal()">
+                    <i class="fas fa-film"></i>
+                </div>
+                <div class="nav-btn" id="inviteBtn" onclick="openInviteModal()">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="nav-btn" id="pointsBtn" onclick="openPointsModal()">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <div class="nav-btn" id="logoutBtn" onclick="handleLogout()" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
             </div>
-            <div class="nav-btn" id="historyBtn" onclick="openHistoryModal()">
-                <i class="fas fa-history"></i>
-            </div>
-            <div class="nav-btn" id="chatBtn" onclick="toggleChat()">
-                <i class="fas fa-comments"></i>
-            </div>
-            <div class="nav-btn" id="pmBtn" onclick="openPMModal()">
-                <i class="fas fa-envelope"></i>
-            </div>
-            <div class="nav-btn" id="movieBtn" onclick="openMovieModal()">
-                <i class="fas fa-film"></i>
-            </div>
-            <div class="nav-btn" id="inviteBtn" onclick="openInviteModal()">
-                <i class="fas fa-user-plus"></i>
-            </div>
-            <div class="nav-btn" id="pointsBtn" onclick="openPointsModal()">
-                <i class="fas fa-star"></i>
-            </div>
-            <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')">
-                <i class="fab fa-telegram"></i>
-            </div>
-            <div class="nav-btn" id="logoutBtn" onclick="handleLogout()" style="display: none;">
-                <i class="fas fa-sign-out-alt"></i>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        </div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
-    <!-- Menü -->
+    <!-- Menü - TÜM ÖZELLİKLER KATEGORİLİ -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="menu-panel" id="menuPanel">
         <div class="menu-header">
@@ -2543,7 +2525,7 @@
                 html += `<div class="menu-category"><div class="menu-category-title">${kat.title}</div>`;
                 kat.items.forEach(item => {
                     html += `<div class="menu-item" onclick="menuAction('${item.action}')">`;
-                    html += `<i class="fas ${item.icon}"></i> <span>${item.text}</span>`;
+                    html += `<i class="fas ${item.icon}"></i> ${item.text}`;
                     html += `</div>`;
                 });
                 html += `</div>`;
@@ -2597,11 +2579,11 @@
         // Ana sayfa
         window.anaSayfa = function() {
             document.getElementById('mainContent').innerHTML = `
-                <div style="text-align: center; padding: 10px;">
-                    <div class="turkey-flag">🇹🇷</div>
-                    <div class="ana-mesaj">DOXBİN</div>
-                    <div class="ana-alt-mesaj">Türkiye'nin en güçlü sorgu paneli</div>
-                    <div class="ana-alt-mesaj">Küfür eden Türkiye'den değildir, haksız bir insana olmuş bir insanla dalga geçmek olmaz.</div>
+                <div style="text-align: center; padding: 15px;">
+                    <div class="ana-logo">🇹🇷</div>
+                    <div class="ana-baslik">DOXBİN</div>
+                    <div class="ana-alt-baslik">Türkiye'nin en güçlü sorgu paneli</div>
+                    <div class="ana-mesaj">Küfür eden Türkiye'den değildir, haksız bir insana olmuş bir insanla dalga geçmek olmaz.</div>
                     <div class="ana-vurgu">İYİ SORGULAR DOXBİN</div>
                 </div>
             `;
