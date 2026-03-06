@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DOXBİN 2026 - PROFESYONEL PANEL</title>
+    <title>DOXBİN 2026 - PROFESYONEL SORGU SİSTEMİ</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* ==================== SIFIRLAMA ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -23,8 +24,10 @@
             position: fixed;
             background: #0a0a0f;
             color: #fff;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* ==================== ANA KAP ==================== */
         .container {
             height: 100%;
             width: 100%;
@@ -33,7 +36,7 @@
             flex-direction: column;
         }
 
-        /* NAVBAR */
+        /* ==================== NAVBAR ==================== */
         .navbar {
             background: rgba(18, 18, 24, 0.95);
             backdrop-filter: blur(20px);
@@ -45,6 +48,7 @@
             align-items: center;
             height: 44px;
             margin-bottom: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .logo {
@@ -62,6 +66,7 @@
             gap: 6px;
         }
 
+        /* ==================== KULLANICI ==================== */
         .user-info {
             display: flex;
             align-items: center;
@@ -71,6 +76,12 @@
             border-radius: 30px;
             cursor: pointer;
             height: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: all 0.2s;
+        }
+
+        .user-info:hover {
+            background: rgba(59, 130, 246, 0.1);
         }
 
         .user-avatar {
@@ -104,6 +115,7 @@
             font-size: 8px;
         }
 
+        /* ==================== HAMBURGER ==================== */
         .hamburger {
             width: 32px;
             height: 32px;
@@ -115,9 +127,16 @@
             cursor: pointer;
             font-size: 14px;
             color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.2s;
         }
 
-        /* SİDE MENÜ */
+        .hamburger:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+
+        /* ==================== SİDE MENÜ ==================== */
         .side-menu {
             position: fixed;
             top: 0;
@@ -128,9 +147,10 @@
             backdrop-filter: blur(24px);
             border-left: 1px solid rgba(255, 255, 255, 0.02);
             padding: 48px 8px 8px;
-            transition: right 0.25s ease;
+            transition: right 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1000;
             overflow-y: auto;
+            box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
         }
 
         .side-menu.open {
@@ -150,6 +170,13 @@
             justify-content: center;
             cursor: pointer;
             font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            transition: all 0.2s;
+        }
+
+        .close-menu:hover {
+            background: rgba(255, 255, 255, 0.06);
+            color: white;
         }
 
         .menu-section {
@@ -163,6 +190,7 @@
             font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             color: #3b82f6;
             margin-bottom: 6px;
             padding-left: 4px;
@@ -185,10 +213,12 @@
             font-size: 11px;
             border: 1px solid rgba(255, 255, 255, 0.02);
             transition: all 0.2s;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .menu-item:hover {
             background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.2);
             transform: translateX(-3px);
         }
 
@@ -198,7 +228,7 @@
             color: #3b82f6;
         }
 
-        /* İÇERİK */
+        /* ==================== İÇERİK ALANI ==================== */
         .content-area {
             flex: 1;
             overflow: hidden;
@@ -224,7 +254,7 @@
             display: block;
         }
 
-        /* HOŞ GELDİN */
+        /* ==================== HOŞ GELDİN ==================== */
         .welcome {
             height: 100%;
             display: flex;
@@ -238,6 +268,7 @@
             font-size: 48px;
             color: #3b82f6;
             margin-bottom: 16px;
+            opacity: 0.8;
         }
 
         .welcome h2 {
@@ -254,7 +285,7 @@
             opacity: 0.5;
         }
 
-        /* SORGU PANELİ */
+        /* ==================== SORGU PANELİ ==================== */
         .query-header {
             display: flex;
             align-items: center;
@@ -274,12 +305,20 @@
             justify-content: center;
             cursor: pointer;
             font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #3b82f6;
+            color: white;
         }
 
         .query-title {
             font-size: 16px;
             font-weight: 500;
             flex: 1;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .input-group {
@@ -291,6 +330,7 @@
             color: #3b82f6;
             margin-bottom: 4px;
             display: block;
+            letter-spacing: 0.3px;
         }
 
         .query-input {
@@ -303,11 +343,13 @@
             font-size: 12px;
             resize: vertical;
             min-height: 44px;
+            transition: all 0.2s;
         }
 
         .query-input:focus {
             outline: none;
             border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.05);
         }
 
         .query-btn {
@@ -321,11 +363,24 @@
             font-weight: 500;
             cursor: pointer;
             margin: 12px 0;
+            transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
         }
 
-        /* SONUÇ KUTUSU */
+        .query-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        /* ==================== SONUÇ KUTUSU ==================== */
         .result-container {
             margin-top: 16px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .result-box {
@@ -348,12 +403,14 @@
             text-align: left;
             padding: 6px 4px;
             color: #3b82f6;
+            font-weight: 500;
             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .data-table td {
             padding: 5px 4px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         /* KART FORMATI */
@@ -362,6 +419,7 @@
             border-radius: 16px;
             padding: 10px;
             margin-bottom: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .data-row {
@@ -377,15 +435,17 @@
 
         .data-value {
             flex: 1;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         /* JSON FORMATI */
         .json-view {
-            font-family: monospace;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
             font-size: 10px;
             line-height: 1.5;
             color: #3b82f6;
             white-space: pre-wrap;
+            word-break: break-word;
         }
 
         /* AKSİYON BUTONLARI */
@@ -408,11 +468,13 @@
             align-items: center;
             justify-content: center;
             gap: 4px;
+            transition: all 0.2s;
         }
 
         .action-btn:hover {
             background: #3b82f6;
             color: white;
+            border-color: #3b82f6;
         }
 
         /* YÜKLEYİCİ */
@@ -430,7 +492,7 @@
             to { transform: rotate(360deg); }
         }
 
-        /* FİLM PANELİ */
+        /* ==================== FİLM PANELİ ==================== */
         .movie-container {
             display: flex;
             flex-direction: column;
@@ -460,6 +522,7 @@
             border-radius: 24px;
             color: white;
             font-size: 11px;
+            font-weight: 500;
             cursor: pointer;
         }
 
@@ -468,6 +531,7 @@
             border-radius: 20px;
             overflow: hidden;
             aspect-ratio: 16/9;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
         }
 
         .video-wrapper iframe {
@@ -476,7 +540,7 @@
             border: none;
         }
 
-        /* GİRİŞ PANELİ */
+        /* ==================== GİRİŞ PANELİ ==================== */
         .auth-container {
             max-width: 280px;
             margin: 40px auto;
@@ -501,15 +565,27 @@
             color: white;
             font-size: 13px;
             margin-bottom: 10px;
+            transition: all 0.2s;
+        }
+
+        .auth-input:focus {
+            outline: none;
+            border-color: #3b82f6;
         }
 
         .auth-link {
             color: #3b82f6;
             text-decoration: none;
             font-size: 11px;
+            opacity: 0.8;
+            transition: all 0.2s;
         }
 
-        /* PROFİL */
+        .auth-link:hover {
+            opacity: 1;
+        }
+
+        /* ==================== PROFİL ==================== */
         .profile-info {
             text-align: center;
             padding: 20px;
@@ -525,6 +601,8 @@
             align-items: center;
             justify-content: center;
             font-size: 28px;
+            color: white;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
         }
 
         .profile-name {
@@ -548,40 +626,12 @@
             color: #3b82f6;
         }
 
-        /* API UYARI */
-        .api-warning {
-            background: rgba(255, 193, 7, 0.1);
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            border-radius: 16px;
-            padding: 12px;
-            margin-bottom: 16px;
-            font-size: 11px;
-            color: #ffc107;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .api-warning i {
-            font-size: 14px;
-        }
-
-        .demo-data-btn {
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 20px;
-            padding: 8px 12px;
-            font-size: 10px;
-            color: #3b82f6;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 8px;
-        }
-
+        /* ==================== KAYDIRMA ÇUBUĞU ==================== */
         ::-webkit-scrollbar {
             width: 3px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.01);
         }
         ::-webkit-scrollbar-thumb {
             background: #3b82f6;
@@ -597,29 +647,51 @@
         <div class="menu-section">
             <div class="menu-title">👤 KULLANICI</div>
             <div class="menu-items">
-                <div class="menu-item" onclick="showPanel('profile'); toggleMenu()"><i class="fas fa-user"></i> Profil</div>
-                <div class="menu-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Çıkış</div>
+                <div class="menu-item" onclick="showPanel('profile'); toggleMenu()"><i class="fas fa-user"></i> Profilim</div>
+                <div class="menu-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</div>
             </div>
         </div>
         
         <div class="menu-section">
             <div class="menu-title">🔍 TC SORGULARI</div>
-            <div class="menu-items" id="tcMenu"></div>
+            <div class="menu-items">
+                <div class="menu-item" onclick="selectQuery('tc', 'TC Basic', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> TC Basic</div>
+                <div class="menu-item" onclick="selectQuery('gsmtc', 'GSM\'den TC', 'gsm', 'GSM No'); toggleMenu()"><i class="fas fa-search"></i> GSM'den TC</div>
+                <div class="menu-item" onclick="selectQuery('tcgsmpro', 'TC GSM PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> TC GSM PRO</div>
+            </div>
         </div>
         
         <div class="menu-section">
             <div class="menu-title">👥 AD SOYAD</div>
-            <div class="menu-items" id="adMenu"></div>
+            <div class="menu-items">
+                <div class="menu-item" onclick="selectQuery('adsoyad', 'Ad Soyad', 'ad,soyad', 'Ad Soyad'); toggleMenu()"><i class="fas fa-search"></i> Ad Soyad</div>
+                <div class="menu-item" onclick="selectQuery('adsoyadpro', 'Ad Soyad PRO', 'ad,soyad,il', 'Ad Soyad İl'); toggleMenu()"><i class="fas fa-search"></i> Ad Soyad PRO</div>
+                <div class="menu-item" onclick="selectQuery('adililce', 'Ad İl İlçe', 'ad,il,ilce', 'Ad İl İlçe'); toggleMenu()"><i class="fas fa-search"></i> Ad İl İlçe</div>
+            </div>
         </div>
         
         <div class="menu-section">
             <div class="menu-title">🏠 AİLE & SÜLALE</div>
-            <div class="menu-items" id="aileMenu"></div>
+            <div class="menu-items">
+                <div class="menu-item" onclick="selectQuery('aile', 'Aile', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Aile</div>
+                <div class="menu-item" onclick="selectQuery('ailepro', 'Aile PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Aile PRO</div>
+                <div class="menu-item" onclick="selectQuery('sulale', 'Sülale', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Sülale</div>
+                <div class="menu-item" onclick="selectQuery('sulalepro', 'Sülale PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Sülale PRO</div>
+                <div class="menu-item" onclick="selectQuery('soyagaci', 'Soy Ağacı', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Soy Ağacı</div>
+                <div class="menu-item" onclick="selectQuery('soyagacipro', 'Soy Ağacı PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Soy Ağacı PRO</div>
+            </div>
         </div>
         
         <div class="menu-section">
             <div class="menu-title">📍 ADRES & TAPU</div>
-            <div class="menu-items" id="adresMenu"></div>
+            <div class="menu-items">
+                <div class="menu-item" onclick="selectQuery('adres', 'Adres', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Adres</div>
+                <div class="menu-item" onclick="selectQuery('adrespro', 'Adres PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Adres PRO</div>
+                <div class="menu-item" onclick="selectQuery('hane', 'Hane', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Hane</div>
+                <div class="menu-item" onclick="selectQuery('tapu', 'Tapu', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Tapu</div>
+                <div class="menu-item" onclick="selectQuery('hayathikayesi', 'Hayat Hikayesi', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Hayat Hikayesi</div>
+                <div class="menu-item" onclick="selectQuery('isyeriark', 'İş Arkadaşı', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> İş Arkadaşı</div>
+            </div>
         </div>
         
         <div class="menu-section">
@@ -647,9 +719,9 @@
             </div>
         </div>
 
-        <!-- İÇERİK -->
+        <!-- İÇERİK ALANI -->
         <div class="content-area">
-            <!-- GİRİŞ -->
+            <!-- GİRİŞ PANELİ -->
             <div id="authPanel" class="panel active">
                 <div class="auth-container">
                     <div class="auth-title">DOXBİN 2026</div>
@@ -657,14 +729,14 @@
                     <input type="password" id="loginPassword" class="auth-input" placeholder="Şifre">
                     <button class="query-btn" onclick="login()">GİRİŞ YAP</button>
                     <div style="margin-top:16px;">
-                        <span style="opacity:0.5; font-size:11px;">Hesap yok? </span>
+                        <span style="opacity:0.5; font-size:11px;">Hesabın yok mu? </span>
                         <a href="#" onclick="showRegister()" class="auth-link">Kayıt Ol</a>
                     </div>
                     <div style="margin-top:12px; font-size:9px; opacity:0.3;">Admin: @doxbinhack</div>
                 </div>
             </div>
 
-            <!-- KAYIT -->
+            <!-- KAYIT PANELİ -->
             <div id="registerPanel" class="panel">
                 <div class="auth-container">
                     <div class="auth-title">KAYIT OL</div>
@@ -672,13 +744,13 @@
                     <input type="password" id="regPassword" class="auth-input" placeholder="Şifre">
                     <button class="query-btn" onclick="register()">KAYIT OL</button>
                     <div style="margin-top:16px;">
-                        <span style="opacity:0.5; font-size:11px;">Zaten hesabın var? </span>
+                        <span style="opacity:0.5; font-size:11px;">Zaten hesabın var mı? </span>
                         <a href="#" onclick="showLogin()" class="auth-link">Giriş Yap</a>
                     </div>
                 </div>
             </div>
 
-            <!-- HOŞ GELDİN -->
+            <!-- HOŞ GELDİN PANELİ -->
             <div id="welcomePanel" class="panel">
                 <div class="welcome">
                     <i class="fas fa-compass"></i>
@@ -687,16 +759,11 @@
                 </div>
             </div>
 
-            <!-- SORGU -->
+            <!-- SORGU PANELİ -->
             <div id="queryPanel" class="panel">
                 <div class="query-header">
                     <div class="back-btn" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
                     <div class="query-title" id="queryTitle">Sorgu</div>
-                </div>
-                
-                <div class="api-warning" id="apiWarning" style="display:none;">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <span>API bağlantı sorunu. Demo veri gösteriliyor.</span>
                 </div>
                 
                 <div class="input-group">
@@ -714,7 +781,7 @@
                 </div>
             </div>
 
-            <!-- FİLM -->
+            <!-- FİLM PANELİ -->
             <div id="moviePanel" class="panel">
                 <div class="query-header">
                     <div class="back-btn" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
@@ -730,7 +797,7 @@
                 </div>
             </div>
 
-            <!-- PROFİL -->
+            <!-- PROFİL PANELİ -->
             <div id="profilePanel" class="panel">
                 <div class="query-header">
                     <div class="back-btn" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
@@ -742,70 +809,45 @@
     </div>
 
     <script>
-        // ==================== USER-AGENT ====================
+        // ==================== USER-AGENT'LER ====================
         const USER_AGENTS = [
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15"
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
         ];
 
         // ==================== API SORGULAR ====================
-        const API_QUERIES = [
-            // TC Sorguları
-            { id: 'tc', name: 'TC Basic', endpoint: 'tc.php', params: ['tc'], label: 'TC Kimlik No', cat: 'tc' },
-            { id: 'gsmtc', name: 'GSM\'den TC', endpoint: 'gsmtc.php', params: ['gsm'], label: 'GSM No (10 hane)', cat: 'tc' },
-            { id: 'tcgsmpro', name: 'TC GSM PRO', endpoint: 'tcgsmpro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'tc' },
-            
-            // Ad Soyad
-            { id: 'adsoyad', name: 'Ad Soyad', endpoint: 'adsoyad.php', params: ['ad','soyad'], label: 'Ad Soyad', cat: 'ad' },
-            { id: 'adsoyadpro', name: 'Ad Soyad PRO', endpoint: 'adsoyadpro.php', params: ['ad','soyad','il'], label: 'Ad Soyad İl', cat: 'ad' },
-            { id: 'adililce', name: 'Ad İl İlçe', endpoint: 'adililce.php', params: ['ad','il','ilce'], label: 'Ad İl İlçe', cat: 'ad' },
-            
-            // Aile & Sülale
-            { id: 'aile', name: 'Aile', endpoint: 'aile.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
-            { id: 'ailepro', name: 'Aile PRO', endpoint: 'ailepro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
-            { id: 'sulale', name: 'Sülale', endpoint: 'sulale.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
-            { id: 'sulalepro', name: 'Sülale PRO', endpoint: 'sulalepro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
-            { id: 'soyagaci', name: 'Soy Ağacı', endpoint: 'soyagaci.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
-            { id: 'soyagacipro', name: 'Soy Ağacı PRO', endpoint: 'soyagacipro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
-            
-            // Adres & Tapu
-            { id: 'adres', name: 'Adres', endpoint: 'adres.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
-            { id: 'adrespro', name: 'Adres PRO', endpoint: 'adrespro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
-            { id: 'hane', name: 'Hane', endpoint: 'hane.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
-            { id: 'tapu', name: 'Tapu', endpoint: 'tapu.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
-            { id: 'hayathikayesi', name: 'Hayat Hikayesi', endpoint: 'hayathikayesi.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
-            { id: 'isyeriark', name: 'İş Arkadaşı', endpoint: 'isyeriark.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' }
-        ];
-
-        // ==================== DEMO VERİLER ====================
-        const DEMO_DATA = {
-            tc: { "TC": "11111111110", "AD": "ABDULSELAM", "SOYAD": "DENİZ", "GSM": "5346149118", "BABA ADI": "BAHRİ", "ANNE ADI": "RAHİME", "DOĞUM TARİHİ": "1998-03-17" },
-            gsmtc: [{ "TC": "11111111110", "GSM": "5346149118" }, { "TC": "11111111110", "GSM": "5553723339" }],
-            adsoyad: [{ "TC": "27727166918", "ADI": "ROKET", "SOYADI": "ATAR", "DOĞUM TARİHİ": "1969-09-28" }],
-            aile: [
-                { "YAKINLIK": "Kendisi", "TC": "11111111110", "ADI": "ABDULSELAM", "SOYADI": "DENİZ" },
-                { "YAKINLIK": "Annesi", "TC": "47980825834", "ADI": "RAHİME", "SOYADI": "DENİZ" },
-                { "YAKINLIK": "Babası", "TC": "12854027492", "ADI": "BAHRİ", "SOYADI": "DENİZ" }
-            ],
-            default: { "sonuç": "Demo veri", "bilgi": "API bağlantısı kurulamadı" }
+        const API_BASE = 'https://ankara404.site/api/';
+        
+        const QUERY_ENDPOINTS = {
+            'tc': 'tc.php',
+            'gsmtc': 'gsmtc.php',
+            'tcgsmpro': 'tcgsmpro.php',
+            'adsoyad': 'adsoyad.php',
+            'adsoyadpro': 'adsoyadpro.php',
+            'adililce': 'adililce.php',
+            'aile': 'aile.php',
+            'ailepro': 'ailepro.php',
+            'sulale': 'sulale.php',
+            'sulalepro': 'sulalepro.php',
+            'soyagaci': 'soyagaci.php',
+            'soyagacipro': 'soyagacipro.php',
+            'adres': 'adres.php',
+            'adrespro': 'adrespro.php',
+            'hane': 'hane.php',
+            'tapu': 'tapu.php',
+            'hayathikayesi': 'hayathikayesi.php',
+            'isyeriark': 'isyeriark.php'
         };
 
-        // ==================== CORS PROXY ====================
-        const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-        const USE_PROXY = false; // Heroku proxy çalışmıyor, direkt dene
-        
         // ==================== VERİTABANI ====================
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
-        const API_BASE = 'https://ankara404.site/api/';
         let currentQuery = null;
         let lastResult = null;
-        let apiAvailable = true;
 
-        // MENÜ YÜKLE
+        // SAYFA YÜKLENİNCE
         window.onload = function() {
-            loadMenus();
             if (currentUser) {
                 document.getElementById('navbar').style.display = 'flex';
                 showPanel('welcome');
@@ -813,35 +855,90 @@
             }
         };
 
-        function loadMenus() {
-            const menus = {
-                tc: document.getElementById('tcMenu'),
-                ad: document.getElementById('adMenu'),
-                aile: document.getElementById('aileMenu'),
-                adres: document.getElementById('adresMenu')
+        // ==================== SORGU İŞLEMLERİ ====================
+        function selectQuery(type, name, paramsStr, label) {
+            if (!currentUser) {
+                alert('Önce giriş yapmalısınız!');
+                return;
+            }
+            
+            currentQuery = {
+                id: type,
+                name: name,
+                params: paramsStr.split(','),
+                label: label,
+                endpoint: QUERY_ENDPOINTS[type]
             };
             
-            API_QUERIES.forEach(q => {
-                const item = document.createElement('div');
-                item.className = 'menu-item';
-                item.onclick = () => { selectQuery(q); toggleMenu(); };
-                item.innerHTML = `<i class="fas fa-search"></i> ${q.name}`;
-                if (menus[q.cat]) menus[q.cat].appendChild(item);
-            });
-        }
-
-        function selectQuery(q) {
-            if (!currentUser) return;
-            currentQuery = q;
-            document.getElementById('queryTitle').textContent = q.name;
-            document.getElementById('queryLabel').textContent = q.label + ':';
+            document.getElementById('queryTitle').textContent = name;
+            document.getElementById('queryLabel').textContent = label + ':';
             document.getElementById('queryInput').value = '';
             document.getElementById('resultContainer').style.display = 'none';
-            document.getElementById('apiWarning').style.display = 'none';
             showPanel('query');
         }
 
-        // REKLAM TEMİZLE
+        async function processQuery() {
+            if (!currentUser || !currentQuery) return;
+            
+            const input = document.getElementById('queryInput').value.trim();
+            if (!input && currentQuery.params.length > 0) {
+                alert('Veri girin!');
+                return;
+            }
+            
+            const params = {};
+            if (currentQuery.params.length === 1) {
+                params[currentQuery.params[0]] = input;
+            } else {
+                const inputs = input.split(' ');
+                for (let i=0; i<currentQuery.params.length; i++) {
+                    if (inputs[i]) params[currentQuery.params[i]] = inputs[i];
+                }
+            }
+            
+            const url = new URL(API_BASE + currentQuery.endpoint);
+            Object.keys(params).forEach(k => url.searchParams.append(k, params[k]));
+            
+            document.getElementById('resultContainer').style.display = 'block';
+            document.getElementById('resultBox').innerHTML = '<div class="loader"></div>';
+            
+            try {
+                const ua = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+                
+                const response = await fetch(url.toString(), { 
+                    headers: { 
+                        'User-Agent': ua,
+                        'Accept': 'application/json, text/plain, */*'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const text = await response.text();
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch {
+                    data = text;
+                }
+                
+                // Reklamları temizle
+                const cleaned = cleanResponse(data);
+                lastResult = cleaned;
+                
+                document.getElementById('resultBox').innerHTML = formatData(cleaned);
+                
+                // Puan ekle
+                currentUser.points = (currentUser.points || 0) + 1;
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                
+            } catch (error) {
+                document.getElementById('resultBox').innerHTML = `<div class="json-view" style="color:#ff3366;">Hata: ${error.message}</div>`;
+            }
+        }
+
         function cleanResponse(data) {
             if (typeof data === 'object' && data !== null) {
                 const remove = ['success', 'message', 'developer', 'api_ismi', 'sorgu_yanit_suresi'];
@@ -868,7 +965,6 @@
             return data;
         }
 
-        // FORMATLA
         function formatData(data) {
             if (!data) return '<div class="json-view">Sonuç yok</div>';
             
@@ -904,121 +1000,19 @@
             return `<div class="json-view">${data}</div>`;
         }
 
-        // API SORGU - CORS HATALARINI YÖNET
-        async function processQuery() {
-            if (!currentUser || !currentQuery) return;
-            
-            const input = document.getElementById('queryInput').value.trim();
-            if (!input && currentQuery.params.length > 0) {
-                alert('Veri girin!');
-                return;
-            }
-            
-            const params = {};
-            if (currentQuery.params.length === 1) {
-                params[currentQuery.params[0]] = input;
-            } else {
-                const inputs = input.split(' ');
-                for (let i=0; i<currentQuery.params.length; i++) {
-                    if (inputs[i]) params[currentQuery.params[i]] = inputs[i];
-                }
-            }
-            
-            const url = new URL(API_BASE + currentQuery.endpoint);
-            Object.keys(params).forEach(k => url.searchParams.append(k, params[k]));
-            
-            document.getElementById('resultContainer').style.display = 'block';
-            document.getElementById('resultBox').innerHTML = '<div class="loader"></div>';
-            document.getElementById('apiWarning').style.display = 'none';
-            
-            try {
-                // CORS hatası almamak için farklı yöntemler dene
-                let data;
-                let success = false;
-                
-                // Yöntem 1: Doğrudan fetch (en basit)
-                try {
-                    const ua = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
-                    const res = await fetch(url.toString(), { 
-                        headers: { 'User-Agent': ua },
-                        mode: 'cors'
-                    });
-                    
-                    if (res.ok) {
-                        const text = await res.text();
-                        try {
-                            data = JSON.parse(text);
-                        } catch {
-                            data = text;
-                        }
-                        success = true;
-                    }
-                } catch (e) {
-                    console.log('Direct fetch failed:', e);
-                }
-                
-                // Yöntem 2: JSONP benzeri bir yöntem (image ile test)
-                if (!success) {
-                    // API'ye ping at
-                    const pingUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url.toString())}`;
-                    try {
-                        const pingRes = await fetch(pingUrl);
-                        if (pingRes.ok) {
-                            const pingData = await pingRes.json();
-                            data = JSON.parse(pingData.contents);
-                            success = true;
-                        }
-                    } catch (e) {
-                        console.log('Proxy fetch failed:', e);
-                    }
-                }
-                
-                // Yöntem 3: Demo veri kullan
-                if (!success) {
-                    document.getElementById('apiWarning').style.display = 'flex';
-                    
-                    // Sorgu tipine göre demo veri seç
-                    if (DEMO_DATA[currentQuery.id]) {
-                        data = DEMO_DATA[currentQuery.id];
-                    } else if (currentQuery.cat === 'tc') {
-                        data = DEMO_DATA.tc;
-                    } else if (currentQuery.cat === 'ad') {
-                        data = DEMO_DATA.adsoyad;
-                    } else if (currentQuery.cat === 'aile') {
-                        data = DEMO_DATA.aile;
-                    } else {
-                        data = DEMO_DATA.default;
-                    }
-                    success = true;
-                }
-                
-                // Veriyi temizle ve göster
-                const cleaned = cleanResponse(data);
-                lastResult = cleaned;
-                document.getElementById('resultBox').innerHTML = formatData(cleaned);
-                
-                // Puan ekle
-                currentUser.points = (currentUser.points || 0) + 1;
-                localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                
-            } catch (e) {
-                document.getElementById('resultBox').innerHTML = `<div class="json-view" style="color:#ff3366;">Hata: ${e.message}</div>`;
-            }
-        }
-
-        // KOPYALA/İNDİR
         function copyResult() {
             if (lastResult) {
                 const text = typeof lastResult === 'object' ? JSON.stringify(lastResult, null, 2) : lastResult;
-                navigator.clipboard.writeText(text);
-                alert('Kopyalandı!');
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Kopyalandı!');
+                });
             }
         }
 
         function downloadResult() {
             if (lastResult) {
                 const text = typeof lastResult === 'object' ? JSON.stringify(lastResult, null, 2) : lastResult;
-                const blob = new Blob([text], {type:'text/plain'});
+                const blob = new Blob([text], {type: 'text/plain'});
                 const a = document.createElement('a');
                 a.href = URL.createObjectURL(blob);
                 a.download = `sorgu_${Date.now()}.txt`;
@@ -1026,15 +1020,26 @@
             }
         }
 
-        // GİRİŞ/KAYIT
+        // ==================== GİRİŞ/KAYIT ====================
         function login() {
             const username = document.getElementById('loginUsername').value.trim();
             const password = document.getElementById('loginPassword').value.trim();
             
-            if (!username || !password) { alert('Boş olamaz!'); return; }
+            if (!username || !password) {
+                alert('Kullanıcı adı ve şifre girin!');
+                return;
+            }
             
+            // Admin kontrolü
             if ((username === '@doxbinhack' || username === '@admin') && password === 'admin123') {
-                currentUser = { id: 'admin', username, title: 'Admin', points: 999, avatar: 'A', isAdmin: true };
+                currentUser = { 
+                    id: 'admin', 
+                    username: username, 
+                    title: 'Admin', 
+                    points: 999, 
+                    avatar: username.charAt(0).toUpperCase(), 
+                    isAdmin: true 
+                };
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 document.getElementById('navbar').style.display = 'flex';
                 showPanel('welcome');
@@ -1050,7 +1055,7 @@
                 showPanel('welcome');
                 updateUserInfo();
             } else {
-                alert('Hatalı giriş!');
+                alert('Hatalı kullanıcı adı veya şifre!');
             }
         }
 
@@ -1058,9 +1063,20 @@
             const username = document.getElementById('regUsername').value.trim();
             const password = document.getElementById('regPassword').value.trim();
             
-            if (!username || !password) { alert('Boş olamaz!'); return; }
-            if (username.startsWith('@')) { alert('@ ile başlayamaz!'); return; }
-            if (users.some(u => u.username === username)) { alert('Kullanıcı adı alınmış!'); return; }
+            if (!username || !password) {
+                alert('Kullanıcı adı ve şifre girin!');
+                return;
+            }
+            
+            if (username.startsWith('@')) {
+                alert('Kullanıcı adı "@" ile başlayamaz!');
+                return;
+            }
+            
+            if (users.some(u => u.username === username)) {
+                alert('Bu kullanıcı adı zaten alınmış!');
+                return;
+            }
             
             const newUser = { 
                 id: Date.now(), 
@@ -1073,7 +1089,7 @@
             };
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
-            alert('Kayıt başarılı!');
+            alert('Kayıt başarılı! Şimdi giriş yapabilirsiniz.');
             showLogin();
         }
 
@@ -1083,6 +1099,7 @@
             location.reload();
         }
 
+        // ==================== PROFİL ====================
         function updateUserInfo() {
             if (currentUser) {
                 document.getElementById('userName').textContent = currentUser.username;
@@ -1099,31 +1116,39 @@
             }
         }
 
-        // FİLM
+        // ==================== FİLM ====================
         function loadVideo() {
             const link = document.getElementById('youtubeLink').value;
-            const id = link.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([^&?#]+)/)?.[1];
+            const match = link.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([^&?#]+)/);
+            const id = match ? match[1] : null;
+            
             if (id) {
                 document.getElementById('videoWrapper').innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen loading="lazy"></iframe>`;
             } else {
-                alert('Geçersiz link!');
+                alert('Geçersiz YouTube linki!');
             }
         }
 
-        // MENÜ/PANEL
+        // ==================== MENÜ/PANEL ====================
         function toggleMenu() {
             document.getElementById('sideMenu').classList.toggle('open');
         }
 
         function showPanel(panelName) {
-            const panels = ['authPanel','registerPanel','welcomePanel','queryPanel','moviePanel','profilePanel'];
+            const panels = ['authPanel', 'registerPanel', 'welcomePanel', 'queryPanel', 'moviePanel', 'profilePanel'];
             panels.forEach(p => document.getElementById(p).classList.remove('active'));
             document.getElementById(panelName + 'Panel').classList.add('active');
-            if (panelName === 'profile') updateUserInfo();
+            
+            if (panelName === 'profile') {
+                updateUserInfo();
+            }
         }
 
-        function showLogin() { showPanel('auth'); }
-        function showRegister() { 
+        function showLogin() {
+            showPanel('auth');
+        }
+        
+        function showRegister() {
             document.getElementById('authPanel').classList.remove('active');
             document.getElementById('registerPanel').classList.add('active');
         }
