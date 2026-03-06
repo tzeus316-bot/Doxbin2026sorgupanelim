@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DOXBİN 2026 FREE PANEL</title>
+    <title>DOXBİN 2026 - PROFESYONEL API</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* TAMAMEN SABİT EKRAN - KAYDIRMA YOK */
         * {
             margin: 0;
             padding: 0;
@@ -22,126 +21,80 @@
             width: 100%;
             overflow: hidden;
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
             color: #fff;
-        }
-
-        /* SABİT ARKA PLAN */
-        .fixed-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* ATATÜRK GIF */
-        .ataturk-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyY2lpMDNpeHlxbnVtMms3d2lwenNtcWVqNW9yOGVnMXYyc3hwbGh3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ygwruM6xajktG7W23z/giphy.gif') center/cover no-repeat;
-            opacity: 0.03;
-            pointer-events: none;
         }
 
         /* ANA KAP */
         .container {
             height: 100%;
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            position: relative;
-            z-index: 1;
         }
 
         /* NAVBAR */
         .navbar {
             background: rgba(10, 10, 20, 0.95);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 30px;
-            padding: 5px 12px;
+            padding: 8px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 42px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .logo {
-            font-size: 13px;
+            font-size: 16px;
             font-weight: bold;
             background: linear-gradient(45deg, #ff3366, #33ccff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            cursor: pointer;
         }
 
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
         }
 
-        /* KULLANICI BİLGİSİ */
         .user-info {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             background: rgba(255, 255, 255, 0.05);
-            padding: 4px 8px;
-            border-radius: 20px;
+            padding: 5px 12px;
+            border-radius: 25px;
             cursor: pointer;
-            height: 30px;
         }
 
         .user-avatar {
-            width: 22px;
-            height: 22px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: linear-gradient(45deg, #ff3366, #33ccff);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 12px;
             font-weight: bold;
             border: 1px solid #fff;
-            background-size: cover;
-            background-position: center;
         }
 
-        .user-name {
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-
-        .tik {
-            font-size: 11px;
-        }
-
-        /* HAMBURGER MENÜ BUTONU */
+        /* HAMBURGER MENÜ */
         .hamburger {
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             background: linear-gradient(45deg, #ff3366, #33ccff);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 16px;
             color: white;
         }
 
@@ -149,14 +102,14 @@
         .side-menu {
             position: fixed;
             top: 0;
-            right: -240px;
-            width: 220px;
+            right: -280px;
+            width: 260px;
             height: 100vh;
             background: rgba(10, 10, 20, 0.98);
             backdrop-filter: blur(10px);
             border-left: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 45px 8px 8px;
-            transition: right 0.2s ease;
+            padding: 50px 10px 10px;
+            transition: right 0.3s ease;
             z-index: 1000;
             overflow-y: auto;
         }
@@ -167,78 +120,67 @@
 
         .close-menu {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 25px;
-            height: 25px;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 11px;
+            font-size: 14px;
         }
 
         .menu-section {
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-            padding: 6px;
+            margin-bottom: 15px;
         }
 
         .menu-title {
-            font-size: 10px;
+            font-size: 12px;
             font-weight: bold;
-            margin-bottom: 5px;
             color: #33ccff;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            margin-bottom: 8px;
+            padding-left: 5px;
         }
 
         .menu-items {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 3px;
         }
 
         .menu-item {
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 6px;
-            padding: 6px 6px;
+            border-radius: 8px;
+            padding: 8px 10px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
             cursor: pointer;
-            font-size: 11px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .menu-item:hover {
+            background: rgba(51, 204, 255, 0.1);
+            transform: translateX(-3px);
         }
 
         .menu-item i {
-            width: 14px;
-            font-size: 11px;
+            width: 16px;
             color: #33ccff;
+            font-size: 12px;
         }
 
-        .menu-badge {
-            background: #ff3366;
-            color: white;
-            font-size: 8px;
-            padding: 1px 4px;
-            border-radius: 8px;
-            margin-left: auto;
-        }
-
-        /* ANA İÇERİK ALANI */
+        /* ANA İÇERİK */
         .content-area {
             flex: 1;
             overflow: hidden;
             position: relative;
         }
 
-        /* PANELLER */
         .panel {
             position: absolute;
             top: 0;
@@ -246,10 +188,10 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px;
+            padding: 15px;
             display: none;
             overflow-y: auto;
         }
@@ -258,521 +200,268 @@
             display: block;
         }
 
-        /* HOŞ GELDİN PANELİ */
-        .welcome-panel {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-            position: relative;
-        }
-
-        .welcome-gif {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://media3.giphy.com/media/v1.Y2lkPTZjMDliOTUyY2lpMDNpeHlxbnVtMms3d2lwenNtcWVqNW9yOGVnMXYyc3hwbGh3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ygwruM6xajktG7W23z/giphy.gif') center/cover no-repeat;
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .welcome-icon {
-            font-size: 45px;
-            color: #33ccff;
-            margin-bottom: 10px;
-        }
-
-        .welcome-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            background: linear-gradient(45deg, #fff, #33ccff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .welcome-sub {
-            font-size: 10px;
-            opacity: 0.7;
-            margin-bottom: 8px;
-        }
-
-        .stats-grid {
-            display: flex;
-            gap: 6px;
-            margin-top: 10px;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 8px 10px;
-            border-radius: 12px;
-            min-width: 70px;
-        }
-
-        .stat-value {
-            font-size: 16px;
-            font-weight: bold;
-            color: #33ccff;
-        }
-
-        .stat-label {
-            font-size: 8px;
-            opacity: 0.7;
-        }
-
-        /* PANEL BAŞLIK */
-        .panel-header {
+        /* SORGU PANELİ */
+        .query-header {
             display: flex;
             align-items: center;
-            gap: 6px;
-            margin-bottom: 8px;
-            padding-bottom: 6px;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .back-button {
-            width: 24px;
-            height: 24px;
+        .back-btn {
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 10px;
+            font-size: 14px;
         }
 
-        .panel-title {
-            font-size: 14px;
+        .query-title {
+            font-size: 18px;
             font-weight: bold;
             flex: 1;
         }
 
-        /* VERİ GİRİŞ KUTUSU */
-        .input-container {
-            margin-bottom: 8px;
+        .input-group {
+            margin-bottom: 20px;
         }
 
         .input-label {
-            font-size: 10px;
+            font-size: 12px;
             color: #33ccff;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
             display: block;
         }
 
-        .data-input {
+        .query-input {
             width: 100%;
-            padding: 6px 10px;
+            padding: 12px 15px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
+            border-radius: 25px;
             color: white;
-            font-size: 11px;
-            min-height: 32px;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 50px;
         }
 
-        /* SORGULAMA BUTONU */
-        .query-button {
+        .query-input:focus {
+            outline: none;
+            border-color: #33ccff;
+        }
+
+        .query-btn {
             width: 100%;
-            padding: 6px;
+            padding: 12px;
             background: linear-gradient(45deg, #ff3366, #33ccff);
             border: none;
-            border-radius: 16px;
+            border-radius: 25px;
             color: white;
-            font-size: 11px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            margin: 6px 0;
+            margin: 10px 0;
         }
 
-        /* SONUÇ KUTUSU */
+        .query-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(51, 204, 255, 0.3);
+        }
+
+        /* SONUÇ KUTUSU - PROFESYONEL FORMAT */
+        .result-container {
+            margin-top: 20px;
+        }
+
         .result-box {
             background: rgba(0, 0, 0, 0.5);
             border: 1px solid #33ccff;
-            border-radius: 12px;
-            padding: 8px;
-            max-height: 200px;
+            border-radius: 20px;
+            padding: 15px;
+            animation: softGlow 2s infinite;
+        }
+
+        @keyframes softGlow {
+            0% { box-shadow: 0 0 10px rgba(51, 204, 255, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(51, 204, 255, 0.4); }
+            100% { box-shadow: 0 0 10px rgba(51, 204, 255, 0.2); }
+        }
+
+        /* TABLO FORMATI - PROFESYONEL */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 8px 5px;
+            color: #33ccff;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(51, 204, 255, 0.3);
+        }
+
+        .data-table td {
+            padding: 6px 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .data-table tr:hover {
+            background: rgba(51, 204, 255, 0.05);
+        }
+
+        /* JSON FORMATI */
+        .json-view {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #33ccff;
+            white-space: pre-wrap;
+            word-break: break-word;
+            max-height: 400px;
             overflow-y: auto;
         }
 
-        .result-content {
-            font-family: 'Courier New', monospace;
-            font-size: 10px;
-            line-height: 1.3;
-            white-space: pre-wrap;
+        /* KART FORMATI */
+        .data-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .data-card .row {
+            display: flex;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .data-card .label {
+            width: 120px;
             color: #33ccff;
         }
 
-        .result-placeholder {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 10px;
-            padding: 10px;
+        .data-card .value {
+            flex: 1;
         }
 
-        /* SONUÇ AKSİYON BUTONLARI */
+        /* AKSİYON BUTONLARI */
         .result-actions {
             display: flex;
-            gap: 4px;
-            margin-top: 4px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
         .action-btn {
             flex: 1;
-            padding: 4px;
+            padding: 8px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            border-radius: 20px;
             color: white;
-            font-size: 9px;
+            font-size: 11px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 3px;
+            gap: 5px;
+        }
+
+        .action-btn:hover {
+            background: #33ccff;
+            color: #000;
         }
 
         /* YÜKLEME ANİMASYONU */
         .loader {
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-top-color: #33ccff;
             border-radius: 50%;
-            animation: spin 0.6s linear infinite;
-            margin: 10px auto;
+            animation: spin 0.8s linear infinite;
+            margin: 20px auto;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        /* PROFİL DÜZENLEME */
-        .profile-avatar-large {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff3366, #33ccff);
-            margin: 0 auto 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            border: 2px solid #fff;
-            background-size: cover;
-            background-position: center;
-            cursor: pointer;
-        }
-
-        .upload-btn {
-            text-align: center;
-            font-size: 9px;
-            color: #33ccff;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 11px;
-        }
-
-        /* UNVAN SEÇİMİ */
-        .title-selector {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3px;
-            margin: 5px 0;
-        }
-
-        .title-option {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 4px 2px;
-            text-align: center;
-            font-size: 9px;
-            cursor: pointer;
-        }
-
-        .title-option.selected {
-            background: #33ccff;
-            color: #000;
-        }
-
-        /* TİK RENKLERİ */
-        .tik-selector {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 3px;
-            margin: 5px 0;
-        }
-
-        .tik-option {
-            aspect-ratio: 1;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .tik-option.selected {
-            border-color: #fff;
-            transform: scale(1.1);
-        }
-
-        /* SOYBET */
-        .chat-container {
-            display: flex;
-            flex-direction: column;
-            height: calc(100% - 30px);
-        }
-
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 5px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .chat-message {
-            display: flex;
-            align-items: flex-start;
-            gap: 4px;
-            max-width: 85%;
-        }
-
-        .chat-message.own {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-        }
-
-        .chat-avatar {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff3366, #33ccff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 9px;
-            flex-shrink: 0;
-            background-size: cover;
-        }
-
-        .chat-bubble {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 4px 6px;
-        }
-
-        .chat-header {
-            display: flex;
-            align-items: center;
-            gap: 3px;
-            margin-bottom: 2px;
-            font-size: 8px;
-            flex-wrap: wrap;
-        }
-
-        .chat-name {
-            font-weight: bold;
-            font-size: 9px;
-        }
-
-        .chat-text {
-            font-size: 9px;
-        }
-
-        .chat-input-area {
-            display: flex;
-            gap: 4px;
-            padding: 4px 0;
-        }
-
-        .chat-input {
-            flex: 1;
-            height: 28px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            padding: 0 8px;
-            color: white;
-            font-size: 10px;
-        }
-
-        .chat-send {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff3366, #33ccff);
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 11px;
-        }
-
-        /* FİLM PANELİ */
-        .movie-container {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .video-container {
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            aspect-ratio: 16/9;
-            margin-bottom: 5px;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* KANAL UYARISI */
-        .channel-warning {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.5s;
-        }
-
-        .warning-box {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid #33ccff;
-            border-radius: 20px;
-            padding: 20px;
-            max-width: 280px;
-            text-align: center;
-        }
-
-        .warning-title {
-            font-size: 16px;
-            color: #33ccff;
-            margin-bottom: 10px;
-        }
-
-        .warning-text {
-            font-size: 11px;
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-
-        .warning-btn {
-            background: linear-gradient(45deg, #ff3366, #33ccff);
-            border: none;
-            border-radius: 20px;
-            padding: 8px 20px;
-            color: white;
-            font-size: 12px;
-            cursor: pointer;
-            width: 100%;
-        }
-
         /* GİRİŞ PANELİ */
-        .auth-panel {
-            max-width: 260px;
+        .auth-container {
+            max-width: 300px;
             margin: 50px auto;
+            text-align: center;
         }
 
         .auth-title {
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 12px;
+            font-size: 24px;
             color: #33ccff;
+            margin-bottom: 20px;
         }
 
-        /* KÜÇÜK YAZILAR */
-        small {
-            font-size: 9px;
+        .auth-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            color: white;
+            margin-bottom: 10px;
         }
 
         /* KAYDIRMA ÇUBUĞU */
         ::-webkit-scrollbar {
-            width: 2px;
+            width: 4px;
         }
         ::-webkit-scrollbar-thumb {
             background: #33ccff;
-            border-radius: 1px;
+            border-radius: 2px;
         }
     </style>
 </head>
 <body>
-    <!-- KANAL UYARISI -->
-    <div id="channelWarning" class="channel-warning">
-        <div class="warning-box">
-            <div class="warning-title">📢 KANAL ZORUNLU</div>
-            <div class="warning-text">@doxbinhack kanalına katılmanız gerekiyor!</div>
-            <a href="https://t.me/doxbinhack" target="_blank">
-                <button class="warning-btn">KANALA GİT</button>
-            </a>
-            <button class="warning-btn" style="margin-top:8px; background:rgba(255,255,255,0.1);" onclick="checkChannel()">KONTROL ET</button>
-        </div>
-    </div>
-
     <!-- SİDE MENÜ -->
     <div class="side-menu" id="sideMenu">
         <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
         
         <div class="menu-section">
-            <div class="menu-title"><i class="fas fa-user-circle"></i> KULLANICI</div>
+            <div class="menu-title">KULLANICI</div>
             <div class="menu-items">
-                <div class="menu-item" onclick="showPanel('profile')"><i class="fas fa-id-card"></i> Profilim</div>
-                <div class="menu-item" onclick="showPanel('editProfile')"><i class="fas fa-edit"></i> Profil Düzenle</div>
-                <div class="menu-item" onclick="showPanel('history')"><i class="fas fa-history"></i> İşlem Geçmişim</div>
-                <div class="menu-item" onclick="showPanel('ranking')"><i class="fas fa-trophy"></i> Puan Sıralaması</div>
+                <div class="menu-item" onclick="showPanel('profile'); toggleMenu()"><i class="fas fa-user"></i> Profil</div>
                 <div class="menu-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Çıkış</div>
             </div>
         </div>
         
         <div class="menu-section">
-            <div class="menu-title"><i class="fas fa-search"></i> SORGULAR</div>
-            <div class="menu-items" id="queryMenuItems"></div>
+            <div class="menu-title">TC SORGULARI</div>
+            <div class="menu-items" id="tcQueries"></div>
         </div>
         
         <div class="menu-section">
-            <div class="menu-title"><i class="fas fa-comments"></i> SOYBET</div>
-            <div class="menu-items">
-                <div class="menu-item" onclick="showPanel('chat')"><i class="fas fa-comments"></i> Genel Sohbet</div>
-                <div class="menu-item" onclick="showPanel('movie')"><i class="fas fa-film"></i> Film İzle</div>
-            </div>
-        </div>
-        
-        <div class="menu-section" id="adminMenu" style="display:none;">
-            <div class="menu-title"><i class="fas fa-crown"></i> ADMIN</div>
-            <div class="menu-items">
-                <div class="menu-item" onclick="adminUsers()"><i class="fas fa-users-cog"></i> Kullanıcılar</div>
-                <div class="menu-item" onclick="adminStats()"><i class="fas fa-chart-bar"></i> İstatistikler</div>
-            </div>
+            <div class="menu-title">AD SOYAD</div>
+            <div class="menu-items" id="adQueries"></div>
         </div>
         
         <div class="menu-section">
-            <div class="menu-title"><i class="fas fa-info-circle"></i> BİLGİ</div>
-            <div class="menu-item" style="cursor:default;"><i class="fas fa-crown" style="color:#ffd700;"></i> Kurucu: @doxbinhack</div>
+            <div class="menu-title">AİLE & SÜLALE</div>
+            <div class="menu-items" id="aileQueries"></div>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-title">ADRES & TAPU</div>
+            <div class="menu-items" id="adresQueries"></div>
         </div>
     </div>
 
@@ -780,43 +469,39 @@
     <div class="container">
         <!-- NAVBAR -->
         <div class="navbar" id="navbar" style="display:none;">
-            <div class="logo" onclick="showPanel('welcome')">DOXBİN 2026 FREE</div>
+            <div class="logo">DOXBİN 2026</div>
             <div class="nav-right">
                 <div class="user-info" onclick="showPanel('profile')" id="userInfo">
                     <div class="user-avatar" id="userAvatar">G</div>
-                    <div class="user-name">
-                        <span id="userName">Misafir</span>
-                        <span class="tik" id="userTik" style="color:#33ccff;">✓</span>
-                    </div>
+                    <span id="userName">Misafir</span>
                 </div>
                 <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
             </div>
         </div>
 
-        <!-- İÇERİK ALANI -->
+        <!-- İÇERİK -->
         <div class="content-area">
             <!-- GİRİŞ PANELİ -->
             <div id="authPanel" class="panel active">
-                <div class="auth-panel">
-                    <div class="auth-title">🔐 DOXBİN 2026</div>
-                    <input type="text" id="loginUsername" class="data-input" placeholder="Kullanıcı Adı" style="margin-bottom:5px;">
-                    <input type="password" id="loginPassword" class="data-input" placeholder="Şifre" style="margin-bottom:8px;">
-                    <button class="query-button" onclick="login()">GİRİŞ YAP</button>
-                    <div style="text-align:center; margin-top:8px;">
+                <div class="auth-container">
+                    <div class="auth-title">DOXBİN 2026</div>
+                    <input type="text" id="loginUsername" class="auth-input" placeholder="Kullanıcı Adı">
+                    <input type="password" id="loginPassword" class="auth-input" placeholder="Şifre">
+                    <button class="query-btn" onclick="login()">GİRİŞ YAP</button>
+                    <div style="margin-top:15px;">
                         <small>Hesap yok? <a href="#" onclick="showRegister()" style="color:#33ccff;">Kayıt</a></small>
                     </div>
-                    <div style="text-align:center; margin-top:5px; font-size:8px; opacity:0.5;">Kurucu: @doxbinhack</div>
                 </div>
             </div>
 
             <!-- KAYIT PANELİ -->
             <div id="registerPanel" class="panel">
-                <div class="auth-panel">
-                    <div class="auth-title">📝 KAYIT</div>
-                    <input type="text" id="regUsername" class="data-input" placeholder="Kullanıcı Adı" style="margin-bottom:5px;">
-                    <input type="password" id="regPassword" class="data-input" placeholder="Şifre" style="margin-bottom:8px;">
-                    <button class="query-button" onclick="register()">KAYIT OL</button>
-                    <div style="text-align:center; margin-top:8px;">
+                <div class="auth-container">
+                    <div class="auth-title">KAYIT OL</div>
+                    <input type="text" id="regUsername" class="auth-input" placeholder="Kullanıcı Adı">
+                    <input type="password" id="regPassword" class="auth-input" placeholder="Şifre">
+                    <button class="query-btn" onclick="register()">KAYIT OL</button>
+                    <div style="margin-top:15px;">
                         <small>Hesabın var? <a href="#" onclick="showLogin()" style="color:#33ccff;">Giriş</a></small>
                     </div>
                 </div>
@@ -824,249 +509,224 @@
 
             <!-- HOŞ GELDİN PANELİ -->
             <div id="welcomePanel" class="panel">
-                <div class="welcome-panel">
-                    <div class="welcome-gif"></div>
-                    <div class="welcome-icon"><i class="fas fa-search"></i></div>
-                    <div class="welcome-title">DOXBİN 2026</div>
-                    <div class="welcome-sub">FREE PANEL</div>
-                    <div class="stats-grid">
-                        <div class="stat-card"><div class="stat-value" id="totalUsers">0</div><div class="stat-label">Kullanıcı</div></div>
-                        <div class="stat-card"><div class="stat-value" id="totalQueries">0</div><div class="stat-label">Sorgu</div></div>
-                    </div>
-                    <div class="welcome-footer">Kurucu: @doxbinhack</div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <i class="fas fa-search" style="font-size: 60px; color: #33ccff; margin-bottom: 20px;"></i>
+                    <h2>DOXBİN 2026</h2>
+                    <p style="opacity:0.7;">Menüden sorgu seçin</p>
                 </div>
             </div>
 
             <!-- SORGU PANELİ -->
             <div id="queryPanel" class="panel">
-                <div class="panel-header">
-                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
-                    <div class="panel-title" id="queryPanelTitle">Sorgu</div>
+                <div class="query-header">
+                    <div class="back-btn" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="query-title" id="queryTitle">Sorgu</div>
                 </div>
                 
-                <div class="input-container">
+                <div class="input-group">
                     <label class="input-label" id="queryLabel">Veri:</label>
-                    <textarea class="data-input" id="queryInput" rows="2" placeholder="Veri girin..."></textarea>
-                    <button class="query-button" onclick="processQuery()">SORGULA</button>
+                    <textarea class="query-input" id="queryInput" rows="2" placeholder="Veri girin..."></textarea>
+                    <button class="query-btn" onclick="processQuery()">SORGULA</button>
                 </div>
                 
-                <div class="result-box">
-                    <div class="result-content" id="resultContent">Veri girin</div>
-                    <div class="result-actions" id="resultActions" style="display:none;">
+                <div class="result-container" id="resultContainer" style="display:none;">
+                    <div class="result-box" id="resultBox"></div>
+                    <div class="result-actions" id="resultActions">
                         <button class="action-btn" onclick="copyResult()"><i class="fas fa-copy"></i> KOPYALA</button>
-                        <button class="action-btn" onclick="downloadResult()"><i class="fas fa-download"></i> TXT</button>
+                        <button class="action-btn" onclick="downloadResult()"><i class="fas fa-download"></i> TXT İNDİR</button>
                     </div>
                 </div>
             </div>
 
             <!-- PROFİL PANELİ -->
             <div id="profilePanel" class="panel">
-                <div class="panel-header">
-                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
-                    <div class="panel-title">👤 PROFİL</div>
+                <div class="query-header">
+                    <div class="back-btn" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="query-title">PROFİL</div>
                 </div>
-                
-                <div class="profile-avatar-large" id="profileAvatar">?</div>
-                <div class="info-row"><span class="info-label">Kullanıcı</span><span class="info-value" id="profileUsername"></span></div>
-                <div class="info-row"><span class="info-label">Unvan</span><span class="info-value" id="profileTitle"></span></div>
-                <div class="info-row"><span class="info-label">Puan</span><span class="info-value" style="color:#ffd700;" id="profilePoints">0</span></div>
-            </div>
-
-            <!-- PROFİL DÜZENLEME -->
-            <div id="editProfilePanel" class="panel">
-                <div class="panel-header">
-                    <div class="back-button" onclick="showPanel('profile')"><i class="fas fa-arrow-left"></i></div>
-                    <div class="panel-title">✏️ DÜZENLE</div>
-                </div>
-                
-                <div class="profile-avatar-large" id="editAvatar" onclick="uploadPhoto()">📷</div>
-                <div class="upload-btn" onclick="uploadPhoto()">Fotoğraf Yükle</div>
-                
-                <div class="input-container">
-                    <label class="input-label">Kullanıcı Adı</label>
-                    <input type="text" id="editUsername" class="data-input">
-                </div>
-                
-                <div class="input-container">
-                    <label class="input-label">Unvan Seç</label>
-                    <div class="title-selector" id="titleSelector"></div>
-                </div>
-                
-                <div class="input-container">
-                    <label class="input-label">Tik Rengi</label>
-                    <div class="tik-selector" id="tikSelector"></div>
-                </div>
-                
-                <button class="query-button" onclick="saveProfile()">KAYDET</button>
-            </div>
-
-            <!-- İŞLEM GEÇMİŞİ -->
-            <div id="historyPanel" class="panel">
-                <div class="panel-header">
-                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
-                    <div class="panel-title">📊 GEÇMİŞ</div>
-                </div>
-                <div id="historyList"></div>
-            </div>
-
-            <!-- SOHBET PANELİ -->
-            <div id="chatPanel" class="panel">
-                <div class="panel-header">
-                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
-                    <div class="panel-title">💬 SOYBET</div>
-                </div>
-                <div class="chat-container">
-                    <div class="chat-messages" id="chatMessages"></div>
-                    <div class="chat-input-area">
-                        <input type="text" class="chat-input" id="chatInput" placeholder="Mesaj...">
-                        <button class="chat-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FİLM PANELİ -->
-            <div id="moviePanel" class="panel">
-                <div class="panel-header">
-                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
-                    <div class="panel-title">🎬 FİLM</div>
-                </div>
-                
-                <div class="movie-container">
-                    <input type="text" id="youtubeLink" class="data-input" placeholder="YouTube linki">
-                    <div style="display:flex; gap:4px; margin:4px 0;">
-                        <button class="query-button" style="margin:0;" onclick="loadVideo()">İZLE</button>
-                    </div>
-                    <div class="video-container" id="videoContainer"></div>
-                </div>
-            </div>
-
-            <!-- PUAN SIRALAMASI -->
-            <div id="rankingPanel" class="panel">
-                <div class="panel-header">
-                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
-                    <div class="panel-title">🏆 SIRALAMA</div>
-                </div>
-                <div id="rankingList"></div>
+                <div style="text-align: center;" id="profileInfo"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // ==================== USER-AGENT'LER ====================
+        // ==================== USER-AGENT'LER (Aynen) ====================
         const USER_AGENTS = [
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15"
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
         ];
 
-        // ==================== API SORGULAR (DÜZELTİLMİŞ) ====================
+        // ==================== API SORGULAR (ANKARA404) ====================
         const API_QUERIES = [
-            { id: 'isegiris', name: 'İşe Giriş', endpoint: 'isegiris', params: ['name','surname'], label: 'Ad Soyad' },
-            { id: 'ikametgah', name: 'İkametgah', endpoint: 'ikametgah', params: ['name','surname'], label: 'Ad Soyad' },
-            { id: 'ailebirey', name: 'Aile Birey', endpoint: 'ailebirey', params: ['name','surname'], label: 'Ad Soyad' },
-            { id: 'medenicinsiyet', name: 'Medeni Cinsiyet', endpoint: 'medenicinsiyet', params: ['name','surname'], label: 'Ad Soyad' },
-            { id: 'tc-isegiris', name: 'TC İşe Giriş', endpoint: 'tc-isegiris', params: ['tc'], label: 'TC' },
-            { id: 'tc-ikametgah', name: 'TC İkametgah', endpoint: 'tc-ikametgah', params: ['tc'], label: 'TC' },
-            { id: 'tc-ailebirey', name: 'TC Aile Birey', endpoint: 'tc-ailebirey', params: ['tc'], label: 'TC' },
-            { id: 'tc-medenicinsiyet', name: 'TC Medeni', endpoint: 'tc-medenicinsiyet', params: ['tc'], label: 'TC' },
-            { id: 'query', name: 'Query', endpoint: 'query', params: ['name','surname'], label: 'Ad Soyad' },
-            { id: 'ad', name: 'Ad Sorgu', endpoint: 'ad', params: ['name','surname'], label: 'Ad Soyad' },
-            { id: 'tc', name: 'TC Sorgu', endpoint: 'tc', params: ['tc'], label: 'TC' },
-            { id: 'gsm', name: 'GSM', endpoint: 'gsm', params: ['gsm'], label: 'GSM' },
-            { id: 'gsm2', name: 'GSM2', endpoint: 'gsm2', params: ['gsm'], label: 'GSM' },
-            { id: 'plaka', name: 'Plaka', endpoint: 'plaka', params: ['plaka'], label: 'Plaka' },
-            { id: 'aile', name: 'Aile', endpoint: 'aile', params: ['tc'], label: 'TC' },
-            { id: 'sulale', name: 'Sülale', endpoint: 'sulale', params: ['tc'], label: 'TC' },
-            { id: 'hane', name: 'Hane', endpoint: 'hane', params: ['tc'], label: 'TC' },
-            { id: 'isyeri', name: 'İşyeri', endpoint: 'isyeri', params: ['tc'], label: 'TC' },
-            { id: 'tc2', name: 'TC2', endpoint: 'tc2', params: ['tc'], label: 'TC' },
-            { id: 'vesika', name: 'Vesika', endpoint: 'vesika', params: ['tc'], label: 'TC' },
-            { id: 'text', name: 'Text Sorgu', endpoint: 'text', params: ['name','surname'], label: 'Ad Soyad' },
-            { id: 'raw', name: 'Raw Sorgu', endpoint: 'raw', params: ['name','surname'], label: 'Ad Soyad' },
-            { id: 'test', name: 'Test', endpoint: 'test', params: [], label: '' },
-            { id: 'health', name: 'Health', endpoint: 'health', params: [], label: '' }
+            // TC Sorguları
+            { id: 'tc', name: 'TC Basic', endpoint: 'tc.php', params: ['tc'], label: 'TC Kimlik No', category: 'tc' },
+            { id: 'gsmtc', name: 'GSM\'den TC', endpoint: 'gsmtc.php', params: ['gsm'], label: 'GSM No', category: 'tc' },
+            { id: 'tcgsmpro', name: 'TC GSM PRO', endpoint: 'tcgsmpro.php', params: ['tc'], label: 'TC Kimlik No', category: 'tc' },
+            
+            // Ad Soyad
+            { id: 'adsoyad', name: 'Ad Soyad', endpoint: 'adsoyad.php', params: ['ad','soyad'], label: 'Ad Soyad', category: 'ad' },
+            { id: 'adsoyadpro', name: 'Ad Soyad PRO', endpoint: 'adsoyadpro.php', params: ['ad','soyad','il'], label: 'Ad Soyad İl', category: 'ad' },
+            { id: 'adililce', name: 'Ad İl İlçe', endpoint: 'adililce.php', params: ['ad','il','ilce'], label: 'Ad İl İlçe', category: 'ad' },
+            
+            // Aile & Sülale
+            { id: 'aile', name: 'Aile', endpoint: 'aile.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
+            { id: 'ailepro', name: 'Aile PRO', endpoint: 'ailepro.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
+            { id: 'sulale', name: 'Sülale', endpoint: 'sulale.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
+            { id: 'sulalepro', name: 'Sülale PRO', endpoint: 'sulalepro.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
+            { id: 'soyagaci', name: 'Soy Ağacı', endpoint: 'soyagaci.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
+            { id: 'soyagacipro', name: 'Soy Ağacı PRO', endpoint: 'soyagacipro.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
+            
+            // Adres & Tapu
+            { id: 'adres', name: 'Adres', endpoint: 'adres.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
+            { id: 'adrespro', name: 'Adres PRO', endpoint: 'adrespro.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
+            { id: 'hane', name: 'Hane', endpoint: 'hane.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
+            { id: 'tapu', name: 'Tapu', endpoint: 'tapu.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
+            { id: 'parselsorgu', name: 'Parsel Sorgu', endpoint: 'parselsorgu.php', params: ['parsel','il','ilce'], label: 'Parsel İl İlçe', category: 'adres' },
+            { id: 'hayathikayesi', name: 'Hayat Hikayesi', endpoint: 'hayathikayesi.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
+            { id: 'isyeriark', name: 'İş Arkadaşı', endpoint: 'isyeriark.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' }
         ];
-
-        // UNVANLAR
-        const TITLES = ['Üye','Bronz','Gümüş','Altın','VIP','Efsane','Kurucu'];
-        const TIK_COLORS = ['#ff0000','#0000ff','#00ff00','#ffff00','#800080','#33ccff'];
 
         // VERİTABANI
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
-        let queries = JSON.parse(localStorage.getItem('queries')) || [];
-        let chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-
-        const ADMIN_PASSWORD = 'admin123';
-        const API_BASE = 'https://apilerimya.onrender.com/';
+        const API_BASE = 'https://ankara404.site/api/';
         let currentQuery = null;
         let lastResult = null;
 
-        // KANAL KONTROL
-        setTimeout(() => {
-            document.getElementById('channelWarning').style.opacity = '0';
-            setTimeout(() => document.getElementById('channelWarning').style.display = 'none', 500);
-        }, 5000);
-
-        function checkChannel() {
-            document.getElementById('channelWarning').style.display = 'none';
-        }
-
-        // SAYFA YÜKLENİNCE
+        // MENÜLERİ YÜKLE
         window.onload = function() {
-            loadQueryMenu();
+            loadMenus();
             if (currentUser) {
                 document.getElementById('navbar').style.display = 'flex';
-                showMainContent();
-                updateNavbar();
+                showPanel('welcome');
+                updateUserInfo();
             }
-            updateStats();
         };
 
-        function loadQueryMenu() {
-            const menu = document.getElementById('queryMenuItems');
-            menu.innerHTML = '';
+        function loadMenus() {
+            const tcMenu = document.getElementById('tcQueries');
+            const adMenu = document.getElementById('adQueries');
+            const aileMenu = document.getElementById('aileQueries');
+            const adresMenu = document.getElementById('adresQueries');
+            
             API_QUERIES.forEach(q => {
                 const item = document.createElement('div');
                 item.className = 'menu-item';
-                item.onclick = () => selectQuery(q);
+                item.onclick = () => { selectQuery(q); toggleMenu(); };
                 item.innerHTML = `<i class="fas fa-search"></i> ${q.name}`;
-                menu.appendChild(item);
+                
+                if (q.category === 'tc') tcMenu.appendChild(item);
+                else if (q.category === 'ad') adMenu.appendChild(item);
+                else if (q.category === 'aile') aileMenu.appendChild(item);
+                else if (q.category === 'adres') adresMenu.appendChild(item);
             });
         }
 
         function selectQuery(q) {
             if (!currentUser) return;
             currentQuery = q;
-            document.getElementById('queryPanelTitle').textContent = q.name;
-            document.getElementById('queryLabel').textContent = q.label ? q.label + ':' : 'Veri:';
+            document.getElementById('queryTitle').textContent = q.name;
+            document.getElementById('queryLabel').textContent = q.label + ':';
             document.getElementById('queryInput').value = '';
-            document.getElementById('resultContent').innerHTML = 'Veri girin';
-            document.getElementById('resultActions').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'none';
             showPanel('query');
-            toggleMenu();
         }
 
+        // ==================== REKLAM TEMİZLEME (SADECE success,message,developer,api_ismi,sorgu_yanit_suresi) ====================
+        function cleanResponse(data) {
+            if (typeof data === 'object' && data !== null) {
+                // Silinecek anahtarlar (sadece reklam olanlar)
+                const removeKeys = ['success', 'message', 'developer', 'api_ismi', 'sorgu_yanit_suresi'];
+                
+                if (Array.isArray(data)) {
+                    return data.map(item => cleanResponse(item));
+                }
+                
+                const cleaned = {};
+                for (let key in data) {
+                    // Eğer "veri" varsa onu temizle
+                    if (key === 'veri' && data[key]) {
+                        const veri = data[key];
+                        if (Array.isArray(veri)) {
+                            cleaned[key] = veri.map(item => cleanResponse(item));
+                        } else {
+                            cleaned[key] = cleanResponse(veri);
+                        }
+                    }
+                    // Normal anahtarlar
+                    else if (!removeKeys.includes(key.toLowerCase())) {
+                        if (typeof data[key] === 'object' && data[key] !== null) {
+                            cleaned[key] = cleanResponse(data[key]);
+                        } else {
+                            cleaned[key] = data[key];
+                        }
+                    }
+                }
+                return cleaned;
+            }
+            return data;
+        }
+
+        // ==================== PROFESYONEL FORMAT ====================
+        function formatData(data, queryName) {
+            if (!data) return '<div class="json-view">Sonuç bulunamadı</div>';
+            
+            // Array kontrolü
+            if (Array.isArray(data)) {
+                if (data.length === 0) return '<div class="json-view">[]</div>';
+                
+                // Tablo formatı
+                let html = '<table class="data-table">';
+                
+                // Başlıklar
+                html += '<tr>';
+                for (let key in data[0]) {
+                    html += `<th>${key}</th>`;
+                }
+                html += '</tr>';
+                
+                // Satırlar
+                data.forEach(item => {
+                    html += '<tr>';
+                    for (let key in item) {
+                        html += `<td>${item[key] || '-'}</td>`;
+                    }
+                    html += '</tr>';
+                });
+                html += '</table>';
+                return html;
+            }
+            
+            // Obje kontrolü
+            if (typeof data === 'object') {
+                // Kart formatı
+                let html = '';
+                for (let key in data) {
+                    if (data[key] && typeof data[key] === 'object') {
+                        html += `<div class="data-card"><div class="row"><span class="label">${key}:</span><span class="value">${JSON.stringify(data[key])}</span></div></div>`;
+                    } else {
+                        html += `<div class="data-card"><div class="row"><span class="label">${key}:</span><span class="value">${data[key] || '-'}</span></div></div>`;
+                    }
+                }
+                return html || '<div class="json-view">{}</div>';
+            }
+            
+            // JSON formatı
+            return `<div class="json-view">${JSON.stringify(data, null, 2)}</div>`;
+        }
+
+        // ==================== API SORGU ====================
         async function processQuery() {
             if (!currentUser || !currentQuery) return;
             
             const input = document.getElementById('queryInput').value.trim();
-            
-            // Parametresiz sorgular (test, health)
-            if (currentQuery.params.length === 0) {
-                await executeApiCall({});
+            if (!input && currentQuery.params.length > 0) {
+                alert('Veri girin!');
                 return;
             }
             
-            if (!input) { 
-                if (currentQuery.params.length > 0) {
-                    alert('Veri girin!'); 
-                    return;
-                }
-            }
-            
             const params = {};
-            
             if (currentQuery.params.length === 1) {
                 params[currentQuery.params[0]] = input;
             } else {
@@ -1076,26 +736,17 @@
                 }
             }
             
-            await executeApiCall(params);
-        }
-
-        async function executeApiCall(params) {
             const url = new URL(API_BASE + currentQuery.endpoint);
             Object.keys(params).forEach(k => url.searchParams.append(k, params[k]));
-            url.searchParams.append('format', 'text');
             
-            document.getElementById('resultContent').innerHTML = '<div class="loader"></div>';
+            document.getElementById('resultContainer').style.display = 'block';
+            document.getElementById('resultBox').innerHTML = '<div class="loader"></div>';
             
             try {
                 const ua = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
                 const res = await fetch(url, { 
-                    headers: { 'User-Agent': ua },
-                    timeout: 10000
+                    headers: { 'User-Agent': ua }
                 });
-                
-                if (!res.ok) {
-                    throw new Error(`HTTP ${res.status}`);
-                }
                 
                 const text = await res.text();
                 let data;
@@ -1105,41 +756,24 @@
                     data = text;
                 }
                 
-                lastResult = data;
+                // SADECE reklamları temizle
+                const cleaned = cleanResponse(data);
+                lastResult = cleaned;
                 
-                // Formatlı gösterim
-                let displayText;
-                if (typeof data === 'object') {
-                    displayText = JSON.stringify(data, null, 2);
-                } else {
-                    displayText = data;
-                }
+                // Formatla ve göster
+                const formatted = formatData(cleaned, currentQuery.name);
+                document.getElementById('resultBox').innerHTML = formatted;
                 
-                document.getElementById('resultContent').innerHTML = 
-                    `<pre style="margin:0; font-size:9px;">${displayText}</pre>`;
-                document.getElementById('resultActions').style.display = 'flex';
-                
+                // Puan ekle (localStorage)
                 currentUser.points = (currentUser.points || 0) + 1;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 
-                // Sadece kendi geçmişine kaydet
-                const userQueries = JSON.parse(localStorage.getItem(`queries_${currentUser.id}`)) || [];
-                userQueries.push({ 
-                    type: currentQuery.name, 
-                    input: Object.values(params).join(' '), 
-                    time: new Date().toLocaleString(), 
-                    result: data 
-                });
-                localStorage.setItem(`queries_${currentUser.id}`, JSON.stringify(userQueries));
-                
-                updateStats();
-                
             } catch (e) {
-                document.getElementById('resultContent').innerHTML = 
-                    `<div style="color:#ff3366; text-align:center;">API Hatası: ${e.message}</div>`;
+                document.getElementById('resultBox').innerHTML = `<div class="json-view" style="color:#ff3366;">Hata: ${e.message}</div>`;
             }
         }
 
+        // ==================== KOPYALA / İNDİR ====================
         function copyResult() {
             if (lastResult) {
                 const text = typeof lastResult === 'object' ? JSON.stringify(lastResult, null, 2) : lastResult;
@@ -1154,297 +788,102 @@
                 const blob = new Blob([text], {type:'text/plain'});
                 const a = document.createElement('a');
                 a.href = URL.createObjectURL(blob);
-                a.download = 'sonuc.txt';
+                a.download = `sorgu_${Date.now()}.txt`;
                 a.click();
             }
         }
 
+        // ==================== GİRİŞ / KAYIT ====================
         function login() {
-            const u = document.getElementById('loginUsername').value.trim();
-            const p = document.getElementById('loginPassword').value.trim();
-            if (!u || !p) { alert('Boş olamaz!'); return; }
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
             
-            if ((u==='@doxbinhack'||u==='@admin') && p===ADMIN_PASSWORD) {
-                currentUser = { 
-                    id: 'admin', 
-                    username: u, 
-                    title: 'Kurucu', 
-                    tikColor: '#ff0000', 
-                    points: 999999, 
-                    avatar: 'K', 
-                    isAdmin: true 
-                };
+            if (!username || !password) { alert('Boş olamaz!'); return; }
+            
+            // Admin
+            if ((username === '@doxbinhack' || username === '@admin') && password === 'admin123') {
+                currentUser = { id: 'admin', username, title: 'Admin', points: 0, avatar: 'A', isAdmin: true };
                 users.push(currentUser);
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 localStorage.setItem('users', JSON.stringify(users));
                 document.getElementById('navbar').style.display = 'flex';
-                showMainContent(); 
-                updateNavbar(); 
+                showPanel('welcome');
+                updateUserInfo();
                 return;
             }
             
-            const user = users.find(u => u.username === u && u.password === p);
+            const user = users.find(u => u.username === username && u.password === password);
             if (user) {
                 currentUser = user;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 document.getElementById('navbar').style.display = 'flex';
-                showMainContent(); 
-                updateNavbar();
-            } else alert('Hatalı giriş!');
+                showPanel('welcome');
+                updateUserInfo();
+            } else {
+                alert('Hatalı giriş!');
+            }
         }
 
         function register() {
-            const u = document.getElementById('regUsername').value.trim();
-            const p = document.getElementById('regPassword').value.trim();
-            if (!u||!p) { alert('Boş olamaz!'); return; }
-            if (u.startsWith('@')) { alert('@ ile başlayamaz!'); return; }
-            if (users.some(u => u.username === u)) { alert('Kullanıcı adı alınmış!'); return; }
+            const username = document.getElementById('regUsername').value.trim();
+            const password = document.getElementById('regPassword').value.trim();
+            
+            if (!username || !password) { alert('Boş olamaz!'); return; }
+            if (username.startsWith('@')) { alert('@ ile başlayamaz!'); return; }
+            if (users.some(u => u.username === username)) { alert('Kullanıcı adı alınmış!'); return; }
             
             const newUser = { 
                 id: Date.now(), 
-                username: u, 
-                password: p, 
+                username, 
+                password, 
                 title: 'Üye', 
-                tikColor: '#33ccff', 
                 points: 0, 
-                avatar: u.charAt(0).toUpperCase(), 
+                avatar: username.charAt(0).toUpperCase(),
                 isAdmin: false 
             };
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
-            alert('Kayıt başarılı!'); 
+            alert('Kayıt başarılı!');
             showLogin();
         }
 
-        function logout() { 
-            currentUser = null; 
-            localStorage.removeItem('currentUser'); 
-            location.reload(); 
-        }
-        
-        function toggleMenu() { 
-            document.getElementById('sideMenu').classList.toggle('open'); 
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            location.reload();
         }
 
-        function updateNavbar() {
+        function updateUserInfo() {
             if (currentUser) {
                 document.getElementById('userName').textContent = currentUser.username;
-                document.getElementById('userTik').style.color = currentUser.tikColor;
-                if (currentUser.avatar?.startsWith('data:')) {
-                    document.getElementById('userAvatar').style.backgroundImage = `url(${currentUser.avatar})`;
-                    document.getElementById('userAvatar').textContent = '';
-                } else {
-                    document.getElementById('userAvatar').style.backgroundImage = '';
-                    document.getElementById('userAvatar').textContent = currentUser.avatar;
-                }
-                if (currentUser.isAdmin) document.getElementById('adminMenu').style.display = 'block';
-            }
-        }
-
-        function showPanel(p) {
-            const panels = ['authPanel','registerPanel','welcomePanel','queryPanel','profilePanel','editProfilePanel','historyPanel','chatPanel','moviePanel','rankingPanel'];
-            panels.forEach(panel => document.getElementById(panel).classList.remove('active'));
-            
-            if (p==='profile' && currentUser) {
-                document.getElementById('profileUsername').textContent = currentUser.username;
-                document.getElementById('profileTitle').textContent = currentUser.title;
-                document.getElementById('profilePoints').textContent = currentUser.points;
-                if (currentUser.avatar?.startsWith('data:')) {
-                    document.getElementById('profileAvatar').style.backgroundImage = `url(${currentUser.avatar})`;
-                    document.getElementById('profileAvatar').textContent = '';
-                } else {
-                    document.getElementById('profileAvatar').style.backgroundImage = '';
-                    document.getElementById('profileAvatar').textContent = currentUser.avatar;
-                }
-                document.getElementById('profilePanel').classList.add('active');
-            } else if (p==='editProfile' && currentUser) {
-                document.getElementById('editUsername').value = currentUser.username;
-                if (currentUser.avatar?.startsWith('data:')) {
-                    document.getElementById('editAvatar').style.backgroundImage = `url(${currentUser.avatar})`;
-                    document.getElementById('editAvatar').textContent = '';
-                } else {
-                    document.getElementById('editAvatar').style.backgroundImage = '';
-                    document.getElementById('editAvatar').textContent = currentUser.avatar;
-                }
-                loadTitleSelector();
-                loadTikSelector();
-                document.getElementById('editProfilePanel').classList.add('active');
-            } else if (p==='history' && currentUser) {
-                const history = JSON.parse(localStorage.getItem(`queries_${currentUser.id}`)) || [];
-                document.getElementById('historyList').innerHTML = history.reverse().map(q => 
-                    `<div class="history-item" style="padding:5px; border-bottom:1px solid rgba(255,255,255,0.05);">
-                        <div style="display:flex; justify-content:space-between; font-size:9px;">
-                            <span style="color:#33ccff;">${q.type}</span>
-                            <span>${q.time}</span>
-                        </div>
-                        <div style="font-size:8px; opacity:0.7;">${q.input}</div>
-                    </div>`
-                ).join('');
-                document.getElementById('historyPanel').classList.add('active');
-            } else if (p==='ranking' && currentUser) {
-                const sorted = [...users].sort((a,b) => (b.points||0) - (a.points||0));
-                document.getElementById('rankingList').innerHTML = sorted.map((u,i) => 
-                    `<div class="info-row" style="padding:3px 0;">
-                        <span><span style="color:#33ccff;">${i+1}.</span> ${u.username}</span>
-                        <span style="color:#ffd700;">${u.points||0}</span>
-                    </div>`
-                ).join('');
-                document.getElementById('rankingPanel').classList.add('active');
-            } else if (p==='welcome' && currentUser) {
-                document.getElementById('welcomePanel').classList.add('active');
-            } else if (p==='query' && currentUser) {
-                document.getElementById('queryPanel').classList.add('active');
-            } else if (p==='chat' && currentUser) {
-                document.getElementById('chatPanel').classList.add('active');
-                loadChat();
-            } else if (p==='movie' && currentUser) {
-                document.getElementById('moviePanel').classList.add('active');
-            } else {
-                document.getElementById('authPanel').classList.add('active');
-            }
-            if (document.getElementById('sideMenu').classList.contains('open')) toggleMenu();
-        }
-
-        function showMainContent() { showPanel('welcome'); }
-        function showLogin() { showPanel('auth'); }
-        function showRegister() { 
-            document.getElementById('authPanel').classList.remove('active'); 
-            document.getElementById('registerPanel').classList.add('active'); 
-        }
-
-        // PROFİL DÜZENLEME
-        function loadTitleSelector() {
-            const container = document.getElementById('titleSelector');
-            container.innerHTML = '';
-            TITLES.forEach(t => {
-                const div = document.createElement('div');
-                div.className = `title-option ${currentUser?.title === t ? 'selected' : ''}`;
-                div.textContent = t;
-                div.onclick = () => {
-                    document.querySelectorAll('.title-option').forEach(el => el.classList.remove('selected'));
-                    div.classList.add('selected');
-                };
-                container.appendChild(div);
-            });
-        }
-
-        function loadTikSelector() {
-            const container = document.getElementById('tikSelector');
-            container.innerHTML = '';
-            TIK_COLORS.forEach(c => {
-                const div = document.createElement('div');
-                div.className = `tik-option ${currentUser?.tikColor === c ? 'selected' : ''}`;
-                div.style.backgroundColor = c;
-                div.onclick = () => {
-                    document.querySelectorAll('.tik-option').forEach(el => el.classList.remove('selected'));
-                    div.classList.add('selected');
-                };
-                container.appendChild(div);
-            });
-        }
-
-        function uploadPhoto() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.onchange = (e) => {
-                const file = e.target.files[0];
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    currentUser.avatar = e.target.result;
-                    document.getElementById('editAvatar').style.backgroundImage = `url(${e.target.result})`;
-                    document.getElementById('editAvatar').textContent = '';
-                    updateNavbar();
-                };
-                reader.readAsDataURL(file);
-            };
-            input.click();
-        }
-
-        function saveProfile() {
-            const newName = document.getElementById('editUsername').value.trim();
-            const selectedTitle = document.querySelector('.title-option.selected')?.textContent;
-            const selectedTik = document.querySelector('.tik-option.selected')?.style.backgroundColor;
-            
-            if (newName) currentUser.username = newName;
-            if (selectedTitle) currentUser.title = selectedTitle;
-            if (selectedTik) currentUser.tikColor = selectedTik;
-            
-            const index = users.findIndex(u => u.id === currentUser.id);
-            if (index !== -1) users[index] = currentUser;
-            
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
-            localStorage.setItem('users', JSON.stringify(users));
-            updateNavbar();
-            alert('Profil güncellendi!');
-            showPanel('profile');
-        }
-
-        // SOHBET
-        function loadChat() {
-            const container = document.getElementById('chatMessages');
-            container.innerHTML = '';
-            chatMessages.slice(-20).forEach(m => {
-                const div = document.createElement('div');
-                div.className = `chat-message ${m.userId === currentUser.id ? 'own' : ''}`;
-                div.innerHTML = `
-                    <div class="chat-avatar" style="${m.avatar?.startsWith('data:') ? `background-image:url(${m.avatar});background-size:cover;` : ''}">${!m.avatar?.startsWith('data:') ? (m.avatar || m.username.charAt(0)) : ''}</div>
-                    <div class="chat-bubble">
-                        <div class="chat-header">
-                            <span class="chat-name">${m.username}</span>
-                            <span class="chat-tik" style="color:${m.tikColor};">✓</span>
-                            <span>${m.time}</span>
-                        </div>
-                        <div class="chat-text">${m.text}</div>
+                document.getElementById('userAvatar').textContent = currentUser.avatar;
+                document.getElementById('profileInfo').innerHTML = `
+                    <div style="margin:20px;">
+                        <div style="width:80px; height:80px; border-radius:50%; background:linear-gradient(45deg,#ff3366,#33ccff); margin:0 auto 15px; display:flex; align-items:center; justify-content:center; font-size:30px;">${currentUser.avatar}</div>
+                        <div><strong>${currentUser.username}</strong></div>
+                        <div style="opacity:0.7;">${currentUser.title}</div>
+                        <div style="margin-top:10px;">Puan: ${currentUser.points || 0}</div>
                     </div>
                 `;
-                container.appendChild(div);
-            });
+            }
         }
 
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const text = input.value.trim();
-            if (!text) return;
-            
-            const msg = { 
-                id: Date.now(), 
-                userId: currentUser.id, 
-                username: currentUser.username, 
-                text, 
-                time: new Date().toLocaleTimeString().slice(0,5), 
-                tikColor: currentUser.tikColor, 
-                title: currentUser.title, 
-                avatar: currentUser.avatar 
-            };
-            chatMessages.push(msg);
-            localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
-            loadChat();
-            input.value = '';
+        // ==================== MENÜ / PANEL ====================
+        function toggleMenu() {
+            document.getElementById('sideMenu').classList.toggle('open');
         }
 
-        // FİLM
-        function loadVideo() {
-            const link = document.getElementById('youtubeLink').value;
-            const id = link.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([^&?#]+)/)?.[1];
-            if (id) document.getElementById('videoContainer').innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen></iframe>`;
+        function showPanel(panelName) {
+            const panels = ['authPanel','registerPanel','welcomePanel','queryPanel','profilePanel'];
+            panels.forEach(p => document.getElementById(p).classList.remove('active'));
+            document.getElementById(panelName + 'Panel').classList.add('active');
+            if (panelName === 'profile') updateUserInfo();
         }
 
-        // ADMIN
-        function adminUsers() { 
-            if (!currentUser?.isAdmin) return; 
-            alert('👥 KULLANICILAR\n\n' + users.map(u => `${u.username} - ${u.points}puan - ${u.title}`).join('\n')); 
-        }
-        
-        function adminStats() { 
-            if (!currentUser?.isAdmin) return; 
-            const totalPoints = users.reduce((s,u) => s + (u.points||0), 0);
-            alert(`📊 İSTATİSTİKLER\n\nKullanıcı: ${users.length}\nToplam Sorgu: ${queries.length}\nToplam Puan: ${totalPoints}`); 
-        }
-
-        function updateStats() {
-            document.getElementById('totalUsers').textContent = users.length;
-            document.getElementById('totalQueries').textContent = queries.length;
+        function showLogin() { showPanel('auth'); }
+        function showRegister() { 
+            document.getElementById('authPanel').classList.remove('active');
+            document.getElementById('registerPanel').classList.add('active');
         }
     </script>
 </body>
