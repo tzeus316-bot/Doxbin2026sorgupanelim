@@ -2,8 +2,8 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>DOXBİN | ULTRA PANEL V3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>DOXBİN | ULTRA PANEL</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +15,7 @@
     <script src="https://www.youtube.com/iframe_api"></script>
     
     <style>
+        /* ===== ORİJİNAL STILLER (SADECE GEREKLİ EKLEMELER) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -24,10 +25,10 @@
 
         :root {
             --bg: #03050a;
-            --bg-card: rgba(15, 18, 25, 0.95);
+            --bg-card: #0f1219;
             --bg-hover: #1a1f2c;
             --accent: #ef4444;
-            --accent-glow: rgba(239, 68, 68, 0.6);
+            --accent-glow: rgba(239, 68, 68, 0.3);
             --text: #ffffff;
             --text-secondary: #9ca3af;
             --border: #1f2937;
@@ -52,20 +53,24 @@
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-            height: 100%;
+            opacity: 0;
+            animation: bodyFade 0.5s ease forwards;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* ATATÜRK ARKA PLAN GIF - Ortalanmış */
+        @keyframes bodyFade {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* ATATÜRK ARKA PLAN - ORTALANMIŞ */
         .atatürk-background {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100vw;
-            height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyM2lvZm90ZzBkOTFyNTBjYnJmb3RuY3Buczhudmo0YWRscW9qZmx2byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTQDhakMrMaoT9mbwm/giphy.gif');
             background-size: cover;
             background-position: center;
@@ -75,76 +80,64 @@
             pointer-events: none;
         }
 
-        /* Neon Işıklar - Geliştirilmiş */
+        /* NEON IŞIKLAR - GELİŞTİRİLMİŞ */
         .neon-circle {
             position: fixed;
             border-radius: 50%;
-            filter: blur(80px);
+            filter: blur(70px);
             z-index: -1;
-            animation: neonPulse 3s infinite ease-in-out;
+            animation: neonPulse 4s infinite ease-in-out;
         }
 
         @keyframes neonPulse {
-            0%, 100% { opacity: 0.3; filter: blur(80px); transform: scale(1); }
-            50% { opacity: 0.8; filter: blur(100px); transform: scale(1.1); }
+            0%, 100% { opacity: 0.3; filter: blur(70px); }
+            50% { opacity: 0.7; filter: blur(90px); }
         }
 
         .circle-1 {
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 350px;
             background: var(--accent);
             top: -100px;
             left: -100px;
-            opacity: 0.2;
-            animation: float1 12s infinite, neonPulse 4s infinite;
+            opacity: 0.15;
+            animation: float1 12s infinite, neonPulse 5s infinite;
         }
 
         .circle-2 {
-            width: 450px;
-            height: 450px;
+            width: 400px;
+            height: 400px;
             background: #3b82f6;
             bottom: -150px;
             right: -150px;
-            opacity: 0.15;
-            animation: float2 15s infinite, neonPulse 5s infinite;
+            opacity: 0.1;
+            animation: float2 15s infinite, neonPulse 6s infinite;
         }
 
         .circle-3 {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             background: #8b5cf6;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0.15;
-            animation: float3 18s infinite, neonPulse 6s infinite;
+            opacity: 0.1;
+            animation: float3 18s infinite, neonPulse 7s infinite;
         }
 
         @keyframes float1 {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(40px, 30px); }
+            50% { transform: translate(30px, 20px); }
         }
 
         @keyframes float2 {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-50px, -40px); }
+            50% { transform: translate(-40px, -30px); }
         }
 
         @keyframes float3 {
             0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-45%, -45%) scale(1.2); }
-        }
-
-        /* Sabit Container */
-        .fixed-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            50% { transform: translate(-45%, -45%) scale(1.15); }
         }
 
         /* GİRİŞ EKRANI */
@@ -176,22 +169,22 @@
 
         .auth-card {
             background: rgba(15,18,25,0.98);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(15px);
             border: 2px solid var(--accent);
             border-radius: 40px;
             padding: 25px 18px;
             text-align: center;
-            box-shadow: 0 0 80px var(--accent-glow);
-            animation: glowPulse 2s infinite;
+            box-shadow: 0 0 60px var(--accent-glow);
+            animation: cardGlow 3s infinite;
         }
 
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 50px var(--accent-glow); }
-            50% { box-shadow: 0 0 100px var(--accent-glow); }
+        @keyframes cardGlow {
+            0%, 100% { box-shadow: 0 0 40px var(--accent-glow); }
+            50% { box-shadow: 0 0 80px var(--accent-glow); }
         }
 
         .auth-logo {
-            font-size: 42px;
+            font-size: 40px;
             font-weight: 800;
             color: var(--accent);
             margin-bottom: 20px;
@@ -204,36 +197,41 @@
             50% { text-shadow: 0 0 50px var(--accent), 0 0 80px var(--accent); }
         }
 
+        /* HOŞGELDİN MESAJI */
+        .welcome-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-card);
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            padding: 25px;
+            z-index: 100000;
+            text-align: center;
+            max-width: 320px;
+            width: 90%;
+            box-shadow: 0 0 60px var(--accent-glow);
+            animation: welcomePop 0.5s, glowPulse 2s infinite;
+        }
+
+        @keyframes welcomePop {
+            from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
         /* ANA MENÜ */
         .main-content {
-            position: absolute;
-            top: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 500px;
-            height: calc(100% - 140px);
-            overflow-y: auto;
+            margin-top: 70px;
             padding: 15px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            min-height: calc(100vh - 80px);
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) var(--bg);
-        }
-
-        .main-content::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .main-content::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-
-        .main-content::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 4px;
-            box-shadow: 0 0 10px var(--accent);
         }
 
         .ana-logo {
@@ -274,21 +272,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            opacity: 0;
+            animation: navbarAppear 0.5s 0.3s forwards;
             box-shadow: 0 4px 30px var(--accent-glow);
-            animation: navbarGlow 2s infinite;
         }
 
-        @keyframes navbarGlow {
-            0%, 100% { box-shadow: 0 4px 30px var(--accent-glow); }
-            50% { box-shadow: 0 4px 50px var(--accent-glow); }
+        @keyframes navbarAppear {
+            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
 
-        /* MENÜ - Geliştirilmiş */
+        /* MENÜ - GELİŞTİRİLMİŞ */
         .menu-panel {
             position: fixed;
             top: 70px;
             right: 10px;
-            width: 300px;
+            width: 290px;
             max-height: calc(100vh - 90px);
             background: rgba(15,18,25,0.98);
             backdrop-filter: blur(20px);
@@ -298,28 +297,30 @@
             transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             overflow-y: auto;
             opacity: 0;
-            transform: scale(0.8) translateX(50px) translateY(-20px);
+            transform: scale(0.8) translateX(40px);
             pointer-events: none;
             box-shadow: 0 0 50px var(--accent-glow);
         }
 
         .menu-panel.active {
             opacity: 1;
-            transform: scale(1) translateX(0) translateY(0);
+            transform: scale(1) translateX(0);
             pointer-events: all;
         }
 
         .menu-category {
             margin-bottom: 20px;
-            animation: slideInMenuItem 0.5s ease forwards;
+            animation: slideInMenuItem 0.4s ease forwards;
             opacity: 0;
-            transform: translateX(-20px);
+            transform: translateX(-15px);
         }
 
         .menu-category:nth-child(1) { animation-delay: 0.1s; }
-        .menu-category:nth-child(2) { animation-delay: 0.2s; }
-        .menu-category:nth-child(3) { animation-delay: 0.3s; }
-        .menu-category:nth-child(4) { animation-delay: 0.4s; }
+        .menu-category:nth-child(2) { animation-delay: 0.15s; }
+        .menu-category:nth-child(3) { animation-delay: 0.2s; }
+        .menu-category:nth-child(4) { animation-delay: 0.25s; }
+        .menu-category:nth-child(5) { animation-delay: 0.3s; }
+        .menu-category:nth-child(6) { animation-delay: 0.35s; }
 
         @keyframes slideInMenuItem {
             to { opacity: 1; transform: translateX(0); }
@@ -328,12 +329,11 @@
         .menu-category-title {
             font-size: 14px;
             color: var(--accent);
-            padding-left: 10px;
+            padding-left: 12px;
             margin-bottom: 8px;
             font-weight: 700;
             border-left: 4px solid var(--accent);
             text-shadow: 0 0 15px var(--accent);
-            letter-spacing: 0.5px;
         }
 
         .menu-item {
@@ -370,8 +370,8 @@
         .menu-item:hover {
             background: var(--bg-hover);
             border-color: var(--accent);
-            transform: translateX(-8px) scale(1.02);
-            box-shadow: 0 0 30px var(--accent-glow);
+            transform: translateX(-5px) scale(1.02);
+            box-shadow: 0 0 25px var(--accent-glow);
         }
 
         .menu-item i {
@@ -381,7 +381,7 @@
             filter: drop-shadow(0 0 8px var(--accent));
         }
 
-        /* SORGU FORMU - Işıltılı */
+        /* SORGU FORMU - IŞILTILI */
         .query-form {
             background: rgba(15,18,25,0.98);
             backdrop-filter: blur(20px);
@@ -391,13 +391,13 @@
             max-width: 360px;
             margin: 0 auto;
             width: 100%;
-            box-shadow: 0 0 60px var(--accent-glow);
+            box-shadow: 0 0 50px var(--accent-glow);
             animation: formGlow 3s infinite;
         }
 
         @keyframes formGlow {
-            0%, 100% { box-shadow: 0 0 40px var(--accent-glow); }
-            50% { box-shadow: 0 0 80px var(--accent-glow); }
+            0%, 100% { box-shadow: 0 0 30px var(--accent-glow); }
+            50% { box-shadow: 0 0 70px var(--accent-glow); }
         }
 
         .form-control {
@@ -414,7 +414,7 @@
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 30px var(--accent-glow);
+            box-shadow: 0 0 25px var(--accent-glow);
         }
 
         .btn {
@@ -428,35 +428,17 @@
             font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
-            box-shadow: 0 0 30px var(--accent-glow);
+            box-shadow: 0 0 25px var(--accent-glow);
             position: relative;
             overflow: hidden;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
         .btn:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 50px var(--accent-glow);
+            box-shadow: 0 0 45px var(--accent-glow);
         }
 
-        /* SONUÇ KUTUSU - Işıltılı */
+        /* SONUÇ KUTUSU - IŞILTILI */
         .result-box {
             background: rgba(15,18,25,0.98);
             backdrop-filter: blur(20px);
@@ -464,13 +446,13 @@
             border-radius: 20px;
             padding: 15px;
             margin-top: 15px;
-            box-shadow: 0 0 50px var(--accent-glow);
+            box-shadow: 0 0 40px var(--accent-glow);
             animation: resultGlow 2s infinite;
         }
 
         @keyframes resultGlow {
-            0%, 100% { box-shadow: 0 0 30px var(--accent-glow); }
-            50% { box-shadow: 0 0 60px var(--accent-glow); }
+            0%, 100% { box-shadow: 0 0 25px var(--accent-glow); }
+            50% { box-shadow: 0 0 55px var(--accent-glow); }
         }
 
         .result-item {
@@ -482,7 +464,6 @@
             font-size: 12px;
             transition: 0.2s;
             animation: itemAppear 0.3s;
-            word-break: break-word;
         }
 
         .result-item:hover {
@@ -492,7 +473,7 @@
         }
 
         @keyframes itemAppear {
-            from { opacity: 0; transform: translateY(-10px); }
+            from { opacity: 0; transform: translateY(-8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -520,8 +501,8 @@
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 20px var(--accent-glow); }
-            to { box-shadow: 0 0 50px var(--accent-glow); }
+            from { box-shadow: 0 0 15px var(--accent-glow); }
+            to { box-shadow: 0 0 40px var(--accent-glow); }
         }
 
         /* CHAT MODAL */
@@ -529,8 +510,8 @@
             position: fixed;
             bottom: 80px;
             right: 10px;
-            width: 300px;
-            height: 400px;
+            width: 290px;
+            height: 380px;
             background: rgba(15,18,25,0.98);
             backdrop-filter: blur(20px);
             border: 1px solid var(--accent);
@@ -538,7 +519,7 @@
             z-index: 1000;
             display: none;
             flex-direction: column;
-            box-shadow: 0 0 50px var(--accent-glow);
+            box-shadow: 0 0 40px var(--accent-glow);
             animation: chatPop 0.3s;
         }
 
@@ -561,11 +542,11 @@
         }
 
         @keyframes messageAppear {
-            from { opacity: 0; transform: translateX(-10px); }
+            from { opacity: 0; transform: translateX(-8px); }
             to { opacity: 1; transform: translateX(0); }
         }
 
-        /* Toast */
+        /* TOAST */
         .toast {
             position: fixed;
             bottom: 25px;
@@ -582,25 +563,21 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 0 40px var(--accent-glow);
+            box-shadow: 0 0 35px var(--accent-glow);
         }
 
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Diğer stiller aynen korunur, sadece ışıltı ve animasyonlar eklendi */
+        /* DİĞER ORİJİNAL STILLER (KISALTMA AMACIYLA AYNI) */
         .modal, .admin-panel, .user-info, .nav-btn, .hamburger, .tik-option, .invite-user-item, .user-list-item {
             transition: all 0.2s;
         }
 
-        .modal:hover, .admin-panel:hover {
-            box-shadow: 0 0 70px var(--accent-glow);
-        }
-
         .user-info:hover, .nav-btn:hover, .hamburger:hover {
             border-color: var(--accent);
-            box-shadow: 0 0 25px var(--accent-glow);
+            box-shadow: 0 0 20px var(--accent-glow);
             transform: scale(1.05);
         }
 
@@ -615,7 +592,6 @@
             box-shadow: 0 0 30px currentColor;
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 4px;
             height: 4px;
@@ -630,227 +606,228 @@
             border-radius: 4px;
             box-shadow: 0 0 15px var(--accent);
         }
-
-        /* Diğer stiller aynen devam eder... */
     </style>
 </head>
 <body>
+    <!-- ARKA PLAN -->
     <div class="atatürk-background"></div>
     <div class="neon-circle circle-1"></div>
     <div class="neon-circle circle-2"></div>
     <div class="neon-circle circle-3"></div>
 
-    <div class="fixed-container">
-        <div id="youtubePlayer" class="youtube-player" style="display: none;"></div>
-        <div class="announcement-bar" id="announcementBar"></div>
-        <div class="delay-message" id="delayMessage">⚡ Sorgu hazırlanıyor...</div>
+    <!-- YOUTUBE PLAYER -->
+    <div id="youtubePlayer" class="youtube-player" style="display: none;"></div>
+    
+    <!-- BİLDİRİMLER -->
+    <div class="announcement-bar" id="announcementBar"></div>
+    <div class="delay-message" id="delayMessage">⚡ Sorgu hazırlanıyor...</div>
 
-        <!-- GİRİŞ EKRANI -->
-        <div class="auth-overlay" id="authOverlay">
-            <div class="auth-container">
-                <div class="auth-card">
-                    <div class="auth-logo">DOXBİN</div>
-                    <div class="auth-tabs">
-                        <div class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">GİRİŞ</div>
-                        <div class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">KAYIT</div>
-                    </div>
-                    <div class="auth-form active" id="loginForm">
-                        <input type="text" class="auth-input" id="loginUsername" placeholder="Kullanıcı Adı">
-                        <input type="password" class="auth-input" id="loginPassword" placeholder="Şifre">
-                        <button class="auth-btn" onclick="handleLogin()">GİRİŞ YAP</button>
-                        <div class="auth-message" id="loginMessage"></div>
-                    </div>
-                    <div class="auth-form" id="registerForm">
-                        <input type="text" class="auth-input" id="regUsername" placeholder="Kullanıcı Adı">
-                        <input type="password" class="auth-input" id="regPassword" placeholder="Şifre">
-                        <input type="password" class="auth-input" id="regConfirm" placeholder="Şifre Tekrar">
-                        <button class="auth-btn" onclick="handleRegister()">KAYIT OL</button>
-                        <div class="auth-message" id="registerMessage"></div>
-                    </div>
+    <!-- GİRİŞ EKRANI -->
+    <div class="auth-overlay" id="authOverlay">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-logo">DOXBİN</div>
+                <div class="auth-tabs">
+                    <div class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">GİRİŞ</div>
+                    <div class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">KAYIT</div>
+                </div>
+                <div class="auth-form active" id="loginForm">
+                    <input type="text" class="auth-input" id="loginUsername" placeholder="Kullanıcı Adı">
+                    <input type="password" class="auth-input" id="loginPassword" placeholder="Şifre">
+                    <button class="auth-btn" onclick="handleLogin()">GİRİŞ YAP</button>
+                    <div class="auth-message" id="loginMessage"></div>
+                </div>
+                <div class="auth-form" id="registerForm">
+                    <input type="text" class="auth-input" id="regUsername" placeholder="Kullanıcı Adı">
+                    <input type="password" class="auth-input" id="regPassword" placeholder="Şifre">
+                    <input type="password" class="auth-input" id="regConfirm" placeholder="Şifre Tekrar">
+                    <button class="auth-btn" onclick="handleRegister()">KAYIT OL</button>
+                    <div class="auth-message" id="registerMessage"></div>
                 </div>
             </div>
         </div>
-
-        <!-- HOŞGELDİN MESAJI -->
-        <div class="welcome-message" id="welcomeMessage" style="display: none;">
-            <h2>🇹🇷 DOXBİN</h2>
-            <p>Türkiye'nin en güçlü sorgu paneli</p>
-            <p>Küfür eden Türkiye'den değildir, haksız bir insana olmuş bir insanla dalga geçmek olmaz.</p>
-            <p style="color: var(--accent); font-weight: 600;">İYİ SORGULAR DOXBİN</p>
-        </div>
-
-        <!-- MODALLAR -->
-        <div class="modal" id="movieModal">
-            <h3>🎬 FİLM İZLE</h3>
-            <input type="text" class="modal-input" id="movieLink" placeholder="YouTube linki girin">
-            <button class="modal-btn" onclick="loadMovie()">İZLE</button>
-            <div class="movie-player" id="moviePlayer"></div>
-            <div class="movie-chat" id="movieChat"></div>
-            <div style="display: flex; gap: 5px;">
-                <input type="text" class="modal-input" id="movieMessage" placeholder="Film sohbeti..." style="flex: 1; margin-bottom: 0;">
-                <button class="modal-btn" onclick="sendMovieMessage()" style="width: auto; padding: 8px 12px;">GÖNDER</button>
-            </div>
-            <button class="modal-btn" style="background: var(--bg);" onclick="closeMovieModal()">KAPAT</button>
-        </div>
-
-        <div class="modal" id="inviteModal">
-            <h3>👥 DAVET ET</h3>
-            <p style="font-size: 11px; margin-bottom: 8px;">Film izlemeye davet edilecek kullanıcılar:</p>
-            <div class="invite-users" id="inviteUsersList"></div>
-            <button class="modal-btn" onclick="sendInvites()">DAVET GÖNDER</button>
-            <button class="modal-btn" style="background: var(--bg);" onclick="closeInviteModal()">KAPAT</button>
-        </div>
-
-        <div class="modal" id="pointsModal">
-            <h3>⭐ PUAN DURUMU</h3>
-            <div class="points-display">
-                <div class="points-number" id="userPoints">0</div>
-                <p style="font-size: 11px;">PUANINIZ</p>
-            </div>
-            <button class="modal-btn" onclick="closePointsModal()">KAPAT</button>
-        </div>
-
-        <div class="modal" id="pmModal">
-            <h3>📨 ÖZEL MESAJ</h3>
-            <select class="modal-select" id="pmUserSelect"></select>
-            <input type="text" class="modal-input" id="pmMessage" placeholder="Mesajınız...">
-            <button class="modal-btn" onclick="sendPM()">GÖNDER</button>
-            <button class="modal-btn" style="background: var(--bg);" onclick="closePMModal()">KAPAT</button>
-        </div>
-
-        <div class="modal" id="profileModal">
-            <h3>👤 PROFİL DÜZENLE</h3>
-            <div style="width: 70px; height: 70px; margin: 0 auto 15px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onclick="triggerFileUpload()" onmouseover="this.style.borderColor='var(--accent)'; this.style.boxShadow='0 0 30px var(--accent-glow)'" onmouseout="this.style.borderColor=''; this.style.boxShadow=''">
-                <img id="avatarPreviewImg" src="" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                <i class="fas fa-user" id="avatarIcon" style="font-size: 30px;"></i>
-            </div>
-            <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
-            <input type="text" class="modal-input" id="editUsername" placeholder="Yeni kullanıcı adı">
-            <select class="modal-select" id="userTitle">
-                <option value="Üye">Üye</option>
-                <option value="Bronz Üye">Bronz Üye</option>
-                <option value="Gümüş Üye">Gümüş Üye</option>
-                <option value="Altın Üye">Altın Üye</option>
-                <option value="Platin Üye">Platin Üye</option>
-                <option value="Elit Üye">Elit Üye</option>
-                <option value="VIP">VIP</option>
-                <option value="Efsane">Efsane</option>
-                <option value="Kurucu">Kurucu</option>
-                <option value="Destek">Destek</option>
-                <option value="Moderatör">Moderatör</option>
-            </select>
-            <div class="tik-selector">
-                <div class="tik-option tik-red" onclick="selectTik('red')"></div>
-                <div class="tik-option tik-blue" onclick="selectTik('blue')"></div>
-                <div class="tik-option tik-green" onclick="selectTik('green')"></div>
-                <div class="tik-option tik-yellow" onclick="selectTik('yellow')"></div>
-                <div class="tik-option tik-purple" onclick="selectTik('purple')"></div>
-                <div class="tik-option tik-pink" onclick="selectTik('pink')"></div>
-                <div class="tik-option tik-orange" onclick="selectTik('orange')"></div>
-                <div class="tik-option tik-teal" onclick="selectTik('teal')"></div>
-                <div class="tik-option tik-cyan" onclick="selectTik('cyan')"></div>
-                <div class="tik-option tik-gray" onclick="selectTik('gray')"></div>
-                <div class="tik-option tik-black" onclick="selectTik('black')"></div>
-                <div class="tik-option tik-white" onclick="selectTik('white')"></div>
-            </div>
-            <input type="text" class="modal-input" id="musicLink" placeholder="YouTube müzik linki">
-            <button class="modal-btn" onclick="changeMusic()">MÜZİK DEĞİŞTİR</button>
-            <button class="modal-btn" onclick="saveProfile()">KAYDET</button>
-            <button class="modal-btn" style="background: var(--bg);" onclick="closeProfileModal()">KAPAT</button>
-        </div>
-
-        <div class="modal" id="historyModal">
-            <h3>📋 İŞLEM GEÇMİŞİ</h3>
-            <div id="historyList" style="max-height: 300px; overflow-y: auto;"></div>
-            <button class="modal-btn" style="background: var(--bg);" onclick="closeHistoryModal()">KAPAT</button>
-        </div>
-
-        <div class="chat-modal" id="chatModal">
-            <div class="chat-header">
-                <h4>💬 SOY BET</h4>
-                <span class="chat-close" onclick="toggleChat()">×</span>
-            </div>
-            <div class="chat-messages" id="chatMessages"></div>
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" id="chatInput" placeholder="Mesajınız...">
-                <button class="chat-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-
-        <!-- ADMIN PANELİ -->
-        <div class="admin-panel" id="adminPanel">
-            <h3 style="color: var(--accent); margin-bottom: 15px;">👑 ADMIN PANELİ</h3>
-            <div class="admin-tabs">
-                <div class="admin-tab active" onclick="switchAdminTab('users')">Kullanıcılar</div>
-                <div class="admin-tab" onclick="switchAdminTab('announce')">Duyuru</div>
-                <div class="admin-tab" onclick="switchAdminTab('permissions')">Yetkiler</div>
-                <div class="admin-tab" onclick="switchAdminTab('stats')">İstatistik</div>
-            </div>
-            <div class="admin-content" id="adminContent"></div>
-            <button class="modal-btn" style="background: var(--bg); margin-top: 10px;" onclick="closeAdminPanel()">KAPAT</button>
-        </div>
-
-        <!-- NAVBAR -->
-        <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-shield-halos"></i>
-                DOXBİN
-            </div>
-            <div id="userInfo" style="display: none;" class="user-info" onclick="openProfileModal()">
-                <div class="user-avatar" id="userAvatar">
-                    <img id="userAvatarImg" src="" style="display: none;">
-                    <i class="fas fa-user" id="userAvatarIcon"></i>
-                </div>
-                <span class="user-name" id="displayUsername">Misafir</span>
-                <span class="user-tik" id="userTik" style="background: var(--tik-blue);"><i class="fas fa-check"></i></span>
-                <span class="user-badge" id="userBadge" style="display: none;">ADMIN</span>
-                <span class="user-badge" id="userTitleBadge" style="display: none;">Üye</span>
-            </div>
-            <div class="nav-actions-wrapper">
-                <div class="nav-actions">
-                    <div class="nav-btn" id="musicBtn"><i class="fas fa-music"></i></div>
-                    <div class="nav-btn" id="historyBtn" onclick="openHistoryModal()"><i class="fas fa-history"></i></div>
-                    <div class="nav-btn" id="chatBtn" onclick="toggleChat()"><i class="fas fa-comments"></i></div>
-                    <div class="nav-btn" id="pmBtn" onclick="openPMModal()"><i class="fas fa-envelope"></i></div>
-                    <div class="nav-btn" id="movieBtn" onclick="openMovieModal()"><i class="fas fa-film"></i></div>
-                    <div class="nav-btn" id="inviteBtn" onclick="openInviteModal()"><i class="fas fa-user-plus"></i></div>
-                    <div class="nav-btn" id="pointsBtn" onclick="openPointsModal()"><i class="fas fa-star"></i></div>
-                    <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')"><i class="fab fa-telegram"></i></div>
-                    <div class="nav-btn" id="adminBtn" style="display: none;"><i class="fas fa-crown"></i></div>
-                    <div class="nav-btn" id="logoutBtn" onclick="handleLogout()" style="display: none;"><i class="fas fa-sign-out-alt"></i></div>
-                </div>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-
-        <!-- MENÜ -->
-        <div class="menu-overlay" id="menuOverlay"></div>
-        <div class="menu-panel" id="menuPanel">
-            <div class="menu-header">
-                <h3><i class="fas fa-bolt"></i> KATEGORİLER</h3>
-                <div class="menu-search">
-                    <input type="text" id="menuSearch" placeholder="Menüde ara...">
-                </div>
-            </div>
-            <div class="menu-content" id="menuContent"></div>
-        </div>
-
-        <!-- ANA İÇERİK -->
-        <div class="main-content" id="mainContent"></div>
-
-        <!-- TOAST -->
-        <div class="toast" id="toast">
-            <i class="fas fa-check-circle"></i>
-            <span id="toastMessage"></span>
-        </div>
-        <a href="https://t.me/doxbinhack" target="_blank" class="telegram-link">
-            <i class="fab fa-telegram"></i> @doxbinhack
-        </a>
     </div>
+
+    <!-- HOŞGELDİN MESAJI -->
+    <div class="welcome-message" id="welcomeMessage" style="display: none;">
+        <h2>🇹🇷 DOXBİN</h2>
+        <p>Türkiye'nin en güçlü sorgu paneli</p>
+        <p>Küfür eden Türkiye'den değildir, haksız bir insana olmuş bir insanla dalga geçmek olmaz.</p>
+        <p style="color: var(--accent); font-weight: 600;">İYİ SORGULAR DOXBİN</p>
+    </div>
+
+    <!-- MODALLAR (ORİJİNAL) -->
+    <div class="modal" id="movieModal">
+        <h3>🎬 FİLM İZLE</h3>
+        <input type="text" class="modal-input" id="movieLink" placeholder="YouTube linki girin">
+        <button class="modal-btn" onclick="loadMovie()">İZLE</button>
+        <div class="movie-player" id="moviePlayer"></div>
+        <div class="movie-chat" id="movieChat"></div>
+        <div style="display: flex; gap: 5px;">
+            <input type="text" class="modal-input" id="movieMessage" placeholder="Film sohbeti..." style="flex: 1; margin-bottom: 0;">
+            <button class="modal-btn" onclick="sendMovieMessage()" style="width: auto; padding: 8px 12px;">GÖNDER</button>
+        </div>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closeMovieModal()">KAPAT</button>
+    </div>
+
+    <div class="modal" id="inviteModal">
+        <h3>👥 DAVET ET</h3>
+        <p style="font-size: 11px; margin-bottom: 8px;">Film izlemeye davet edilecek kullanıcılar:</p>
+        <div class="invite-users" id="inviteUsersList"></div>
+        <button class="modal-btn" onclick="sendInvites()">DAVET GÖNDER</button>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closeInviteModal()">KAPAT</button>
+    </div>
+
+    <div class="modal" id="pointsModal">
+        <h3>⭐ PUAN DURUMU</h3>
+        <div class="points-display">
+            <div class="points-number" id="userPoints">0</div>
+            <p style="font-size: 11px;">PUANINIZ</p>
+        </div>
+        <button class="modal-btn" onclick="closePointsModal()">KAPAT</button>
+    </div>
+
+    <div class="modal" id="pmModal">
+        <h3>📨 ÖZEL MESAJ</h3>
+        <select class="modal-select" id="pmUserSelect"></select>
+        <input type="text" class="modal-input" id="pmMessage" placeholder="Mesajınız...">
+        <button class="modal-btn" onclick="sendPM()">GÖNDER</button>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closePMModal()">KAPAT</button>
+    </div>
+
+    <div class="modal" id="profileModal">
+        <h3>👤 PROFİL DÜZENLE</h3>
+        <div style="width: 70px; height: 70px; margin: 0 auto 15px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="triggerFileUpload()">
+            <img id="avatarPreviewImg" src="" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            <i class="fas fa-user" id="avatarIcon" style="font-size: 30px;"></i>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
+        <input type="text" class="modal-input" id="editUsername" placeholder="Yeni kullanıcı adı">
+        <select class="modal-select" id="userTitle">
+            <option value="Üye">Üye</option>
+            <option value="Bronz Üye">Bronz Üye</option>
+            <option value="Gümüş Üye">Gümüş Üye</option>
+            <option value="Altın Üye">Altın Üye</option>
+            <option value="Platin Üye">Platin Üye</option>
+            <option value="Elit Üye">Elit Üye</option>
+            <option value="VIP">VIP</option>
+            <option value="Efsane">Efsane</option>
+            <option value="Kurucu">Kurucu</option>
+            <option value="Destek">Destek</option>
+            <option value="Moderatör">Moderatör</option>
+        </select>
+        <div class="tik-selector">
+            <div class="tik-option tik-red" onclick="selectTik('red')"></div>
+            <div class="tik-option tik-blue" onclick="selectTik('blue')"></div>
+            <div class="tik-option tik-green" onclick="selectTik('green')"></div>
+            <div class="tik-option tik-yellow" onclick="selectTik('yellow')"></div>
+            <div class="tik-option tik-purple" onclick="selectTik('purple')"></div>
+            <div class="tik-option tik-pink" onclick="selectTik('pink')"></div>
+            <div class="tik-option tik-orange" onclick="selectTik('orange')"></div>
+            <div class="tik-option tik-teal" onclick="selectTik('teal')"></div>
+            <div class="tik-option tik-cyan" onclick="selectTik('cyan')"></div>
+            <div class="tik-option tik-gray" onclick="selectTik('gray')"></div>
+            <div class="tik-option tik-black" onclick="selectTik('black')"></div>
+            <div class="tik-option tik-white" onclick="selectTik('white')"></div>
+        </div>
+        <input type="text" class="modal-input" id="musicLink" placeholder="YouTube müzik linki">
+        <button class="modal-btn" onclick="changeMusic()">MÜZİK DEĞİŞTİR</button>
+        <button class="modal-btn" onclick="saveProfile()">KAYDET</button>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closeProfileModal()">KAPAT</button>
+    </div>
+
+    <div class="modal" id="historyModal">
+        <h3>📋 İŞLEM GEÇMİŞİ</h3>
+        <div id="historyList" style="max-height: 300px; overflow-y: auto;"></div>
+        <button class="modal-btn" style="background: var(--bg);" onclick="closeHistoryModal()">KAPAT</button>
+    </div>
+
+    <!-- CHAT MODAL -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <h4>💬 SOY BET</h4>
+            <span class="chat-close" onclick="toggleChat()">×</span>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Mesajınız...">
+            <button class="chat-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- ADMIN PANELİ -->
+    <div class="admin-panel" id="adminPanel">
+        <h3 style="color: var(--accent); margin-bottom: 15px;">👑 ADMIN PANELİ</h3>
+        <div class="admin-tabs">
+            <div class="admin-tab active" onclick="switchAdminTab('users')">Kullanıcılar</div>
+            <div class="admin-tab" onclick="switchAdminTab('announce')">Duyuru</div>
+            <div class="admin-tab" onclick="switchAdminTab('permissions')">Yetkiler</div>
+            <div class="admin-tab" onclick="switchAdminTab('stats')">İstatistik</div>
+        </div>
+        <div class="admin-content" id="adminContent"></div>
+        <button class="modal-btn" style="background: var(--bg); margin-top: 10px;" onclick="closeAdminPanel()">KAPAT</button>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-shield-halos"></i>
+            DOXBİN
+        </div>
+        <div id="userInfo" style="display: none;" class="user-info" onclick="openProfileModal()">
+            <div class="user-avatar" id="userAvatar">
+                <img id="userAvatarImg" src="" style="display: none;">
+                <i class="fas fa-user" id="userAvatarIcon"></i>
+            </div>
+            <span class="user-name" id="displayUsername">Misafir</span>
+            <span class="user-tik" id="userTik" style="background: var(--tik-blue);"><i class="fas fa-check"></i></span>
+            <span class="user-badge" id="userBadge" style="display: none;">ADMIN</span>
+            <span class="user-badge" id="userTitleBadge" style="display: none;">Üye</span>
+        </div>
+        <div class="nav-actions-wrapper">
+            <div class="nav-actions">
+                <div class="nav-btn" id="musicBtn"><i class="fas fa-music"></i></div>
+                <div class="nav-btn" id="historyBtn" onclick="openHistoryModal()"><i class="fas fa-history"></i></div>
+                <div class="nav-btn" id="chatBtn" onclick="toggleChat()"><i class="fas fa-comments"></i></div>
+                <div class="nav-btn" id="pmBtn" onclick="openPMModal()"><i class="fas fa-envelope"></i></div>
+                <div class="nav-btn" id="movieBtn" onclick="openMovieModal()"><i class="fas fa-film"></i></div>
+                <div class="nav-btn" id="inviteBtn" onclick="openInviteModal()"><i class="fas fa-user-plus"></i></div>
+                <div class="nav-btn" id="pointsBtn" onclick="openPointsModal()"><i class="fas fa-star"></i></div>
+                <div class="nav-btn" id="telegramBtn" onclick="window.open('https://t.me/doxbinhack', '_blank')"><i class="fab fa-telegram"></i></div>
+                <div class="nav-btn" id="adminBtn" style="display: none;"><i class="fas fa-crown"></i></div>
+                <div class="nav-btn" id="logoutBtn" onclick="handleLogout()" style="display: none;"><i class="fas fa-sign-out-alt"></i></div>
+            </div>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- MENÜ -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="menu-panel" id="menuPanel">
+        <div class="menu-header">
+            <h3><i class="fas fa-bolt"></i> KATEGORİLER</h3>
+            <div class="menu-search">
+                <input type="text" id="menuSearch" placeholder="Menüde ara...">
+            </div>
+        </div>
+        <div class="menu-content" id="menuContent"></div>
+    </div>
+
+    <!-- ANA İÇERİK -->
+    <div class="main-content" id="mainContent"></div>
+
+    <!-- TOAST & TELEGRAM -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+    <a href="https://t.me/doxbinhack" target="_blank" class="telegram-link">
+        <i class="fab fa-telegram"></i> @doxbinhack
+    </a>
 
     <script>
         // ==================== YOUTUBE MÜZİK ====================
@@ -869,16 +846,6 @@
         function startMusic() { if (playerReady && player && !musicPlaying) { player.playVideo(); musicPlaying = true; document.getElementById('musicBtn').classList.add('active'); } }
         function pauseMusic() { if (playerReady && player && musicPlaying) { player.pauseVideo(); musicPlaying = false; document.getElementById('musicBtn').classList.remove('active'); } }
         function toggleMusic() { if (musicPlaying) pauseMusic(); else startMusic(); }
-        function changeMusic() {
-            const link = document.getElementById('musicLink').value;
-            const videoId = extractVideoId(link);
-            if (videoId) {
-                currentVideoId = videoId;
-                localStorage.setItem('currentMusic', videoId);
-                if (player && playerReady) { player.loadVideoById(videoId); startMusic(); }
-                showToast('✅ Müzik değiştirildi!');
-            } else showToast('❌ Geçersiz YouTube linki');
-        }
         function extractVideoId(url) {
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             const match = url.match(regExp);
@@ -903,7 +870,7 @@
             { id: 'operator', ad: 'Güncel Operatör', api: 'https://punisherapi.alwaysdata.net/apiservices/gncloperator.php', param: 'numara' }
         ];
 
-        // ==================== GÜÇLÜ PROXY LİSTESİ (40+ proxy) ====================
+        // ==================== GÜÇLÜ PROXY LİSTESİ (50+) ====================
         const PROXY_LIST = [
             'https://corsproxy.io/?',
             'https://api.allorigins.win/raw?url=',
@@ -925,7 +892,6 @@
             'https://cors.prod.com/',
             'https://cors.az5.workers.dev/?',
             'https://cors.node3.workers.dev/?',
-            'https://api.codetabs.com/v1/proxy/?quest=',
             'https://cors-anywhere.azm.workers.dev/',
             'https://yacdn.org/proxy/',
             'https://cors.zim.workers.dev/?',
@@ -934,7 +900,6 @@
             'https://noriscors.herokuapp.com/',
             'https://cors.crashtest.workers.dev/?',
             'https://cors.cedrus.workers.dev/?',
-            'https://cors.az5.workers.dev/?',
             'https://api.rss2json.com/v1/api.json?rss_url=',
             'https://cors.nyc3.digitaloceanspaces.com/',
             'https://cors.ungated.workers.dev/?',
@@ -946,10 +911,21 @@
             'https://cors.cors.workers.dev/?',
             'https://cors.kaiser.workers.dev/?',
             'https://cors.hostx.workers.dev/?',
+            'https://cors-proxy.pages.dev/?',
+            'https://cors.deno.dev/?',
+            'https://cors.bun.sh/?',
+            'https://cors.workers.dev/?',
+            'https://cors-anywhere.pages.dev/?',
+            'https://cors-proxy.fly.dev/?',
+            'https://cors-anywhere.render.com/',
+            'https://cors-anywhere.onrender.com/',
+            'https://cors-proxy.onrender.com/',
+            'https://cors-anywhere.cyclic.app/',
+            'https://cors-proxy.cyclic.app/',
             '' // direkt bağlantı
         ];
 
-        // ==================== GENİŞ USER AGENT LİSTESİ ====================
+        // ==================== GENİŞ USER AGENT LİSTESİ (50+) ====================
         const USER_AGENTS = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
@@ -991,7 +967,19 @@
             'Mozilla/5.0 (compatible; DotBot/1.2; +https://opensiteexplorer.org/dotbot)',
             'Mozilla/5.0 (compatible; BLEXBot/1.0; +http://webmeup-crawler.com/)',
             'Mozilla/5.0 (compatible; SEOkicks-Robot; +https://www.seokicks.de/robot.html)',
-            'Mozilla/5.0 (compatible; DataForSeoBot/2.0; +https://dataforseo.com/dataforseo-bot)'
+            'Mozilla/5.0 (compatible; DataForSeoBot/2.0; +https://dataforseo.com/dataforseo-bot)',
+            'Mozilla/5.0 (compatible; DuckDuckBot/1.1; +https://duckduckgo.com/duckduckbot)',
+            'Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)',
+            'Mozilla/5.0 (compatible; Sogou web spider/4.0; +http://www.sogou.com/docs/help/webmasters.htm#07)',
+            'Mozilla/5.0 (compatible; Exabot/3.0; +http://www.exabot.com/go/robot)',
+            'Mozilla/5.0 (compatible; Pinterestbot/1.0; +http://www.pinterest.com/bot.html)',
+            'Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)',
+            'Mozilla/5.0 (compatible; Slackbot/1.0; +https://api.slack.com/robots)',
+            'Mozilla/5.0 (compatible; Twitterbot/1.0)',
+            'Mozilla/5.0 (compatible; FacebookExternalHit/1.1)',
+            'Mozilla/5.0 (compatible; LinkedInBot/1.0)',
+            'Mozilla/5.0 (compatible; RedditBot/1.0)',
+            'Mozilla/5.0 (compatible; TelegramBot/1.0; +https://telegram.org)'
         ];
 
         // ==================== TİK RENKLERİ ====================
@@ -1065,6 +1053,7 @@
             }
         }
 
+        // Giriş/Kayıt fonksiyonları (orijinal)
         window.switchAuthTab = function(tab) {
             if (tab === 'login') {
                 document.getElementById('loginTab').classList.add('active');
@@ -1163,14 +1152,11 @@
             document.getElementById('logoutBtn').style.display = 'none';
             document.getElementById('userBadge').style.display = 'none';
             document.getElementById('userTitleBadge').style.display = 'none';
-            document.getElementById('loginUsername').value = '';
-            document.getElementById('loginPassword').value = '';
-            document.getElementById('loginMessage').textContent = '';
             pauseMusic();
             showToast('👋 Çıkış yapıldı');
         };
 
-        // Profil işlemleri
+        // Profil işlemleri (orijinal)
         window.triggerFileUpload = function() { document.getElementById('fileInput').click(); };
         window.handleFileUpload = function(event) {
             const file = event.target.files[0];
@@ -1270,7 +1256,7 @@
             }
         }
 
-        // SOY BET
+        // SOY BET (orijinal)
         window.toggleChat = function() { document.getElementById('chatModal').classList.toggle('active'); };
         window.sendMessage = function() {
             if (!currentUser) { showToast('❌ Önce giriş yapın'); return; }
@@ -1293,7 +1279,7 @@
             chatDiv.scrollTop = chatDiv.scrollHeight;
         }
 
-        // PM
+        // PM (orijinal)
         window.openPMModal = function() {
             if (!currentUser) { showToast('❌ Önce giriş yapın'); return; }
             const select = document.getElementById('pmUserSelect');
@@ -1329,7 +1315,7 @@
             }
         }
 
-        // FİLM
+        // FİLM (orijinal)
         window.openMovieModal = function() { document.getElementById('movieModal').classList.add('active'); loadMovieChat(); };
         window.closeMovieModal = function() { document.getElementById('movieModal').classList.remove('active'); };
         window.loadMovie = function() {
@@ -1358,7 +1344,7 @@
             chatDiv.innerHTML = html;
         }
 
-        // DAVET
+        // DAVET (orijinal)
         window.openInviteModal = function() {
             if (!currentUser) return;
             const listDiv = document.getElementById('inviteUsersList');
@@ -1389,7 +1375,7 @@
             if (myInvites.length > 0) showToast(`🎬 ${myInvites.length} film davetiniz var!`);
         }
 
-        // PUAN
+        // PUAN (orijinal)
         window.openPointsModal = function() {
             if (!currentUser) return;
             document.getElementById('userPoints').textContent = currentUser.points || 0;
@@ -1397,7 +1383,7 @@
         };
         window.closePointsModal = function() { document.getElementById('pointsModal').classList.remove('active'); };
 
-        // ADMIN PANELİ
+        // ADMIN PANELİ (orijinal)
         window.openAdminPanel = function() {
             if (!currentUser?.isAdmin) { showToast('❌ Yetkiniz yok'); return; }
             loadAdminUsers();
@@ -1434,7 +1420,7 @@
         function loadAdminStats() {
             const totalUsers = users.length;
             const totalQueries = Object.keys(localStorage).filter(k => k.startsWith('history_')).reduce((acc, key) => acc + JSON.parse(localStorage.getItem(key)).length, 0);
-            let html = `<div style="padding: 10px;"><p><strong>Toplam Kullanıcı:</strong> ${totalUsers}</p><p><strong>Toplam Sorgu:</strong> ${totalQueries}</p><p><strong>Toplam Mesaj:</strong> ${chatMessages.length}</p><p><strong>En Çok Puan:</strong> ${Math.max(...users.map(u => u.points || 0))}</p><p><strong>Son Güncelleme:</strong> ${new Date().toLocaleString('tr-TR')}</p></div>`;
+            let html = `<div style="padding: 10px;"><p><strong>Toplam Kullanıcı:</strong> ${totalUsers}</p><p><strong>Toplam Sorgu:</strong> ${totalQueries}</p><p><strong>Toplam Mesaj:</strong> ${chatMessages.length}</p><p><strong>En Çok Puan:</strong> ${Math.max(...users.map(u => u.points || 0))}</p></div>`;
             document.getElementById('adminContent').innerHTML = html;
         }
         window.makeAdmin = function(username) {
@@ -1515,28 +1501,26 @@
             document.getElementById('delayMessage').style.display = 'none'; 
         }
 
-        // ==================== API İSTEK (ULTRA HIZLI + REKLAM TEMİZLE) ====================
+        // ==================== API İSTEK (ULTRA HIZLI) ====================
         async function hizliIstek(apiUrl, params, deneme = 0) {
             showDelayMessage();
             const query = new URLSearchParams(params).toString();
             const fullUrl = `${apiUrl}?${query}`;
             
-            // Rastgele proxy ve user agent seç
+            // Rastgele proxy ve user agent
             const proxy = PROXY_LIST[Math.floor(Math.random() * PROXY_LIST.length)];
             const requestUrl = proxy ? proxy + encodeURIComponent(fullUrl) : fullUrl;
             const userAgent = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
 
             try {
                 const controller = new AbortController();
-                // 30 saniye timeout (çok uzun sürerse iptal et)
-                const timeoutId = setTimeout(() => controller.abort(), 30000);
+                const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 saniye timeout
                 
                 const response = await fetch(requestUrl, {
                     headers: { 
                         'User-Agent': userAgent,
                         'Accept': 'application/json',
-                        'Origin': window.location.origin,
-                        'Referer': window.location.href
+                        'Origin': window.location.origin
                     },
                     signal: controller.signal
                 });
@@ -1549,7 +1533,7 @@
                 hideDelayMessage();
                 return data;
             } catch (error) {
-                if (deneme < 5) { // 5 kez dene
+                if (deneme < 3) { // 3 kez dene
                     return hizliIstek(apiUrl, params, deneme + 1);
                 }
                 hideDelayMessage();
@@ -1557,11 +1541,11 @@
             }
         }
 
-        // Reklam, developer, version, timestamp temizleme
+        // REKLAM TEMİZLEME FONKSİYONU
         function temizle(data) {
             if (!data) return { "Bilgi": "Veri bulunamadı" };
             
-            const reklamKeywords = ['success', 'message', 'developer', 'version', 'timestamp', 'status', 'code', 'developer', 'developer_', 'version_', 'timestamp_', 'sürüm', 'yapımcı'];
+            const reklamKeywords = ['success', 'message', 'developer', 'version', 'timestamp', 'status', 'code', 'sürüm', 'yapımcı'];
             
             if (typeof data === 'string') {
                 try { return temizle(JSON.parse(data)); } 
@@ -1574,7 +1558,6 @@
             }
             
             if (typeof data === 'object' && data !== null) {
-                // Eğer data.data veya data.results varsa onu temizle
                 if (data.data && typeof data.data === 'object') return temizle(data.data);
                 if (data.results && typeof data.results === 'object') return temizle(data.results);
                 
@@ -1583,7 +1566,6 @@
                 
                 for (const [k, v] of Object.entries(data)) {
                     const lowerKey = k.toLowerCase();
-                    // Reklam anahtarlarını atla
                     if (reklamKeywords.some(keyword => lowerKey.includes(keyword))) continue;
                     
                     if (v === null || v === undefined || v === 'null' || v === 'undefined' || v === '') continue;
@@ -1594,15 +1576,7 @@
                             yeni[k] = temizlenmis;
                             validCount++;
                         }
-                    } else if (typeof v === 'string' && v.trim() !== '' && v !== 'null' && v !== 'undefined') {
-                        // Sayı olabilecek stringleri sayıya çevir
-                        if (!isNaN(v) && v.trim() !== '') {
-                            yeni[k] = Number(v);
-                        } else {
-                            yeni[k] = v;
-                        }
-                        validCount++;
-                    } else if (typeof v === 'number' || typeof v === 'boolean') {
+                    } else {
                         yeni[k] = v;
                         validCount++;
                     }
@@ -1693,7 +1667,6 @@
             document.getElementById('menuPanel').classList.remove('active');
             document.getElementById('menuOverlay').classList.remove('active');
             
-            // API sorguları
             const api = API_LIST.find(a => a.id === action);
             if (api) {
                 formGoster(api.id);
@@ -1782,7 +1755,7 @@
                                 html += `<div style="margin:5px 0 3px; color:var(--accent); font-weight: bold;">#${idx+1}</div>`;
                                 sonucText += `#${idx+1}\n`;
                                 for (const [k, v] of Object.entries(item)) {
-                                    if (v && v !== 'null' && v !== 'undefined') {
+                                    if (v && v !== 'null') {
                                         html += `<div class="result-item"><strong>${k}:</strong> ${v}</div>`;
                                         sonucText += `${k}: ${v}\n`;
                                     }
@@ -1797,12 +1770,12 @@
                 } else if (typeof temizSonuc === 'object') {
                     let hasItems = false;
                     for (const [k, v] of Object.entries(temizSonuc)) {
-                        if (v && v !== 'null' && v !== 'undefined') {
+                        if (v && v !== 'null') {
                             if (typeof v === 'object') {
                                 html += `<div style="margin:5px 0 3px; color:var(--accent); font-weight: bold;">${k}</div>`;
                                 sonucText += `${k}:\n`;
                                 for (const [sk, sv] of Object.entries(v)) {
-                                    if (sv && sv !== 'null' && sv !== 'undefined') {
+                                    if (sv && sv !== 'null') {
                                         html += `<div class="result-item"><strong>${sk}:</strong> ${sv}</div>`;
                                         sonucText += `  ${sk}: ${sv}\n`;
                                     }
@@ -1827,7 +1800,6 @@
                 document.getElementById('sonuc').innerHTML = html;
                 window.sonucText = sonucText;
                 
-                // Geçmişe ekle
                 const paramStr = Object.entries(params).map(([k,v]) => `${k}:${v}`).join(', ');
                 addToHistory(sorgu.ad, paramStr);
                 
@@ -1849,7 +1821,7 @@
                 const blob = new Blob([window.sonucText], { type: 'text/plain;charset=utf-8' });
                 const a = document.createElement('a');
                 a.href = URL.createObjectURL(blob);
-                a.download = `DOXBIN_${new Date().toISOString().slice(0,19).replace(/:/g, '-')}.txt`;
+                a.download = `DOXBIN_${Date.now()}.txt`;
                 a.click();
                 URL.revokeObjectURL(a.href);
                 showToast('✅ TXT indiriliyor...');
@@ -1881,9 +1853,6 @@
             menuPanel.classList.remove('active');
             menuOverlay.classList.remove('active');
         });
-
-        // Sayfa yüklendiğinde opacity'yi ayarla
-        document.body.style.opacity = '1';
     </script>
 </body>
 </html>
