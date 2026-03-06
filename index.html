@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ==================== SIFIRLAMA ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -24,10 +23,8 @@
             position: fixed;
             background: #0a0a0f;
             color: #fff;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* ==================== ANA KAP ==================== */
         .container {
             height: 100%;
             width: 100%;
@@ -36,7 +33,7 @@
             flex-direction: column;
         }
 
-        /* ==================== NAVBAR ==================== */
+        /* NAVBAR */
         .navbar {
             background: rgba(18, 18, 24, 0.95);
             backdrop-filter: blur(20px);
@@ -48,7 +45,6 @@
             align-items: center;
             height: 44px;
             margin-bottom: 8px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .logo {
@@ -66,7 +62,6 @@
             gap: 6px;
         }
 
-        /* ==================== KULLANICI ==================== */
         .user-info {
             display: flex;
             align-items: center;
@@ -76,12 +71,6 @@
             border-radius: 30px;
             cursor: pointer;
             height: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            transition: all 0.2s;
-        }
-
-        .user-info:hover {
-            background: rgba(59, 130, 246, 0.1);
         }
 
         .user-avatar {
@@ -115,7 +104,6 @@
             font-size: 8px;
         }
 
-        /* ==================== HAMBURGER ==================== */
         .hamburger {
             width: 32px;
             height: 32px;
@@ -127,30 +115,22 @@
             cursor: pointer;
             font-size: 14px;
             color: white;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-            transition: all 0.2s;
         }
 
-        .hamburger:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
-        }
-
-        /* ==================== SİDE MENÜ ==================== */
+        /* SİDE MENÜ - TÜM ÖZELLİKLER EKLENDİ */
         .side-menu {
             position: fixed;
             top: 0;
-            right: -280px;
-            width: 260px;
+            right: -320px;
+            width: 300px;
             height: 100vh;
             background: rgba(12, 12, 16, 0.98);
             backdrop-filter: blur(24px);
             border-left: 1px solid rgba(255, 255, 255, 0.02);
-            padding: 48px 8px 8px;
-            transition: right 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 48px 12px 12px;
+            transition: right 0.25s ease;
             z-index: 1000;
             overflow-y: auto;
-            box-shadow: -8px 0 32px rgba(0, 0, 0, 0.6);
         }
 
         .side-menu.open {
@@ -170,13 +150,6 @@
             justify-content: center;
             cursor: pointer;
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-            transition: all 0.2s;
-        }
-
-        .close-menu:hover {
-            background: rgba(255, 255, 255, 0.06);
-            color: white;
         }
 
         .menu-section {
@@ -187,19 +160,19 @@
         }
 
         .menu-title {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             color: #3b82f6;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             padding-left: 4px;
+            letter-spacing: 0.5px;
         }
 
         .menu-items {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            gap: 4px;
         }
 
         .menu-item {
@@ -208,7 +181,7 @@
             padding: 8px 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             cursor: pointer;
             font-size: 11px;
             border: 1px solid rgba(255, 255, 255, 0.02);
@@ -218,17 +191,17 @@
 
         .menu-item:hover {
             background: rgba(59, 130, 246, 0.1);
-            border-color: rgba(59, 130, 246, 0.2);
             transform: translateX(-3px);
+            border-color: rgba(59, 130, 246, 0.3);
         }
 
         .menu-item i {
-            width: 16px;
-            font-size: 11px;
+            width: 18px;
+            font-size: 12px;
             color: #3b82f6;
         }
 
-        /* ==================== İÇERİK ALANI ==================== */
+        /* ANA İÇERİK */
         .content-area {
             flex: 1;
             overflow: hidden;
@@ -254,7 +227,7 @@
             display: block;
         }
 
-        /* ==================== HOŞ GELDİN ==================== */
+        /* HOŞ GELDİN */
         .welcome {
             height: 100%;
             display: flex;
@@ -268,7 +241,6 @@
             font-size: 48px;
             color: #3b82f6;
             margin-bottom: 16px;
-            opacity: 0.8;
         }
 
         .welcome h2 {
@@ -285,7 +257,7 @@
             opacity: 0.5;
         }
 
-        /* ==================== SORGU PANELİ ==================== */
+        /* SORGU PANELİ */
         .query-header {
             display: flex;
             align-items: center;
@@ -305,20 +277,12 @@
             justify-content: center;
             cursor: pointer;
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-            transition: all 0.2s;
-        }
-
-        .back-btn:hover {
-            background: #3b82f6;
-            color: white;
         }
 
         .query-title {
             font-size: 16px;
             font-weight: 500;
             flex: 1;
-            color: rgba(255, 255, 255, 0.9);
         }
 
         .input-group {
@@ -330,7 +294,6 @@
             color: #3b82f6;
             margin-bottom: 4px;
             display: block;
-            letter-spacing: 0.3px;
         }
 
         .query-input {
@@ -343,13 +306,11 @@
             font-size: 12px;
             resize: vertical;
             min-height: 44px;
-            transition: all 0.2s;
         }
 
         .query-input:focus {
             outline: none;
             border-color: #3b82f6;
-            background: rgba(59, 130, 246, 0.05);
         }
 
         .query-btn {
@@ -363,24 +324,11 @@
             font-weight: 500;
             cursor: pointer;
             margin: 12px 0;
-            transition: all 0.2s;
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
         }
 
-        .query-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
-        }
-
-        /* ==================== SONUÇ KUTUSU ==================== */
+        /* SONUÇ KUTUSU */
         .result-container {
             margin-top: 16px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .result-box {
@@ -403,14 +351,12 @@
             text-align: left;
             padding: 6px 4px;
             color: #3b82f6;
-            font-weight: 500;
             border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .data-table td {
             padding: 5px 4px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.02);
-            color: rgba(255, 255, 255, 0.8);
         }
 
         /* KART FORMATI */
@@ -419,7 +365,6 @@
             border-radius: 16px;
             padding: 10px;
             margin-bottom: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .data-row {
@@ -435,17 +380,15 @@
 
         .data-value {
             flex: 1;
-            color: rgba(255, 255, 255, 0.8);
         }
 
         /* JSON FORMATI */
         .json-view {
-            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-family: monospace;
             font-size: 10px;
             line-height: 1.5;
             color: #3b82f6;
             white-space: pre-wrap;
-            word-break: break-word;
         }
 
         /* AKSİYON BUTONLARI */
@@ -468,13 +411,11 @@
             align-items: center;
             justify-content: center;
             gap: 4px;
-            transition: all 0.2s;
         }
 
         .action-btn:hover {
             background: #3b82f6;
             color: white;
-            border-color: #3b82f6;
         }
 
         /* YÜKLEYİCİ */
@@ -492,7 +433,7 @@
             to { transform: rotate(360deg); }
         }
 
-        /* ==================== FİLM PANELİ ==================== */
+        /* FİLM PANELİ */
         .movie-container {
             display: flex;
             flex-direction: column;
@@ -522,7 +463,6 @@
             border-radius: 24px;
             color: white;
             font-size: 11px;
-            font-weight: 500;
             cursor: pointer;
         }
 
@@ -531,7 +471,6 @@
             border-radius: 20px;
             overflow: hidden;
             aspect-ratio: 16/9;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
         }
 
         .video-wrapper iframe {
@@ -540,7 +479,7 @@
             border: none;
         }
 
-        /* ==================== GİRİŞ PANELİ ==================== */
+        /* GİRİŞ PANELİ */
         .auth-container {
             max-width: 280px;
             margin: 40px auto;
@@ -565,27 +504,15 @@
             color: white;
             font-size: 13px;
             margin-bottom: 10px;
-            transition: all 0.2s;
-        }
-
-        .auth-input:focus {
-            outline: none;
-            border-color: #3b82f6;
         }
 
         .auth-link {
             color: #3b82f6;
             text-decoration: none;
             font-size: 11px;
-            opacity: 0.8;
-            transition: all 0.2s;
         }
 
-        .auth-link:hover {
-            opacity: 1;
-        }
-
-        /* ==================== PROFİL ==================== */
+        /* PROFİL */
         .profile-info {
             text-align: center;
             padding: 20px;
@@ -601,8 +528,6 @@
             align-items: center;
             justify-content: center;
             font-size: 28px;
-            color: white;
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
         }
 
         .profile-name {
@@ -626,7 +551,7 @@
             color: #3b82f6;
         }
 
-        /* ==================== KAYDIRMA ÇUBUĞU ==================== */
+        /* KAYDIRMA ÇUBUĞU */
         ::-webkit-scrollbar {
             width: 3px;
         }
@@ -640,14 +565,14 @@
     </style>
 </head>
 <body>
-    <!-- SİDE MENÜ -->
+    <!-- SİDE MENÜ - TÜM ÖZELLİKLER EKLENDİ -->
     <div class="side-menu" id="sideMenu">
         <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
         
         <div class="menu-section">
             <div class="menu-title">👤 KULLANICI</div>
             <div class="menu-items">
-                <div class="menu-item" onclick="showPanel('profile'); toggleMenu()"><i class="fas fa-user"></i> Profilim</div>
+                <div class="menu-item" onclick="showPanel('profile'); toggleMenu()"><i class="fas fa-user-circle"></i> Profilim</div>
                 <div class="menu-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</div>
             </div>
         </div>
@@ -655,42 +580,42 @@
         <div class="menu-section">
             <div class="menu-title">🔍 TC SORGULARI</div>
             <div class="menu-items">
-                <div class="menu-item" onclick="selectQuery('tc', 'TC Basic', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> TC Basic</div>
-                <div class="menu-item" onclick="selectQuery('gsmtc', 'GSM\'den TC', 'gsm', 'GSM No'); toggleMenu()"><i class="fas fa-search"></i> GSM'den TC</div>
-                <div class="menu-item" onclick="selectQuery('tcgsmpro', 'TC GSM PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> TC GSM PRO</div>
+                <div class="menu-item" onclick="selectQuery('tc', 'TC Basic', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-id-card"></i> TC Basic</div>
+                <div class="menu-item" onclick="selectQuery('gsmtc', 'GSM\'den TC', 'gsm', 'GSM No'); toggleMenu()"><i class="fas fa-phone-alt"></i> GSM'den TC</div>
+                <div class="menu-item" onclick="selectQuery('tcgsmpro', 'TC GSM PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-id-card"></i> TC GSM PRO</div>
             </div>
         </div>
         
         <div class="menu-section">
             <div class="menu-title">👥 AD SOYAD</div>
             <div class="menu-items">
-                <div class="menu-item" onclick="selectQuery('adsoyad', 'Ad Soyad', 'ad,soyad', 'Ad Soyad'); toggleMenu()"><i class="fas fa-search"></i> Ad Soyad</div>
-                <div class="menu-item" onclick="selectQuery('adsoyadpro', 'Ad Soyad PRO', 'ad,soyad,il', 'Ad Soyad İl'); toggleMenu()"><i class="fas fa-search"></i> Ad Soyad PRO</div>
-                <div class="menu-item" onclick="selectQuery('adililce', 'Ad İl İlçe', 'ad,il,ilce', 'Ad İl İlçe'); toggleMenu()"><i class="fas fa-search"></i> Ad İl İlçe</div>
+                <div class="menu-item" onclick="selectQuery('adsoyad', 'Ad Soyad', 'ad,soyad', 'Ad Soyad'); toggleMenu()"><i class="fas fa-user"></i> Ad Soyad</div>
+                <div class="menu-item" onclick="selectQuery('adsoyadpro', 'Ad Soyad PRO', 'ad,soyad,il', 'Ad Soyad İl'); toggleMenu()"><i class="fas fa-user-tie"></i> Ad Soyad PRO</div>
+                <div class="menu-item" onclick="selectQuery('adililce', 'Ad İl İlçe', 'ad,il,ilce', 'Ad İl İlçe'); toggleMenu()"><i class="fas fa-map-marker-alt"></i> Ad İl İlçe</div>
             </div>
         </div>
         
         <div class="menu-section">
             <div class="menu-title">🏠 AİLE & SÜLALE</div>
             <div class="menu-items">
-                <div class="menu-item" onclick="selectQuery('aile', 'Aile', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Aile</div>
-                <div class="menu-item" onclick="selectQuery('ailepro', 'Aile PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Aile PRO</div>
-                <div class="menu-item" onclick="selectQuery('sulale', 'Sülale', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Sülale</div>
-                <div class="menu-item" onclick="selectQuery('sulalepro', 'Sülale PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Sülale PRO</div>
-                <div class="menu-item" onclick="selectQuery('soyagaci', 'Soy Ağacı', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Soy Ağacı</div>
-                <div class="menu-item" onclick="selectQuery('soyagacipro', 'Soy Ağacı PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Soy Ağacı PRO</div>
+                <div class="menu-item" onclick="selectQuery('aile', 'Aile', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-users"></i> Aile</div>
+                <div class="menu-item" onclick="selectQuery('ailepro', 'Aile PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-users-cog"></i> Aile PRO</div>
+                <div class="menu-item" onclick="selectQuery('sulale', 'Sülale', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-tree"></i> Sülale</div>
+                <div class="menu-item" onclick="selectQuery('sulalepro', 'Sülale PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-tree"></i> Sülale PRO</div>
+                <div class="menu-item" onclick="selectQuery('soyagaci', 'Soy Ağacı', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-sitemap"></i> Soy Ağacı</div>
+                <div class="menu-item" onclick="selectQuery('soyagacipro', 'Soy Ağacı PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-sitemap"></i> Soy Ağacı PRO</div>
             </div>
         </div>
         
         <div class="menu-section">
             <div class="menu-title">📍 ADRES & TAPU</div>
             <div class="menu-items">
-                <div class="menu-item" onclick="selectQuery('adres', 'Adres', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Adres</div>
-                <div class="menu-item" onclick="selectQuery('adrespro', 'Adres PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Adres PRO</div>
-                <div class="menu-item" onclick="selectQuery('hane', 'Hane', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Hane</div>
-                <div class="menu-item" onclick="selectQuery('tapu', 'Tapu', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Tapu</div>
-                <div class="menu-item" onclick="selectQuery('hayathikayesi', 'Hayat Hikayesi', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> Hayat Hikayesi</div>
-                <div class="menu-item" onclick="selectQuery('isyeriark', 'İş Arkadaşı', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-search"></i> İş Arkadaşı</div>
+                <div class="menu-item" onclick="selectQuery('adres', 'Adres', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-home"></i> Adres</div>
+                <div class="menu-item" onclick="selectQuery('adrespro', 'Adres PRO', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-home"></i> Adres PRO</div>
+                <div class="menu-item" onclick="selectQuery('hane', 'Hane', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-house-user"></i> Hane</div>
+                <div class="menu-item" onclick="selectQuery('tapu', 'Tapu', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-file-signature"></i> Tapu</div>
+                <div class="menu-item" onclick="selectQuery('hayathikayesi', 'Hayat Hikayesi', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-book-open"></i> Hayat Hikayesi</div>
+                <div class="menu-item" onclick="selectQuery('isyeriark', 'İş Arkadaşı', 'tc', 'TC Kimlik No'); toggleMenu()"><i class="fas fa-briefcase"></i> İş Arkadaşı</div>
             </div>
         </div>
         
@@ -719,7 +644,7 @@
             </div>
         </div>
 
-        <!-- İÇERİK ALANI -->
+        <!-- İÇERİK -->
         <div class="content-area">
             <!-- GİRİŞ PANELİ -->
             <div id="authPanel" class="panel active">
@@ -809,11 +734,20 @@
     </div>
 
     <script>
-        // ==================== USER-AGENT'LER ====================
+        // ==================== USER-AGENT'LER (GÜÇLÜ) ====================
         const USER_AGENTS = [
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+            "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
+        ];
+
+        // ==================== PROXY SUNUCULARI ====================
+        const PROXIES = [
+            'https://cors-anywhere.herokuapp.com/',
+            'https://api.allorigins.win/raw?url=',
+            'https://corsproxy.io/?'
         ];
 
         // ==================== API SORGULAR ====================
@@ -877,6 +811,39 @@
             showPanel('query');
         }
 
+        // ==================== API'YE İSTEK (PROXY + USER-AGENT) ====================
+        async function fetchWithProxy(url) {
+            // Önce direkt dene
+            try {
+                const ua = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+                const response = await fetch(url, { 
+                    headers: { 
+                        'User-Agent': ua,
+                        'Accept': 'application/json, text/plain, */*'
+                    }
+                });
+                if (response.ok) return response;
+            } catch (e) {
+                console.log('Direct fetch failed, trying proxy...');
+            }
+            
+            // Proxy ile dene
+            for (const proxy of PROXIES) {
+                try {
+                    const ua = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+                    const proxyUrl = proxy + encodeURIComponent(url);
+                    const response = await fetch(proxyUrl, {
+                        headers: { 'User-Agent': ua }
+                    });
+                    if (response.ok) return response;
+                } catch (e) {
+                    console.log(`Proxy ${proxy} failed`);
+                }
+            }
+            
+            throw new Error('Tüm bağlantı yöntemleri başarısız');
+        }
+
         async function processQuery() {
             if (!currentUser || !currentQuery) return;
             
@@ -903,20 +870,9 @@
             document.getElementById('resultBox').innerHTML = '<div class="loader"></div>';
             
             try {
-                const ua = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
-                
-                const response = await fetch(url.toString(), { 
-                    headers: { 
-                        'User-Agent': ua,
-                        'Accept': 'application/json, text/plain, */*'
-                    }
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-                
+                const response = await fetchWithProxy(url.toString());
                 const text = await response.text();
+                
                 let data;
                 try {
                     data = JSON.parse(text);
@@ -935,10 +891,11 @@
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 
             } catch (error) {
-                document.getElementById('resultBox').innerHTML = `<div class="json-view" style="color:#ff3366;">Hata: ${error.message}</div>`;
+                document.getElementById('resultBox').innerHTML = `<div class="json-view" style="color:#ff3366;">Bağlantı hatası: API'ye ulaşılamıyor</div>`;
             }
         }
 
+        // REKLAM TEMİZLE
         function cleanResponse(data) {
             if (typeof data === 'object' && data !== null) {
                 const remove = ['success', 'message', 'developer', 'api_ismi', 'sorgu_yanit_suresi'];
@@ -965,6 +922,7 @@
             return data;
         }
 
+        // VERİ FORMATLA
         function formatData(data) {
             if (!data) return '<div class="json-view">Sonuç yok</div>';
             
@@ -1099,7 +1057,7 @@
             location.reload();
         }
 
-        // ==================== PROFİL ====================
+        // PROFİL GÜNCELLE
         function updateUserInfo() {
             if (currentUser) {
                 document.getElementById('userName').textContent = currentUser.username;
@@ -1116,7 +1074,7 @@
             }
         }
 
-        // ==================== FİLM ====================
+        // FİLM YÜKLE
         function loadVideo() {
             const link = document.getElementById('youtubeLink').value;
             const match = link.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([^&?#]+)/);
@@ -1129,7 +1087,7 @@
             }
         }
 
-        // ==================== MENÜ/PANEL ====================
+        // MENÜ/PANEL
         function toggleMenu() {
             document.getElementById('sideMenu').classList.toggle('open');
         }
