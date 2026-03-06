@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DOXBİN ULTRA - GERÇEK API SORGU</title>
+    <title>DOXBİN ULTRA - TÜM ÖZELLİKLER</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -362,6 +362,7 @@
         .stats-grid {
             display: flex;
             gap: 8px;
+            justify-content: center;
         }
 
         .stat-card {
@@ -543,6 +544,315 @@
             font-weight: bold;
         }
 
+        /* UNVAN SEÇİMİ */
+        .title-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .title-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 6px 4px;
+            text-align: center;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .title-option:hover {
+            background: rgba(51, 204, 255, 0.2);
+            border-color: #33ccff;
+        }
+
+        .title-option.selected {
+            background: #33ccff;
+            color: #000;
+            border-color: #fff;
+        }
+
+        /* TİK RENKLERİ */
+        .tik-selector {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .tik-option {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .tik-option:hover {
+            transform: scale(1.1);
+        }
+
+        .tik-option.selected {
+            border-color: #fff;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        /* SOYBET (SOHBET) PANELİ */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 50px);
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .chat-message {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            max-width: 85%;
+        }
+
+        .chat-message.own {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .chat-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff3366, #33ccff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .chat-bubble {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 6px 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 3px;
+            font-size: 9px;
+            flex-wrap: wrap;
+        }
+
+        .chat-name {
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .chat-tik {
+            font-size: 9px;
+        }
+
+        .chat-title {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1px 4px;
+            border-radius: 8px;
+            font-size: 8px;
+        }
+
+        .chat-text {
+            font-size: 10px;
+            word-break: break-word;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 6px;
+            padding: 8px 0;
+        }
+
+        .chat-input {
+            flex: 1;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 0 12px;
+            color: white;
+            font-size: 11px;
+        }
+
+        .chat-send {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff3366, #33ccff);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        /* ÖZEL MESAJ PANELİ */
+        .pm-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .user-list {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 8px;
+            margin-bottom: 8px;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        .user-item:hover {
+            background: rgba(51, 204, 255, 0.1);
+        }
+
+        .user-item.unread {
+            background: rgba(255, 51, 102, 0.1);
+        }
+
+        .unread-badge {
+            background: #ff3366;
+            color: white;
+            font-size: 7px;
+            padding: 1px 4px;
+            border-radius: 8px;
+            margin-left: auto;
+        }
+
+        /* FİLM PANELİ */
+        .movie-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .video-container {
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            margin-bottom: 8px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .invite-button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 6px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+
+        /* MÜZİK PANELİ */
+        .music-player {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 12px;
+        }
+
+        .music-controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .music-button {
+            flex: 1;
+            padding: 6px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        /* İŞLEM GEÇMİŞİ */
+        .history-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 8px;
+            margin-bottom: 6px;
+            font-size: 10px;
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            color: #33ccff;
+        }
+
+        /* PUAN SIRALAMASI */
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 11px;
+        }
+
+        .ranking-number {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(51, 204, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        .ranking-username {
+            flex: 1;
+        }
+
+        .ranking-points {
+            color: #ffd700;
+        }
+
         /* GİRİŞ PANELİ */
         .auth-panel {
             max-width: 280px;
@@ -597,6 +907,15 @@
                     <i class="fas fa-id-card"></i> Profilim
                     <span class="menu-badge" id="userPointsMenu">0</span>
                 </div>
+                <div class="menu-item" onclick="showPanel('editProfile')">
+                    <i class="fas fa-edit"></i> Profil Düzenle
+                </div>
+                <div class="menu-item" onclick="showPanel('history')">
+                    <i class="fas fa-history"></i> İşlem Geçmişi
+                </div>
+                <div class="menu-item" onclick="showPanel('ranking')">
+                    <i class="fas fa-trophy"></i> Puan Sıralaması
+                </div>
                 <div class="menu-item" onclick="logout()">
                     <i class="fas fa-sign-out-alt"></i> Çıkış
                 </div>
@@ -606,6 +925,25 @@
         <div class="menu-section">
             <div class="menu-title"><i class="fas fa-search"></i> SORGULAR</div>
             <div class="menu-items" id="queryMenuItems"></div>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-title"><i class="fas fa-comments"></i> SOYBET</div>
+            <div class="menu-items">
+                <div class="menu-item" onclick="showPanel('chat')">
+                    <i class="fas fa-comments"></i> Genel Sohbet
+                    <span class="menu-badge" id="chatBadge">0</span>
+                </div>
+                <div class="menu-item" onclick="showPanel('pm')">
+                    <i class="fas fa-envelope"></i> Özel Mesaj
+                </div>
+                <div class="menu-item" onclick="showPanel('movie')">
+                    <i class="fas fa-film"></i> Film İzle
+                </div>
+                <div class="menu-item" onclick="showPanel('music')">
+                    <i class="fas fa-music"></i> Müzik Çalar
+                </div>
+            </div>
         </div>
         
         <div class="menu-section">
@@ -624,6 +962,12 @@
                 </div>
                 <div class="menu-item" onclick="adminStats()">
                     <i class="fas fa-chart-bar"></i> İstatistikler
+                </div>
+                <div class="menu-item" onclick="adminAnnouncement()">
+                    <i class="fas fa-bullhorn"></i> Duyuru Yayınla
+                </div>
+                <div class="menu-item" onclick="adminPermissions()">
+                    <i class="fas fa-lock"></i> Yetkiler
                 </div>
             </div>
         </div>
@@ -698,6 +1042,10 @@
                             <div class="stat-value" id="totalQueries">0</div>
                             <div class="stat-label">Sorgu</div>
                         </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="totalMessages">0</div>
+                            <div class="stat-label">Mesaj</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -746,18 +1094,138 @@
                     </div>
                 </div>
             </div>
+
+            <!-- PROFİL DÜZENLEME PANELİ -->
+            <div id="editProfilePanel" class="panel">
+                <div class="panel-header">
+                    <div class="back-button" onclick="showPanel('profile')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="panel-title">✏️ PROFİL DÜZENLE</div>
+                </div>
+                
+                <div class="input-container">
+                    <label class="input-label">Kullanıcı Adı</label>
+                    <input type="text" id="editUsername" class="data-input" placeholder="Yeni kullanıcı adı">
+                </div>
+                
+                <div class="input-container">
+                    <label class="input-label">Unvan Seç</label>
+                    <div class="title-selector" id="titleSelector"></div>
+                </div>
+                
+                <div class="input-container">
+                    <label class="input-label">Tik Rengi</label>
+                    <div class="tik-selector" id="tikSelector"></div>
+                </div>
+                
+                <button class="query-button" onclick="saveProfile()">
+                    <i class="fas fa-save"></i> KAYDET
+                </button>
+            </div>
+
+            <!-- SOYBET PANELİ -->
+            <div id="chatPanel" class="panel">
+                <div class="panel-header">
+                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="panel-title">💬 SOYBET</div>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Mesaj yaz...">
+                        <button class="chat-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÖZEL MESAJ PANELİ -->
+            <div id="pmPanel" class="panel">
+                <div class="panel-header">
+                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="panel-title">📨 ÖZEL MESAJ</div>
+                </div>
+                
+                <div class="pm-container">
+                    <div class="user-list" id="userList"></div>
+                    <div class="chat-messages" id="pmMessages" style="flex:1; overflow-y:auto; margin-bottom:8px;"></div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="pmInput" placeholder="Mesaj yaz...">
+                        <button class="chat-send" onclick="sendPM()"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FİLM İZLEME PANELİ -->
+            <div id="moviePanel" class="panel">
+                <div class="panel-header">
+                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="panel-title">🎬 FİLM İZLE</div>
+                </div>
+                
+                <div class="movie-container">
+                    <input type="text" id="youtubeLink" class="data-input" placeholder="YouTube linki" style="margin-bottom:6px;">
+                    <div style="display:flex; gap:4px; margin-bottom:8px;">
+                        <button class="query-button" style="margin:0; flex:1;" onclick="loadVideo()">İZLE</button>
+                        <button class="query-button" style="margin:0; flex:1;" onclick="inviteUsers()">DAVET</button>
+                    </div>
+                    <div class="video-container" id="videoContainer"></div>
+                    <div class="chat-messages" id="movieMessages" style="height:100px; overflow-y:auto; background:rgba(0,0,0,0.2); border-radius:8px; padding:4px;"></div>
+                    <div class="chat-input-area" style="padding:4px 0;">
+                        <input type="text" class="chat-input" id="movieChatInput" placeholder="Film sohbeti...">
+                        <button class="chat-send" onclick="sendMovieMessage()"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÜZİK PANELİ -->
+            <div id="musicPanel" class="panel">
+                <div class="panel-header">
+                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="panel-title">🎵 MÜZİK</div>
+                </div>
+                
+                <div class="music-player">
+                    <input type="text" id="musicLink" class="data-input" placeholder="YouTube müzik linki">
+                    <div class="music-controls">
+                        <button class="music-button" onclick="playMusic()">▶ ÇAL</button>
+                        <button class="music-button" onclick="stopMusic()">⏹ DUR</button>
+                    </div>
+                    <div id="musicPlayer" style="display:none; margin-top:8px;">
+                        <iframe id="youtubeMusicPlayer" width="100%" height="60" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- İŞLEM GEÇMİŞİ PANELİ -->
+            <div id="historyPanel" class="panel">
+                <div class="panel-header">
+                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="panel-title">📊 İŞLEM GEÇMİŞİ</div>
+                </div>
+                <div id="historyList"></div>
+            </div>
+
+            <!-- PUAN SIRALAMASI PANELİ -->
+            <div id="rankingPanel" class="panel">
+                <div class="panel-header">
+                    <div class="back-button" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="panel-title">🏆 SIRALAMA</div>
+                </div>
+                <div id="rankingList"></div>
+            </div>
         </div>
     </div>
 
     <script>
-        // ==================== USER-AGENT'LER ====================
+        // ==================== OPTİMİZE EDİLMİŞ KOD ====================
+        // USER-AGENT'LER
         const USER_AGENTS = [
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15"
         ];
 
-        // ==================== API SORGU LİSTESİ ====================
+        // API SORGULAR
         const API_QUERIES = [
             { id: 'tc', name: 'TC Basic', endpoint: 'tc.php', params: ['tc'], label: 'TC Kimlik No' },
             { id: 'tcpro', name: 'TC PRO', endpoint: 'tcpro.php', params: ['tc'], label: 'TC Kimlik No' },
@@ -775,18 +1243,34 @@
             { id: 'gncloperator', name: 'Operatör', endpoint: 'gncloperator.php', params: ['numara'], label: 'Telefon No' }
         ];
 
-        // ==================== VERİTABANI ====================
+        // UNVANLAR
+        const TITLES = ['Üye','Bronz','Gümüş','Altın','Platin','Elit','VIP','Efsane','Aptal','Salak','Fare','Mutlu','Deli','Kurucu','Destek','Moderatör'];
+        
+        // TİK RENKLERİ
+        const TIK_COLORS = [
+            '#ff0000','#0000ff','#00ff00','#ffff00','#800080','#ff69b4',
+            '#ffa500','#008080','#00ffff','#808080','#000000','#ffffff'
+        ];
+
+        // VERİTABANI
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
         let queries = JSON.parse(localStorage.getItem('queries')) || [];
+        let chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+        let privateMessages = JSON.parse(localStorage.getItem('privateMessages')) || {};
+        let movieMessages = JSON.parse(localStorage.getItem('movieMessages')) || [];
+        let invites = JSON.parse(localStorage.getItem('invites')) || [];
 
         const ADMIN_PASSWORD = 'admin123';
         const API_BASE = 'https://punisherapi.alwaysdata.net/apiservices/';
         let currentQuery = null;
+        let currentPMTarget = null;
 
-        // ==================== SAYFA YÜKLENİNCE ====================
+        // SAYFA YÜKLENİNCE
         window.onload = function() {
             loadQueryMenu();
+            loadTitleSelector();
+            loadTikSelector();
             if (currentUser) {
                 showMainContent();
                 updateNavbar();
@@ -794,7 +1278,7 @@
             updateStats();
         };
 
-        // ==================== SORGU MENÜSÜNÜ YÜKLE ====================
+        // SORGU MENÜSÜ
         function loadQueryMenu() {
             const menu = document.getElementById('queryMenuItems');
             menu.innerHTML = '';
@@ -807,7 +1291,39 @@
             });
         }
 
-        // ==================== SORGU SEÇ ====================
+        // UNVAN SEÇİCİ
+        function loadTitleSelector() {
+            const container = document.getElementById('titleSelector');
+            container.innerHTML = '';
+            TITLES.forEach(title => {
+                const div = document.createElement('div');
+                div.className = `title-option ${currentUser?.title === title ? 'selected' : ''}`;
+                div.textContent = title;
+                div.onclick = () => {
+                    document.querySelectorAll('.title-option').forEach(el => el.classList.remove('selected'));
+                    div.classList.add('selected');
+                };
+                container.appendChild(div);
+            });
+        }
+
+        // TİK SEÇİCİ
+        function loadTikSelector() {
+            const container = document.getElementById('tikSelector');
+            container.innerHTML = '';
+            TIK_COLORS.forEach(color => {
+                const div = document.createElement('div');
+                div.className = `tik-option ${currentUser?.tikColor === color ? 'selected' : ''}`;
+                div.style.backgroundColor = color;
+                div.onclick = () => {
+                    document.querySelectorAll('.tik-option').forEach(el => el.classList.remove('selected'));
+                    div.classList.add('selected');
+                };
+                container.appendChild(div);
+            });
+        }
+
+        // SORGU SEÇ
         function selectQuery(query) {
             if (!currentUser) return;
             currentQuery = query;
@@ -819,10 +1335,9 @@
             toggleMenu();
         }
 
-        // ==================== API SORGU ====================
+        // API SORGU
         async function processQuery() {
             if (!currentUser || !currentQuery) return;
-            
             const input = document.getElementById('queryInput').value.trim();
             if (!input) { alert('❌ Veri girin!'); return; }
             
@@ -850,7 +1365,7 @@
                 const cleanData = removeAds(data);
                 
                 document.getElementById('resultContent').innerHTML = 
-                    `<pre style="margin:0; font-family:monospace; font-size:11px;">${JSON.stringify(cleanData, null, 2)}</pre>`;
+                    `<pre style="margin:0;">${JSON.stringify(cleanData, null, 2)}</pre>`;
                 
                 currentUser.points = (currentUser.points || 0) + 1;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
@@ -863,11 +1378,11 @@
                 
             } catch (error) {
                 document.getElementById('resultContent').innerHTML = 
-                    `<div style="color:#ff3366; text-align:center; padding:15px;">API Hatası</div>`;
+                    `<div style="color:#ff3366; text-align:center;">API Hatası</div>`;
             }
         }
 
-        // ==================== REKLAM TEMİZLE ====================
+        // REKLAM TEMİZLE
         function removeAds(data) {
             if (typeof data === 'object' && data !== null) {
                 const clean = {};
@@ -882,13 +1397,15 @@
             return data;
         }
 
-        // ==================== İSTATİSTİK ====================
+        // İSTATİSTİK
         function updateStats() {
             document.getElementById('totalUsers').textContent = users.length;
             document.getElementById('totalQueries').textContent = queries.length;
+            document.getElementById('totalMessages').textContent = chatMessages.length;
+            document.getElementById('chatBadge').textContent = chatMessages.length;
         }
 
-        // ==================== GİRİŞ/KAYIT ====================
+        // GİRİŞ
         function login() {
             const username = document.getElementById('loginUsername').value.trim();
             const password = document.getElementById('loginPassword').value.trim();
@@ -907,6 +1424,7 @@
             else alert('❌ Hatalı giriş!');
         }
 
+        // KAYIT
         function register() {
             const username = document.getElementById('regUsername').value.trim();
             const password = document.getElementById('regPassword').value.trim();
@@ -914,60 +1432,276 @@
             if (username.startsWith('@')) { alert('❌ "@" ile başlayamaz!'); return; }
             if (users.some(u => u.username === username)) { alert('❌ Kullanıcı adı alınmış!'); return; }
             
-            const newUser = { id: 'user-'+Date.now(), username, password, title: 'Üye', tikColor: '#33ccff', points: 0, avatar: username.charAt(0).toUpperCase(), isAdmin: false, joinedDate: new Date().toLocaleString() };
+            const newUser = { id: 'user-'+Date.now(), username, password, title: 'Üye', tikColor: '#33ccff', points: 0, avatar: username.charAt(0).toUpperCase(), isAdmin: false };
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
             alert('✅ Kayıt başarılı!'); showLogin();
         }
 
+        // ÇIKIŞ
         function logout() { currentUser = null; localStorage.removeItem('currentUser'); location.reload(); }
 
-        // ==================== MENÜ ====================
+        // MENÜ
         function toggleMenu() { document.getElementById('sideMenu').classList.toggle('open'); }
 
-        // ==================== NAVBAR ====================
+        // NAVBAR GÜNCELLE
         function updateNavbar() {
             if (currentUser) {
                 document.getElementById('userInfo').style.display = 'flex';
                 document.getElementById('userName').textContent = currentUser.username;
                 document.getElementById('userTik').style.color = currentUser.tikColor || '#33ccff';
                 document.getElementById('userPointsMenu').textContent = currentUser.points || 0;
-                if (currentUser.avatar?.startsWith('data:image')) {
-                    document.getElementById('userAvatar').style.backgroundImage = `url(${currentUser.avatar})`;
-                    document.getElementById('userAvatar').textContent = '';
-                } else {
-                    document.getElementById('userAvatar').style.backgroundImage = '';
-                    document.getElementById('userAvatar').textContent = currentUser.avatar || currentUser.username.charAt(0).toUpperCase();
-                }
+                document.getElementById('userAvatar').textContent = currentUser.avatar || currentUser.username.charAt(0).toUpperCase();
                 if (currentUser.isAdmin) document.getElementById('adminMenu').style.display = 'block';
             }
         }
 
-        // ==================== PANEL GÖSTER ====================
+        // PROFİL KAYDET
+        function saveProfile() {
+            const newUsername = document.getElementById('editUsername').value.trim();
+            const selectedTitle = document.querySelector('.title-option.selected')?.textContent;
+            const selectedTik = document.querySelector('.tik-option.selected')?.style.backgroundColor;
+            
+            if (newUsername) currentUser.username = newUsername;
+            if (selectedTitle) currentUser.title = selectedTitle;
+            if (selectedTik) currentUser.tikColor = selectedTik;
+            
+            const index = users.findIndex(u => u.id === currentUser.id);
+            if (index !== -1) users[index] = currentUser;
+            
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            localStorage.setItem('users', JSON.stringify(users));
+            updateNavbar();
+            alert('✅ Profil güncellendi!');
+            showPanel('profile');
+        }
+
+        // MESAJ GÖNDER
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            const msg = { id: Date.now(), userId: currentUser.id, username: currentUser.username, text, time: new Date().toLocaleTimeString(), tikColor: currentUser.tikColor, title: currentUser.title };
+            chatMessages.push(msg);
+            localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+            
+            const container = document.getElementById('chatMessages');
+            const div = document.createElement('div');
+            div.className = `chat-message ${msg.userId === currentUser.id ? 'own' : ''}`;
+            div.innerHTML = `
+                <div class="chat-avatar">${currentUser.avatar}</div>
+                <div class="chat-bubble">
+                    <div class="chat-header">
+                        <span class="chat-name">${msg.username}</span>
+                        <span class="chat-tik" style="color:${msg.tikColor};">✓</span>
+                        <span class="chat-title">${msg.title}</span>
+                        <span style="opacity:0.5;">${msg.time}</span>
+                    </div>
+                    <div class="chat-text">${msg.text}</div>
+                </div>
+            `;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            input.value = '';
+            updateStats();
+        }
+
+        // ÖZEL MESAJ GÖNDER
+        function sendPM() {
+            if (!currentPMTarget) { alert('Önce bir kullanıcı seçin!'); return; }
+            const input = document.getElementById('pmInput');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            const msg = { id: Date.now(), from: currentUser.id, to: currentPMTarget, text, time: new Date().toLocaleTimeString() };
+            const key = `${currentUser.id}_${currentPMTarget}`;
+            if (!privateMessages[key]) privateMessages[key] = [];
+            privateMessages[key].push(msg);
+            localStorage.setItem('privateMessages', JSON.stringify(privateMessages));
+            
+            loadPM(currentPMTarget);
+            input.value = '';
+        }
+
+        // FİLM YÜKLE
+        function loadVideo() {
+            const link = document.getElementById('youtubeLink').value;
+            const videoId = extractVideoId(link);
+            if (videoId) document.getElementById('videoContainer').innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>`;
+            else alert('Geçersiz link!');
+        }
+
+        // YouTube ID ÇIKAR
+        function extractVideoId(url) {
+            const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([^&?#]+)/);
+            return match ? match[1] : null;
+        }
+
+        // DAVET GÖNDER
+        function inviteUsers() {
+            const link = document.getElementById('youtubeLink').value;
+            if (!link) { alert('Önce link girin!'); return; }
+            invites.push({ from: currentUser.id, link, time: Date.now() });
+            localStorage.setItem('invites', JSON.stringify(invites));
+            alert('✅ Davet gönderildi!');
+        }
+
+        // MÜZİK ÇAL
+        function playMusic() {
+            const link = document.getElementById('musicLink').value;
+            const videoId = extractVideoId(link);
+            if (videoId) {
+                document.getElementById('musicPlayer').style.display = 'block';
+                document.getElementById('youtubeMusicPlayer').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            }
+        }
+
+        function stopMusic() {
+            document.getElementById('musicPlayer').style.display = 'none';
+            document.getElementById('youtubeMusicPlayer').src = '';
+        }
+
+        // PANEL GÖSTER
         function showPanel(panelName) {
-            ['authPanel','registerPanel','welcomePanel','queryPanel','profilePanel'].forEach(p => document.getElementById(p).classList.remove('active'));
+            const panels = ['authPanel','registerPanel','welcomePanel','queryPanel','profilePanel','editProfilePanel','chatPanel','pmPanel','moviePanel','musicPanel','historyPanel','rankingPanel'];
+            panels.forEach(p => document.getElementById(p).classList.remove('active'));
             
             if (panelName === 'profile' && currentUser) {
                 document.getElementById('profileUsername').textContent = currentUser.username;
                 document.getElementById('profileTitle').textContent = currentUser.title || 'Üye';
                 document.getElementById('profilePoints').textContent = currentUser.points || 0;
                 document.getElementById('profilePanel').classList.add('active');
+            } else if (panelName === 'editProfile' && currentUser) {
+                document.getElementById('editUsername').value = currentUser.username;
+                loadTitleSelector();
+                loadTikSelector();
+                document.getElementById('editProfilePanel').classList.add('active');
             } else if (panelName === 'welcome' && currentUser) {
                 document.getElementById('welcomePanel').classList.add('active');
             } else if (panelName === 'query' && currentUser) {
                 document.getElementById('queryPanel').classList.add('active');
+            } else if (panelName === 'chat' && currentUser) {
+                document.getElementById('chatPanel').classList.add('active');
+                loadChatMessages();
+            } else if (panelName === 'pm' && currentUser) {
+                document.getElementById('pmPanel').classList.add('active');
+                loadUserList();
+            } else if (panelName === 'movie' && currentUser) {
+                document.getElementById('moviePanel').classList.add('active');
+            } else if (panelName === 'music' && currentUser) {
+                document.getElementById('musicPanel').classList.add('active');
+            } else if (panelName === 'history' && currentUser) {
+                document.getElementById('historyPanel').classList.add('active');
+                loadHistory();
+            } else if (panelName === 'ranking' && currentUser) {
+                document.getElementById('rankingPanel').classList.add('active');
+                loadRanking();
             } else {
                 document.getElementById('authPanel').classList.add('active');
             }
         }
 
+        // SOHBET MESAJLARI YÜKLE
+        function loadChatMessages() {
+            const container = document.getElementById('chatMessages');
+            container.innerHTML = '';
+            chatMessages.slice(-30).forEach(msg => {
+                const div = document.createElement('div');
+                div.className = `chat-message ${msg.userId === currentUser.id ? 'own' : ''}`;
+                div.innerHTML = `
+                    <div class="chat-avatar">${msg.avatar || msg.username.charAt(0)}</div>
+                    <div class="chat-bubble">
+                        <div class="chat-header">
+                            <span class="chat-name">${msg.username}</span>
+                            <span class="chat-tik" style="color:${msg.tikColor};">✓</span>
+                            <span class="chat-title">${msg.title}</span>
+                            <span>${msg.time}</span>
+                        </div>
+                        <div class="chat-text">${msg.text}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // KULLANICI LİSTESİ YÜKLE
+        function loadUserList() {
+            const list = document.getElementById('userList');
+            list.innerHTML = '';
+            users.filter(u => u.id !== currentUser.id).forEach(user => {
+                const div = document.createElement('div');
+                div.className = 'user-item';
+                div.onclick = () => { currentPMTarget = user.id; loadPM(user.id); };
+                div.innerHTML = `
+                    <div class="chat-avatar">${user.avatar}</div>
+                    <span>${user.username}</span>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        // ÖZEL MESAJ YÜKLE
+        function loadPM(targetId) {
+            const container = document.getElementById('pmMessages');
+            container.innerHTML = '';
+            const key = `${currentUser.id}_${targetId}`;
+            const key2 = `${targetId}_${currentUser.id}`;
+            const msgs = [...(privateMessages[key]||[]), ...(privateMessages[key2]||[])].sort((a,b) => a.id - b.id);
+            msgs.forEach(msg => {
+                const sender = msg.from === currentUser.id ? currentUser : users.find(u => u.id === msg.from);
+                const div = document.createElement('div');
+                div.className = `chat-message ${msg.from === currentUser.id ? 'own' : ''}`;
+                div.innerHTML = `
+                    <div class="chat-avatar">${sender?.avatar || '?'}</div>
+                    <div class="chat-bubble">
+                        <div class="chat-header">
+                            <span class="chat-name">${sender?.username}</span>
+                            <span>${msg.time}</span>
+                        </div>
+                        <div class="chat-text">${msg.text}</div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // İŞLEM GEÇMİŞİ YÜKLE
+        function loadHistory() {
+            const list = document.getElementById('historyList');
+            list.innerHTML = '';
+            const userQueries = queries.filter(q => q.userId === currentUser.id).reverse().slice(0,20);
+            userQueries.forEach(q => {
+                list.innerHTML += `<div class="history-item"><div class="history-header"><span>${q.type}</span><span>${q.time}</span></div><div>${q.input}</div></div>`;
+            });
+        }
+
+        // PUAN SIRALAMASI YÜKLE
+        function loadRanking() {
+            const list = document.getElementById('rankingList');
+            list.innerHTML = '';
+            const sorted = [...users].sort((a,b) => (b.points||0) - (a.points||0));
+            sorted.slice(0,20).forEach((u,i) => {
+                list.innerHTML += `
+                    <div class="ranking-item">
+                        <div class="ranking-number">${i+1}</div>
+                        <div class="ranking-username">${u.username}</div>
+                        <div class="ranking-points">${u.points||0}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // ADMIN
+        function adminUsers() { if (!currentUser?.isAdmin) return; alert('👥 KULLANICILAR\n' + users.map((u,i)=>`${i+1}. ${u.username} - ${u.points}puan`).join('\n')); }
+        function adminStats() { if (!currentUser?.isAdmin) return; alert(`📊 İSTATİSTİKLER\nKullanıcı: ${users.length}\nSorgu: ${queries.length}\nMesaj: ${chatMessages.length}`); }
+        function adminAnnouncement() { if (!currentUser?.isAdmin) return; alert('Duyuru paneli'); }
+        function adminPermissions() { if (!currentUser?.isAdmin) return; alert('Yetki paneli'); }
+
         function showMainContent() { showPanel('welcome'); }
         function showLogin() { showPanel('auth'); }
         function showRegister() { document.getElementById('authPanel').classList.remove('active'); document.getElementById('registerPanel').classList.add('active'); }
-
-        // ==================== ADMIN ====================
-        function adminUsers() { if (!currentUser?.isAdmin) return; alert('👥 KULLANICILAR\n' + users.map((u,i)=>`${i+1}. ${u.username} - ${u.points}puan`).join('\n')); }
-        function adminStats() { if (!currentUser?.isAdmin) return; alert(`📊 İSTATİSTİKLER\nKullanıcı: ${users.length}\nSorgu: ${queries.length}`); }
+        function sendMovieMessage() {}
     </script>
 </body>
 </html>
