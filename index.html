@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DOXBİN 2026 - PROFESYONEL API</title>
+    <title>DOXBİN 2026 - PROFESYONEL PANEL</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         html, body {
@@ -21,80 +21,99 @@
             width: 100%;
             overflow: hidden;
             position: fixed;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            background: #0a0a0f;
             color: #fff;
         }
 
-        /* ANA KAP */
         .container {
             height: 100%;
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             display: flex;
             flex-direction: column;
         }
 
         /* NAVBAR */
         .navbar {
-            background: rgba(10, 10, 20, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 8px 15px;
+            background: rgba(18, 18, 24, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 40px;
+            padding: 6px 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            height: 44px;
+            margin-bottom: 8px;
         }
 
         .logo {
-            font-size: 16px;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff3366, #33ccff);
+            font-size: 14px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #fff, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            cursor: pointer;
         }
 
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 6px;
         }
 
         .user-info {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 5px 12px;
-            border-radius: 25px;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 4px 10px;
+            border-radius: 30px;
             cursor: pointer;
+            height: 32px;
         }
 
         .user-avatar {
-            width: 28px;
-            height: 28px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #ff3366, #33ccff);
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            border: 1px solid #fff;
+            font-size: 10px;
+            font-weight: 500;
         }
 
-        /* HAMBURGER MENÜ */
+        .user-name {
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .verified-tick {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            background: #1d9bf0;
+            border-radius: 50%;
+            color: white;
+            font-size: 8px;
+        }
+
         .hamburger {
-            width: 35px;
-            height: 35px;
-            background: linear-gradient(45deg, #ff3366, #33ccff);
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             color: white;
         }
 
@@ -105,11 +124,11 @@
             right: -280px;
             width: 260px;
             height: 100vh;
-            background: rgba(10, 10, 20, 0.98);
-            backdrop-filter: blur(10px);
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 50px 10px 10px;
-            transition: right 0.3s ease;
+            background: rgba(12, 12, 16, 0.98);
+            backdrop-filter: blur(24px);
+            border-left: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 48px 8px 8px;
+            transition: right 0.25s ease;
             z-index: 1000;
             overflow-y: auto;
         }
@@ -120,61 +139,66 @@
 
         .close-menu {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 30px;
-            height: 30px;
+            top: 12px;
+            right: 12px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .menu-section {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 16px;
+            padding: 8px;
         }
 
         .menu-title {
-            font-size: 12px;
-            font-weight: bold;
-            color: #33ccff;
-            margin-bottom: 8px;
-            padding-left: 5px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #3b82f6;
+            margin-bottom: 6px;
+            padding-left: 4px;
         }
 
         .menu-items {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 2px;
         }
 
         .menu-item {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
             padding: 8px 10px;
             display: flex;
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 11px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
             transition: all 0.2s;
         }
 
         .menu-item:hover {
-            background: rgba(51, 204, 255, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             transform: translateX(-3px);
         }
 
         .menu-item i {
             width: 16px;
-            color: #33ccff;
-            font-size: 12px;
+            font-size: 11px;
+            color: #3b82f6;
         }
 
-        /* ANA İÇERİK */
+        /* İÇERİK */
         .content-area {
             flex: 1;
             overflow: hidden;
@@ -187,11 +211,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 14px;
             display: none;
             overflow-y: auto;
         }
@@ -200,197 +224,205 @@
             display: block;
         }
 
+        /* HOŞ GELDİN */
+        .welcome {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .welcome i {
+            font-size: 48px;
+            color: #3b82f6;
+            margin-bottom: 16px;
+        }
+
+        .welcome h2 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .welcome p {
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
         /* SORGU PANELİ */
         .query-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .back-btn {
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .query-title {
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: 500;
             flex: 1;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .input-label {
-            font-size: 12px;
-            color: #33ccff;
-            margin-bottom: 5px;
+            font-size: 10px;
+            color: #3b82f6;
+            margin-bottom: 4px;
             display: block;
         }
 
         .query-input {
             width: 100%;
-            padding: 12px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
             color: white;
-            font-size: 14px;
+            font-size: 12px;
             resize: vertical;
-            min-height: 50px;
+            min-height: 44px;
         }
 
         .query-input:focus {
             outline: none;
-            border-color: #33ccff;
+            border-color: #3b82f6;
         }
 
         .query-btn {
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(45deg, #ff3366, #33ccff);
+            padding: 10px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             color: white;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 12px;
+            font-weight: 500;
             cursor: pointer;
-            margin: 10px 0;
+            margin: 12px 0;
         }
 
-        .query-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(51, 204, 255, 0.3);
-        }
-
-        /* SONUÇ KUTUSU - PROFESYONEL FORMAT */
+        /* SONUÇ KUTUSU */
         .result-container {
-            margin-top: 20px;
+            margin-top: 16px;
         }
 
         .result-box {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid #33ccff;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             border-radius: 20px;
-            padding: 15px;
-            animation: softGlow 2s infinite;
+            padding: 14px;
+            max-height: 300px;
+            overflow-y: auto;
         }
 
-        @keyframes softGlow {
-            0% { box-shadow: 0 0 10px rgba(51, 204, 255, 0.2); }
-            50% { box-shadow: 0 0 25px rgba(51, 204, 255, 0.4); }
-            100% { box-shadow: 0 0 10px rgba(51, 204, 255, 0.2); }
-        }
-
-        /* TABLO FORMATI - PROFESYONEL */
+        /* TABLO FORMATI */
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .data-table th {
             text-align: left;
-            padding: 8px 5px;
-            color: #33ccff;
-            font-weight: bold;
-            border-bottom: 1px solid rgba(51, 204, 255, 0.3);
+            padding: 6px 4px;
+            color: #3b82f6;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .data-table td {
-            padding: 6px 5px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .data-table tr:hover {
-            background: rgba(51, 204, 255, 0.05);
-        }
-
-        /* JSON FORMATI */
-        .json-view {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            padding: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 11px;
-            line-height: 1.5;
-            color: #33ccff;
-            white-space: pre-wrap;
-            word-break: break-word;
-            max-height: 400px;
-            overflow-y: auto;
+            padding: 5px 4px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         /* KART FORMATI */
         .data-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 10px;
+            margin-bottom: 6px;
         }
 
-        .data-card .row {
+        .data-row {
             display: flex;
-            margin-bottom: 5px;
-            font-size: 12px;
+            margin-bottom: 4px;
+            font-size: 11px;
         }
 
-        .data-card .label {
-            width: 120px;
-            color: #33ccff;
+        .data-label {
+            width: 100px;
+            color: #3b82f6;
         }
 
-        .data-card .value {
+        .data-value {
             flex: 1;
+        }
+
+        /* JSON FORMATI */
+        .json-view {
+            font-family: monospace;
+            font-size: 10px;
+            line-height: 1.5;
+            color: #3b82f6;
+            white-space: pre-wrap;
         }
 
         /* AKSİYON BUTONLARI */
         .result-actions {
             display: flex;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 6px;
+            margin-top: 8px;
         }
 
         .action-btn {
             flex: 1;
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             border-radius: 20px;
-            color: white;
-            font-size: 11px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 10px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 4px;
         }
 
         .action-btn:hover {
-            background: #33ccff;
-            color: #000;
+            background: #3b82f6;
+            color: white;
         }
 
-        /* YÜKLEME ANİMASYONU */
+        /* YÜKLEYİCİ */
         .loader {
-            width: 30px;
-            height: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-top-color: #33ccff;
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.03);
+            border-top-color: #3b82f6;
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            animation: spin 0.6s linear infinite;
             margin: 20px auto;
         }
 
@@ -398,36 +430,162 @@
             to { transform: rotate(360deg); }
         }
 
+        /* FİLM PANELİ */
+        .movie-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .movie-input-group {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .movie-input {
+            flex: 1;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            color: white;
+            font-size: 12px;
+        }
+
+        .movie-btn {
+            padding: 0 16px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border: none;
+            border-radius: 24px;
+            color: white;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .video-wrapper {
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* GİRİŞ PANELİ */
         .auth-container {
-            max-width: 300px;
-            margin: 50px auto;
+            max-width: 280px;
+            margin: 40px auto;
             text-align: center;
         }
 
         .auth-title {
-            font-size: 24px;
-            color: #33ccff;
+            font-size: 22px;
+            font-weight: 600;
             margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .auth-input {
             width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 30px;
             color: white;
+            font-size: 13px;
             margin-bottom: 10px;
         }
 
-        /* KAYDIRMA ÇUBUĞU */
+        .auth-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 11px;
+        }
+
+        /* PROFİL */
+        .profile-info {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .profile-name {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .profile-title {
+            font-size: 11px;
+            opacity: 0.5;
+            margin-bottom: 8px;
+        }
+
+        .profile-points {
+            font-size: 13px;
+            color: #3b82f6;
+        }
+
+        /* API UYARI */
+        .api-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 11px;
+            color: #ffc107;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .api-warning i {
+            font-size: 14px;
+        }
+
+        .demo-data-btn {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 20px;
+            padding: 8px 12px;
+            font-size: 10px;
+            color: #3b82f6;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
         ::-webkit-scrollbar {
-            width: 4px;
+            width: 3px;
         }
         ::-webkit-scrollbar-thumb {
-            background: #33ccff;
-            border-radius: 2px;
+            background: #3b82f6;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -437,7 +595,7 @@
         <div class="close-menu" onclick="toggleMenu()"><i class="fas fa-times"></i></div>
         
         <div class="menu-section">
-            <div class="menu-title">KULLANICI</div>
+            <div class="menu-title">👤 KULLANICI</div>
             <div class="menu-items">
                 <div class="menu-item" onclick="showPanel('profile'); toggleMenu()"><i class="fas fa-user"></i> Profil</div>
                 <div class="menu-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Çıkış</div>
@@ -445,23 +603,30 @@
         </div>
         
         <div class="menu-section">
-            <div class="menu-title">TC SORGULARI</div>
-            <div class="menu-items" id="tcQueries"></div>
+            <div class="menu-title">🔍 TC SORGULARI</div>
+            <div class="menu-items" id="tcMenu"></div>
         </div>
         
         <div class="menu-section">
-            <div class="menu-title">AD SOYAD</div>
-            <div class="menu-items" id="adQueries"></div>
+            <div class="menu-title">👥 AD SOYAD</div>
+            <div class="menu-items" id="adMenu"></div>
         </div>
         
         <div class="menu-section">
-            <div class="menu-title">AİLE & SÜLALE</div>
-            <div class="menu-items" id="aileQueries"></div>
+            <div class="menu-title">🏠 AİLE & SÜLALE</div>
+            <div class="menu-items" id="aileMenu"></div>
         </div>
         
         <div class="menu-section">
-            <div class="menu-title">ADRES & TAPU</div>
-            <div class="menu-items" id="adresQueries"></div>
+            <div class="menu-title">📍 ADRES & TAPU</div>
+            <div class="menu-items" id="adresMenu"></div>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-title">🎬 EĞLENCE</div>
+            <div class="menu-items">
+                <div class="menu-item" onclick="showPanel('movie'); toggleMenu()"><i class="fas fa-film"></i> Film İzle</div>
+            </div>
         </div>
     </div>
 
@@ -469,11 +634,14 @@
     <div class="container">
         <!-- NAVBAR -->
         <div class="navbar" id="navbar" style="display:none;">
-            <div class="logo">DOXBİN 2026</div>
+            <div class="logo" onclick="showPanel('welcome')">DOXBİN 2026</div>
             <div class="nav-right">
                 <div class="user-info" onclick="showPanel('profile')" id="userInfo">
                     <div class="user-avatar" id="userAvatar">G</div>
-                    <span id="userName">Misafir</span>
+                    <div class="user-name">
+                        <span id="userName">Misafir</span>
+                        <span class="verified-tick"><i class="fas fa-check"></i></span>
+                    </div>
                 </div>
                 <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
             </div>
@@ -481,46 +649,54 @@
 
         <!-- İÇERİK -->
         <div class="content-area">
-            <!-- GİRİŞ PANELİ -->
+            <!-- GİRİŞ -->
             <div id="authPanel" class="panel active">
                 <div class="auth-container">
                     <div class="auth-title">DOXBİN 2026</div>
                     <input type="text" id="loginUsername" class="auth-input" placeholder="Kullanıcı Adı">
                     <input type="password" id="loginPassword" class="auth-input" placeholder="Şifre">
                     <button class="query-btn" onclick="login()">GİRİŞ YAP</button>
-                    <div style="margin-top:15px;">
-                        <small>Hesap yok? <a href="#" onclick="showRegister()" style="color:#33ccff;">Kayıt</a></small>
+                    <div style="margin-top:16px;">
+                        <span style="opacity:0.5; font-size:11px;">Hesap yok? </span>
+                        <a href="#" onclick="showRegister()" class="auth-link">Kayıt Ol</a>
                     </div>
+                    <div style="margin-top:12px; font-size:9px; opacity:0.3;">Admin: @doxbinhack</div>
                 </div>
             </div>
 
-            <!-- KAYIT PANELİ -->
+            <!-- KAYIT -->
             <div id="registerPanel" class="panel">
                 <div class="auth-container">
                     <div class="auth-title">KAYIT OL</div>
                     <input type="text" id="regUsername" class="auth-input" placeholder="Kullanıcı Adı">
                     <input type="password" id="regPassword" class="auth-input" placeholder="Şifre">
                     <button class="query-btn" onclick="register()">KAYIT OL</button>
-                    <div style="margin-top:15px;">
-                        <small>Hesabın var? <a href="#" onclick="showLogin()" style="color:#33ccff;">Giriş</a></small>
+                    <div style="margin-top:16px;">
+                        <span style="opacity:0.5; font-size:11px;">Zaten hesabın var? </span>
+                        <a href="#" onclick="showLogin()" class="auth-link">Giriş Yap</a>
                     </div>
                 </div>
             </div>
 
-            <!-- HOŞ GELDİN PANELİ -->
+            <!-- HOŞ GELDİN -->
             <div id="welcomePanel" class="panel">
-                <div style="text-align: center; margin-top: 50px;">
-                    <i class="fas fa-search" style="font-size: 60px; color: #33ccff; margin-bottom: 20px;"></i>
+                <div class="welcome">
+                    <i class="fas fa-compass"></i>
                     <h2>DOXBİN 2026</h2>
-                    <p style="opacity:0.7;">Menüden sorgu seçin</p>
+                    <p>Menüden sorgu seçin</p>
                 </div>
             </div>
 
-            <!-- SORGU PANELİ -->
+            <!-- SORGU -->
             <div id="queryPanel" class="panel">
                 <div class="query-header">
                     <div class="back-btn" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
                     <div class="query-title" id="queryTitle">Sorgu</div>
+                </div>
+                
+                <div class="api-warning" id="apiWarning" style="display:none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>API bağlantı sorunu. Demo veri gösteriliyor.</span>
                 </div>
                 
                 <div class="input-group">
@@ -529,72 +705,105 @@
                     <button class="query-btn" onclick="processQuery()">SORGULA</button>
                 </div>
                 
-                <div class="result-container" id="resultContainer" style="display:none;">
+                <div id="resultContainer" style="display:none;">
                     <div class="result-box" id="resultBox"></div>
-                    <div class="result-actions" id="resultActions">
+                    <div class="result-actions">
                         <button class="action-btn" onclick="copyResult()"><i class="fas fa-copy"></i> KOPYALA</button>
-                        <button class="action-btn" onclick="downloadResult()"><i class="fas fa-download"></i> TXT İNDİR</button>
+                        <button class="action-btn" onclick="downloadResult()"><i class="fas fa-download"></i> TXT</button>
                     </div>
                 </div>
             </div>
 
-            <!-- PROFİL PANELİ -->
+            <!-- FİLM -->
+            <div id="moviePanel" class="panel">
+                <div class="query-header">
+                    <div class="back-btn" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
+                    <div class="query-title">🎬 FİLM İZLE</div>
+                </div>
+                
+                <div class="movie-container">
+                    <div class="movie-input-group">
+                        <input type="text" id="youtubeLink" class="movie-input" placeholder="YouTube linki">
+                        <button class="movie-btn" onclick="loadVideo()">İZLE</button>
+                    </div>
+                    <div class="video-wrapper" id="videoWrapper"></div>
+                </div>
+            </div>
+
+            <!-- PROFİL -->
             <div id="profilePanel" class="panel">
                 <div class="query-header">
                     <div class="back-btn" onclick="showPanel('welcome')"><i class="fas fa-arrow-left"></i></div>
                     <div class="query-title">PROFİL</div>
                 </div>
-                <div style="text-align: center;" id="profileInfo"></div>
+                <div class="profile-info" id="profileInfo"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // ==================== USER-AGENT'LER (Aynen) ====================
+        // ==================== USER-AGENT ====================
         const USER_AGENTS = [
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15"
         ];
 
-        // ==================== API SORGULAR (ANKARA404) ====================
+        // ==================== API SORGULAR ====================
         const API_QUERIES = [
             // TC Sorguları
-            { id: 'tc', name: 'TC Basic', endpoint: 'tc.php', params: ['tc'], label: 'TC Kimlik No', category: 'tc' },
-            { id: 'gsmtc', name: 'GSM\'den TC', endpoint: 'gsmtc.php', params: ['gsm'], label: 'GSM No', category: 'tc' },
-            { id: 'tcgsmpro', name: 'TC GSM PRO', endpoint: 'tcgsmpro.php', params: ['tc'], label: 'TC Kimlik No', category: 'tc' },
+            { id: 'tc', name: 'TC Basic', endpoint: 'tc.php', params: ['tc'], label: 'TC Kimlik No', cat: 'tc' },
+            { id: 'gsmtc', name: 'GSM\'den TC', endpoint: 'gsmtc.php', params: ['gsm'], label: 'GSM No (10 hane)', cat: 'tc' },
+            { id: 'tcgsmpro', name: 'TC GSM PRO', endpoint: 'tcgsmpro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'tc' },
             
             // Ad Soyad
-            { id: 'adsoyad', name: 'Ad Soyad', endpoint: 'adsoyad.php', params: ['ad','soyad'], label: 'Ad Soyad', category: 'ad' },
-            { id: 'adsoyadpro', name: 'Ad Soyad PRO', endpoint: 'adsoyadpro.php', params: ['ad','soyad','il'], label: 'Ad Soyad İl', category: 'ad' },
-            { id: 'adililce', name: 'Ad İl İlçe', endpoint: 'adililce.php', params: ['ad','il','ilce'], label: 'Ad İl İlçe', category: 'ad' },
+            { id: 'adsoyad', name: 'Ad Soyad', endpoint: 'adsoyad.php', params: ['ad','soyad'], label: 'Ad Soyad', cat: 'ad' },
+            { id: 'adsoyadpro', name: 'Ad Soyad PRO', endpoint: 'adsoyadpro.php', params: ['ad','soyad','il'], label: 'Ad Soyad İl', cat: 'ad' },
+            { id: 'adililce', name: 'Ad İl İlçe', endpoint: 'adililce.php', params: ['ad','il','ilce'], label: 'Ad İl İlçe', cat: 'ad' },
             
             // Aile & Sülale
-            { id: 'aile', name: 'Aile', endpoint: 'aile.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
-            { id: 'ailepro', name: 'Aile PRO', endpoint: 'ailepro.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
-            { id: 'sulale', name: 'Sülale', endpoint: 'sulale.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
-            { id: 'sulalepro', name: 'Sülale PRO', endpoint: 'sulalepro.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
-            { id: 'soyagaci', name: 'Soy Ağacı', endpoint: 'soyagaci.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
-            { id: 'soyagacipro', name: 'Soy Ağacı PRO', endpoint: 'soyagacipro.php', params: ['tc'], label: 'TC Kimlik No', category: 'aile' },
+            { id: 'aile', name: 'Aile', endpoint: 'aile.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
+            { id: 'ailepro', name: 'Aile PRO', endpoint: 'ailepro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
+            { id: 'sulale', name: 'Sülale', endpoint: 'sulale.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
+            { id: 'sulalepro', name: 'Sülale PRO', endpoint: 'sulalepro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
+            { id: 'soyagaci', name: 'Soy Ağacı', endpoint: 'soyagaci.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
+            { id: 'soyagacipro', name: 'Soy Ağacı PRO', endpoint: 'soyagacipro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'aile' },
             
             // Adres & Tapu
-            { id: 'adres', name: 'Adres', endpoint: 'adres.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
-            { id: 'adrespro', name: 'Adres PRO', endpoint: 'adrespro.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
-            { id: 'hane', name: 'Hane', endpoint: 'hane.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
-            { id: 'tapu', name: 'Tapu', endpoint: 'tapu.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
-            { id: 'parselsorgu', name: 'Parsel Sorgu', endpoint: 'parselsorgu.php', params: ['parsel','il','ilce'], label: 'Parsel İl İlçe', category: 'adres' },
-            { id: 'hayathikayesi', name: 'Hayat Hikayesi', endpoint: 'hayathikayesi.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' },
-            { id: 'isyeriark', name: 'İş Arkadaşı', endpoint: 'isyeriark.php', params: ['tc'], label: 'TC Kimlik No', category: 'adres' }
+            { id: 'adres', name: 'Adres', endpoint: 'adres.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
+            { id: 'adrespro', name: 'Adres PRO', endpoint: 'adrespro.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
+            { id: 'hane', name: 'Hane', endpoint: 'hane.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
+            { id: 'tapu', name: 'Tapu', endpoint: 'tapu.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
+            { id: 'hayathikayesi', name: 'Hayat Hikayesi', endpoint: 'hayathikayesi.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' },
+            { id: 'isyeriark', name: 'İş Arkadaşı', endpoint: 'isyeriark.php', params: ['tc'], label: 'TC Kimlik No', cat: 'adres' }
         ];
 
-        // VERİTABANI
+        // ==================== DEMO VERİLER ====================
+        const DEMO_DATA = {
+            tc: { "TC": "11111111110", "AD": "ABDULSELAM", "SOYAD": "DENİZ", "GSM": "5346149118", "BABA ADI": "BAHRİ", "ANNE ADI": "RAHİME", "DOĞUM TARİHİ": "1998-03-17" },
+            gsmtc: [{ "TC": "11111111110", "GSM": "5346149118" }, { "TC": "11111111110", "GSM": "5553723339" }],
+            adsoyad: [{ "TC": "27727166918", "ADI": "ROKET", "SOYADI": "ATAR", "DOĞUM TARİHİ": "1969-09-28" }],
+            aile: [
+                { "YAKINLIK": "Kendisi", "TC": "11111111110", "ADI": "ABDULSELAM", "SOYADI": "DENİZ" },
+                { "YAKINLIK": "Annesi", "TC": "47980825834", "ADI": "RAHİME", "SOYADI": "DENİZ" },
+                { "YAKINLIK": "Babası", "TC": "12854027492", "ADI": "BAHRİ", "SOYADI": "DENİZ" }
+            ],
+            default: { "sonuç": "Demo veri", "bilgi": "API bağlantısı kurulamadı" }
+        };
+
+        // ==================== CORS PROXY ====================
+        const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+        const USE_PROXY = false; // Heroku proxy çalışmıyor, direkt dene
+        
+        // ==================== VERİTABANI ====================
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
         const API_BASE = 'https://ankara404.site/api/';
         let currentQuery = null;
         let lastResult = null;
+        let apiAvailable = true;
 
-        // MENÜLERİ YÜKLE
+        // MENÜ YÜKLE
         window.onload = function() {
             loadMenus();
             if (currentUser) {
@@ -605,21 +814,19 @@
         };
 
         function loadMenus() {
-            const tcMenu = document.getElementById('tcQueries');
-            const adMenu = document.getElementById('adQueries');
-            const aileMenu = document.getElementById('aileQueries');
-            const adresMenu = document.getElementById('adresQueries');
+            const menus = {
+                tc: document.getElementById('tcMenu'),
+                ad: document.getElementById('adMenu'),
+                aile: document.getElementById('aileMenu'),
+                adres: document.getElementById('adresMenu')
+            };
             
             API_QUERIES.forEach(q => {
                 const item = document.createElement('div');
                 item.className = 'menu-item';
                 item.onclick = () => { selectQuery(q); toggleMenu(); };
                 item.innerHTML = `<i class="fas fa-search"></i> ${q.name}`;
-                
-                if (q.category === 'tc') tcMenu.appendChild(item);
-                else if (q.category === 'ad') adMenu.appendChild(item);
-                else if (q.category === 'aile') aileMenu.appendChild(item);
-                else if (q.category === 'adres') adresMenu.appendChild(item);
+                if (menus[q.cat]) menus[q.cat].appendChild(item);
             });
         }
 
@@ -630,14 +837,14 @@
             document.getElementById('queryLabel').textContent = q.label + ':';
             document.getElementById('queryInput').value = '';
             document.getElementById('resultContainer').style.display = 'none';
+            document.getElementById('apiWarning').style.display = 'none';
             showPanel('query');
         }
 
-        // ==================== REKLAM TEMİZLEME (SADECE success,message,developer,api_ismi,sorgu_yanit_suresi) ====================
+        // REKLAM TEMİZLE
         function cleanResponse(data) {
             if (typeof data === 'object' && data !== null) {
-                // Silinecek anahtarlar (sadece reklam olanlar)
-                const removeKeys = ['success', 'message', 'developer', 'api_ismi', 'sorgu_yanit_suresi'];
+                const remove = ['success', 'message', 'developer', 'api_ismi', 'sorgu_yanit_suresi'];
                 
                 if (Array.isArray(data)) {
                     return data.map(item => cleanResponse(item));
@@ -645,17 +852,10 @@
                 
                 const cleaned = {};
                 for (let key in data) {
-                    // Eğer "veri" varsa onu temizle
                     if (key === 'veri' && data[key]) {
                         const veri = data[key];
-                        if (Array.isArray(veri)) {
-                            cleaned[key] = veri.map(item => cleanResponse(item));
-                        } else {
-                            cleaned[key] = cleanResponse(veri);
-                        }
-                    }
-                    // Normal anahtarlar
-                    else if (!removeKeys.includes(key.toLowerCase())) {
+                        cleaned[key] = Array.isArray(veri) ? veri.map(item => cleanResponse(item)) : cleanResponse(veri);
+                    } else if (!remove.includes(key.toLowerCase())) {
                         if (typeof data[key] === 'object' && data[key] !== null) {
                             cleaned[key] = cleanResponse(data[key]);
                         } else {
@@ -668,55 +868,43 @@
             return data;
         }
 
-        // ==================== PROFESYONEL FORMAT ====================
-        function formatData(data, queryName) {
-            if (!data) return '<div class="json-view">Sonuç bulunamadı</div>';
+        // FORMATLA
+        function formatData(data) {
+            if (!data) return '<div class="json-view">Sonuç yok</div>';
             
-            // Array kontrolü
             if (Array.isArray(data)) {
                 if (data.length === 0) return '<div class="json-view">[]</div>';
                 
-                // Tablo formatı
-                let html = '<table class="data-table">';
-                
-                // Başlıklar
-                html += '<tr>';
-                for (let key in data[0]) {
-                    html += `<th>${key}</th>`;
-                }
+                let html = '<table class="data-table"><tr>';
+                for (let key in data[0]) html += `<th>${key}</th>`;
                 html += '</tr>';
                 
-                // Satırlar
-                data.forEach(item => {
+                data.slice(0, 20).forEach(item => {
                     html += '<tr>';
-                    for (let key in item) {
-                        html += `<td>${item[key] || '-'}</td>`;
-                    }
+                    for (let key in item) html += `<td>${item[key] || '-'}</td>`;
                     html += '</tr>';
                 });
                 html += '</table>';
+                if (data.length > 20) html += `<div style="text-align:center; font-size:10px; margin-top:5px;">+${data.length-20} kayıt daha</div>`;
                 return html;
             }
             
-            // Obje kontrolü
             if (typeof data === 'object') {
-                // Kart formatı
                 let html = '';
                 for (let key in data) {
                     if (data[key] && typeof data[key] === 'object') {
-                        html += `<div class="data-card"><div class="row"><span class="label">${key}:</span><span class="value">${JSON.stringify(data[key])}</span></div></div>`;
+                        html += `<div class="data-card"><div class="data-row"><span class="data-label">${key}:</span><span class="data-value">${JSON.stringify(data[key])}</span></div></div>`;
                     } else {
-                        html += `<div class="data-card"><div class="row"><span class="label">${key}:</span><span class="value">${data[key] || '-'}</span></div></div>`;
+                        html += `<div class="data-card"><div class="data-row"><span class="data-label">${key}:</span><span class="data-value">${data[key] || '-'}</span></div></div>`;
                     }
                 }
                 return html || '<div class="json-view">{}</div>';
             }
             
-            // JSON formatı
-            return `<div class="json-view">${JSON.stringify(data, null, 2)}</div>`;
+            return `<div class="json-view">${data}</div>`;
         }
 
-        // ==================== API SORGU ====================
+        // API SORGU - CORS HATALARINI YÖNET
         async function processQuery() {
             if (!currentUser || !currentQuery) return;
             
@@ -741,30 +929,75 @@
             
             document.getElementById('resultContainer').style.display = 'block';
             document.getElementById('resultBox').innerHTML = '<div class="loader"></div>';
+            document.getElementById('apiWarning').style.display = 'none';
             
             try {
-                const ua = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
-                const res = await fetch(url, { 
-                    headers: { 'User-Agent': ua }
-                });
-                
-                const text = await res.text();
+                // CORS hatası almamak için farklı yöntemler dene
                 let data;
+                let success = false;
+                
+                // Yöntem 1: Doğrudan fetch (en basit)
                 try {
-                    data = JSON.parse(text);
-                } catch {
-                    data = text;
+                    const ua = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
+                    const res = await fetch(url.toString(), { 
+                        headers: { 'User-Agent': ua },
+                        mode: 'cors'
+                    });
+                    
+                    if (res.ok) {
+                        const text = await res.text();
+                        try {
+                            data = JSON.parse(text);
+                        } catch {
+                            data = text;
+                        }
+                        success = true;
+                    }
+                } catch (e) {
+                    console.log('Direct fetch failed:', e);
                 }
                 
-                // SADECE reklamları temizle
+                // Yöntem 2: JSONP benzeri bir yöntem (image ile test)
+                if (!success) {
+                    // API'ye ping at
+                    const pingUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url.toString())}`;
+                    try {
+                        const pingRes = await fetch(pingUrl);
+                        if (pingRes.ok) {
+                            const pingData = await pingRes.json();
+                            data = JSON.parse(pingData.contents);
+                            success = true;
+                        }
+                    } catch (e) {
+                        console.log('Proxy fetch failed:', e);
+                    }
+                }
+                
+                // Yöntem 3: Demo veri kullan
+                if (!success) {
+                    document.getElementById('apiWarning').style.display = 'flex';
+                    
+                    // Sorgu tipine göre demo veri seç
+                    if (DEMO_DATA[currentQuery.id]) {
+                        data = DEMO_DATA[currentQuery.id];
+                    } else if (currentQuery.cat === 'tc') {
+                        data = DEMO_DATA.tc;
+                    } else if (currentQuery.cat === 'ad') {
+                        data = DEMO_DATA.adsoyad;
+                    } else if (currentQuery.cat === 'aile') {
+                        data = DEMO_DATA.aile;
+                    } else {
+                        data = DEMO_DATA.default;
+                    }
+                    success = true;
+                }
+                
+                // Veriyi temizle ve göster
                 const cleaned = cleanResponse(data);
                 lastResult = cleaned;
+                document.getElementById('resultBox').innerHTML = formatData(cleaned);
                 
-                // Formatla ve göster
-                const formatted = formatData(cleaned, currentQuery.name);
-                document.getElementById('resultBox').innerHTML = formatted;
-                
-                // Puan ekle (localStorage)
+                // Puan ekle
                 currentUser.points = (currentUser.points || 0) + 1;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 
@@ -773,7 +1006,7 @@
             }
         }
 
-        // ==================== KOPYALA / İNDİR ====================
+        // KOPYALA/İNDİR
         function copyResult() {
             if (lastResult) {
                 const text = typeof lastResult === 'object' ? JSON.stringify(lastResult, null, 2) : lastResult;
@@ -793,19 +1026,16 @@
             }
         }
 
-        // ==================== GİRİŞ / KAYIT ====================
+        // GİRİŞ/KAYIT
         function login() {
             const username = document.getElementById('loginUsername').value.trim();
             const password = document.getElementById('loginPassword').value.trim();
             
             if (!username || !password) { alert('Boş olamaz!'); return; }
             
-            // Admin
             if ((username === '@doxbinhack' || username === '@admin') && password === 'admin123') {
-                currentUser = { id: 'admin', username, title: 'Admin', points: 0, avatar: 'A', isAdmin: true };
-                users.push(currentUser);
+                currentUser = { id: 'admin', username, title: 'Admin', points: 999, avatar: 'A', isAdmin: true };
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                localStorage.setItem('users', JSON.stringify(users));
                 document.getElementById('navbar').style.display = 'flex';
                 showPanel('welcome');
                 updateUserInfo();
@@ -858,23 +1088,35 @@
                 document.getElementById('userName').textContent = currentUser.username;
                 document.getElementById('userAvatar').textContent = currentUser.avatar;
                 document.getElementById('profileInfo').innerHTML = `
-                    <div style="margin:20px;">
-                        <div style="width:80px; height:80px; border-radius:50%; background:linear-gradient(45deg,#ff3366,#33ccff); margin:0 auto 15px; display:flex; align-items:center; justify-content:center; font-size:30px;">${currentUser.avatar}</div>
-                        <div><strong>${currentUser.username}</strong></div>
-                        <div style="opacity:0.7;">${currentUser.title}</div>
-                        <div style="margin-top:10px;">Puan: ${currentUser.points || 0}</div>
+                    <div class="profile-avatar">${currentUser.avatar}</div>
+                    <div class="profile-name">
+                        ${currentUser.username}
+                        <span class="verified-tick"><i class="fas fa-check"></i></span>
                     </div>
+                    <div class="profile-title">${currentUser.title}</div>
+                    <div class="profile-points">${currentUser.points || 0} puan</div>
                 `;
             }
         }
 
-        // ==================== MENÜ / PANEL ====================
+        // FİLM
+        function loadVideo() {
+            const link = document.getElementById('youtubeLink').value;
+            const id = link.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([^&?#]+)/)?.[1];
+            if (id) {
+                document.getElementById('videoWrapper').innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen loading="lazy"></iframe>`;
+            } else {
+                alert('Geçersiz link!');
+            }
+        }
+
+        // MENÜ/PANEL
         function toggleMenu() {
             document.getElementById('sideMenu').classList.toggle('open');
         }
 
         function showPanel(panelName) {
-            const panels = ['authPanel','registerPanel','welcomePanel','queryPanel','profilePanel'];
+            const panels = ['authPanel','registerPanel','welcomePanel','queryPanel','moviePanel','profilePanel'];
             panels.forEach(p => document.getElementById(p).classList.remove('active'));
             document.getElementById(panelName + 'Panel').classList.add('active');
             if (panelName === 'profile') updateUserInfo();
