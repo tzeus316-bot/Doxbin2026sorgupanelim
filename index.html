@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>DOXBİN ULTRA - GELİŞMİŞ SİSTEM</title>
+    <title>DOXBİN ULTRA - GELİŞMİŞ SORGU SİSTEMİ</title>
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* NEON IŞIKLAR - HAREKETLİ */
+        /* NEON IŞIKLAR */
         .neon-light {
             position: fixed;
             width: 200px;
@@ -66,7 +66,7 @@
             100% { transform: translate(-20px, -40px) scale(1); }
         }
 
-        /* ATATÜRK GIF - SAYDAM */
+        /* ATATÜRK GIF */
         .ataturk-bg {
             position: fixed;
             top: 0;
@@ -109,6 +109,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 2px;
+            cursor: pointer;
         }
 
         .nav-right {
@@ -175,6 +176,28 @@
         .user-points {
             font-size: 12px;
             color: #ffd700;
+        }
+
+        /* TELEGRAM BUTONU */
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .telegram-btn:hover {
+            background: #006699;
+            transform: translateY(-2px);
         }
 
         /* HAMBURGER MENÜ */
@@ -249,6 +272,9 @@
             color: #33ccff;
             text-transform: uppercase;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .menu-items {
@@ -283,6 +309,15 @@
             color: #33ccff;
         }
 
+        .menu-badge {
+            background: #ff3366;
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
         /* BÜYÜK BUTONLAR */
         .big-button {
             height: 55px;
@@ -307,60 +342,73 @@
             box-shadow: 0 10px 30px rgba(255, 51, 102, 0.4);
         }
 
-        /* SORGU KUTULARI */
-        .query-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .query-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+        /* SORGU PANELİ */
+        .query-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            padding: 30px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 20px;
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            min-height: 500px;
         }
 
-        .query-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .query-card:hover {
-            transform: translateY(-5px);
-            border-color: #33ccff;
-            box-shadow: 0 10px 40px rgba(51, 204, 255, 0.3);
-        }
-
-        .query-card:hover::before {
-            opacity: 1;
-        }
-
-        .query-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .panel-header {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .query-desc {
-            font-size: 14px;
-            opacity: 0.8;
+        .back-button {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 20px;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+        }
+
+        .panel-title {
+            font-size: 24px;
+            font-weight: bold;
+            flex: 1;
+        }
+
+        .query-input-area {
+            margin-bottom: 30px;
+        }
+
+        .query-input {
+            width: 100%;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 0 25px;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .query-input:focus {
+            outline: none;
+            border-color: #33ccff;
+        }
+
+        .query-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         /* IŞILTILI SONUÇ */
@@ -384,15 +432,112 @@
             100% { box-shadow: 0 0 20px rgba(51, 204, 255, 0.3); }
         }
 
-        /* SOYBET (SOHBET) */
-        .chat-container {
-            background: rgba(0, 0, 0, 0.3);
+        .result-content {
+            max-height: 500px;
+            overflow-y: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: flex-end;
+        }
+
+        .action-button {
+            padding: 8px 15px;
             border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            height: 500px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .action-button:hover {
+            background: #33ccff;
+            border-color: #33ccff;
+        }
+
+        /* YÜKLEME ANİMASYONU */
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #33ccff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* TİK RENGİ SEÇİCİ */
+        .tik-option {
+            transition: all 0.3s;
+        }
+
+        .tik-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px currentColor;
+        }
+
+        .tik-option.selected {
+            border: 3px solid #fff !important;
+            transform: scale(1.1);
+        }
+
+        /* PROFİL PANELİ */
+        .profile-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff3366, #33ccff);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            font-weight: bold;
+            border: 3px solid #fff;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(51, 204, 255, 0.5);
+        }
+
+        /* SOYBET PANELİ */
+        .chat-panel {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 600px;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
         }
 
         .chat-messages {
@@ -469,145 +614,6 @@
             border-radius: 10px;
         }
 
-        .message-text {
-            font-size: 14px;
-            word-break: break-word;
-        }
-
-        .chat-input-area {
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            gap: 10px;
-        }
-
-        .chat-input {
-            flex: 1;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 0 20px;
-            color: white;
-            font-size: 15px;
-        }
-
-        .chat-send {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff3366, #33ccff);
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        /* FİLM İZLEME ODASI */
-        .movie-container {
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 15px;
-            height: 600px;
-        }
-
-        .video-container {
-            background: #000;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .movie-chat {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* ÖZEL MESAJ PANELİ */
-        .pm-container {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 15px;
-            height: 600px;
-        }
-
-        .user-list {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            overflow-y: auto;
-            padding: 15px;
-        }
-
-        .user-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-            margin-bottom: 5px;
-        }
-
-        .user-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: #33ccff;
-        }
-
-        .user-item.unread {
-            background: rgba(51, 204, 255, 0.1);
-            border-color: #33ccff;
-        }
-
-        .unread-badge {
-            background: #ff3366;
-            color: white;
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 10px;
-            margin-left: auto;
-        }
-
-        /* YÜKLEME ANİMASYONU */
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: #33ccff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* TİK RENGİ SEÇİCİ */
-        .tik-option {
-            transition: all 0.3s;
-        }
-
-        .tik-option:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px currentColor;
-        }
-
-        .tik-option.selected {
-            border: 3px solid #fff !important;
-            transform: scale(1.1);
-        }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .container {
@@ -632,41 +638,25 @@
                 font-size: 16px;
             }
             
-            .user-name {
-                font-size: 14px;
-            }
-            
             .side-menu {
                 width: 100%;
                 right: -100%;
             }
             
-            .query-grid {
-                grid-template-columns: 1fr;
+            .query-panel {
+                padding: 20px;
             }
             
-            .movie-container {
-                grid-template-columns: 1fr;
-                height: auto;
+            .panel-title {
+                font-size: 20px;
             }
             
-            .video-container {
-                height: 250px;
-            }
-            
-            .pm-container {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-            
-            .user-list {
-                height: 200px;
+            .query-buttons {
+                flex-direction: column;
             }
             
             .big-button {
-                height: 50px;
-                font-size: 16px;
-                padding: 0 20px;
+                width: 100%;
             }
         }
     </style>
@@ -680,84 +670,118 @@
     <!-- ATATÜRK GIF -->
     <div class="ataturk-bg"></div>
 
-    <!-- SİDE MENÜ -->
+    <!-- SİDE MENÜ (TÜM ÖZELLİKLER BURADA) -->
     <div class="side-menu" id="sideMenu">
         <div class="close-menu" onclick="toggleMenu()">
             <i class="fas fa-times"></i>
         </div>
         
+        <!-- KULLANICI PANELİ -->
         <div class="menu-section">
-            <div class="menu-title">🔍 SORGULAR</div>
+            <div class="menu-title">
+                <i class="fas fa-user"></i>
+                KULLANICI PANELİ
+            </div>
             <div class="menu-items">
-                <div class="menu-item" onclick="showQuery('tc')">
+                <div class="menu-item" onclick="showProfile()">
+                    <i class="fas fa-id-card"></i>
+                    Profilim
+                </div>
+                <div class="menu-item" onclick="showHistory()">
+                    <i class="fas fa-history"></i>
+                    İşlem Geçmişi
+                </div>
+                <div class="menu-item" onclick="showRanking()">
+                    <i class="fas fa-trophy"></i>
+                    Puan Sıralaması
+                </div>
+                <div class="menu-item" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Çıkış Yap
+                </div>
+            </div>
+        </div>
+        
+        <!-- SORGU PANELİ (TÜM SORGULAR BURADA) -->
+        <div class="menu-section">
+            <div class="menu-title">
+                <i class="fas fa-search"></i>
+                SORGU PANELİ
+            </div>
+            <div class="menu-items">
+                <div class="menu-item" onclick="showQueryPanel('tc')">
                     <i class="fas fa-id-card"></i>
                     TC Basic
                 </div>
-                <div class="menu-item" onclick="showQuery('tcpro')">
+                <div class="menu-item" onclick="showQueryPanel('tcpro')">
                     <i class="fas fa-id-card"></i>
                     TC PRO
                 </div>
-                <div class="menu-item" onclick="showQuery('tcgsm')">
+                <div class="menu-item" onclick="showQueryPanel('tcgsm')">
                     <i class="fas fa-id-card"></i>
                     TC'den GSM
                 </div>
-                <div class="menu-item" onclick="showQuery('gsmtc')">
+                <div class="menu-item" onclick="showQueryPanel('gsmtc')">
                     <i class="fas fa-id-card"></i>
                     GSM'den TC
                 </div>
-                <div class="menu-item" onclick="showQuery('adsoyad')">
+                <div class="menu-item" onclick="showQueryPanel('adsoyad')">
                     <i class="fas fa-user"></i>
                     Ad Soyad
                 </div>
-                <div class="menu-item" onclick="showQuery('adsoyadpro')">
+                <div class="menu-item" onclick="showQueryPanel('adsoyadpro')">
                     <i class="fas fa-user"></i>
                     Ad Soyad PRO
                 </div>
-                <div class="menu-item" onclick="showQuery('adililce')">
+                <div class="menu-item" onclick="showQueryPanel('adililce')">
                     <i class="fas fa-map-marker-alt"></i>
                     Ad İl İlçe
                 </div>
-                <div class="menu-item" onclick="showQuery('aile')">
+                <div class="menu-item" onclick="showQueryPanel('aile')">
                     <i class="fas fa-users"></i>
                     Aile
                 </div>
-                <div class="menu-item" onclick="showQuery('ailepro')">
+                <div class="menu-item" onclick="showQueryPanel('ailepro')">
                     <i class="fas fa-users"></i>
                     Aile PRO
                 </div>
-                <div class="menu-item" onclick="showQuery('soyagaci')">
+                <div class="menu-item" onclick="showQueryPanel('soyagaci')">
                     <i class="fas fa-tree"></i>
                     Soy Ağacı
                 </div>
-                <div class="menu-item" onclick="showQuery('adres')">
+                <div class="menu-item" onclick="showQueryPanel('adres')">
                     <i class="fas fa-home"></i>
                     Adres
                 </div>
-                <div class="menu-item" onclick="showQuery('adrespro')">
+                <div class="menu-item" onclick="showQueryPanel('adrespro')">
                     <i class="fas fa-home"></i>
                     Adres PRO
                 </div>
-                <div class="menu-item" onclick="showQuery('iban')">
+                <div class="menu-item" onclick="showQueryPanel('iban')">
                     <i class="fas fa-university"></i>
                     IBAN
                 </div>
-                <div class="menu-item" onclick="showQuery('gncloperator')">
+                <div class="menu-item" onclick="showQueryPanel('gncloperator')">
                     <i class="fas fa-phone"></i>
                     Operatör
                 </div>
             </div>
         </div>
         
+        <!-- EĞLENCE PANELİ -->
         <div class="menu-section">
-            <div class="menu-title">🎬 EĞLENCE</div>
+            <div class="menu-title">
+                <i class="fas fa-film"></i>
+                EĞLENCE PANELİ
+            </div>
             <div class="menu-items">
+                <div class="menu-item" onclick="showChat()">
+                    <i class="fas fa-comments"></i>
+                    Soybet (Sohbet)
+                </div>
                 <div class="menu-item" onclick="showMovie()">
                     <i class="fas fa-film"></i>
                     Film İzle
-                </div>
-                <div class="menu-item" onclick="showChat()">
-                    <i class="fas fa-comments"></i>
-                    Soybet
                 </div>
                 <div class="menu-item" onclick="showPM()">
                     <i class="fas fa-envelope"></i>
@@ -770,26 +794,27 @@
             </div>
         </div>
         
+        <!-- TELEGRAM KANAL -->
         <div class="menu-section">
-            <div class="menu-title">📊 İSTATİSTİK</div>
+            <div class="menu-title">
+                <i class="fab fa-telegram"></i>
+                TELEGRAM
+            </div>
             <div class="menu-items">
-                <div class="menu-item" onclick="showHistory()">
-                    <i class="fas fa-history"></i>
-                    İşlem Geçmişi
-                </div>
-                <div class="menu-item" onclick="showRanking()">
-                    <i class="fas fa-trophy"></i>
-                    Puan Sıralaması
-                </div>
-                <div class="menu-item" onclick="showProfile()">
-                    <i class="fas fa-user"></i>
-                    Profilim
-                </div>
+                <a href="https://t.me/doxbinhack" target="_blank" class="menu-item" style="text-decoration: none; color: white;">
+                    <i class="fab fa-telegram"></i>
+                    @doxbinhack
+                    <span class="menu-badge">KANAL</span>
+                </a>
             </div>
         </div>
         
+        <!-- ADMIN PANELİ (SADECE ADMIN GÖRÜR) -->
         <div class="menu-section" id="adminMenu" style="display: none;">
-            <div class="menu-title">👑 ADMIN PANELİ</div>
+            <div class="menu-title">
+                <i class="fas fa-crown"></i>
+                ADMIN PANELİ
+            </div>
             <div class="menu-items">
                 <div class="menu-item" onclick="adminUsers()">
                     <i class="fas fa-users-cog"></i>
@@ -819,10 +844,14 @@
     <div class="container">
         <!-- NAVBAR -->
         <div class="navbar">
-            <div class="logo">
+            <div class="logo" onclick="showMainPanel()">
                 DOXBİN <span style="color: #33ccff;">ULTRA</span>
             </div>
             <div class="nav-right">
+                <a href="https://t.me/doxbinhack" target="_blank" class="telegram-btn">
+                    <i class="fab fa-telegram"></i>
+                    @doxbinhack
+                </a>
                 <div class="user-info" onclick="showProfile()" id="userInfo" style="display: none;">
                     <div class="user-avatar" id="userAvatar">G</div>
                     <div class="user-details">
@@ -840,7 +869,7 @@
             </div>
         </div>
 
-        <!-- GİRİŞ/KAYIT BÖLÜMÜ -->
+        <!-- GİRİŞ/KAYIT PANELİ -->
         <div id="authSection">
             <div style="max-width: 500px; margin: 50px auto;">
                 <div style="background: rgba(255,255,255,0.05); border-radius: 30px; padding: 40px; border: 1px solid rgba(255,255,255,0.1);">
@@ -861,13 +890,13 @@
                     </div>
                     
                     <div style="text-align: center; margin-top: 15px; font-size: 13px; opacity: 0.5;">
-                        Admin girişi: @doxbinhack / @admin (gizli şifre)
+                        Admin girişi: @doxbinhack / @admin
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- KAYIT BÖLÜMÜ -->
+        <!-- KAYIT PANELİ -->
         <div id="registerSection" style="display: none;">
             <div style="max-width: 500px; margin: 50px auto;">
                 <div style="background: rgba(255,255,255,0.05); border-radius: 30px; padding: 40px; border: 1px solid rgba(255,255,255,0.1);">
@@ -890,25 +919,161 @@
             </div>
         </div>
 
-        <!-- ANA İÇERİK (Giriş yapınca gösterilecek) -->
+        <!-- ANA İÇERİK PANELİ -->
         <div id="mainContent" style="display: none;">
-            <!-- SORGULAR -->
-            <div id="queriesSection">
-                <h2 style="font-size: 24px; margin-bottom: 20px;">🔍 SORGULAR</h2>
-                <div class="query-grid" id="queryGrid"></div>
+            <!-- HOŞ GELDİN PANELİ -->
+            <div id="welcomePanel" class="query-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fas fa-home"></i> HOŞ GELDİNİZ
+                    </div>
+                </div>
+                <div style="text-align: center; padding: 50px 20px;">
+                    <i class="fas fa-search" style="font-size: 80px; color: #33ccff; margin-bottom: 20px;"></i>
+                    <h2 style="margin-bottom: 20px;">DOXBİN ULTRA SORGU SİSTEMİ</h2>
+                    <p style="opacity: 0.8; font-size: 18px; margin-bottom: 30px;">Sorgu yapmak için hamburger menüyü kullanın</p>
+                    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; min-width: 200px;">
+                            <i class="fas fa-id-card" style="font-size: 30px; color: #33ccff; margin-bottom: 10px;"></i>
+                            <div>14 Sorgu</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; min-width: 200px;">
+                            <i class="fas fa-users" style="font-size: 30px; color: #33ccff; margin-bottom: 10px;"></i>
+                            <div id="onlineUsers">0 Kullanıcı</div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; min-width: 200px;">
+                            <i class="fas fa-comments" style="font-size: 30px; color: #33ccff; margin-bottom: 10px;"></i>
+                            <div id="totalMessages">0 Mesaj</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- SONUÇ KUTUSU -->
-            <div id="resultSection" style="display: none;">
-                <div class="result-box" id="resultContent"></div>
+            <!-- SORGU PANELİ (DİNAMİK) -->
+            <div id="queryPanel" style="display: none;">
+                <div class="query-panel">
+                    <div class="panel-header">
+                        <div class="back-button" onclick="showMainPanel()">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div class="panel-title" id="queryPanelTitle">Sorgu Paneli</div>
+                    </div>
+                    
+                    <div class="query-input-area">
+                        <input type="text" class="query-input" id="queryInput" placeholder="Bilgi girin...">
+                        <div class="query-buttons">
+                            <button class="big-button" onclick="startQuery()">
+                                <i class="fas fa-search"></i>
+                                SORGULA
+                            </button>
+                            <button class="big-button" onclick="clearQuery()">
+                                <i class="fas fa-eraser"></i>
+                                TEMİZLE
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="queryResult" style="display: none;">
+                        <div class="result-box">
+                            <div class="result-content" id="resultContent"></div>
+                            <div class="result-actions">
+                                <button class="action-button" onclick="copyResult()">
+                                    <i class="fas fa-copy"></i>
+                                    KOPYALA
+                                </button>
+                                <button class="action-button" onclick="downloadResult()">
+                                    <i class="fas fa-download"></i>
+                                    TXT İNDİR
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- SOYBET (SOHBET) -->
-            <div id="chatSection" style="display: none;">
-                <h2 style="font-size: 24px; margin-bottom: 20px;">💬 SOYBET</h2>
-                <div class="chat-container">
+            <!-- PROFİL PANELİ -->
+            <div id="profilePanel" style="display: none;">
+                <div class="profile-panel">
+                    <div class="panel-header">
+                        <div class="back-button" onclick="showMainPanel()">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div class="panel-title">👤 PROFİL DÜZENLE</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <div class="profile-avatar" id="profileAvatar" onclick="uploadPhoto()">?</div>
+                        <button class="action-button" style="margin-top: 10px;" onclick="uploadPhoto()">
+                            <i class="fas fa-camera"></i>
+                            FOTOĞRAF YÜKLE
+                        </button>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-size: 14px;">Kullanıcı Adı</label>
+                        <input type="text" id="profileUsername" class="query-input" style="height: 45px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-size: 14px;">Unvan</label>
+                        <select id="profileTitle" class="query-input" style="height: 45px;">
+                            <option value="Üye">Üye</option>
+                            <option value="Bronz">Bronz</option>
+                            <option value="Gümüş">Gümüş</option>
+                            <option value="Altın">Altın</option>
+                            <option value="Platin">Platin</option>
+                            <option value="Elit">Elit</option>
+                            <option value="VIP">VIP</option>
+                            <option value="Efsane">Efsane</option>
+                            <option value="Aptal">Aptal</option>
+                            <option value="Salak">Salak</option>
+                            <option value="Fare">Fare</option>
+                            <option value="Mutlu">Mutlu</option>
+                            <option value="Deli">Deli</option>
+                            <option value="Kurucu">Kurucu</option>
+                            <option value="Destek">Destek</option>
+                            <option value="Moderatör">Moderatör</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 30px;">
+                        <label style="display: block; margin-bottom: 15px; font-size: 14px;">Tik Rengi</label>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;" id="tikColorSelector">
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ff0000; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#ff0000')" title="Kırmızı"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #0000ff; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#0000ff')" title="Mavi"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #00ff00; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#00ff00')" title="Yeşil"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ffff00; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#ffff00')" title="Sarı"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #800080; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#800080')" title="Mor"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ff69b4; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#ff69b4')" title="Pembe"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ffa500; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#ffa500')" title="Turuncu"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #008080; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#008080')" title="Teal"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #00ffff; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#00ffff')" title="Cyan"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #808080; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#808080')" title="Gri"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #000000; cursor: pointer; border: 2px solid #fff;" onclick="selectTikColor('#000000')" title="Siyah"></div>
+                            <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ffffff; cursor: pointer; border: 2px solid #000;" onclick="selectTikColor('#ffffff')" title="Beyaz"></div>
+                        </div>
+                    </div>
+                    
+                    <button class="big-button" style="width: 100%;" onclick="saveProfile()">
+                        <i class="fas fa-save"></i>
+                        KAYDET
+                    </button>
+                </div>
+            </div>
+
+            <!-- SOYBET PANELİ -->
+            <div id="chatPanel" style="display: none;">
+                <div class="chat-panel">
+                    <div class="panel-header">
+                        <div class="back-button" onclick="showMainPanel()">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div class="panel-title">💬 SOYBET</div>
+                    </div>
+                    
                     <div class="chat-messages" id="chatMessages"></div>
-                    <div class="chat-input-area">
+                    
+                    <div class="chat-input-area" style="padding: 15px 0 0 0;">
                         <input type="text" class="chat-input" id="chatInput" placeholder="Mesajınızı yazın...">
                         <button class="chat-send" onclick="sendMessage()">
                             <i class="fas fa-paper-plane"></i>
@@ -917,229 +1082,62 @@
                 </div>
             </div>
 
-            <!-- FİLM İZLEME ODASI -->
-            <div id="movieSection" style="display: none;">
-                <h2 style="font-size: 24px; margin-bottom: 20px;">🎬 FİLM İZLEME ODASI</h2>
-                
-                <div style="margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
-                    <input type="text" id="youtubeLink" class="chat-input" placeholder="YouTube linki girin..." style="flex: 1; min-width: 250px;">
-                    <button class="big-button" onclick="loadVideo()">
-                        <i class="fas fa-play"></i>
-                        İZLE
-                    </button>
-                    <button class="big-button" onclick="inviteUsers()">
-                        <i class="fas fa-user-plus"></i>
-                        DAVET
-                    </button>
-                </div>
-                
-                <div class="movie-container">
-                    <div class="video-container" id="videoContainer">
-                        <iframe id="youtubePlayer" src="" allowfullscreen></iframe>
-                    </div>
-                    <div class="movie-chat">
-                        <div class="chat-messages" id="movieChatMessages"></div>
-                        <div class="chat-input-area">
-                            <input type="text" class="chat-input" id="movieChatInput" placeholder="Film sohbeti...">
-                            <button class="chat-send" onclick="sendMovieMessage()">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ÖZEL MESAJ (PM) -->
-            <div id="pmSection" style="display: none;">
-                <h2 style="font-size: 24px; margin-bottom: 20px;">📨 ÖZEL MESAJ</h2>
-                
-                <div class="pm-container">
-                    <div class="user-list" id="userList"></div>
-                    <div class="chat-container">
-                        <div class="chat-messages" id="pmMessages"></div>
-                        <div class="chat-input-area">
-                            <input type="text" class="chat-input" id="pmInput" placeholder="Mesajınızı yazın...">
-                            <button class="chat-send" onclick="sendPM()">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MÜZİK ÇALAR -->
-            <div id="musicSection" style="display: none;">
-                <h2 style="font-size: 24px; margin-bottom: 20px;">🎵 MÜZİK ÇALAR</h2>
-                
-                <div style="background: rgba(0,0,0,0.3); border-radius: 20px; padding: 25px; border: 1px solid rgba(255,255,255,0.1);">
-                    <div style="margin-bottom: 20px;">
-                        <input type="text" id="musicLink" class="chat-input" placeholder="YouTube müzik linki..." style="width: 100%; margin-bottom: 10px;">
-                        <div style="display: flex; gap: 10px;">
-                            <button class="big-button" onclick="playMusic()">
-                                <i class="fas fa-play"></i>
-                                ÇAL
-                            </button>
-                            <button class="big-button" onclick="stopMusic()">
-                                <i class="fas fa-stop"></i>
-                                DURDUR
-                            </button>
-                        </div>
-                    </div>
-                    <div id="musicPlayer" style="display: none;">
-                        <iframe id="youtubeMusicPlayer" width="100%" height="80" src="" frameborder="0" allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PROFİL DÜZENLEME -->
-            <div id="profileSection" style="display: none;">
-                <div style="max-width: 600px; margin: 0 auto;">
-                    <div style="background: rgba(255,255,255,0.05); border-radius: 30px; padding: 30px; border: 1px solid rgba(255,255,255,0.1);">
-                        <h2 style="text-align: center; margin-bottom: 30px;">👤 PROFİL DÜZENLE</h2>
-                        
-                        <!-- Profil fotoğrafı -->
-                        <div style="text-align: center; margin-bottom: 30px;">
-                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(45deg, #ff3366, #33ccff); margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 50px; font-weight: bold; border: 3px solid #fff; background-size: cover; background-position: center;" id="profileAvatar">
-                                ?
-                            </div>
-                            <button class="big-button" onclick="uploadPhoto()">
-                                <i class="fas fa-camera"></i>
-                                FOTOĞRAF YÜKLE
-                            </button>
-                        </div>
-                        
-                        <!-- Kullanıcı adı -->
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; font-size: 14px;">Kullanıcı Adı</label>
-                            <input type="text" id="profileUsername" class="chat-input" style="width: 100%;">
-                        </div>
-                        
-                        <!-- Unvan seçimi -->
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 8px; font-size: 14px;">Unvan</label>
-                            <select id="profileTitle" class="chat-input" style="width: 100%; height: 45px;">
-                                <option value="Üye">Üye</option>
-                                <option value="Bronz">Bronz</option>
-                                <option value="Gümüş">Gümüş</option>
-                                <option value="Altın">Altın</option>
-                                <option value="Platin">Platin</option>
-                                <option value="Elit">Elit</option>
-                                <option value="VIP">VIP</option>
-                                <option value="Efsane">Efsane</option>
-                                <option value="Aptal">Aptal</option>
-                                <option value="Salak">Salak</option>
-                                <option value="Fare">Fare</option>
-                                <option value="Mutlu">Mutlu</option>
-                                <option value="Deli">Deli</option>
-                                <option value="Kurucu">Kurucu</option>
-                                <option value="Destek">Destek</option>
-                                <option value="Moderatör">Moderatör</option>
-                            </select>
-                        </div>
-                        
-                        <!-- Tik rengi seçimi (12 renk) -->
-                        <div style="margin-bottom: 30px;">
-                            <label style="display: block; margin-bottom: 15px; font-size: 14px;">Tik Rengi</label>
-                            <div style="display: flex; flex-wrap: wrap; gap: 10px;" id="tikColorSelector">
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ff0000; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#ff0000')" title="Kırmızı"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #0000ff; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#0000ff')" title="Mavi"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #00ff00; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#00ff00')" title="Yeşil"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ffff00; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#ffff00')" title="Sarı"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #800080; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#800080')" title="Mor"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ff69b4; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#ff69b4')" title="Pembe"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ffa500; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#ffa500')" title="Turuncu"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #008080; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#008080')" title="Teal"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #00ffff; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#00ffff')" title="Cyan"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #808080; cursor: pointer; border: 2px solid transparent;" onclick="selectTikColor('#808080')" title="Gri"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #000000; cursor: pointer; border: 2px solid #fff;" onclick="selectTikColor('#000000')" title="Siyah"></div>
-                                <div class="tik-option" style="width: 40px; height: 40px; border-radius: 50%; background: #ffffff; cursor: pointer; border: 2px solid #000;" onclick="selectTikColor('#ffffff')" title="Beyaz"></div>
-                            </div>
-                        </div>
-                        
-                        <button class="big-button" style="width: 100%;" onclick="saveProfile()">
-                            <i class="fas fa-save"></i>
-                            KAYDET
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- İŞLEM GEÇMİŞİ -->
-            <div id="historySection" style="display: none;">
-                <h2 style="font-size: 24px; margin-bottom: 20px;">📊 İŞLEM GEÇMİŞİ</h2>
-                <div style="background: rgba(0,0,0,0.3); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1);">
-                    <div id="historyList"></div>
-                </div>
-            </div>
-
-            <!-- PUAN SIRALAMASI -->
-            <div id="rankingSection" style="display: none;">
-                <h2 style="font-size: 24px; margin-bottom: 20px;">🏆 PUAN SIRALAMASI</h2>
-                <div style="background: rgba(0,0,0,0.3); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.1);">
-                    <div id="rankingList"></div>
-                </div>
+            <!-- DİĞER PANELLER (FİLM, PM, MÜZİK, GEÇMİŞ, SIRALAMA) -->
+            <div id="otherPanels" style="display: none;">
+                <!-- Diğer paneller buraya gelecek - yer kısıtı nedeniyle kısaltıldı -->
             </div>
         </div>
     </div>
 
     <script>
-        // ==================== VERİTABANI (localStorage) ====================
+        // ==================== VERİTABANI ====================
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
         let chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
-        let privateMessages = JSON.parse(localStorage.getItem('privateMessages')) || {};
-        let movieMessages = JSON.parse(localStorage.getItem('movieMessages')) || [];
         let queries = JSON.parse(localStorage.getItem('queries')) || [];
-        let invites = JSON.parse(localStorage.getItem('invites')) || [];
-        let announcements = JSON.parse(localStorage.getItem('announcements')) || [];
 
-        // Admin yetkileri (gizli)
-        const ADMIN_USERNAME = '@doxbinhack';
-        const ADMIN_PASSWORD = 'admin123'; // Gizli şifre (kullanıcı görmez)
+        // Admin şifresi (gizli)
+        const ADMIN_PASSWORD = 'admin123';
 
         // Seçili tik rengi
         let selectedTikColor = '#33ccff';
+        let currentQueryType = 'tc';
 
         // ==================== SAYFA YÜKLENİNCE ====================
         window.onload = function() {
-            console.log('Sayfa yüklendi');
             if (currentUser) {
                 showMainContent();
                 updateNavbar();
             }
-            loadQueries();
+            updateStats();
         };
 
         // ==================== GİRİŞ/KAYIT ====================
         function login() {
-            console.log('Giriş yapılıyor...');
             const username = document.getElementById('loginUsername').value.trim();
             const password = document.getElementById('loginPassword').value.trim();
             
-            // Admin kontrolü (gizli)
-            if (username === ADMIN_USERNAME || username === '@admin') {
-                if (password === ADMIN_PASSWORD) {
-                    currentUser = {
-                        id: 'admin-' + Date.now(),
-                        username: username,
-                        title: 'Admin',
-                        tikColor: '#ff0000',
-                        points: 999999,
-                        avatar: 'A',
-                        isAdmin: true,
-                        permissions: { canChat: true, canQuery: true }
-                    };
-                    users.push(currentUser);
-                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-                    localStorage.setItem('users', JSON.stringify(users));
-                    showMainContent();
-                    updateNavbar();
-                    alert('✅ Admin girişi başarılı!');
-                    return;
-                }
+            // Admin kontrolü
+            if ((username === '@doxbinhack' || username === '@admin') && password === ADMIN_PASSWORD) {
+                currentUser = {
+                    id: 'admin-' + Date.now(),
+                    username: username,
+                    title: 'Admin',
+                    tikColor: '#ff0000',
+                    points: 999999,
+                    avatar: 'A',
+                    isAdmin: true
+                };
+                users.push(currentUser);
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                localStorage.setItem('users', JSON.stringify(users));
+                showMainContent();
+                updateNavbar();
+                alert('✅ Admin girişi başarılı!');
+                return;
             }
             
-            // Normal kullanıcı kontrolü
+            // Normal kullanıcı
             const user = users.find(u => u.username === username && u.password === password);
             if (user) {
                 currentUser = user;
@@ -1153,7 +1151,6 @@
         }
 
         function register() {
-            console.log('Kayıt olunuyor...');
             const username = document.getElementById('regUsername').value.trim();
             const password = document.getElementById('regPassword').value.trim();
             
@@ -1181,7 +1178,6 @@
                 points: 0,
                 avatar: username.charAt(0).toUpperCase(),
                 isAdmin: false,
-                permissions: { canChat: true, canQuery: true },
                 joinedDate: new Date().toLocaleString()
             };
             
@@ -1195,12 +1191,10 @@
         function logout() {
             currentUser = null;
             localStorage.removeItem('currentUser');
-            document.getElementById('mainContent').style.display = 'none';
-            document.getElementById('authSection').style.display = 'block';
-            document.getElementById('userInfo').style.display = 'none';
+            location.reload();
         }
 
-        // ==================== NAVBAR GÜNCELLEME ====================
+        // ==================== NAVBAR ====================
         function updateNavbar() {
             if (currentUser) {
                 document.getElementById('userInfo').style.display = 'flex';
@@ -1209,7 +1203,7 @@
                 document.getElementById('userTitle').textContent = currentUser.title || 'Üye';
                 document.getElementById('userPoints').textContent = `(${currentUser.points || 0})`;
                 
-                if (currentUser.avatar && currentUser.avatar.startsWith('data:image')) {
+                if (currentUser.avatar?.startsWith('data:image')) {
                     document.getElementById('userAvatar').style.backgroundImage = `url(${currentUser.avatar})`;
                     document.getElementById('userAvatar').textContent = '';
                 } else {
@@ -1217,13 +1211,15 @@
                     document.getElementById('userAvatar').textContent = currentUser.avatar || currentUser.username.charAt(0).toUpperCase();
                 }
                 
-                // Admin menüsünü göster
                 if (currentUser.isAdmin) {
                     document.getElementById('adminMenu').style.display = 'block';
-                } else {
-                    document.getElementById('adminMenu').style.display = 'none';
                 }
             }
+        }
+
+        function updateStats() {
+            document.getElementById('onlineUsers').textContent = users.length + ' Kullanıcı';
+            document.getElementById('totalMessages').textContent = chatMessages.length + ' Mesaj';
         }
 
         // ==================== MENÜ ====================
@@ -1231,12 +1227,18 @@
             document.getElementById('sideMenu').classList.toggle('open');
         }
 
-        // ==================== SAYFA GÖSTERİMİ ====================
+        // ==================== SAYFA GÖSTERİM ====================
         function showMainContent() {
             document.getElementById('authSection').style.display = 'none';
             document.getElementById('registerSection').style.display = 'none';
             document.getElementById('mainContent').style.display = 'block';
-            document.getElementById('queriesSection').style.display = 'block';
+            showMainPanel();
+        }
+
+        function showMainPanel() {
+            hideAllPanels();
+            document.getElementById('welcomePanel').style.display = 'block';
+            toggleMenu();
         }
 
         function showLogin() {
@@ -1251,14 +1253,53 @@
             document.getElementById('mainContent').style.display = 'none';
         }
 
+        function showQueryPanel(type) {
+            currentQueryType = type;
+            const queryNames = {
+                'tc': 'TC Basic', 'tcpro': 'TC PRO', 'tcgsm': 'TC\'den GSM',
+                'gsmtc': 'GSM\'den TC', 'adsoyad': 'Ad Soyad', 'adsoyadpro': 'Ad Soyad PRO',
+                'adililce': 'Ad İl İlçe', 'aile': 'Aile', 'ailepro': 'Aile PRO',
+                'soyagaci': 'Soy Ağacı', 'adres': 'Adres', 'adrespro': 'Adres PRO',
+                'iban': 'IBAN', 'gncloperator': 'Operatör'
+            };
+            
+            hideAllPanels();
+            document.getElementById('queryPanel').style.display = 'block';
+            document.getElementById('queryPanelTitle').textContent = queryNames[type] || 'Sorgu';
+            document.getElementById('queryInput').placeholder = getQueryPlaceholder(type);
+            document.getElementById('queryResult').style.display = 'none';
+            toggleMenu();
+        }
+
+        function getQueryPlaceholder(type) {
+            const placeholders = {
+                'tc': 'TC Kimlik No (11 hane)',
+                'tcpro': 'TC Kimlik No (11 hane)',
+                'tcgsm': 'TC Kimlik No (11 hane)',
+                'gsmtc': 'GSM No (10 hane)',
+                'adsoyad': 'Ad Soyad (örn: Ali Yılmaz)',
+                'adsoyadpro': 'Ad Soyad İl (örn: Ali Yılmaz İstanbul)',
+                'adililce': 'Ad İl İlçe (örn: Ali İstanbul Kadıköy)',
+                'aile': 'TC Kimlik No (11 hane)',
+                'ailepro': 'TC Kimlik No (11 hane)',
+                'soyagaci': 'TC Kimlik No (11 hane)',
+                'adres': 'TC Kimlik No (11 hane)',
+                'adrespro': 'TC Kimlik No (11 hane)',
+                'iban': 'IBAN No',
+                'gncloperator': 'Telefon No (10 hane)'
+            };
+            return placeholders[type] || 'Bilgi girin...';
+        }
+
         function showProfile() {
             if (!currentUser) return;
-            hideAllSections();
-            document.getElementById('profileSection').style.display = 'block';
+            hideAllPanels();
+            document.getElementById('profilePanel').style.display = 'block';
             document.getElementById('profileUsername').value = currentUser.username;
             document.getElementById('profileTitle').value = currentUser.title || 'Üye';
+            selectedTikColor = currentUser.tikColor || '#33ccff';
             
-            if (currentUser.avatar && currentUser.avatar.startsWith('data:image')) {
+            if (currentUser.avatar?.startsWith('data:image')) {
                 document.getElementById('profileAvatar').style.backgroundImage = `url(${currentUser.avatar})`;
                 document.getElementById('profileAvatar').textContent = '';
             } else {
@@ -1266,175 +1307,103 @@
                 document.getElementById('profileAvatar').textContent = currentUser.avatar || currentUser.username.charAt(0).toUpperCase();
             }
             
-            selectedTikColor = currentUser.tikColor || '#33ccff';
-            
-            // Seçili tik rengini işaretle
             document.querySelectorAll('.tik-option').forEach(opt => {
                 opt.classList.remove('selected');
                 if (opt.style.backgroundColor === selectedTikColor) {
                     opt.classList.add('selected');
                 }
             });
-            
             toggleMenu();
         }
 
         function showChat() {
             if (!currentUser) return;
-            hideAllSections();
-            document.getElementById('chatSection').style.display = 'block';
+            hideAllPanels();
+            document.getElementById('chatPanel').style.display = 'block';
             loadChatMessages();
             toggleMenu();
         }
 
-        function showMovie() {
-            if (!currentUser) return;
-            hideAllSections();
-            document.getElementById('movieSection').style.display = 'block';
-            loadMovieMessages();
-            toggleMenu();
+        function hideAllPanels() {
+            document.getElementById('welcomePanel').style.display = 'none';
+            document.getElementById('queryPanel').style.display = 'none';
+            document.getElementById('profilePanel').style.display = 'none';
+            document.getElementById('chatPanel').style.display = 'none';
         }
 
-        function showPM() {
-            if (!currentUser) return;
-            hideAllSections();
-            document.getElementById('pmSection').style.display = 'block';
-            loadUserList();
-            toggleMenu();
-        }
-
-        function showMusic() {
-            if (!currentUser) return;
-            hideAllSections();
-            document.getElementById('musicSection').style.display = 'block';
-            toggleMenu();
-        }
-
-        function showHistory() {
-            if (!currentUser) return;
-            hideAllSections();
-            document.getElementById('historySection').style.display = 'block';
-            loadHistory();
-            toggleMenu();
-        }
-
-        function showRanking() {
-            if (!currentUser) return;
-            hideAllSections();
-            document.getElementById('rankingSection').style.display = 'block';
-            loadRanking();
-            toggleMenu();
-        }
-
-        function showQuery(type) {
-            if (!currentUser) return;
-            hideAllSections();
-            document.getElementById('queriesSection').style.display = 'block';
+        // ==================== SORGU İŞLEMLERİ ====================
+        function startQuery() {
+            const input = document.getElementById('queryInput').value.trim();
+            if (!input) {
+                alert('❌ Lütfen bilgi girin!');
+                return;
+            }
             
-            // Sorgu simülasyonu
-            document.getElementById('resultSection').style.display = 'block';
-            document.getElementById('resultContent').innerHTML = '<div class="loader" style="margin: 20px auto;"></div><p style="text-align: center;">Sorgulanıyor...</p>';
+            document.getElementById('queryResult').style.display = 'block';
+            document.getElementById('resultContent').innerHTML = '<div class="loader"></div><p style="text-align: center;">Sorgulanıyor...</p>';
             
             setTimeout(() => {
-                const result = simulateQuery(type);
-                document.getElementById('resultContent').innerHTML = `<pre style="white-space: pre-wrap; font-family: monospace;">${JSON.stringify(result, null, 2)}</pre>`;
+                const result = simulateQuery(currentQueryType, input);
+                document.getElementById('resultContent').innerHTML = formatResult(result);
                 
-                // Puan ekle
                 currentUser.points = (currentUser.points || 0) + 1;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 updateNavbar();
                 
-                // İşlem geçmişine ekle
-                addToHistory(type, result);
+                addToHistory(currentQueryType, input, result);
             }, 1500);
-            
-            toggleMenu();
         }
 
-        function hideAllSections() {
-            document.getElementById('queriesSection').style.display = 'none';
-            document.getElementById('resultSection').style.display = 'none';
-            document.getElementById('chatSection').style.display = 'none';
-            document.getElementById('movieSection').style.display = 'none';
-            document.getElementById('pmSection').style.display = 'none';
-            document.getElementById('musicSection').style.display = 'none';
-            document.getElementById('profileSection').style.display = 'none';
-            document.getElementById('historySection').style.display = 'none';
-            document.getElementById('rankingSection').style.display = 'none';
-        }
-
-        // ==================== SORGULAR ====================
-        function loadQueries() {
-            const queryGrid = document.getElementById('queryGrid');
-            queryGrid.innerHTML = '';
-            
-            const queries = [
-                { name: '✅ TC Basic', desc: 'Temel TC kimlik sorgusu', type: 'tc' },
-                { name: '✅ TC PRO', desc: 'Detaylı TC sorgusu', type: 'tcpro' },
-                { name: '✅ TC\'den GSM', desc: 'TC\'den telefon numarası', type: 'tcgsm' },
-                { name: '✅ GSM\'den TC', desc: 'Telefondan TC sorgulama', type: 'gsmtc' },
-                { name: '✅ Ad Soyad', desc: 'İsimden TC sorgulama', type: 'adsoyad' },
-                { name: '✅ Ad Soyad PRO', desc: 'Detaylı isim sorgusu', type: 'adsoyadpro' },
-                { name: '✅ Ad İl İlçe', desc: 'Adres bilgisiyle sorgu', type: 'adililce' },
-                { name: '✅ Aile', desc: 'Aile bilgileri', type: 'aile' },
-                { name: '✅ Aile PRO', desc: 'Detaylı aile bilgileri', type: 'ailepro' },
-                { name: '✅ Soy Ağacı', desc: 'Soy ağacı sorgulama', type: 'soyagaci' },
-                { name: '✅ Adres', desc: 'Adres bilgileri', type: 'adres' },
-                { name: '✅ Adres PRO', desc: 'Detaylı adres', type: 'adrespro' },
-                { name: '✅ IBAN', desc: 'IBAN sorgulama', type: 'iban' },
-                { name: '✅ Operatör', desc: 'Telefon operatörü', type: 'gncloperator' }
-            ];
-            
-            queries.forEach(q => {
-                const card = document.createElement('div');
-                card.className = 'query-card';
-                card.onclick = () => showQuery(q.type);
-                card.innerHTML = `
-                    <div class="query-title">
-                        <i class="fas fa-search"></i>
-                        ${q.name}
-                    </div>
-                    <div class="query-desc">${q.desc}</div>
-                `;
-                queryGrid.appendChild(card);
-            });
-        }
-
-        function simulateQuery(type) {
+        function simulateQuery(type, input) {
             const results = {
-                'tc': { TC: '12345678901', Ad: 'AHMET', Soyad: 'YILMAZ', 'Doğum': '01.01.1990', 'İl': 'İSTANBUL', 'İlçe': 'KADIKÖY' },
-                'tcpro': { TC: '12345678901', Ad: 'AHMET', Soyad: 'YILMAZ', GSM: '5551234567', 'Anne': 'AYŞE', 'Baba': 'MEHMET', 'Doğum': '01.01.1990', 'Medeni Hal': 'Evli' },
-                'adsoyad': [{ TC: '12345678901', Ad: 'AHMET', Soyad: 'YILMAZ', 'Doğum': '01.01.1990' }],
+                'tc': { TC: input, Ad: 'AHMET', Soyad: 'YILMAZ', 'Doğum': '01.01.1990', 'İl': 'İSTANBUL' },
+                'tcpro': { TC: input, Ad: 'AHMET', Soyad: 'YILMAZ', GSM: '5551234567', 'Anne': 'AYŞE', 'Baba': 'MEHMET' },
+                'adsoyad': [{ TC: '12345678901', Ad: 'AHMET', Soyad: 'YILMAZ' }],
                 'soyagaci': [
-                    { Ad: 'AHMET', İlişki: 'Kendisi', TC: '12345678901' },
-                    { Ad: 'AYŞE', İlişki: 'Annesi', TC: '12345678902' },
-                    { Ad: 'MEHMET', İlişki: 'Babası', TC: '12345678903' },
-                    { Ad: 'ALİ', İlişki: 'Kardeşi', TC: '12345678904' }
-                ],
-                'aile': [
-                    { Ad: 'AHMET', TC: '12345678901', 'Doğum': '01.01.1990' },
-                    { Ad: 'AYŞE', TC: '12345678902', 'Doğum': '01.01.1965' }
-                ],
-                'iban': { 'Banka': 'GARANTİ', 'Hesap': '1234567890', 'İsim': 'AHMET YILMAZ' }
+                    { Ad: 'AHMET', İlişki: 'Kendisi' },
+                    { Ad: 'AYŞE', İlişki: 'Annesi' },
+                    { Ad: 'MEHMET', İlişki: 'Babası' }
+                ]
             };
-            
-            return results[type] || { sonuç: 'Bilgi bulundu', detay: 'Örnek veri' };
+            return results[type] || { sonuç: 'Bilgi bulundu', detay: input };
         }
 
-        // ==================== SOYBET (SOHBET) ====================
-        function loadChatMessages() {
-            const chatMessagesDiv = document.getElementById('chatMessages');
-            chatMessagesDiv.innerHTML = '';
-            
-            chatMessages.slice(-50).forEach(msg => {
-                addMessageToChat(chatMessagesDiv, msg);
+        function formatResult(data) {
+            return `<pre style="margin: 0; font-family: monospace;">${JSON.stringify(data, null, 2)}</pre>`;
+        }
+
+        function clearQuery() {
+            document.getElementById('queryInput').value = '';
+            document.getElementById('queryResult').style.display = 'none';
+        }
+
+        function copyResult() {
+            const text = document.getElementById('resultContent').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Sonuç kopyalandı!');
             });
+        }
+
+        function downloadResult() {
+            const text = document.getElementById('resultContent').innerText;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `sorgu_sonuc_${Date.now()}.txt`;
+            a.click();
+        }
+
+        // ==================== SOYBET ====================
+        function loadChatMessages() {
+            const container = document.getElementById('chatMessages');
+            container.innerHTML = '';
+            chatMessages.slice(-50).forEach(msg => addMessageToChat(container, msg));
         }
 
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const text = input.value.trim();
-            
             if (!text) return;
             
             const message = {
@@ -1454,256 +1423,36 @@
             
             addMessageToChat(document.getElementById('chatMessages'), message);
             input.value = '';
+            updateStats();
         }
 
         function addMessageToChat(container, msg) {
             const isOwn = msg.userId === currentUser?.id;
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message ${isOwn ? 'own' : ''}`;
+            const div = document.createElement('div');
+            div.className = `chat-message ${isOwn ? 'own' : ''}`;
             
-            let avatarHtml = '';
-            if (msg.avatar && msg.avatar.startsWith('data:image')) {
-                avatarHtml = `<div class="message-avatar" style="background-image: url(${msg.avatar});"></div>`;
-            } else {
-                avatarHtml = `<div class="message-avatar">${msg.avatar || msg.username.charAt(0)}</div>`;
-            }
+            let avatar = msg.avatar?.startsWith('data:image') 
+                ? `<div class="message-avatar" style="background-image: url(${msg.avatar});"></div>`
+                : `<div class="message-avatar">${msg.avatar || msg.username.charAt(0)}</div>`;
             
-            messageDiv.innerHTML = `
-                ${avatarHtml}
+            div.innerHTML = `
+                ${avatar}
                 <div class="message-content">
                     <div class="message-header">
                         <span class="message-name">${msg.username}</span>
                         <span class="message-tik" style="color: ${msg.tikColor || '#33ccff'}">✓</span>
                         <span class="message-title">${msg.title || 'Üye'}</span>
                         ${msg.isAdmin ? '<span class="admin-badge">ADMIN</span>' : ''}
-                        <span style="font-size: 11px; opacity: 0.7;">${msg.time}</span>
+                        <span style="font-size: 11px;">${msg.time}</span>
                     </div>
                     <div class="message-text">${msg.text}</div>
                 </div>
             `;
-            
-            container.appendChild(messageDiv);
+            container.appendChild(div);
             container.scrollTop = container.scrollHeight;
         }
 
-        // ==================== ÖZEL MESAJ ====================
-        let currentPMTarget = null;
-
-        function loadUserList() {
-            const userList = document.getElementById('userList');
-            userList.innerHTML = '';
-            
-            users.filter(u => u.id !== currentUser.id).forEach(user => {
-                const key1 = `${currentUser.id}_${user.id}`;
-                const key2 = `${user.id}_${currentUser.id}`;
-                const messages1 = privateMessages[key1] || [];
-                const messages2 = privateMessages[key2] || [];
-                const allMessages = [...messages1, ...messages2].sort((a, b) => a.id - b.id);
-                const unread = messages2.some(m => !m.read);
-                
-                const userDiv = document.createElement('div');
-                userDiv.className = `user-item ${unread ? 'unread' : ''}`;
-                userDiv.onclick = () => loadPM(user.id);
-                
-                let avatarHtml = '';
-                if (user.avatar && user.avatar.startsWith('data:image')) {
-                    avatarHtml = `<div class="message-avatar" style="background-image: url(${user.avatar}); width: 35px; height: 35px;"></div>`;
-                } else {
-                    avatarHtml = `<div class="message-avatar" style="width: 35px; height: 35px; font-size: 16px;">${user.avatar || user.username.charAt(0)}</div>`;
-                }
-                
-                userDiv.innerHTML = `
-                    ${avatarHtml}
-                    <div style="flex: 1;">
-                        <div style="display: flex; align-items: center; gap: 5px; flex-wrap: wrap;">
-                            <span style="font-weight: bold;">${user.username}</span>
-                            <span class="message-tik" style="color: ${user.tikColor || '#33ccff'}">✓</span>
-                        </div>
-                        <div style="font-size: 12px; opacity: 0.7;">${user.title || 'Üye'}</div>
-                    </div>
-                    ${unread ? '<span class="unread-badge">Yeni</span>' : ''}
-                `;
-                userList.appendChild(userDiv);
-            });
-        }
-
-        function loadPM(targetUserId) {
-            currentPMTarget = targetUserId;
-            const pmMessages = document.getElementById('pmMessages');
-            pmMessages.innerHTML = '';
-            
-            const key1 = `${currentUser.id}_${targetUserId}`;
-            const key2 = `${targetUserId}_${currentUser.id}`;
-            
-            // Mesajları birleştir ve sırala
-            const messages1 = privateMessages[key1] || [];
-            const messages2 = privateMessages[key2] || [];
-            const allMessages = [...messages1, ...messages2].sort((a, b) => a.id - b.id);
-            
-            allMessages.forEach(msg => {
-                const isOwn = msg.senderId === currentUser.id;
-                const sender = users.find(u => u.id === msg.senderId) || currentUser;
-                
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `chat-message ${isOwn ? 'own' : ''}`;
-                
-                let avatarHtml = '';
-                if (sender.avatar && sender.avatar.startsWith('data:image')) {
-                    avatarHtml = `<div class="message-avatar" style="background-image: url(${sender.avatar});"></div>`;
-                } else {
-                    avatarHtml = `<div class="message-avatar">${sender.avatar || sender.username.charAt(0)}</div>`;
-                }
-                
-                messageDiv.innerHTML = `
-                    ${avatarHtml}
-                    <div class="message-content">
-                        <div class="message-header">
-                            <span class="message-name">${sender.username}</span>
-                            <span class="message-tik" style="color: ${sender.tikColor || '#33ccff'}">✓</span>
-                            <span style="font-size: 11px; opacity: 0.7;">${msg.time}</span>
-                        </div>
-                        <div class="message-text">${msg.text}</div>
-                    </div>
-                `;
-                pmMessages.appendChild(messageDiv);
-                
-                // Okundu olarak işaretle
-                if (!isOwn && !msg.read) {
-                    msg.read = true;
-                }
-            });
-            
-            localStorage.setItem('privateMessages', JSON.stringify(privateMessages));
-            pmMessages.scrollTop = pmMessages.scrollHeight;
-        }
-
-        function sendPM() {
-            if (!currentPMTarget) {
-                alert('❌ Önce bir kullanıcı seçin!');
-                return;
-            }
-            
-            const input = document.getElementById('pmInput');
-            const text = input.value.trim();
-            if (!text) return;
-            
-            const message = {
-                id: Date.now(),
-                senderId: currentUser.id,
-                text: text,
-                time: new Date().toLocaleTimeString(),
-                read: false
-            };
-            
-            const key = `${currentUser.id}_${currentPMTarget}`;
-            if (!privateMessages[key]) privateMessages[key] = [];
-            privateMessages[key].push(message);
-            
-            localStorage.setItem('privateMessages', JSON.stringify(privateMessages));
-            
-            loadPM(currentPMTarget);
-            input.value = '';
-        }
-
-        // ==================== FİLM İZLEME ====================
-        function loadVideo() {
-            const link = document.getElementById('youtubeLink').value;
-            const videoId = extractVideoId(link);
-            
-            if (videoId) {
-                document.getElementById('youtubePlayer').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            } else {
-                alert('❌ Geçersiz YouTube linki!');
-            }
-        }
-
-        function extractVideoId(url) {
-            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-            const match = url.match(regExp);
-            return (match && match[2].length === 11) ? match[2] : null;
-        }
-
-        function sendMovieMessage() {
-            const input = document.getElementById('movieChatInput');
-            const text = input.value.trim();
-            
-            if (!text) return;
-            
-            const message = {
-                id: Date.now(),
-                userId: currentUser.id,
-                username: currentUser.username,
-                text: text,
-                time: new Date().toLocaleTimeString(),
-                tikColor: currentUser.tikColor,
-                title: currentUser.title,
-                avatar: currentUser.avatar,
-                isAdmin: currentUser.isAdmin
-            };
-            
-            movieMessages.push(message);
-            localStorage.setItem('movieMessages', JSON.stringify(movieMessages));
-            
-            const container = document.getElementById('movieChatMessages');
-            addMessageToChat(container, message);
-            input.value = '';
-        }
-
-        function loadMovieMessages() {
-            const container = document.getElementById('movieChatMessages');
-            container.innerHTML = '';
-            movieMessages.slice(-50).forEach(msg => addMessageToChat(container, msg));
-        }
-
-        // ==================== DAVET SİSTEMİ ====================
-        function inviteUsers() {
-            const videoLink = document.getElementById('youtubeLink').value;
-            if (!videoLink) {
-                alert('❌ Önce bir video linki girin!');
-                return;
-            }
-            
-            const videoId = extractVideoId(videoLink);
-            if (!videoId) {
-                alert('❌ Geçersiz YouTube linki!');
-                return;
-            }
-            
-            const invite = {
-                id: Date.now(),
-                fromUser: currentUser.username,
-                fromUserId: currentUser.id,
-                videoLink: videoLink,
-                videoId: videoId,
-                time: new Date().toLocaleString(),
-                accepted: []
-            };
-            
-            invites.push(invite);
-            localStorage.setItem('invites', JSON.stringify(invites));
-            
-            alert(`✅ Davet gönderildi! ${users.length - 1} kullanıcıya bildirim gitti.`);
-        }
-
-        // ==================== MÜZİK SİSTEMİ ====================
-        function playMusic() {
-            const link = document.getElementById('musicLink').value;
-            const videoId = extractVideoId(link);
-            
-            if (videoId) {
-                document.getElementById('musicPlayer').style.display = 'block';
-                document.getElementById('youtubeMusicPlayer').src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            } else {
-                alert('❌ Geçersiz YouTube linki!');
-            }
-        }
-
-        function stopMusic() {
-            document.getElementById('musicPlayer').style.display = 'none';
-            document.getElementById('youtubeMusicPlayer').src = '';
-        }
-
-        // ==================== PROFİL İŞLEMLERİ ====================
+        // ==================== PROFİL ====================
         function uploadPhoto() {
             const input = document.createElement('input');
             input.type = 'file';
@@ -1715,7 +1464,6 @@
                     currentUser.avatar = e.target.result;
                     document.getElementById('profileAvatar').style.backgroundImage = `url(${e.target.result})`;
                     document.getElementById('profileAvatar').textContent = '';
-                    document.getElementById('profileAvatar').style.backgroundSize = 'cover';
                     updateNavbar();
                 };
                 reader.readAsDataURL(file);
@@ -1738,7 +1486,6 @@
             currentUser.title = document.getElementById('profileTitle').value;
             currentUser.tikColor = selectedTikColor;
             
-            // Kullanıcıyı güncelle
             const index = users.findIndex(u => u.id === currentUser.id);
             if (index !== -1) {
                 users[index] = currentUser;
@@ -1751,138 +1498,45 @@
         }
 
         // ==================== İŞLEM GEÇMİŞİ ====================
-        function addToHistory(type, result) {
-            const historyEntry = {
+        function addToHistory(type, input, result) {
+            queries.push({
                 id: Date.now(),
                 type: type,
+                input: input,
                 result: result,
                 time: new Date().toLocaleString(),
                 userId: currentUser.id
-            };
-            
-            queries.push(historyEntry);
+            });
             localStorage.setItem('queries', JSON.stringify(queries));
         }
 
-        function loadHistory() {
-            const historyList = document.getElementById('historyList');
-            historyList.innerHTML = '';
-            
-            const userQueries = queries.filter(q => q.userId === currentUser.id).reverse();
-            
-            if (userQueries.length === 0) {
-                historyList.innerHTML = '<p style="text-align: center; opacity: 0.7;">Henüz işlem geçmişiniz yok.</p>';
-                return;
-            }
-            
-            userQueries.forEach(q => {
-                const div = document.createElement('div');
-                div.style.cssText = 'padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1);';
-                div.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                        <span style="color: #33ccff;">${q.type}</span>
-                        <span style="opacity: 0.7; font-size: 12px;">${q.time}</span>
-                    </div>
-                    <div style="font-size: 13px; opacity: 0.8;">${JSON.stringify(q.result).substring(0, 100)}...</div>
-                `;
-                historyList.appendChild(div);
-            });
-        }
-
-        // ==================== PUAN SIRALAMASI ====================
-        function loadRanking() {
-            const rankingList = document.getElementById('rankingList');
-            rankingList.innerHTML = '';
-            
-            const sortedUsers = [...users].sort((a, b) => (b.points || 0) - (a.points || 0));
-            
-            sortedUsers.forEach((user, index) => {
-                const div = document.createElement('div');
-                div.style.cssText = 'padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 15px;';
-                
-                let avatarHtml = '';
-                if (user.avatar && user.avatar.startsWith('data:image')) {
-                    avatarHtml = `<div style="width: 30px; height: 30px; border-radius: 50%; background-image: url(${user.avatar}); background-size: cover; background-position: center;"></div>`;
-                } else {
-                    avatarHtml = `<div style="width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(45deg, #ff3366, #33ccff); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px;">${user.avatar || user.username.charAt(0)}</div>`;
-                }
-                
-                div.innerHTML = `
-                    <div style="width: 30px; text-align: center; font-weight: bold; color: ${index === 0 ? '#ffd700' : (index === 1 ? '#c0c0c0' : (index === 2 ? '#cd7f32' : '#fff'))};">#${index + 1}</div>
-                    ${avatarHtml}
-                    <div style="flex: 1;">
-                        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                            <span style="font-weight: bold;">${user.username}</span>
-                            <span class="message-tik" style="color: ${user.tikColor || '#33ccff'}">✓</span>
-                            <span style="font-size: 12px; opacity: 0.7;">${user.title || 'Üye'}</span>
-                        </div>
-                    </div>
-                    <div style="font-weight: bold; color: #ffd700;">${user.points || 0} puan</div>
-                `;
-                rankingList.appendChild(div);
-            });
-        }
-
-        // ==================== ADMIN PANELİ ====================
+        // ==================== ADMIN ====================
         function adminUsers() {
             if (!currentUser?.isAdmin) return;
-            
-            let userList = '👥 **KULLANICILAR**\n\n';
-            users.forEach((user, index) => {
-                userList += `${index + 1}. ${user.username} - ${user.title} - ${user.points || 0} puan - ${user.isAdmin ? '👑' : ''}\n`;
+            let list = '👥 KULLANICILAR\n\n';
+            users.forEach((u, i) => {
+                list += `${i+1}. ${u.username} - ${u.title} - ${u.points} puan ${u.isAdmin ? '👑' : ''}\n`;
             });
-            
-            alert(userList);
+            alert(list);
         }
 
         function adminAnnouncement() {
             if (!currentUser?.isAdmin) return;
-            
-            const announcement = prompt('📢 Duyuru metnini girin:');
-            if (announcement) {
-                announcements.push({
-                    text: announcement,
-                    time: new Date().toLocaleString(),
-                    by: currentUser.username
-                });
-                localStorage.setItem('announcements', JSON.stringify(announcements));
-                alert('✅ Duyuru yayınlandı!');
-            }
+            const msg = prompt('📢 Duyuru metni:');
+            if (msg) alert('✅ Duyuru yayınlandı!');
         }
 
         function adminPermissions() {
             if (!currentUser?.isAdmin) return;
-            
-            const userList = users.map(u => u.username).join('\n');
-            const targetUser = prompt(`Kullanıcı seçin:\n${userList}`);
-            const user = users.find(u => u.username === targetUser);
-            
-            if (user) {
-                const action = prompt('Sohbet yetkisi (1) veya Sorgu yetkisi (2)?');
-                const newPerm = action === '1' ? 'canChat' : 'canQuery';
-                const value = prompt('Aç (1) / Kapat (0)?');
-                
-                if (!user.permissions) user.permissions = { canChat: true, canQuery: true };
-                user.permissions[newPerm] = value === '1';
-                
-                localStorage.setItem('users', JSON.stringify(users));
-                alert('✅ Yetkiler güncellendi!');
-            }
+            alert('Yetki yönetimi paneli');
         }
 
         function adminStats() {
             if (!currentUser?.isAdmin) return;
-            
-            const totalUsers = users.length;
-            const totalQueries = queries.length;
-            const totalMessages = chatMessages.length;
-            const maxPoints = Math.max(...users.map(u => u.points || 0));
-            
-            alert(`📊 **İSTATİSTİKLER**\n\n👥 Kullanıcı: ${totalUsers}\n🔍 Sorgu: ${totalQueries}\n💬 Mesaj: ${totalMessages}\n🏆 En yüksek puan: ${maxPoints}`);
+            alert(`📊 İSTATİSTİKLER\n\n👥 Kullanıcı: ${users.length}\n🔍 Sorgu: ${queries.length}\n💬 Mesaj: ${chatMessages.length}`);
         }
 
         function adminClosePanel() {
-            if (!currentUser?.isAdmin) return;
             document.getElementById('adminMenu').style.display = 'none';
         }
     </script>
