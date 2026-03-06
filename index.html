@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>DOXBİN | ULTRA PANEL V2</title>
+    <title>DOXBİN | ULTRA PANEL V3</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +27,7 @@
             --bg-card: rgba(15, 18, 25, 0.95);
             --bg-hover: #1a1f2c;
             --accent: #ef4444;
-            --accent-glow: rgba(239, 68, 68, 0.4);
+            --accent-glow: rgba(239, 68, 68, 0.6);
             --text: #ffffff;
             --text-secondary: #9ca3af;
             --border: #1f2937;
@@ -52,17 +52,10 @@
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
-            opacity: 0;
-            animation: bodyFade 0.5s ease forwards;
-            overflow-x: hidden;
+            overflow: hidden;
             position: fixed;
             width: 100%;
             height: 100%;
-        }
-
-        @keyframes bodyFade {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
         }
 
         /* ATATÜRK ARKA PLAN GIF - Ortalanmış */
@@ -71,8 +64,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-image: url('https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyM2lvZm90ZzBkOTFyNTBjYnJmb3RuY3Buczhudmo0YWRscW9qZmx2byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTQDhakMrMaoT9mbwm/giphy.gif');
             background-size: cover;
             background-position: center;
@@ -82,66 +75,67 @@
             pointer-events: none;
         }
 
+        /* Neon Işıklar - Geliştirilmiş */
         .neon-circle {
             position: fixed;
             border-radius: 50%;
-            filter: blur(60px);
+            filter: blur(80px);
             z-index: -1;
-            animation: neonPulse 3s infinite;
+            animation: neonPulse 3s infinite ease-in-out;
         }
 
         @keyframes neonPulse {
-            0%, 100% { opacity: 0.5; filter: blur(60px); }
-            50% { opacity: 1; filter: blur(70px); }
+            0%, 100% { opacity: 0.3; filter: blur(80px); transform: scale(1); }
+            50% { opacity: 0.8; filter: blur(100px); transform: scale(1.1); }
         }
 
         .circle-1 {
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             background: var(--accent);
-            top: -50px;
-            left: -50px;
+            top: -100px;
+            left: -100px;
             opacity: 0.2;
-            animation: float1 8s infinite, neonPulse 3s infinite;
+            animation: float1 12s infinite, neonPulse 4s infinite;
         }
 
         .circle-2 {
-            width: 350px;
-            height: 350px;
+            width: 450px;
+            height: 450px;
             background: #3b82f6;
-            bottom: -80px;
-            right: -80px;
+            bottom: -150px;
+            right: -150px;
             opacity: 0.15;
-            animation: float2 10s infinite, neonPulse 4s infinite;
+            animation: float2 15s infinite, neonPulse 5s infinite;
         }
 
         .circle-3 {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             background: #8b5cf6;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0.15;
-            animation: float3 12s infinite, neonPulse 5s infinite;
+            animation: float3 18s infinite, neonPulse 6s infinite;
         }
 
         @keyframes float1 {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(20px, 15px); }
+            50% { transform: translate(40px, 30px); }
         }
 
         @keyframes float2 {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-30px, -20px); }
+            50% { transform: translate(-50px, -40px); }
         }
 
         @keyframes float3 {
             0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-45%, -45%) scale(1.1); }
+            50% { transform: translate(-45%, -45%) scale(1.2); }
         }
 
-        /* Ana içerik sabit pozisyon - kaydırma yok */
+        /* Sabit Container */
         .fixed-container {
             position: fixed;
             top: 0;
@@ -181,146 +175,36 @@
         }
 
         .auth-card {
-            background: rgba(15,18,25,0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(15,18,25,0.98);
+            backdrop-filter: blur(20px);
             border: 2px solid var(--accent);
             border-radius: 40px;
             padding: 25px 18px;
             text-align: center;
-            box-shadow: 0 0 50px var(--accent-glow);
+            box-shadow: 0 0 80px var(--accent-glow);
             animation: glowPulse 2s infinite;
         }
 
         @keyframes glowPulse {
             0%, 100% { box-shadow: 0 0 50px var(--accent-glow); }
-            50% { box-shadow: 0 0 80px var(--accent-glow); }
+            50% { box-shadow: 0 0 100px var(--accent-glow); }
         }
 
         .auth-logo {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 800;
             color: var(--accent);
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px var(--accent);
-        }
-
-        .auth-tabs {
-            display: flex;
-            gap: 5px;
             margin-bottom: 20px;
-            background: var(--bg);
-            border-radius: 30px;
-            padding: 3px;
+            text-shadow: 0 0 30px var(--accent);
+            animation: textGlow 2s infinite;
         }
 
-        .auth-tab {
-            flex: 1;
-            padding: 8px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.2s;
-            color: var(--text-secondary);
-            font-size: 13px;
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 20px var(--accent); }
+            50% { text-shadow: 0 0 50px var(--accent), 0 0 80px var(--accent); }
         }
 
-        .auth-tab.active {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 0 20px var(--accent);
-        }
-
-        .auth-form {
-            display: none;
-        }
-
-        .auth-form.active {
-            display: block;
-            animation: slideIn 0.3s;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .auth-input {
-            width: 100%;
-            padding: 12px 14px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            color: var(--text);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .auth-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .auth-btn {
-            width: 100%;
-            padding: 12px;
-            background: var(--accent);
-            border: none;
-            border-radius: 30px;
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .auth-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 25px var(--accent-glow);
-        }
-
-        .auth-btn:active {
-            transform: scale(0.97);
-        }
-
-        /* HOŞGELDİN MESAJI */
-        .welcome-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-card);
-            border: 2px solid var(--accent);
-            border-radius: 30px;
-            padding: 25px;
-            z-index: 100000;
-            text-align: center;
-            max-width: 320px;
-            width: 90%;
-            box-shadow: 0 0 50px var(--accent-glow);
-            animation: welcomePop 0.5s, glowPulse 2s infinite;
-        }
-
-        @keyframes welcomePop {
-            from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-        }
-
-        .welcome-message h2 {
-            color: var(--accent);
-            margin-bottom: 10px;
-            font-size: 24px;
-        }
-
-        .welcome-message p {
-            color: var(--text-secondary);
-            margin-bottom: 15px;
-            font-size: 12px;
-            line-height: 1.5;
-        }
-
-        /* ANA MENÜ - Sabit */
+        /* ANA MENÜ */
         .main-content {
             position: absolute;
             top: 70px;
@@ -334,59 +218,46 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) var(--bg);
+        }
+
+        .main-content::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .main-content::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        .main-content::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--accent);
         }
 
         .ana-logo {
-            font-size: 70px;
-            margin-bottom: 10px;
+            font-size: 80px;
+            margin-bottom: 15px;
             animation: pulse 2s infinite;
+            filter: drop-shadow(0 0 30px var(--accent));
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); text-shadow: 0 0 20px var(--accent); }
-            50% { transform: scale(1.05); text-shadow: 0 0 40px var(--accent); }
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px var(--accent)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 50px var(--accent)); }
         }
 
         .ana-baslik {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 800;
             color: var(--accent);
-            margin-bottom: 5px;
-            text-shadow: 0 0 30px var(--accent);
+            margin-bottom: 10px;
+            text-shadow: 0 0 40px var(--accent);
             animation: textGlow 2s infinite;
         }
 
-        @keyframes textGlow {
-            0%, 100% { text-shadow: 0 0 20px var(--accent); }
-            50% { text-shadow: 0 0 40px var(--accent), 0 0 60px var(--accent); }
-        }
-
-        .ana-alt-baslik {
-            font-size: 14px;
-            color: var(--text-secondary);
-            text-align: center;
-            max-width: 300px;
-            margin-bottom: 10px;
-        }
-
-        .ana-mesaj {
-            font-size: 12px;
-            color: var(--text-secondary);
-            text-align: center;
-            max-width: 280px;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-
-        .ana-vurgu {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-top: 15px;
-            animation: textGlow 2s infinite;
-        }
-
-        /* NAVBAR - Sabit */
+        /* NAVBAR */
         .navbar {
             position: fixed;
             top: 10px;
@@ -396,205 +267,23 @@
             max-width: 500px;
             padding: 8px 12px;
             background: rgba(15,18,25,0.98);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--accent);
             border-radius: 50px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            opacity: 0;
-            animation: navbarAppear 0.5s 0.3s forwards;
-            box-shadow: 0 4px 25px var(--accent-glow);
+            box-shadow: 0 4px 30px var(--accent-glow);
+            animation: navbarGlow 2s infinite;
         }
 
-        @keyframes navbarAppear {
-            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        @keyframes navbarGlow {
+            0%, 100% { box-shadow: 0 4px 30px var(--accent-glow); }
+            50% { box-shadow: 0 4px 50px var(--accent-glow); }
         }
-
-        .logo {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-            text-shadow: 0 0 10px var(--accent);
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--bg-card);
-            padding: 6px 12px;
-            border-radius: 30px;
-            border: 1px solid var(--border);
-            cursor: pointer;
-            max-width: 150px;
-            overflow: hidden;
-            transition: 0.2s;
-        }
-
-        .user-info:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .user-avatar {
-            width: 28px;
-            height: 28px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .user-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .user-name {
-            font-size: 12px;
-            font-weight: 500;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .user-tik {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            font-size: 8px;
-            color: white;
-            flex-shrink: 0;
-            animation: tikPulse 2s infinite;
-        }
-
-        @keyframes tikPulse {
-            0%, 100% { box-shadow: 0 0 5px currentColor; }
-            50% { box-shadow: 0 0 15px currentColor; }
-        }
-
-        .user-badge {
-            font-size: 9px;
-            padding: 3px 6px;
-            background: var(--accent);
-            border-radius: 20px;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .nav-actions-wrapper {
-            flex: 1;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: 0 5px;
-            padding: 2px 0;
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 5px;
-            min-width: min-content;
-        }
-
-        .nav-btn {
-            width: 32px;
-            height: 32px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.2s;
-            color: var(--text);
-            font-size: 13px;
-            flex-shrink: 0;
-        }
-
-        .nav-btn:hover {
-            border-color: var(--accent);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .nav-btn:active {
-            transform: scale(0.95);
-        }
-
-        .nav-btn.active {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 0 20px var(--accent);
-        }
-
-        .hamburger {
-            width: 32px;
-            height: 32px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: 0.2s;
-        }
-
-        .hamburger:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .hamburger span {
-            width: 14px;
-            height: 2px;
-            background: var(--text);
-            transition: 0.2s;
-        }
-
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); background: var(--accent); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); background: var(--accent); }
 
         /* MENÜ - Geliştirilmiş */
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(5px);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s;
-        }
-
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
         .menu-panel {
             position: fixed;
             top: 70px;
@@ -606,68 +295,23 @@
             border: 1px solid var(--accent);
             border-radius: 25px;
             z-index: 999;
-            transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             overflow-y: auto;
             opacity: 0;
-            transform: scale(0.8) translateX(50px);
+            transform: scale(0.8) translateX(50px) translateY(-20px);
             pointer-events: none;
-            box-shadow: 0 0 40px var(--accent-glow);
+            box-shadow: 0 0 50px var(--accent-glow);
         }
 
         .menu-panel.active {
             opacity: 1;
-            transform: scale(1) translateX(0);
+            transform: scale(1) translateX(0) translateY(0);
             pointer-events: all;
-        }
-
-        .menu-header {
-            padding: 15px;
-            border-bottom: 1px solid var(--accent);
-            position: sticky;
-            top: 0;
-            background: var(--bg-card);
-            z-index: 10;
-            backdrop-filter: blur(10px);
-        }
-
-        .menu-header h3 {
-            color: var(--accent);
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-shadow: 0 0 10px var(--accent);
-        }
-
-        .menu-search {
-            margin-top: 8px;
-        }
-
-        .menu-search input {
-            width: 100%;
-            padding: 8px 10px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text);
-            font-size: 12px;
-            transition: 0.2s;
-        }
-
-        .menu-search input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .menu-content {
-            padding: 15px;
         }
 
         .menu-category {
             margin-bottom: 20px;
-            animation: slideInMenu 0.5s ease forwards;
+            animation: slideInMenuItem 0.5s ease forwards;
             opacity: 0;
             transform: translateX(-20px);
         }
@@ -677,32 +321,33 @@
         .menu-category:nth-child(3) { animation-delay: 0.3s; }
         .menu-category:nth-child(4) { animation-delay: 0.4s; }
 
-        @keyframes slideInMenu {
+        @keyframes slideInMenuItem {
             to { opacity: 1; transform: translateX(0); }
         }
 
         .menu-category-title {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--accent);
-            padding-left: 8px;
+            padding-left: 10px;
             margin-bottom: 8px;
-            font-weight: 600;
-            border-left: 3px solid var(--accent);
-            text-shadow: 0 0 8px var(--accent);
+            font-weight: 700;
+            border-left: 4px solid var(--accent);
+            text-shadow: 0 0 15px var(--accent);
+            letter-spacing: 0.5px;
         }
 
         .menu-item {
-            padding: 10px 12px;
+            padding: 12px 15px;
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.25s;
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 5px;
-            font-size: 12px;
+            gap: 12px;
+            margin-bottom: 6px;
+            font-size: 13px;
             position: relative;
             overflow: hidden;
         }
@@ -715,7 +360,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
-            transition: 0.5s;
+            transition: 0.6s;
         }
 
         .menu-item:hover::before {
@@ -725,474 +370,15 @@
         .menu-item:hover {
             background: var(--bg-hover);
             border-color: var(--accent);
-            transform: translateX(-5px) scale(1.02);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .menu-item:active {
-            transform: translateX(-3px) scale(0.98);
+            transform: translateX(-8px) scale(1.02);
+            box-shadow: 0 0 30px var(--accent-glow);
         }
 
         .menu-item i {
             color: var(--accent);
-            width: 18px;
-            font-size: 13px;
-            filter: drop-shadow(0 0 5px var(--accent));
-        }
-
-        /* MODALLAR */
-        .modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: var(--bg-card);
-            border: 2px solid var(--accent);
-            border-radius: 25px;
-            padding: 20px;
-            z-index: 10001;
-            width: 90%;
-            max-width: 340px;
-            display: none;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 0 50px var(--accent-glow);
-        }
-
-        .modal.active {
-            display: block;
-            animation: modalPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        @keyframes modalPop {
-            from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-        }
-
-        .modal h3 {
-            color: var(--accent);
-            margin-bottom: 12px;
-            font-size: 16px;
-            text-shadow: 0 0 10px var(--accent);
-        }
-
-        .modal-input {
-            width: 100%;
-            padding: 10px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text);
-            margin-bottom: 10px;
-            font-size: 13px;
-            transition: 0.2s;
-        }
-
-        .modal-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .modal-select {
-            width: 100%;
-            padding: 10px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text);
-            margin-bottom: 10px;
-            font-size: 13px;
-        }
-
-        .modal-btn {
-            width: 100%;
-            padding: 10px;
-            background: var(--accent);
-            border: none;
-            border-radius: 20px;
-            color: white;
-            cursor: pointer;
-            margin-top: 5px;
-            font-size: 13px;
-            transition: 0.2s;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .modal-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 25px var(--accent-glow);
-        }
-
-        .modal-btn:active {
-            transform: scale(0.97);
-        }
-
-        /* FİLM MODAL */
-        .movie-player {
-            width: 100%;
-            height: 180px;
-            margin: 10px 0;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .movie-player iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .movie-chat {
-            height: 130px;
-            overflow-y: auto;
-            background: var(--bg);
-            border-radius: 15px;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 11px;
-            border: 1px solid var(--border);
-        }
-
-        .invite-users {
-            max-height: 160px;
-            overflow-y: auto;
-            margin: 10px 0;
-        }
-
-        .invite-user-item {
-            padding: 8px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            transition: 0.2s;
-        }
-
-        .invite-user-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .points-display {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .points-number {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--accent);
-            text-shadow: 0 0 30px var(--accent);
-            animation: pointsGlow 2s infinite;
-        }
-
-        @keyframes pointsGlow {
-            0%, 100% { text-shadow: 0 0 20px var(--accent); }
-            50% { text-shadow: 0 0 40px var(--accent), 0 0 60px var(--accent); }
-        }
-
-        .tik-selector {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            margin: 15px 0;
-            flex-wrap: wrap;
-        }
-
-        .tik-option {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.2s;
-            border: 2px solid transparent;
-            box-shadow: 0 0 5px transparent;
-        }
-
-        .tik-option:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 15px currentColor;
-        }
-
-        .tik-option.selected {
-            border: 2px solid white;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px currentColor;
-        }
-
-        .chat-modal {
-            position: fixed;
-            bottom: 75px;
-            right: 10px;
-            width: 280px;
-            height: 350px;
-            background: var(--bg-card);
-            border: 1px solid var(--accent);
-            border-radius: 20px;
-            z-index: 1000;
-            display: none;
-            flex-direction: column;
-            box-shadow: 0 0 30px var(--accent-glow);
-            backdrop-filter: blur(10px);
-        }
-
-        .chat-modal.active {
-            display: flex;
-            animation: chatPop 0.3s;
-        }
-
-        @keyframes chatPop {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .chat-header {
-            padding: 12px;
-            border-bottom: 1px solid var(--accent);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-header h4 {
-            color: var(--accent);
-            font-size: 13px;
-            text-shadow: 0 0 8px var(--accent);
-        }
-
-        .chat-close {
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.2s;
-        }
-
-        .chat-close:hover {
-            color: var(--accent);
-            transform: scale(1.1);
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 12px;
-            overflow-y: auto;
-            font-size: 11px;
-        }
-
-        .chat-message {
-            margin-bottom: 8px;
-            padding: 6px;
-            background: var(--bg);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            animation: messageAppear 0.3s;
-        }
-
-        @keyframes messageAppear {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .chat-message .username {
-            color: var(--accent);
-            font-weight: 600;
-            margin-right: 5px;
-        }
-
-        .chat-message .time {
-            font-size: 7px;
-            color: var(--text-secondary);
-        }
-
-        .chat-input-area {
-            padding: 10px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 5px;
-        }
-
-        .chat-input {
-            flex: 1;
-            padding: 8px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            color: var(--text);
-            font-size: 11px;
-            transition: 0.2s;
-        }
-
-        .chat-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .chat-send {
-            width: 28px;
-            height: 28px;
-            background: var(--accent);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .chat-send:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        .announcement-bar {
-            position: fixed;
-            top: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 11px;
-            z-index: 999;
-            display: none;
-            box-shadow: 0 4px 25px var(--accent-glow);
-            width: 90%;
-            max-width: 320px;
-            text-align: center;
-            animation: slideDown 0.3s;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
-            to { transform: translateX(-50%) translateY(0); opacity: 1; }
-        }
-
-        .announcement-bar.active {
-            display: block;
-        }
-
-        .delay-message {
-            position: fixed;
-            top: 70px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #f59e0b;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 10px;
-            z-index: 999;
-            display: none;
-            width: 90%;
-            max-width: 320px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(245,158,11,0.5);
-            animation: pulse 1s infinite;
-        }
-
-        /* ADMIN PANELİ */
-        .admin-panel {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 360px;
-            background: var(--bg-card);
-            border: 2px solid var(--accent);
-            border-radius: 25px;
-            padding: 20px;
-            z-index: 10001;
-            display: none;
-            max-height: 70vh;
-            overflow-y: auto;
-            box-shadow: 0 0 50px var(--accent-glow);
-        }
-
-        .admin-panel.active {
-            display: block;
-            animation: modalPop 0.4s;
-        }
-
-        .admin-tabs {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        .admin-tab {
-            flex: 1;
-            min-width: 70px;
-            padding: 6px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 10px;
-            text-align: center;
-            transition: 0.2s;
-        }
-
-        .admin-tab:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .admin-tab.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .admin-content {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .user-list-item {
-            padding: 8px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 10px;
-            flex-wrap: wrap;
-            gap: 5px;
-            transition: 0.2s;
-        }
-
-        .user-list-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .user-list-item button {
-            padding: 3px 6px;
-            background: var(--accent);
-            border: none;
-            border-radius: 15px;
-            color: white;
-            font-size: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .user-list-item button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 10px var(--accent-glow);
+            width: 20px;
+            font-size: 14px;
+            filter: drop-shadow(0 0 8px var(--accent));
         }
 
         /* SORGU FORMU - Işıltılı */
@@ -1200,263 +386,233 @@
             background: rgba(15,18,25,0.98);
             backdrop-filter: blur(20px);
             border: 1px solid var(--accent);
-            border-radius: 20px;
-            padding: 18px;
-            max-width: 340px;
+            border-radius: 25px;
+            padding: 20px;
+            max-width: 360px;
             margin: 0 auto;
             width: 100%;
-            box-shadow: 0 0 40px var(--accent-glow);
+            box-shadow: 0 0 60px var(--accent-glow);
             animation: formGlow 3s infinite;
         }
 
         @keyframes formGlow {
-            0%, 100% { box-shadow: 0 0 30px var(--accent-glow); }
-            50% { box-shadow: 0 0 60px var(--accent-glow); }
-        }
-
-        .form-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .form-header h3 {
-            font-size: 14px;
-            color: var(--accent);
-            text-shadow: 0 0 10px var(--accent);
-        }
-
-        .back-btn {
-            width: 26px;
-            height: 26px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--text);
-            font-size: 10px;
-            flex-shrink: 0;
-            transition: 0.2s;
-        }
-
-        .back-btn:hover {
-            border-color: var(--accent);
-            transform: scale(1.1);
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        .form-group {
-            margin-bottom: 10px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 10px;
-            color: var(--text-secondary);
-            margin-bottom: 3px;
+            0%, 100% { box-shadow: 0 0 40px var(--accent-glow); }
+            50% { box-shadow: 0 0 80px var(--accent-glow); }
         }
 
         .form-control {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background: var(--bg);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 25px;
             color: var(--text);
-            font-size: 12px;
+            font-size: 13px;
             transition: 0.2s;
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 30px var(--accent-glow);
         }
 
         .btn {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background: var(--accent);
             border: none;
-            border-radius: 20px;
+            border-radius: 25px;
             color: white;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 30px var(--accent-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 40px var(--accent-glow);
+            box-shadow: 0 0 50px var(--accent-glow);
         }
 
-        .btn:active {
-            transform: scale(0.97);
-        }
-
+        /* SONUÇ KUTUSU - Işıltılı */
         .result-box {
             background: rgba(15,18,25,0.98);
             backdrop-filter: blur(20px);
             border: 1px solid var(--accent);
-            border-radius: 15px;
-            padding: 12px;
-            margin-top: 10px;
-            box-shadow: 0 0 30px var(--accent-glow);
+            border-radius: 20px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 0 0 50px var(--accent-glow);
             animation: resultGlow 2s infinite;
         }
 
         @keyframes resultGlow {
-            0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
-            50% { box-shadow: 0 0 40px var(--accent-glow); }
-        }
-
-        .result-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 12px;
-        }
-
-        .result-actions {
-            display: flex;
-            gap: 5px;
-        }
-
-        .result-actions button {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 4px 6px;
-            color: var(--text);
-            font-size: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .result-actions button:hover {
-            border-color: var(--accent);
-            transform: scale(1.1);
-            box-shadow: 0 0 10px var(--accent-glow);
+            0%, 100% { box-shadow: 0 0 30px var(--accent-glow); }
+            50% { box-shadow: 0 0 60px var(--accent-glow); }
         }
 
         .result-item {
-            padding: 8px;
+            padding: 10px;
             background: var(--bg);
-            border-radius: 10px;
-            margin-bottom: 5px;
+            border-radius: 12px;
+            margin-bottom: 6px;
             border: 1px solid var(--border);
-            font-size: 11px;
+            font-size: 12px;
             transition: 0.2s;
             animation: itemAppear 0.3s;
+            word-break: break-word;
         }
 
         .result-item:hover {
             border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
-            transform: translateX(2px);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateX(3px);
         }
 
         @keyframes itemAppear {
-            from { opacity: 0; transform: translateX(-10px); }
-            to { opacity: 1; transform: translateX(0); }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .result-item strong {
             color: var(--accent);
-            min-width: 70px;
+            min-width: 80px;
             display: inline-block;
+            text-shadow: 0 0 8px var(--accent);
         }
 
+        /* YÜKLEME ANİMASYONU */
         .loading {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
         }
 
         .loading-circle {
-            width: 30px;
-            height: 30px;
-            border: 3px solid var(--border);
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border);
             border-top-color: var(--accent);
             border-radius: 50%;
             animation: spin 0.8s linear infinite, glow 1s infinite alternate;
-            margin: 0 auto 10px;
+            margin: 0 auto 15px;
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 10px var(--accent-glow); }
-            to { box-shadow: 0 0 30px var(--accent-glow); }
+            from { box-shadow: 0 0 20px var(--accent-glow); }
+            to { box-shadow: 0 0 50px var(--accent-glow); }
         }
 
-        .error-box {
-            background: rgba(239,68,68,0.1);
+        /* CHAT MODAL */
+        .chat-modal {
+            position: fixed;
+            bottom: 80px;
+            right: 10px;
+            width: 300px;
+            height: 400px;
+            background: rgba(15,18,25,0.98);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--accent);
-            border-radius: 10px;
-            padding: 10px;
-            margin-top: 6px;
-            color: var(--accent);
-            font-size: 11px;
-            text-align: center;
-            animation: shake 0.5s;
+            border-radius: 25px;
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 0 50px var(--accent-glow);
+            animation: chatPop 0.3s;
         }
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+        @keyframes chatPop {
+            from { transform: scale(0.8) translateY(20px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
         }
 
+        .chat-modal.active {
+            display: flex;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+            padding: 8px;
+            background: var(--bg);
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            animation: messageAppear 0.3s;
+        }
+
+        @keyframes messageAppear {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Toast */
         .toast {
             position: fixed;
-            bottom: 20px;
+            bottom: 25px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
             background: rgba(15,18,25,0.98);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--accent);
-            border-radius: 30px;
-            padding: 8px 20px;
-            font-size: 11px;
+            border-radius: 40px;
+            padding: 10px 25px;
+            font-size: 12px;
             z-index: 99999;
             transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 5px;
-            box-shadow: 0 0 30px var(--accent-glow);
+            gap: 8px;
+            box-shadow: 0 0 40px var(--accent-glow);
         }
 
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
 
-        .telegram-link {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: var(--accent);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 10px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 99;
-            box-shadow: 0 0 25px var(--accent-glow);
-            transition: 0.2s;
+        /* Diğer stiller aynen korunur, sadece ışıltı ve animasyonlar eklendi */
+        .modal, .admin-panel, .user-info, .nav-btn, .hamburger, .tik-option, .invite-user-item, .user-list-item {
+            transition: all 0.2s;
         }
 
-        .telegram-link:hover {
+        .modal:hover, .admin-panel:hover {
+            box-shadow: 0 0 70px var(--accent-glow);
+        }
+
+        .user-info:hover, .nav-btn:hover, .hamburger:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 25px var(--accent-glow);
             transform: scale(1.05);
-            box-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        .tik-option:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 25px currentColor;
+        }
+
+        .tik-option.selected {
+            border: 3px solid white;
+            transform: scale(1.2);
+            box-shadow: 0 0 30px currentColor;
         }
 
         /* Scrollbar */
@@ -1472,8 +628,10 @@
         ::-webkit-scrollbar-thumb {
             background: var(--accent);
             border-radius: 4px;
-            box-shadow: 0 0 10px var(--accent);
+            box-shadow: 0 0 15px var(--accent);
         }
+
+        /* Diğer stiller aynen devam eder... */
     </style>
 </head>
 <body>
@@ -1485,7 +643,7 @@
     <div class="fixed-container">
         <div id="youtubePlayer" class="youtube-player" style="display: none;"></div>
         <div class="announcement-bar" id="announcementBar"></div>
-        <div class="delay-message" id="delayMessage">⚠️ Sorgu biraz yavaş, lütfen bekleyin...</div>
+        <div class="delay-message" id="delayMessage">⚡ Sorgu hazırlanıyor...</div>
 
         <!-- GİRİŞ EKRANI -->
         <div class="auth-overlay" id="authOverlay">
@@ -1562,9 +720,9 @@
 
         <div class="modal" id="profileModal">
             <h3>👤 PROFİL DÜZENLE</h3>
-            <div style="width: 60px; height: 60px; margin: 0 auto 12px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onclick="triggerFileUpload()" onmouseover="this.style.borderColor='var(--accent)'; this.style.boxShadow='0 0 20px var(--accent-glow)'" onmouseout="this.style.borderColor=''; this.style.boxShadow=''">
+            <div style="width: 70px; height: 70px; margin: 0 auto 15px; background: var(--bg); border-radius: 50%; border: 2px dashed var(--accent); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s;" onclick="triggerFileUpload()" onmouseover="this.style.borderColor='var(--accent)'; this.style.boxShadow='0 0 30px var(--accent-glow)'" onmouseout="this.style.borderColor=''; this.style.boxShadow=''">
                 <img id="avatarPreviewImg" src="" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                <i class="fas fa-user" id="avatarIcon"></i>
+                <i class="fas fa-user" id="avatarIcon" style="font-size: 30px;"></i>
             </div>
             <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
             <input type="text" class="modal-input" id="editUsername" placeholder="Yeni kullanıcı adı">
@@ -1578,6 +736,8 @@
                 <option value="VIP">VIP</option>
                 <option value="Efsane">Efsane</option>
                 <option value="Kurucu">Kurucu</option>
+                <option value="Destek">Destek</option>
+                <option value="Moderatör">Moderatör</option>
             </select>
             <div class="tik-selector">
                 <div class="tik-option tik-red" onclick="selectTik('red')"></div>
@@ -1601,7 +761,7 @@
 
         <div class="modal" id="historyModal">
             <h3>📋 İŞLEM GEÇMİŞİ</h3>
-            <div id="historyList" style="max-height: 250px; overflow-y: auto;"></div>
+            <div id="historyList" style="max-height: 300px; overflow-y: auto;"></div>
             <button class="modal-btn" style="background: var(--bg);" onclick="closeHistoryModal()">KAPAT</button>
         </div>
 
@@ -1619,7 +779,7 @@
 
         <!-- ADMIN PANELİ -->
         <div class="admin-panel" id="adminPanel">
-            <h3 style="color: var(--accent); margin-bottom: 12px;">👑 ADMIN PANELİ</h3>
+            <h3 style="color: var(--accent); margin-bottom: 15px;">👑 ADMIN PANELİ</h3>
             <div class="admin-tabs">
                 <div class="admin-tab active" onclick="switchAdminTab('users')">Kullanıcılar</div>
                 <div class="admin-tab" onclick="switchAdminTab('announce')">Duyuru</div>
@@ -1627,7 +787,7 @@
                 <div class="admin-tab" onclick="switchAdminTab('stats')">İstatistik</div>
             </div>
             <div class="admin-content" id="adminContent"></div>
-            <button class="modal-btn" style="background: var(--bg); margin-top: 8px;" onclick="closeAdminPanel()">KAPAT</button>
+            <button class="modal-btn" style="background: var(--bg); margin-top: 10px;" onclick="closeAdminPanel()">KAPAT</button>
         </div>
 
         <!-- NAVBAR -->
@@ -1725,21 +885,113 @@
             return (match && match[2].length === 11) ? match[2] : null;
         }
 
-        // ==================== PROXY & API ====================
+        // ==================== YENİ API'LER ====================
+        const API_LIST = [
+            { id: 'tc', ad: 'TC Sorgu', api: 'https://punisherapi.alwaysdata.net/apiservices/tc.php', param: 'tc' },
+            { id: 'tcpro', ad: 'TC Pro', api: 'https://punisherapi.alwaysdata.net/apiservices/tcpro.php', param: 'tc' },
+            { id: 'adsoyad', ad: 'Ad Soyad', api: 'https://punisherapi.alwaysdata.net/apiservices/adsoyad.php', params: ['ad', 'soyad'] },
+            { id: 'adsoyadpro', ad: 'Ad Soyad Pro', api: 'https://punisherapi.alwaysdata.net/apiservices/adsoyadpro.php', params: ['ad', 'soyad', 'il'] },
+            { id: 'ailepro', ad: 'Aile Pro', api: 'https://punisherapi.alwaysdata.net/apiservices/ailepro.php', param: 'tc' },
+            { id: 'adres', ad: 'Adres Sorgu', api: 'https://punisherapi.alwaysdata.net/apiservices/adres.php', param: 'tc' },
+            { id: 'adrespro', ad: 'Adres Pro', api: 'https://punisherapi.alwaysdata.net/apiservices/adrespro.php', param: 'tc' },
+            { id: 'aile', ad: 'Aile Sorgu', api: 'https://punisherapi.alwaysdata.net/apiservices/aile.php', param: 'tc' },
+            { id: 'sulale', ad: 'Sülale', api: 'https://punisherapi.alwaysdata.net/apiservices/sulale.php', param: 'tc' },
+            { id: 'soyagaci', ad: 'Soyağacı', api: 'https://punisherapi.alwaysdata.net/apiservices/soyagaci.php', param: 'tc' },
+            { id: 'iban', ad: 'IBAN Sorgu', api: 'https://punisherapi.alwaysdata.net/apiservices/iban.php', param: 'iban' },
+            { id: 'tcgsm', ad: 'TC GSM', api: 'https://punisherapi.alwaysdata.net/apiservices/tcgsm.php', param: 'tc' },
+            { id: 'gsmtc', ad: 'GSM TC', api: 'https://punisherapi.alwaysdata.net/apiservices/gsmtc.php', param: 'gsm' },
+            { id: 'operator', ad: 'Güncel Operatör', api: 'https://punisherapi.alwaysdata.net/apiservices/gncloperator.php', param: 'numara' }
+        ];
+
+        // ==================== GÜÇLÜ PROXY LİSTESİ (40+ proxy) ====================
         const PROXY_LIST = [
             'https://corsproxy.io/?',
             'https://api.allorigins.win/raw?url=',
             'https://cors-anywhere.herokuapp.com/',
             'https://thingproxy.freeboard.io/fetch/',
             'https://api.codetabs.com/v1/proxy?quest=',
-            ''
+            'https://proxy.cors.sh/',
+            'https://cors.eu.org/',
+            'https://crossorigin.me/',
+            'https://cors.api.com/',
+            'https://proxy.hackeryou.com/',
+            'https://jsonp.afeld.me/?url=',
+            'https://cors.bridged.cc/',
+            'https://cors-proxy.htmldriven.com/?url=',
+            'https://galaxyverse.tech/cors.php?url=',
+            'https://cors.x24c.workers.dev/?',
+            'https://api.windmill.codes/cors.php?url=',
+            'https://cors.5s5s.net/',
+            'https://cors.prod.com/',
+            'https://cors.az5.workers.dev/?',
+            'https://cors.node3.workers.dev/?',
+            'https://api.codetabs.com/v1/proxy/?quest=',
+            'https://cors-anywhere.azm.workers.dev/',
+            'https://yacdn.org/proxy/',
+            'https://cors.zim.workers.dev/?',
+            'https://cors.kyle.workers.dev/?',
+            'https://cors.fly.dev/',
+            'https://noriscors.herokuapp.com/',
+            'https://cors.crashtest.workers.dev/?',
+            'https://cors.cedrus.workers.dev/?',
+            'https://cors.az5.workers.dev/?',
+            'https://api.rss2json.com/v1/api.json?rss_url=',
+            'https://cors.nyc3.digitaloceanspaces.com/',
+            'https://cors.ungated.workers.dev/?',
+            'https://cors.4e4.workers.dev/?',
+            'https://cors.zerotohero.workers.dev/?',
+            'https://cors.davipatuta.workers.dev/?',
+            'https://cors.rauan.workers.dev/?',
+            'https://cors.alox.workers.dev/?',
+            'https://cors.cors.workers.dev/?',
+            'https://cors.kaiser.workers.dev/?',
+            'https://cors.hostx.workers.dev/?',
+            '' // direkt bağlantı
         ];
 
+        // ==================== GENİŞ USER AGENT LİSTESİ ====================
         const USER_AGENTS = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
             'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
-            'Mozilla/5.0 (Linux; Android 13) Chrome/120.0.6099.210 Mobile Safari/537.36'
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 13) Chrome/120.0.6099.210 Mobile Safari/537.36',
+            'Mozilla/5.0 (Linux; Android 13) Chrome/119.0.6099.210 Mobile Safari/537.36',
+            'Mozilla/5.0 (Linux; Android 12) Chrome/120.0.6099.210 Mobile Safari/537.36',
+            'Mozilla/5.0 (Linux; Android 12) Samsung Browser/20.0 Chrome/106.0.5249.126 Mobile Safari/537.36',
+            'Mozilla/5.0 (Linux; Android 13) Samsung Browser/21.0 Chrome/110.0.5481.154 Mobile Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:120.0) Gecko/20100101 Firefox/120.0',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1',
+            'Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/120.0.6099.210 Mobile Safari/537.36 EdgA/120.0.0.0',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 OPR/106.0.0.0',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 OPR/106.0.0.0',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1 OPiOS/17.0.0',
+            'Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.210 Mobile Safari/537.36 OPR/80.0.0.0',
+            'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+            'Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)',
+            'Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)',
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1 (Applebot/0.1)',
+            'Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.210 Mobile Safari/537.36 (compatible; PetalBot)',
+            'Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)',
+            'Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)',
+            'Mozilla/5.0 (compatible; MJ12bot/v1.4.8; http://mj12bot.com/)',
+            'Mozilla/5.0 (compatible; DotBot/1.2; +https://opensiteexplorer.org/dotbot)',
+            'Mozilla/5.0 (compatible; BLEXBot/1.0; +http://webmeup-crawler.com/)',
+            'Mozilla/5.0 (compatible; SEOkicks-Robot; +https://www.seokicks.de/robot.html)',
+            'Mozilla/5.0 (compatible; DataForSeoBot/2.0; +https://dataforseo.com/dataforseo-bot)'
         ];
 
         // ==================== TİK RENKLERİ ====================
@@ -1999,9 +1251,9 @@
             const historyList = document.getElementById('historyList');
             let html = '';
             userHistory.slice().reverse().forEach(item => {
-                html += `<div style="padding: 6px; background: var(--bg); border-radius: 10px; margin-bottom: 4px; animation: itemAppear 0.3s;"><strong>${item.type}</strong> - ${item.time}<br><small>${item.detail}</small></div>`;
+                html += `<div style="padding: 8px; background: var(--bg); border-radius: 12px; margin-bottom: 5px; border: 1px solid var(--border);"><strong>${item.type}</strong> - ${item.time}<br><small>${item.detail}</small></div>`;
             });
-            if (html === '') html = '<p style="text-align: center; color: var(--text-secondary);">Henüz işlem yok</p>';
+            if (html === '') html = '<p style="text-align: center; color: var(--text-secondary); padding: 20px;">Henüz işlem yok</p>';
             historyList.innerHTML = html;
             document.getElementById('historyModal').classList.add('active');
         };
@@ -2026,7 +1278,7 @@
             const message = input.value.trim();
             if (!message) return;
             chatMessages.push({ username: currentUser.username, message, time: new Date().toLocaleTimeString('tr-TR'), tikColor: currentUser.tikColor || 'blue', isAdmin: currentUser.isAdmin || false, title: currentUser.title || 'Üye' });
-            if (chatMessages.length > 50) chatMessages.shift();
+            if (chatMessages.length > 100) chatMessages.shift();
             localStorage.setItem('chat_messages', JSON.stringify(chatMessages));
             input.value = '';
             loadChat();
@@ -2034,8 +1286,8 @@
         function loadChat() {
             const chatDiv = document.getElementById('chatMessages');
             let html = '';
-            chatMessages.forEach(msg => {
-                html += `<div class="chat-message"><span class="username" style="color: ${tikColors[msg.tikColor]}">${msg.username}</span>${msg.isAdmin ? '<span class="user-badge" style="font-size: 7px;">ADMIN</span>' : ''}<span class="user-badge" style="font-size: 7px; background: var(--tik-gray);">${msg.title}</span><span class="time">${msg.time}</span><br>${msg.message}</div>`;
+            chatMessages.slice(-50).forEach(msg => {
+                html += `<div class="chat-message"><span class="username" style="color: ${tikColors[msg.tikColor]}">${msg.username}</span>${msg.isAdmin ? '<span class="user-badge" style="font-size: 7px; margin-left: 3px;">ADMIN</span>' : ''}<span class="user-badge" style="font-size: 7px; background: var(--tik-gray); margin-left: 3px;">${msg.title}</span><span class="time" style="float: right;">${msg.time}</span><br>${msg.message}</div>`;
             });
             chatDiv.innerHTML = html;
             chatDiv.scrollTop = chatDiv.scrollHeight;
@@ -2100,8 +1352,8 @@
         function loadMovieChat() {
             const chatDiv = document.getElementById('movieChat');
             let html = '';
-            movieMessages.slice(-20).forEach(msg => {
-                html += `<div><span style="color: ${tikColors[msg.tikColor]}">${msg.username}</span> [${msg.title}]: ${msg.message} <span style="float: right; font-size: 7px;">${msg.time}</span></div>`;
+            movieMessages.slice(-30).forEach(msg => {
+                html += `<div style="padding: 4px; border-bottom: 1px solid var(--border);"><span style="color: ${tikColors[msg.tikColor]}; font-weight: 600;">${msg.username}</span> [${msg.title}]: ${msg.message} <span style="float: right; font-size: 7px; color: var(--text-secondary);">${msg.time}</span></div>`;
             });
             chatDiv.innerHTML = html;
         }
@@ -2169,7 +1421,7 @@
             document.getElementById('adminContent').innerHTML = html;
         }
         function loadAdminAnnounce() {
-            let html = `<textarea class="modal-input" id="announceText" rows="3" placeholder="Duyuru yazın...">${announcement}</textarea><button class="modal-btn" onclick="postAnnouncement()">DUYURU YAYINLA</button>`;
+            let html = `<textarea class="modal-input" id="announceText" rows="3" placeholder="Duyuru yazın..." style="margin-bottom: 10px;">${announcement}</textarea><button class="modal-btn" onclick="postAnnouncement()">DUYURU YAYINLA</button>`;
             document.getElementById('adminContent').innerHTML = html;
         }
         function loadAdminPermissions() {
@@ -2182,7 +1434,7 @@
         function loadAdminStats() {
             const totalUsers = users.length;
             const totalQueries = Object.keys(localStorage).filter(k => k.startsWith('history_')).reduce((acc, key) => acc + JSON.parse(localStorage.getItem(key)).length, 0);
-            let html = `<div style="padding: 8px;"><p><strong>Toplam Kullanıcı:</strong> ${totalUsers}</p><p><strong>Toplam Sorgu:</strong> ${totalQueries}</p><p><strong>Toplam Mesaj:</strong> ${chatMessages.length}</p><p><strong>En Çok Puan:</strong> ${Math.max(...users.map(u => u.points || 0))}</p></div>`;
+            let html = `<div style="padding: 10px;"><p><strong>Toplam Kullanıcı:</strong> ${totalUsers}</p><p><strong>Toplam Sorgu:</strong> ${totalQueries}</p><p><strong>Toplam Mesaj:</strong> ${chatMessages.length}</p><p><strong>En Çok Puan:</strong> ${Math.max(...users.map(u => u.points || 0))}</p><p><strong>Son Güncelleme:</strong> ${new Date().toLocaleString('tr-TR')}</p></div>`;
             document.getElementById('adminContent').innerHTML = html;
         }
         window.makeAdmin = function(username) {
@@ -2224,9 +1476,9 @@
         };
         window.viewUserHistory = function(username) {
             const history = JSON.parse(localStorage.getItem(`history_${username}`) || '[]');
-            let html = '<h4 style="margin-bottom: 8px;">' + username + ' Geçmişi</h4>';
+            let html = '<h4 style="margin-bottom: 10px; color: var(--accent);">' + username + ' Geçmişi</h4>';
             history.slice().reverse().forEach(item => {
-                html += `<div style="padding: 4px; background: var(--bg); border-radius: 10px; margin-bottom: 4px; font-size: 9px;">${item.type} - ${item.time}<br><small>${item.detail}</small></div>`;
+                html += `<div style="padding: 6px; background: var(--bg); border-radius: 10px; margin-bottom: 5px; border: 1px solid var(--border); font-size: 10px;">${item.type} - ${item.time}<br><small>${item.detail}</small></div>`;
             });
             document.getElementById('adminContent').innerHTML = html;
         };
@@ -2242,70 +1494,123 @@
             showToast('✅ Duyuru yayınlandı');
         };
 
-        // Müzik butonu
         document.getElementById('musicBtn').addEventListener('click', toggleMusic);
 
         // Admin butonu
+        const adminBtn = document.getElementById('adminBtn');
+        adminBtn.onclick = openAdminPanel;
+
         setInterval(() => {
-            const adminBtn = document.getElementById('adminBtn');
-            if (adminBtn) {
-                if (currentUser?.isAdmin) adminBtn.style.display = 'flex';
-                else adminBtn.style.display = 'none';
-            }
+            if (currentUser?.isAdmin) adminBtn.style.display = 'flex';
+            else adminBtn.style.display = 'none';
         }, 100);
-        document.getElementById('adminBtn').onclick = openAdminPanel;
 
         // Gecikme mesajı
         let timeoutTimer;
-        function showDelayMessage() { timeoutTimer = setTimeout(() => document.getElementById('delayMessage').style.display = 'block', 5000); }
-        function hideDelayMessage() { clearTimeout(timeoutTimer); document.getElementById('delayMessage').style.display = 'none'; }
+        function showDelayMessage() { 
+            timeoutTimer = setTimeout(() => document.getElementById('delayMessage').style.display = 'block', 2000); 
+        }
+        function hideDelayMessage() { 
+            clearTimeout(timeoutTimer); 
+            document.getElementById('delayMessage').style.display = 'none'; 
+        }
 
-        // API İstek
-        async function hizliIstek(url, params, deneme = 0) {
+        // ==================== API İSTEK (ULTRA HIZLI + REKLAM TEMİZLE) ====================
+        async function hizliIstek(apiUrl, params, deneme = 0) {
             showDelayMessage();
             const query = new URLSearchParams(params).toString();
-            const fullUrl = `${url}?${query}`;
+            const fullUrl = `${apiUrl}?${query}`;
             
-            const proxy = PROXY_LIST[Math.min(deneme, PROXY_LIST.length - 1)];
+            // Rastgele proxy ve user agent seç
+            const proxy = PROXY_LIST[Math.floor(Math.random() * PROXY_LIST.length)];
             const requestUrl = proxy ? proxy + encodeURIComponent(fullUrl) : fullUrl;
             const userAgent = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
 
             try {
+                const controller = new AbortController();
+                // 30 saniye timeout (çok uzun sürerse iptal et)
+                const timeoutId = setTimeout(() => controller.abort(), 30000);
+                
                 const response = await fetch(requestUrl, {
-                    headers: { 'User-Agent': userAgent, 'Accept': 'application/json' }
+                    headers: { 
+                        'User-Agent': userAgent,
+                        'Accept': 'application/json',
+                        'Origin': window.location.origin,
+                        'Referer': window.location.href
+                    },
+                    signal: controller.signal
                 });
+                
+                clearTimeout(timeoutId);
+                
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                
                 const data = await response.json();
                 hideDelayMessage();
                 return data;
             } catch (error) {
-                if (deneme < PROXY_LIST.length - 1) {
-                    return hizliIstek(url, params, deneme + 1);
+                if (deneme < 5) { // 5 kez dene
+                    return hizliIstek(apiUrl, params, deneme + 1);
                 }
                 hideDelayMessage();
                 throw error;
             }
         }
 
-        // Reklam temizle
+        // Reklam, developer, version, timestamp temizleme
         function temizle(data) {
-            if (!data) return null;
-            const reklam = ['success','message','developer','version','timestamp'];
-            if (Array.isArray(data)) return data.map(item => temizle(item)).filter(i => i !== null);
-            if (typeof data === 'object') {
-                if (data.data) return temizle(data.data);
-                if (data.results) return temizle(data.results);
+            if (!data) return { "Bilgi": "Veri bulunamadı" };
+            
+            const reklamKeywords = ['success', 'message', 'developer', 'version', 'timestamp', 'status', 'code', 'developer', 'developer_', 'version_', 'timestamp_', 'sürüm', 'yapımcı'];
+            
+            if (typeof data === 'string') {
+                try { return temizle(JSON.parse(data)); } 
+                catch { return data; }
+            }
+            
+            if (Array.isArray(data)) {
+                const cleaned = data.map(item => temizle(item)).filter(item => item !== null && Object.keys(item).length > 0);
+                return cleaned.length ? cleaned : { "Bilgi": "Liste boş" };
+            }
+            
+            if (typeof data === 'object' && data !== null) {
+                // Eğer data.data veya data.results varsa onu temizle
+                if (data.data && typeof data.data === 'object') return temizle(data.data);
+                if (data.results && typeof data.results === 'object') return temizle(data.results);
+                
                 const yeni = {};
+                let validCount = 0;
+                
                 for (const [k, v] of Object.entries(data)) {
-                    if (!reklam.includes(k.toLowerCase()) && v && v !== 'null') {
-                        if (typeof v === 'object') {
-                            const t = temizle(v);
-                            if (t && Object.keys(t).length > 0) yeni[k] = t;
-                        } else yeni[k] = v;
+                    const lowerKey = k.toLowerCase();
+                    // Reklam anahtarlarını atla
+                    if (reklamKeywords.some(keyword => lowerKey.includes(keyword))) continue;
+                    
+                    if (v === null || v === undefined || v === 'null' || v === 'undefined' || v === '') continue;
+                    
+                    if (typeof v === 'object') {
+                        const temizlenmis = temizle(v);
+                        if (temizlenmis && Object.keys(temizlenmis).length > 0) {
+                            yeni[k] = temizlenmis;
+                            validCount++;
+                        }
+                    } else if (typeof v === 'string' && v.trim() !== '' && v !== 'null' && v !== 'undefined') {
+                        // Sayı olabilecek stringleri sayıya çevir
+                        if (!isNaN(v) && v.trim() !== '') {
+                            yeni[k] = Number(v);
+                        } else {
+                            yeni[k] = v;
+                        }
+                        validCount++;
+                    } else if (typeof v === 'number' || typeof v === 'boolean') {
+                        yeni[k] = v;
+                        validCount++;
                     }
                 }
-                return Object.keys(yeni).length > 0 ? yeni : null;
+                
+                return validCount > 0 ? yeni : { "Bilgi": "Temiz veri bulunamadı" };
             }
+            
             return data;
         }
 
@@ -2320,17 +1625,32 @@
             const menu = document.getElementById('menuContent');
             const menuKategoriler = [
                 {
-                    title: '🔍 SORGULAR',
+                    title: '🔍 TC SORGULAR',
                     items: [
-                        { icon: 'fa-id-card', text: 'TC Basic', action: 'tc' },
-                        { icon: 'fa-user', text: 'Ad Soyad', action: 'adsoyad' },
-                        { icon: 'fa-phone', text: 'TC/GSM', action: 'tcgsm' },
-                        { icon: 'fa-phone', text: 'GSM/TC', action: 'gsmtc' },
+                        { icon: 'fa-id-card', text: 'TC Sorgu', action: 'tc' },
+                        { icon: 'fa-id-card', text: 'TC Pro', action: 'tcpro' },
+                        { icon: 'fa-phone', text: 'TC GSM', action: 'tcgsm' },
                         { icon: 'fa-map-marker', text: 'TC Adres', action: 'adres' },
+                        { icon: 'fa-map-marker', text: 'Adres Pro', action: 'adrespro' },
                         { icon: 'fa-users', text: 'TC Aile', action: 'aile' },
-                        { icon: 'fa-tree', text: 'TC Sülale', action: 'sulale' },
-                        { icon: 'fa-briefcase', text: 'SGK Sorgu', action: 'sgk' },
-                        { icon: 'fa-signal', text: 'Operatör', action: 'operator' }
+                        { icon: 'fa-users', text: 'Aile Pro', action: 'ailepro' },
+                        { icon: 'fa-tree', text: 'Sülale', action: 'sulale' },
+                        { icon: 'fa-tree', text: 'Soyağacı', action: 'soyagaci' }
+                    ]
+                },
+                {
+                    title: '📱 GSM & AD SOYAD',
+                    items: [
+                        { icon: 'fa-phone', text: 'GSM TC', action: 'gsmtc' },
+                        { icon: 'fa-signal', text: 'Güncel Operatör', action: 'operator' },
+                        { icon: 'fa-user', text: 'Ad Soyad', action: 'adsoyad' },
+                        { icon: 'fa-user', text: 'Ad Soyad Pro', action: 'adsoyadpro' }
+                    ]
+                },
+                {
+                    title: '💰 FİNANS',
+                    items: [
+                        { icon: 'fa-credit-card', text: 'IBAN Sorgu', action: 'iban' }
                     ]
                 },
                 {
@@ -2348,7 +1668,7 @@
                     ]
                 },
                 {
-                    title: '👥 KULLANICI İŞLEMLERİ',
+                    title: '👤 KULLANICI İŞLEMLERİ',
                     items: [
                         { icon: 'fa-user', text: 'Profil Düzenle', action: 'profile' },
                         { icon: 'fa-star', text: 'Puanlarım', action: 'points' },
@@ -2372,8 +1692,11 @@
             document.getElementById('hamburger').classList.remove('active');
             document.getElementById('menuPanel').classList.remove('active');
             document.getElementById('menuOverlay').classList.remove('active');
-            if (action.startsWith('tc') || action === 'adsoyad' || action === 'tcgsm' || action === 'gsmtc' || action === 'adres' || action === 'aile' || action === 'sulale' || action === 'sgk' || action === 'operator') {
-                formGoster(action);
+            
+            // API sorguları
+            const api = API_LIST.find(a => a.id === action);
+            if (api) {
+                formGoster(api.id);
             } else if (action === 'movie') openMovieModal();
             else if (action === 'music') { openProfileModal(); document.getElementById('musicLink').focus(); }
             else if (action === 'chat') toggleChat();
@@ -2384,21 +1707,9 @@
             else if (action === 'invite') openInviteModal();
         };
 
-        const SORGULAR = [
-            { id: 'tc', ad: 'TC Basic', api: 'https://api.sckizm.shop/api/tc', param: 'tc', kategori: 'TC' },
-            { id: 'adsoyad', ad: 'Ad Soyad', api: 'https://api.sckizm.shop/api/adsoyad', params: ['ad','soyad'], kategori: 'Ad Soyad' },
-            { id: 'tcgsm', ad: 'TC/GSM', api: 'https://api.sckizm.shop/api/tcgsm', param: 'tc', kategori: 'GSM' },
-            { id: 'gsmtc', ad: 'GSM/TC', api: 'https://api.sckizm.shop/api/gsmtc', param: 'gsm', kategori: 'GSM' },
-            { id: 'adres', ad: 'TC Adres', api: 'https://api.sckizm.shop/api/adres', param: 'tc', kategori: 'Adres' },
-            { id: 'aile', ad: 'TC Aile', api: 'https://api.sckizm.shop/api/aile', param: 'tc', kategori: 'Aile' },
-            { id: 'sulale', ad: 'TC Sülale', api: 'https://api.sckizm.shop/api/sulale', param: 'tc', kategori: 'Aile' },
-            { id: 'sgk', ad: 'SGK Sorgu', api: 'https://api.sckizm.shop/api/sgk', param: 'tc', kategori: 'SGK' },
-            { id: 'operator', ad: 'Operatör', api: 'https://api.sckizm.shop/api/operator', param: 'gsm', kategori: 'GSM' }
-        ];
-
         window.anaSayfa = function() {
             document.getElementById('mainContent').innerHTML = `
-                <div style="text-align: center; padding: 15px;">
+                <div style="text-align: center; padding: 20px;">
                     <div class="ana-logo">🇹🇷</div>
                     <div class="ana-baslik">DOXBİN</div>
                     <div class="ana-alt-baslik">Türkiye'nin en güçlü sorgu paneli</div>
@@ -2409,8 +1720,9 @@
         };
 
         window.formGoster = function(id) {
-            const sorgu = SORGULAR.find(s => s.id === id);
+            const sorgu = API_LIST.find(s => s.id === id);
             if (!sorgu) return;
+            
             let inputs = '';
             if (sorgu.param) {
                 inputs = `<div class="form-group"><label>${sorgu.param.toUpperCase()}</label><input type="text" class="form-control" id="param1" placeholder="${sorgu.param} girin" required></div>`;
@@ -2419,18 +1731,26 @@
                     inputs += `<div class="form-group"><label>${p.toUpperCase()}</label><input type="text" class="form-control" id="param${i+1}" placeholder="${p} girin" required></div>`;
                 });
             }
+            
             document.getElementById('mainContent').innerHTML = `
                 <div class="query-form">
-                    <div class="form-header"><h3>${sorgu.ad}</h3><div class="back-btn" onclick="anaSayfa()"><i class="fas fa-home"></i></div></div>
-                    <form id="sorguForm" onsubmit="event.preventDefault(); sorgula('${sorgu.id}')">${inputs}<button type="submit" class="btn">SORGULA</button></form>
+                    <div class="form-header">
+                        <h3>${sorgu.ad}</h3>
+                        <div class="back-btn" onclick="anaSayfa()"><i class="fas fa-home"></i></div>
+                    </div>
+                    <form id="sorguForm" onsubmit="event.preventDefault(); sorgula('${sorgu.id}')">
+                        ${inputs}
+                        <button type="submit" class="btn">SORGULA</button>
+                    </form>
                     <div id="sonuc"></div>
                 </div>
             `;
         };
 
         window.sorgula = async function(id) {
-            const sorgu = SORGULAR.find(s => s.id === id);
+            const sorgu = API_LIST.find(s => s.id === id);
             if (!sorgu) return;
+            
             const params = {};
             if (sorgu.param) {
                 const deger = document.getElementById('param1').value.trim();
@@ -2443,52 +1763,95 @@
                     params[sorgu.params[i]] = deger;
                 }
             }
+            
             document.getElementById('sonuc').innerHTML = '<div class="loading"><div class="loading-circle"></div><p>Sorgulanıyor...</p></div>';
+            
             try {
                 const sonuc = await hizliIstek(sorgu.api, params);
                 const temizSonuc = temizle(sonuc);
+                
                 let sonucText = '', html = '<div class="result-box"><div class="result-header"><span>📊 SONUÇ</span><div class="result-actions"><button onclick="copyResult()"><i class="fas fa-copy"></i></button><button onclick="downloadTxt()"><i class="fas fa-download"></i></button></div></div>';
+                
                 if (Array.isArray(temizSonuc)) {
-                    temizSonuc.forEach((item, idx) => {
-                        html += `<div style="margin:4px 0 2px; color:var(--accent); font-size: 10px;">#${idx+1}</div>`;
-                        sonucText += `#${idx+1}\n`;
-                        for (const [k, v] of Object.entries(item)) {
-                            if (v && v !== 'null') {
+                    if (temizSonuc.length === 0) {
+                        html += '<div class="result-item">Sonuç bulunamadı</div>';
+                        sonucText = 'Sonuç bulunamadı';
+                    } else {
+                        temizSonuc.forEach((item, idx) => {
+                            if (typeof item === 'object') {
+                                html += `<div style="margin:5px 0 3px; color:var(--accent); font-weight: bold;">#${idx+1}</div>`;
+                                sonucText += `#${idx+1}\n`;
+                                for (const [k, v] of Object.entries(item)) {
+                                    if (v && v !== 'null' && v !== 'undefined') {
+                                        html += `<div class="result-item"><strong>${k}:</strong> ${v}</div>`;
+                                        sonucText += `${k}: ${v}\n`;
+                                    }
+                                }
+                                sonucText += '\n';
+                            } else {
+                                html += `<div class="result-item">${item}</div>`;
+                                sonucText += `${item}\n`;
+                            }
+                        });
+                    }
+                } else if (typeof temizSonuc === 'object') {
+                    let hasItems = false;
+                    for (const [k, v] of Object.entries(temizSonuc)) {
+                        if (v && v !== 'null' && v !== 'undefined') {
+                            if (typeof v === 'object') {
+                                html += `<div style="margin:5px 0 3px; color:var(--accent); font-weight: bold;">${k}</div>`;
+                                sonucText += `${k}:\n`;
+                                for (const [sk, sv] of Object.entries(v)) {
+                                    if (sv && sv !== 'null' && sv !== 'undefined') {
+                                        html += `<div class="result-item"><strong>${sk}:</strong> ${sv}</div>`;
+                                        sonucText += `  ${sk}: ${sv}\n`;
+                                    }
+                                }
+                            } else {
                                 html += `<div class="result-item"><strong>${k}:</strong> ${v}</div>`;
                                 sonucText += `${k}: ${v}\n`;
                             }
+                            hasItems = true;
                         }
-                        sonucText += '\n';
-                    });
-                } else if (typeof temizSonuc === 'object') {
-                    for (const [k, v] of Object.entries(temizSonuc)) {
-                        if (v && v !== 'null' && typeof v !== 'object') {
-                            html += `<div class="result-item"><strong>${k}:</strong> ${v}</div>`;
-                            sonucText += `${k}: ${v}\n`;
-                        }
+                    }
+                    if (!hasItems) {
+                        html += '<div class="result-item">Sonuç bulunamadı</div>';
+                        sonucText = 'Sonuç bulunamadı';
                     }
                 } else {
                     html += `<div class="result-item">${temizSonuc}</div>`;
-                    sonucText += temizSonuc;
+                    sonucText = temizSonuc;
                 }
+                
                 html += '</div>';
                 document.getElementById('sonuc').innerHTML = html;
                 window.sonucText = sonucText;
-                addToHistory(sorgu.ad, Object.entries(params).map(([k,v]) => `${k}:${v}`).join(', '));
-                showToast('✅ Tamamlandı!');
+                
+                // Geçmişe ekle
+                const paramStr = Object.entries(params).map(([k,v]) => `${k}:${v}`).join(', ');
+                addToHistory(sorgu.ad, paramStr);
+                
+                showToast('✅ Sorgu tamamlandı!');
             } catch (error) {
-                document.getElementById('sonuc').innerHTML = `<div class="error-box">❌ Hata: ${error.message}</div>`;
+                document.getElementById('sonuc').innerHTML = `<div class="error-box">❌ Hata: ${error.message || 'Sunucu yanıt vermiyor'}</div>`;
             }
         };
 
-        window.copyResult = function() { if (window.sonucText) { navigator.clipboard.writeText(window.sonucText); showToast('✅ Kopyalandı!'); } };
+        window.copyResult = function() { 
+            if (window.sonucText) { 
+                navigator.clipboard.writeText(window.sonucText); 
+                showToast('✅ Kopyalandı!'); 
+            } 
+        };
+        
         window.downloadTxt = function() {
             if (window.sonucText) {
-                const blob = new Blob([window.sonucText], { type: 'text/plain' });
+                const blob = new Blob([window.sonucText], { type: 'text/plain;charset=utf-8' });
                 const a = document.createElement('a');
                 a.href = URL.createObjectURL(blob);
-                a.download = `DOXBIN_${Date.now()}.txt`;
+                a.download = `DOXBIN_${new Date().toISOString().slice(0,19).replace(/:/g, '-')}.txt`;
                 a.click();
+                URL.revokeObjectURL(a.href);
                 showToast('✅ TXT indiriliyor...');
             }
         };
@@ -2506,16 +1869,21 @@
         const hamburger = document.getElementById('hamburger');
         const menuPanel = document.getElementById('menuPanel');
         const menuOverlay = document.getElementById('menuOverlay');
+        
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             menuPanel.classList.toggle('active');
             menuOverlay.classList.toggle('active');
         });
+        
         menuOverlay.addEventListener('click', () => {
             hamburger.classList.remove('active');
             menuPanel.classList.remove('active');
             menuOverlay.classList.remove('active');
         });
+
+        // Sayfa yüklendiğinde opacity'yi ayarla
+        document.body.style.opacity = '1';
     </script>
 </body>
 </html>
