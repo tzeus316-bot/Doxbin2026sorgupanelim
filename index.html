@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DOXBIN SORGU 2026 | PANEL</title>
+    <title>DOXBİN sorgu | DOXBİN PANEL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -20,31 +20,31 @@
             height: 100%;
             overflow: hidden;
             font-family: 'Segoe UI', system-ui, sans-serif;
-            background: #0a050f;
+            background: #050510;
         }
 
-        /* Ana Arkaplan - Karanlık tema */
+        /* Ana Arkaplan - Sade gradient, performanslı */
         .main-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, #0a050f 0%, #1a0f1a 50%, #050505 100%);
+            background: linear-gradient(145deg, #0b0b1f 0%, #1a0f2e 50%, #0a0a1a 100%);
             z-index: -2;
         }
 
-        /* GIF Arkaplan - Matrix stili */
+        /* GIF Arkaplan - Optimize edilmiş, sadece sorgu bölümlerinde */
         .gif-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydXgzOGFqZmR6cW1nanNmYWF3M2RuaTA3Z3d4OW40Y2Nmam51b2xtNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7abB06u9bNzA8LC8/giphy.gif');
+            background-image: url('https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUydXgzOGFqZmR6cW1nanNmYWF3M2RuaTA3Z3d4OW40Y2Nmam51b2xtNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IXnygGeB6LPPi/giphy.gif');
             background-size: cover;
             background-position: center;
-            opacity: 0.12;
+            opacity: 0.08;
             pointer-events: none;
             z-index: 0;
             will-change: transform;
@@ -53,10 +53,10 @@
 
         /* Cam Panel - Sorgu bölümleri için */
         .query-panel {
-            background: rgba(10, 5, 15, 0.8);
+            background: rgba(18, 10, 30, 0.7);
             backdrop-filter: blur(15px);
-            border: 1px solid #8b0000;
-            box-shadow: 0 8px 35px rgba(139, 0, 0, 0.4);
+            border: 1px solid rgba(160, 100, 255, 0.4);
+            box-shadow: 0 8px 35px rgba(120, 50, 200, 0.4);
             border-radius: 28px;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
             position: relative;
@@ -64,85 +64,83 @@
         }
 
         .query-panel:hover {
-            border-color: #ff4444;
-            box-shadow: 0 8px 45px #aa2222;
+            border-color: #b77dff;
+            box-shadow: 0 8px 45px #8a5be0;
         }
 
-        /* Normal Cam Panel */
+        /* Normal Cam Panel - Menü ve diğerleri için */
         .glass-panel {
-            background: rgba(10, 5, 15, 0.8);
+            background: rgba(18, 10, 30, 0.7);
             backdrop-filter: blur(15px);
-            border: 1px solid #8b0000;
-            box-shadow: 0 8px 35px rgba(139, 0, 0, 0.4);
+            border: 1px solid rgba(160, 100, 255, 0.4);
+            box-shadow: 0 8px 35px rgba(120, 50, 200, 0.4);
             border-radius: 28px;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .glass-panel:hover {
-            border-color: #ff4444;
-            box-shadow: 0 8px 45px #aa2222;
+            border-color: #b77dff;
+            box-shadow: 0 8px 45px #8a5be0;
         }
 
-        /* Başlık */
-        .doxbin-title {
+        /* Başlık - Performanslı animasyon */
+        .cyber-title {
             font-size: 36px;
             font-weight: 900;
-            background: linear-gradient(135deg, #ff6b6b, #8b0000, #ff4444);
+            background: linear-gradient(135deg, #d9b3ff, #9f7aff, #c47aff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px #8b0000);
+            filter: drop-shadow(0 0 15px #a06eff);
             letter-spacing: 3px;
             text-transform: uppercase;
             transition: filter 0.3s ease;
         }
 
-        .doxbin-title:hover {
-            filter: drop-shadow(0 0 30px #ff4444);
+        .cyber-title:hover {
+            filter: drop-shadow(0 0 30px #d5a2ff);
         }
 
         /* Input */
-        .input-doxbin {
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid #8b0000;
+        .input-cyber {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #7850c0;
             border-radius: 16px;
             padding: 16px;
-            color: #ffaaaa;
+            color: white;
             width: 100%;
             font-size: 16px;
             transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
             backdrop-filter: blur(5px);
         }
 
-        .input-doxbin:focus {
+        .input-cyber:focus {
             outline: none;
-            border-color: #ff4444;
-            box-shadow: 0 0 25px #8b0000;
-            background: rgba(20, 5, 10, 0.7);
+            border-color: #b77dff;
+            box-shadow: 0 0 25px #a06eff;
+            background: rgba(15, 5, 25, 0.7);
             transform: scale(1.01);
-            color: white;
         }
 
-        /* Butonlar */
+        /* Butonlar - Optimize edilmiş */
         .btn-primary {
-            background: linear-gradient(135deg, #6b0000, #2a0000);
-            border: 1px solid #ff4444;
+            background: linear-gradient(135deg, #6d3b9e, #392759);
+            border: 1px solid #b77dff;
             border-radius: 16px;
             padding: 16px;
-            color: #ffcccc;
+            color: white;
             font-weight: 700;
             font-size: 16px;
             width: 100%;
             cursor: pointer;
             transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
-            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(120, 60, 200, 0.3);
             will-change: transform;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px #8b0000;
-            background: linear-gradient(135deg, #8b0000, #3f0000);
-            color: white;
+            box-shadow: 0 12px 30px #8f5be0;
+            background: linear-gradient(135deg, #824cba, #4f3177);
         }
 
         .btn-primary:active {
@@ -150,32 +148,32 @@
         }
 
         .btn-secondary {
-            background: rgba(30, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(5px);
-            border: 1px solid #8b0000;
+            border: 1px solid #7850c0;
             border-radius: 12px;
             padding: 8px 14px;
-            color: #ffaaaa;
+            color: #c7b0ff;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
         }
 
         .btn-secondary:hover {
-            background: rgba(139, 0, 0, 0.3);
-            border-color: #ff4444;
+            background: rgba(120, 80, 200, 0.3);
+            border-color: #b77dff;
             color: white;
             transform: translateY(-1px);
         }
 
-        /* Menü Öğeleri */
+        /* Menü Öğeleri - Optimize */
         .menu-item {
-            background: rgba(139, 0, 0, 0.15);
-            border: 1px solid #6a1a1a;
+            background: rgba(90, 50, 140, 0.15);
+            border: 1px solid #6a4a9a;
             border-radius: 14px;
             padding: 14px;
             margin-bottom: 8px;
-            color: #ffaaaa;
+            color: #d1c0ff;
             width: 100%;
             text-align: left;
             cursor: pointer;
@@ -184,37 +182,37 @@
         }
 
         .menu-item:hover {
-            background: rgba(200, 0, 0, 0.2);
-            border-color: #ff4444;
+            background: rgba(130, 70, 200, 0.2);
+            border-color: #b77dff;
             transform: translateX(4px);
             color: white;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(160, 100, 255, 0.2);
         }
 
         /* Ayraç Çizgisi */
         .divider {
-            border-bottom: 2px solid #6a1a1a;
+            border-bottom: 2px solid #6a4a9a;
             margin: 20px 0;
             width: 100%;
             opacity: 0.5;
         }
 
-        /* Yuvarlak GIF Kutusu */
+        /* Yuvarlak GIF Kutusu - Optimize */
         .gif-circle-large {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid #8b0000;
-            box-shadow: 0 0 40px #8b0000;
+            border: 4px solid #b77dff;
+            box-shadow: 0 0 40px #a06eff;
             margin: 0 auto 25px auto;
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
-            background: linear-gradient(135deg, #2a0f0f, #1a0a0a);
+            background: linear-gradient(135deg, #2a1a3a, #1a0f2a);
         }
 
         .gif-circle-large:hover {
-            box-shadow: 0 0 60px #ff4444;
-            border-color: #ff6666;
+            box-shadow: 0 0 60px #d5a2ff;
+            border-color: #e0b0ff;
         }
 
         .gif-circle-large img {
@@ -228,16 +226,16 @@
             height: 90px;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid #8b0000;
-            box-shadow: 0 0 25px #8b0000;
+            border: 3px solid #b77dff;
+            box-shadow: 0 0 25px #a06eff;
             margin: 0 auto 10px auto;
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
-            background: linear-gradient(135deg, #2a0f0f, #1a0a0a);
+            background: linear-gradient(135deg, #2a1a3a, #1a0f2a);
         }
 
         .gif-circle-small:hover {
-            box-shadow: 0 0 40px #ff4444;
-            border-color: #ff6666;
+            box-shadow: 0 0 40px #d5a2ff;
+            border-color: #e0b0ff;
         }
 
         .gif-circle-small img {
@@ -246,12 +244,12 @@
             object-fit: cover;
         }
 
-        /* KIRMIZI TİK - 2026 teması */
-        .red-tick {
-            color: #ff4444;
+        /* MAVİ TİK - Gerçekçi ve akıcı */
+        .blue-tick {
+            color: #3b82f6;
             font-size: 22px;
             margin-left: 8px;
-            filter: drop-shadow(0 0 5px #8b0000);
+            filter: drop-shadow(0 0 5px #3b82f6);
             animation: realisticTick 3s ease-in-out infinite;
             display: inline-block;
             transform-origin: center;
@@ -260,44 +258,44 @@
         @keyframes realisticTick {
             0% {
                 transform: scale(1);
-                filter: drop-shadow(0 0 5px #8b0000);
-                color: #ff4444;
+                filter: drop-shadow(0 0 5px #3b82f6);
+                color: #3b82f6;
             }
             20% {
                 transform: scale(1.1);
-                filter: drop-shadow(0 0 12px #ff6666);
-                color: #ff6666;
+                filter: drop-shadow(0 0 12px #60a5fa);
+                color: #60a5fa;
             }
             30% {
                 transform: scale(1);
-                filter: drop-shadow(0 0 8px #8b0000);
-                color: #ff4444;
+                filter: drop-shadow(0 0 8px #3b82f6);
+                color: #3b82f6;
             }
             40% {
                 transform: scale(1.05);
-                filter: drop-shadow(0 0 10px #8b0000);
-                color: #ff4444;
+                filter: drop-shadow(0 0 10px #3b82f6);
+                color: #3b82f6;
             }
             50% {
                 transform: scale(1);
-                filter: drop-shadow(0 0 5px #8b0000);
-                color: #ff4444;
+                filter: drop-shadow(0 0 5px #3b82f6);
+                color: #3b82f6;
             }
             100% {
                 transform: scale(1);
-                filter: drop-shadow(0 0 5px #8b0000);
-                color: #ff4444;
+                filter: drop-shadow(0 0 5px #3b82f6);
+                color: #3b82f6;
             }
         }
 
-        /* Sonuç Kartları */
+        /* Sonuç Kartları - Optimize */
         .result-card {
-            background: rgba(20, 5, 10, 0.6);
+            background: rgba(20, 10, 30, 0.6);
             backdrop-filter: blur(10px);
             border-radius: 22px;
             padding: 18px;
             margin-bottom: 14px;
-            border: 1px solid #8b1a1a;
+            border: 1px solid #7a59b3;
             transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
             overflow: hidden;
@@ -305,9 +303,9 @@
         }
 
         .result-card:hover {
-            border-color: #ff4444;
+            border-color: #bf8cff;
             transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(139, 0, 0, 0.3);
+            box-shadow: 0 12px 25px rgba(128, 64, 192, 0.3);
         }
 
         .data-item {
@@ -316,7 +314,7 @@
             border-radius: 12px;
             padding: 10px 12px;
             margin-bottom: 8px;
-            border-left: 3px solid #8b0000;
+            border-left: 3px solid #b266ff;
             transition: border-left-width 0.15s ease, background 0.15s ease, transform 0.15s ease;
         }
 
@@ -328,7 +326,7 @@
 
         .data-label {
             font-size: 11px;
-            color: #ffaaaa;
+            color: #c9b0ff;
             text-transform: uppercase;
         }
 
@@ -338,12 +336,12 @@
             color: #fff;
         }
 
-        /* Loader */
+        /* Loader - Optimize */
         .loader {
             width: 50px;
             height: 50px;
-            border: 3px solid #2a1515;
-            border-top: 3px solid #8b0000;
+            border: 3px solid #352a4a;
+            border-top: 3px solid #b266ff;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
             margin: 25px auto;
@@ -352,10 +350,10 @@
 
         /* Scrollbar */
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #1a0a0a; }
-        ::-webkit-scrollbar-thumb { background: #8b0000; border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #1e132b; }
+        ::-webkit-scrollbar-thumb { background: #8a5be0; border-radius: 10px; }
 
-        /* Animasyonlar */
+        /* Basit animasyonlar - Performanslı */
         .gentle-animation {
             animation: gentleRise 0.3s ease-out;
         }
@@ -380,36 +378,36 @@
         /* Debug panel */
         .debug-panel {
             position: fixed; bottom: 10px; right: 10px;
-            background: rgba(30, 5, 10, 0.9);
+            background: rgba(28, 17, 40, 0.9);
             backdrop-filter: blur(5px);
-            border: 1px solid #8b0000;
+            border: 1px solid #7850c0;
             border-radius: 10px; padding: 8px; font-size: 11px;
-            color: #ffaaaa; z-index: 100;
+            color: #bb9eff; z-index: 100;
         }
         
         /* API'leri gizle */
         .hidden-api { display: none; }
 
-        /* Menü başlık - DOXBIN 2026 + KIRMIZI TİK */
+        /* Menü başlık - CYBER SORGU + MAVİ TİK */
         .menu-title {
             font-size: 18px;
             font-weight: bold;
-            color: #ffaaaa;
+            color: #d1b5ff;
             text-align: center;
             margin-top: 5px;
             letter-spacing: 2px;
-            text-shadow: 0 0 8px #8b0000;
+            text-shadow: 0 0 8px #a06eff;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 5px;
         }
 
-        /* Stats card */
+        /* Stats card - Optimize */
         .stats-card {
-            background: rgba(139, 0, 0, 0.2);
+            background: rgba(80, 40, 130, 0.2);
             backdrop-filter: blur(5px);
-            border: 1px solid #8b1a1a;
+            border: 1px solid #7f5ac0;
             border-radius: 18px;
             padding: 20px;
             text-align: center;
@@ -419,8 +417,8 @@
 
         .stats-card:hover {
             transform: scale(1.02) translateY(-2px);
-            border-color: #ff4444;
-            box-shadow: 0 8px 20px rgba(200, 0, 0, 0.3);
+            border-color: #ba93ff;
+            box-shadow: 0 8px 20px rgba(147, 102, 224, 0.3);
         }
 
         .stats-card i {
@@ -433,18 +431,18 @@
 
         /* Duyuru kartı */
         .announcement {
-            background: rgba(255, 68, 68, 0.1);
+            background: rgba(255, 215, 0, 0.1);
             backdrop-filter: blur(5px);
-            border: 1px solid #8b0000;
+            border: 1px solid #d9b347;
             border-radius: 14px;
             padding: 12px;
             margin-bottom: 12px;
-            color: #ffaaaa;
+            color: #fff0b5;
             transition: background 0.2s ease, transform 0.2s ease;
         }
 
         .announcement:hover {
-            background: rgba(255, 68, 68, 0.15);
+            background: rgba(255, 215, 0, 0.15);
             transform: translateX(3px);
         }
     </style>
@@ -456,55 +454,55 @@
     <div id="debugPanel" class="debug-panel hidden"></div>
 
     <!-- TELEGRAM POPUP -->
-    <div id="telegramPopup" class="fixed top-0 left-0 right-0 z-50 py-3 px-5 flex items-center justify-between" style="background: rgba(30, 5, 10, 0.9); backdrop-filter: blur(10px); border-bottom: 3px solid #8b0000; display: none;">
+    <div id="telegramPopup" class="fixed top-0 left-0 right-0 z-50 py-3 px-5 flex items-center justify-between" style="background: rgba(28, 15, 43, 0.9); backdrop-filter: blur(10px); border-bottom: 3px solid #b266ff; display: none;">
         <div class="flex items-center gap-3">
-            <i class="fab fa-telegram text-2xl" style="color: #ff4444;"></i>
-            <span class="font-bold text-white">🔥 @doxbin2026</span>
+            <i class="fab fa-telegram text-2xl" style="color: #b77dff;"></i>
+            <span class="font-bold text-white">🔥 @doxbinhack</span>
         </div>
         <a href="#" class="btn-secondary text-xs py-2">KATIL</a>
     </div>
 
     <!-- GÜVENLİK KATMANI -->
-    <div id="security-layer" class="fixed inset-0 z-50 flex items-center justify-center" style="background: rgba(10, 5, 8, 0.95); backdrop-filter: blur(10px);">
+    <div id="security-layer" class="fixed inset-0 z-50 flex items-center justify-center" style="background: rgba(11, 7, 18, 0.95); backdrop-filter: blur(10px);">
         <div class="glass-panel p-8 text-center max-w-sm w-11/12 gentle-animation">
-            <i class="fas fa-shield-halved text-5xl mb-4" style="color: #8b0000;"></i>
-            <h2 class="doxbin-title text-3xl mb-2">DOXBIN</h2>
+            <i class="fas fa-shield-halved text-5xl mb-4" style="color: #b77dff;"></i>
+            <h2 class="cyber-title text-3xl mb-2">DOXBİN 2.0 DOGRULAMA</h2>
             <p class="mb-6 opacity-80 text-white">Güvenlik katmanı başlatılıyor...</p>
             <button onclick="verifySecurity()" class="btn-primary">DOĞRULA</button>
         </div>
     </div>
 
     <!-- GİRİŞ/KAYIT MODAL -->
-    <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden" style="background: rgba(5,3,5,0.95); backdrop-filter: blur(10px);">
+    <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden" style="background: rgba(5,3,10,0.95); backdrop-filter: blur(10px);">
         <div class="glass-panel p-8 max-w-md w-11/12">
             <!-- YUVARLAK GIF KUTUSU - BÜYÜK -->
             <div class="gif-circle-large">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydXgzOGFqZmR6cW1nanNmYWF3M2RuaTA3Z3d4OW40Y2Nmam51b2xtNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7abB06u9bNzA8LC8/giphy.gif" alt="Matrix Code">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUydXgzOGFqZmR6cW1nanNmYWF3M2RuaTA3Z3d4OW40Y2Nmam51b2xtNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IXnygGeB6LPPi/giphy.gif" alt="Cyber Glow">
             </div>
             
             <div class="text-center mb-6">
-                <h2 class="doxbin-title text-3xl">DOXBIN 2026</h2>
-                <p class="text-red-300 mt-2">Giriş / Kayıt</p>
+                <h2 class="cyber-title text-3xl">DOXBİN</h2>
+                <p class="text-indigo-300 mt-2">Giriş / Kayıt</p>
             </div>
             
-            <!-- KAYIT VE GİRİŞ BUTONLARI -->
+            <!-- KAYIT VE GİRİŞ BUTONLARI ÜSTTE -->
             <div class="flex gap-2 mb-6">
-                <button onclick="switchAuthTab('login')" id="login-tab" class="flex-1 py-3 rounded-xl font-bold transition-all duration-200 hover:scale-105" style="background: #6b0000; color:white;">GİRİŞ</button>
-                <button onclick="switchAuthTab('register')" id="register-tab" class="flex-1 py-3 rounded-xl font-bold transition-all duration-200 hover:scale-105" style="background: #2a0f0f; color:#ffaaaa;">KAYIT</button>
+                <button onclick="switchAuthTab('login')" id="login-tab" class="flex-1 py-3 rounded-xl font-bold transition-all duration-200 hover:scale-105" style="background: #6b3fa0; color:white;">GİRİŞ</button>
+                <button onclick="switchAuthTab('register')" id="register-tab" class="flex-1 py-3 rounded-xl font-bold transition-all duration-200 hover:scale-105" style="background: #2f1f47; color:#beb0ff;">KAYIT</button>
             </div>
             
             <!-- Giriş Formu -->
             <div id="login-form">
-                <div class="mb-4"><input type="text" id="login-username" placeholder="Kullanıcı Adı" class="input-doxbin"></div>
-                <div class="mb-4"><input type="password" id="login-password" placeholder="Şifre" class="input-doxbin"></div>
+                <div class="mb-4"><input type="text" id="login-username" placeholder="Kullanıcı Adı" class="input-cyber"></div>
+                <div class="mb-4"><input type="password" id="login-password" placeholder="Şifre" class="input-cyber"></div>
                 <button onclick="handleLogin()" class="btn-primary mb-3">GİRİŞ YAP</button>
             </div>
             
             <!-- Kayıt Formu -->
             <div id="register-form" style="display: none;">
-                <div class="mb-4"><input type="text" id="reg-username" placeholder="Kullanıcı Adı" class="input-doxbin"></div>
-                <div class="mb-4"><input type="password" id="reg-password" placeholder="Şifre" class="input-doxbin"></div>
-                <div class="mb-4"><input type="password" id="reg-password2" placeholder="Şifre Tekrar" class="input-doxbin"></div>
+                <div class="mb-4"><input type="text" id="reg-username" placeholder="Kullanıcı Adı" class="input-cyber"></div>
+                <div class="mb-4"><input type="password" id="reg-password" placeholder="Şifre" class="input-cyber"></div>
+                <div class="mb-4"><input type="password" id="reg-password2" placeholder="Şifre Tekrar" class="input-cyber"></div>
                 <button onclick="handleRegister()" class="btn-primary">KAYIT OL</button>
             </div>
         </div>
@@ -514,14 +512,14 @@
     <div id="main-app" class="hidden h-full flex flex-col">
         <!-- NAVBAR -->
         <nav class="glass-panel px-4 py-3 flex justify-between items-center mx-3 mt-2">
-            <button onclick="toggleMenu()" class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_#8b0000]" style="background: #2a0f0f;">
-                <i class="fas fa-bars text-xl" style="color: #ff4444;"></i>
+            <button onclick="toggleMenu()" class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_#b77dff]" style="background: #342550;">
+                <i class="fas fa-bars text-xl" style="color: #b77dff;"></i>
             </button>
-            <span class="doxbin-title text-2xl">DOXBIN 2026</span>
+            <span class="cyber-title text-2xl">CYBERION</span>
             <div class="flex items-center gap-2">
-                <span id="user-badge" class="text-sm hidden px-3 py-1 rounded-full transition-all duration-200 hover:scale-105" style="background: #6b0000; color:white;"></span>
-                <button onclick="logout()" class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_#8b0000]" style="background:#2a0f0f;">
-                    <i class="fas fa-sign-out-alt text-xl" style="color: #ff4444;"></i>
+                <span id="user-badge" class="text-sm hidden px-3 py-1 rounded-full transition-all duration-200 hover:scale-105" style="background: #5a3993; color:white;"></span>
+                <button onclick="logout()" class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_20px_#b77dff]" style="background:#342550;">
+                    <i class="fas fa-sign-out-alt text-xl" style="color: #b77dff;"></i>
                 </button>
             </div>
         </nav>
@@ -529,36 +527,36 @@
         <!-- Duyuru Alanı -->
         <div id="announcement-container" class="mx-3 mt-2"></div>
 
-        <!-- Menü (sidebar) -->
+        <!-- Menü (sidebar) - GIF ARKAPLAN YOK -->
         <div id="sidebar" class="fixed top-0 left-0 h-full w-72 glass-panel z-40 transform -translate-x-full transition-transform duration-300 p-5 overflow-y-auto">
             <div class="flex justify-between items-center mb-6">
-                <span class="font-bold text-lg" style="color:#ff4444; text-shadow: 0 0 8px #8b0000;">⚡ DOXBIN</span>
-                <button onclick="toggleMenu()" class="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_15px_#8b0000]" style="background:#2a0f0f;">
-                    <i class="fas fa-times" style="color:#ff4444;"></i>
+                <span class="font-bold text-lg" style="color:#b77dff; text-shadow: 0 0 8px #a06eff;">⚡ MENÜ</span>
+                <button onclick="toggleMenu()" class="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-[0_0_15px_#b77dff]" style="background:#342550;">
+                    <i class="fas fa-times" style="color:#b77dff;"></i>
                 </button>
             </div>
             
-            <!-- YUVARLAK GIF KUTUSU - KÜÇÜK + DOXBIN SORGU 2026 YAZISI VE KIRMIZI TİK -->
+            <!-- YUVARLAK GIF KUTUSU - KÜÇÜK + CYBER SORGU YAZISI VE MAVİ TİK -->
             <div class="flex flex-col items-center mb-6">
                 <div class="gif-circle-small">
-                    <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUydXgzOGFqZmR6cW1nanNmYWF3M2RuaTA3Z3d4OW40Y2Nmam51b2xtNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7abB06u9bNzA8LC8/giphy.gif" alt="Matrix Code">
+                    <img src="https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUydXgzOGFqZmR6cW1nanNmYWF3M2RuaTA3Z3d4OW40Y2Nmam51b2xtNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IXnygGeB6LPPi/giphy.gif" alt="Cyber Glow">
                 </div>
                 <div class="menu-title">
-                    DOXBIN SORGU 2026
-                    <i class="fas fa-check-circle red-tick"></i>
+                    DOXBİN SORGU
+                    <i class="fas fa-check-circle blue-tick"></i>
                 </div>
             </div>
             
             <!-- SORGULAR BAŞLIĞI -->
-            <div class="font-bold text-md mb-2" style="color:#ffaaaa; text-shadow: 0 0 4px #8b0000;">SORGULAR</div>
+            <div class="font-bold text-md mb-2" style="color:#d1b5ff; text-shadow: 0 0 4px #a06eff;">SORGULAR</div>
             <div id="menu-items" class="space-y-2"></div>
             
-            <!-- AYRAÇ ÇİZGİSİ -->
+            <!-- AYRAÇ ÇİZGİSİ _________ -->
             <div class="divider"></div>
             
             <!-- Admin menü (gizli) -->
             <div id="admin-menu-section" class="hidden">
-                <div class="font-bold text-md mb-2" style="color: #ffaa00; text-shadow: 0 0 4px #ffaa00;">ADMIN</div>
+                <div class="font-bold text-md mb-2" style="color: #ffdb7e; text-shadow: 0 0 4px #ffaa00;">ADMIN</div>
                 <button onclick="showAdminPanel()" class="menu-item"><i class="fas fa-crown mr-2"></i>Admin Paneli</button>
                 <button onclick="showAnnouncements()" class="menu-item"><i class="fas fa-bullhorn mr-2"></i>Duyuru Yönetimi</button>
                 <button onclick="showStats()" class="menu-item"><i class="fas fa-chart-line mr-2"></i>İstatistikler</button>
@@ -572,10 +570,10 @@
             <div id="query-section" class="query-panel p-5 mb-4 gentle-animation">
                 <!-- GIF Arkaplan -->
                 <div class="gif-background"></div>
-                <h1 id="service-title" class="text-center font-bold text-xl mb-1 relative z-10" style="color:#ffaaaa;">TC Sorgu</h1>
+                <h1 id="service-title" class="text-center font-bold text-xl mb-1 relative z-10" style="color:#d1b5ff;">TC Sorgu</h1>
                 <p id="service-desc" class="text-center text-sm opacity-70 mb-4 relative z-10">TC Kimlik No Girin</p>
                 <div id="input-container" class="relative z-10">
-                    <input type="text" id="input-tc" placeholder="TC KİMLİK NO" class="input-doxbin mb-3">
+                    <input type="text" id="input-tc" placeholder="TC KİMLİK NO" class="input-cyber mb-3">
                     <button onclick="runQuery()" class="btn-primary"><i class="fas fa-search mr-2"></i>SORGULA</button>
                 </div>
             </div>
@@ -583,7 +581,7 @@
             <!-- Sonuç - GIF ARKAPLANLI -->
             <div id="result-container" style="display: none;">
                 <div class="flex justify-between items-center mb-3">
-                    <h3 class="font-bold flex items-center gap-2" style="color:#ffaaaa;"><i class="fas fa-skull" style="color:#ff4444;"></i> DOX SONUÇ</h3>
+                    <h3 class="font-bold flex items-center gap-2" style="color:#d1b5ff;"><i class="fas fa-dragon" style="color:#b77dff;"></i> SONUÇ</h3>
                     <div class="flex gap-2">
                         <button onclick="copyResult()" class="btn-secondary"><i class="fas fa-copy mr-1"></i>KOPYALA</button>
                         <button onclick="downloadResult()" class="btn-secondary"><i class="fas fa-download mr-1"></i>İNDİR</button>
@@ -592,30 +590,30 @@
                 <div id="output-box"></div>
             </div>
 
-            <!-- Admin panel içeriği -->
+            <!-- Admin panel içeriği (GIF'siz) -->
             <div id="admin-panel" style="display: none;"> 
                 <div class="glass-panel p-6">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-2" style="color:#ffaa00;"><i class="fas fa-crown"></i> ADMIN PANELİ</h2>
+                    <h2 class="text-2xl font-bold mb-6 flex items-center gap-2" style="color:#ffdb7e;"><i class="fas fa-crown"></i> ADMIN PANELİ</h2>
                     
                     <!-- İstatistik kartları -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                         <div class="stats-card">
-                            <i class="fas fa-users text-3xl mb-2" style="color:#ff4444;"></i>
+                            <i class="fas fa-users text-3xl mb-2" style="color:#b77dff;"></i>
                             <div class="text-2xl font-bold" id="stats-users">0</div>
                             <div class="text-sm opacity-70">Kullanıcı</div>
                         </div>
                         <div class="stats-card">
-                            <i class="fas fa-search text-3xl mb-2" style="color:#ff4444;"></i>
+                            <i class="fas fa-search text-3xl mb-2" style="color:#b77dff;"></i>
                             <div class="text-2xl font-bold" id="stats-queries">0</div>
                             <div class="text-sm opacity-70">Sorgu</div>
                         </div>
                         <div class="stats-card">
-                            <i class="fas fa-clock text-3xl mb-2" style="color:#ff4444;"></i>
+                            <i class="fas fa-clock text-3xl mb-2" style="color:#b77dff;"></i>
                             <div class="text-2xl font-bold" id="stats-online">0</div>
                             <div class="text-sm opacity-70">Online</div>
                         </div>
                         <div class="stats-card">
-                            <i class="fas fa-bullhorn text-3xl mb-2" style="color:#ff4444;"></i>
+                            <i class="fas fa-bullhorn text-3xl mb-2" style="color:#b77dff;"></i>
                             <div class="text-2xl font-bold" id="stats-announcements">0</div>
                             <div class="text-sm opacity-70">Duyuru</div>
                         </div>
@@ -625,18 +623,18 @@
                     
                     <!-- Duyuru Yönetimi -->
                     <div class="mb-6">
-                        <h3 class="text-xl font-bold mb-4" style="color:#ffaaaa;">📢 Duyuru</h3>
-                        <textarea id="announcement-text" class="input-doxbin" rows="3" placeholder="Duyuru metni..."></textarea>
+                        <h3 class="text-xl font-bold mb-4" style="color:#d1b5ff;">📢 Duyuru</h3>
+                        <textarea id="announcement-text" class="input-cyber" rows="3" placeholder="Duyuru metni..."></textarea>
                         <div class="flex gap-2 mt-3">
                             <button onclick="addAnnouncement()" class="btn-primary flex-1">EKLE</button>
-                            <button onclick="clearAnnouncements()" class="btn-primary flex-1" style="background: linear-gradient(135deg, #6b0000, #3f0000);">TEMİZLE</button>
+                            <button onclick="clearAnnouncements()" class="btn-primary flex-1" style="background: linear-gradient(135deg, #a040a0, #5a2d5a);">TEMİZLE</button>
                         </div>
                         <div id="announcement-list" class="space-y-2 mt-4 max-h-60 overflow-auto"></div>
                     </div>
                     
                     <!-- Kullanıcı listesi -->
                     <div>
-                        <h3 class="text-xl font-bold mb-4" style="color:#ffaaaa;">👥 Kullanıcılar</h3>
+                        <h3 class="text-xl font-bold mb-4" style="color:#d1b5ff;">👥 Kullanıcılar</h3>
                         <div id="user-list" class="space-y-2 max-h-60 overflow-auto"></div>
                     </div>
                 </div>
@@ -698,14 +696,14 @@
         ];
 
         // LocalStorage verileri
-        let users = JSON.parse(localStorage.getItem('doxbin_users')) || [];
-        let announcements = JSON.parse(localStorage.getItem('doxbin_announcements')) || [];
-        let queryLogs = JSON.parse(localStorage.getItem('doxbin_queries')) || [];
+        let users = JSON.parse(localStorage.getItem('cyber_users')) || [];
+        let announcements = JSON.parse(localStorage.getItem('cyber_announcements')) || [];
+        let queryLogs = JSON.parse(localStorage.getItem('cyber_queries')) || [];
 
         // Admin (gizli)
-        if (!users.some(u=>u.username==='doxbin2026admin')) {
-            users.push({ username:'doxbin2026admin', password:'dox2026', isAdmin:true, createdAt:new Date().toISOString() });
-            localStorage.setItem('doxbin_users',JSON.stringify(users));
+        if (!users.some(u=>u.username==='cyber21admin')) {
+            users.push({ username:'cyber21admin', password:'cyberx', isAdmin:true, createdAt:new Date().toISOString() });
+            localStorage.setItem('cyber_users',JSON.stringify(users));
         }
 
         // Telegram popup
@@ -728,17 +726,17 @@
             if(tab==='login') {
                 document.getElementById('login-form').style.display='block';
                 document.getElementById('register-form').style.display='none';
-                document.getElementById('login-tab').style.background='#6b0000';
+                document.getElementById('login-tab').style.background='#6b3fa0';
                 document.getElementById('login-tab').style.color='white';
-                document.getElementById('register-tab').style.background='#2a0f0f';
-                document.getElementById('register-tab').style.color='#ffaaaa';
+                document.getElementById('register-tab').style.background='#2f1f47';
+                document.getElementById('register-tab').style.color='#beb0ff';
             } else {
                 document.getElementById('login-form').style.display='none';
                 document.getElementById('register-form').style.display='block';
-                document.getElementById('register-tab').style.background='#6b0000';
+                document.getElementById('register-tab').style.background='#6b3fa0';
                 document.getElementById('register-tab').style.color='white';
-                document.getElementById('login-tab').style.background='#2a0f0f';
-                document.getElementById('login-tab').style.color='#ffaaaa';
+                document.getElementById('login-tab').style.background='#2f1f47';
+                document.getElementById('login-tab').style.color='#beb0ff';
             }
         }
 
@@ -773,7 +771,7 @@
             if(p!==p2) return alert('Şifreler uyuşmuyor');
             if(users.some(x=>x.username===u)) return alert('Kullanıcı var');
             users.push({username:u,password:p,isAdmin:false,createdAt:new Date().toISOString()});
-            localStorage.setItem('doxbin_users',JSON.stringify(users));
+            localStorage.setItem('cyber_users',JSON.stringify(users));
             alert('Kayıt başarılı, giriş yapın');
             switchAuthTab('login');
         }
@@ -807,7 +805,7 @@
             const container=document.getElementById('input-container'); container.innerHTML='';
             s.inputs.forEach(i=>{
                 const inp=document.createElement('input');
-                inp.placeholder=i.toUpperCase()+' GİRİN'; inp.id='input-'+i; inp.className='input-doxbin mb-3';
+                inp.placeholder=i.toUpperCase()+' GİRİN'; inp.id='input-'+i; inp.className='input-cyber mb-3';
                 container.appendChild(inp);
             });
             const btn=document.createElement('button');
@@ -880,7 +878,7 @@
                 
                 if(currentUser) {
                     queryLogs.push({user:currentUser.username, service:currentService.name, time:new Date().toISOString()});
-                    localStorage.setItem('doxbin_queries',JSON.stringify(queryLogs));
+                    localStorage.setItem('cyber_queries',JSON.stringify(queryLogs));
                 }
                 
                 let html='<div class="space-y-4">';
@@ -893,7 +891,7 @@
                         json.aile_bilgileri.kayitlar.forEach((u,idx)=>{
                             html+='<div class="result-card">';
                             html+='<div class="gif-background"></div>';
-                            html+='<div style="color:#ffaaaa; margin-bottom:8px; position:relative; z-index:2;">👤 '+ (u.ADI||'')+' '+(u.SOYADI||'')+'</div>';
+                            html+='<div style="color:#d1b5ff; margin-bottom:8px; position:relative; z-index:2;">👤 '+ (u.ADI||'')+' '+(u.SOYADI||'')+'</div>';
                             Object.entries(u).forEach(([k,v])=> { if(v) html+=`<div class="data-item" style="position:relative; z-index:2;"><div class="data-label">${k}</div><div class="data-value">${v}</div></div>`; });
                             html+='</div>';
                         });
@@ -901,7 +899,7 @@
                         json.results.forEach((item,idx)=>{
                             html+='<div class="result-card">';
                             html+='<div class="gif-background"></div>';
-                            html+='<div style="color:#ffaaaa; margin-bottom:8px; position:relative; z-index:2;">📌 KAYIT '+(idx+1)+'</div>';
+                            html+='<div style="color:#d1b5ff; margin-bottom:8px; position:relative; z-index:2;">📌 KAYIT '+(idx+1)+'</div>';
                             Object.entries(item).forEach(([k,v])=> { if(v) html+=`<div class="data-item" style="position:relative; z-index:2;"><div class="data-label">${k}</div><div class="data-value">${v}</div></div>`; });
                             html+='</div>';
                         });
@@ -917,7 +915,7 @@
                         html+='</div>';
                     }
                 } catch(e) { 
-                    html+=`<div class="result-card"><pre style="color:#ffaaaa;">${data}</pre></div>`; 
+                    html+=`<div class="result-card"><pre style="color:#d1b5ff;">${data}</pre></div>`; 
                 }
                 
                 html+='</div>'; out.innerHTML=html;
@@ -930,7 +928,7 @@
         function copyResult() { navigator.clipboard.writeText(document.getElementById('output-box').innerText); alert('Kopyalandı'); }
         function downloadResult() {
             const text=document.getElementById('output-box').innerText;
-            const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text])); a.download='doxbin_sonuc.txt'; a.click();
+            const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([text])); a.download='sonuc.txt'; a.click();
         }
 
         // Admin panel
@@ -947,38 +945,38 @@
             
             const userList=document.getElementById('user-list'); userList.innerHTML='';
             users.filter(u=>!u.isAdmin).forEach(u=>{ 
-                userList.innerHTML+=`<div class="flex justify-between p-3 bg-red-900/20 backdrop-blur-sm rounded-lg"><span>${u.username}</span><span class="text-xs opacity-70">${new Date(u.createdAt).toLocaleDateString()}</span></div>`; 
+                userList.innerHTML+=`<div class="flex justify-between p-3 bg-purple-900/20 backdrop-blur-sm rounded-lg"><span>${u.username}</span><span class="text-xs opacity-70">${new Date(u.createdAt).toLocaleDateString()}</span></div>`; 
             });
             
             const annList=document.getElementById('announcement-list'); annList.innerHTML='';
             announcements.forEach((a,i)=>{ 
-                annList.innerHTML+=`<div class="flex justify-between items-center p-3 bg-red-900/20 backdrop-blur-sm rounded-lg"><span>${a.text}</span><button onclick="deleteAnnouncement(${i})" class="text-red-400 hover:text-red-300"><i class="fas fa-trash"></i></button></div>`; 
+                annList.innerHTML+=`<div class="flex justify-between items-center p-3 bg-yellow-900/20 backdrop-blur-sm rounded-lg"><span>${a.text}</span><button onclick="deleteAnnouncement(${i})" class="text-red-400 hover:text-red-300"><i class="fas fa-trash"></i></button></div>`; 
             });
             
             if(myChart) myChart.destroy();
             const ctx=document.getElementById('statsChart').getContext('2d');
             myChart=new Chart(ctx, {
                 type:'line',
-                data:{ labels:['00','04','08','12','16','20'], datasets:[{ label:'Sorgu', data:[12,19,25,32,28,35], borderColor:'#ff4444', backgroundColor:'rgba(255,68,68,0.1)' }] },
-                options:{ responsive:true, plugins:{ legend:{labels:{color:'#ffaaaa'}} } }
+                data:{ labels:['00','04','08','12','16','20'], datasets:[{ label:'Sorgu', data:[12,19,25,32,28,35], borderColor:'#b77dff', backgroundColor:'rgba(150,100,255,0.1)' }] },
+                options:{ responsive:true, plugins:{ legend:{labels:{color:'#d1b5ff'}} } }
             });
         }
 
         function addAnnouncement() {
             const txt=document.getElementById('announcement-text').value; if(!txt) return;
             announcements.push({text:txt,date:new Date().toISOString()});
-            localStorage.setItem('doxbin_announcements',JSON.stringify(announcements));
+            localStorage.setItem('cyber_announcements',JSON.stringify(announcements));
             document.getElementById('announcement-text').value='';
             displayAnnouncements(); updateAdminPanel();
         }
-        function deleteAnnouncement(i) { announcements.splice(i,1); localStorage.setItem('doxbin_announcements',JSON.stringify(announcements)); displayAnnouncements(); updateAdminPanel(); }
-        function clearAnnouncements() { if(confirm('Emin misin?')) { announcements=[]; localStorage.setItem('doxbin_announcements','[]'); displayAnnouncements(); updateAdminPanel(); } }
+        function deleteAnnouncement(i) { announcements.splice(i,1); localStorage.setItem('cyber_announcements',JSON.stringify(announcements)); displayAnnouncements(); updateAdminPanel(); }
+        function clearAnnouncements() { if(confirm('Emin misin?')) { announcements=[]; localStorage.setItem('cyber_announcements','[]'); displayAnnouncements(); updateAdminPanel(); } }
         function displayAnnouncements() {
             const container=document.getElementById('announcement-container'); container.innerHTML='';
-            announcements.forEach(a=>{ container.innerHTML+=`<div class="announcement flex items-center gap-2 p-3 bg-red-900/20 backdrop-blur-sm border border-red-500 rounded-lg"><i class="fas fa-bullhorn" style="color:#ff6666;"></i><span>${a.text}</span></div>`; });
+            announcements.forEach(a=>{ container.innerHTML+=`<div class="announcement flex items-center gap-2 p-3 bg-yellow-900/20 backdrop-blur-sm border border-yellow-500 rounded-lg"><i class="fas fa-bullhorn" style="color:#ffd966;"></i><span>${a.text}</span></div>`; });
         }
 
-        window.onload=()=>{ debugLog('DOXBIN 2026 yüklendi'); };
+        window.onload=()=>{ debugLog('Cyberion yüklendi'); };
     </script>
 </body>
 </html>
